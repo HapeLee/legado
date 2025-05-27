@@ -85,7 +85,11 @@ class CacheBookService : BaseService() {
                     intent.getIntExtra("end", 0)
                 )
 
-                IntentAction.remove -> removeDownload(intent.getStringExtra("bookUrl"))
+                IntentAction.remove -> {
+                    val bookUrl = intent.getStringExtra("bookUrl")
+                    CacheBook.cacheBookMap[bookUrl]?.stop()
+                    CacheBook.cacheBookMap.remove(bookUrl)
+                }
                 IntentAction.stop -> stopSelf()
             }
         }
