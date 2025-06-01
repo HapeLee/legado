@@ -6,7 +6,7 @@ import io.legado.app.R
 import io.legado.app.base.adapter.ItemViewHolder
 import io.legado.app.base.adapter.RecyclerAdapter
 import io.legado.app.databinding.ItemSearchListBinding
-import io.legado.app.lib.theme.accentColor
+//import io.legado.app.lib.theme.accentColor
 import io.legado.app.utils.getCompatColor
 import io.legado.app.utils.hexString
 
@@ -15,7 +15,7 @@ class SearchContentAdapter(context: Context, val callback: Callback) :
     RecyclerAdapter<SearchResult, ItemSearchListBinding>(context) {
 
     val textColor = context.getCompatColor(R.color.primaryText).hexString.substring(2)
-    val accentColor = context.accentColor.hexString.substring(2)
+    //val accentColor = context.accentColor.hexString.substring(2)
 
     override fun getViewBinding(parent: ViewGroup): ItemSearchListBinding {
         return ItemSearchListBinding.inflate(inflater, parent, false)
@@ -30,7 +30,7 @@ class SearchContentAdapter(context: Context, val callback: Callback) :
         binding.run {
             val isDur = callback.durChapterIndex() == item.chapterIndex
             if (payloads.isEmpty()) {
-                tvSearchResult.text = item.getHtmlCompat(textColor, accentColor)
+                //tvSearchResult.text = item.getHtmlCompat(textColor, accentColor)
                 tvSearchResult.paint.isFakeBoldText = isDur
             }
         }

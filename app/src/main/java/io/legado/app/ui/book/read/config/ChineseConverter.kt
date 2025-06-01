@@ -8,14 +8,14 @@ import android.util.AttributeSet
 import io.legado.app.R
 import io.legado.app.help.config.AppConfig
 import io.legado.app.lib.dialogs.alert
-import io.legado.app.lib.theme.accentColor
+//import io.legado.app.lib.theme.accentColor
 import io.legado.app.ui.widget.text.StrokeTextView
 
 
 class ChineseConverter(context: Context, attrs: AttributeSet?) : StrokeTextView(context, attrs) {
 
     private val spannableString = SpannableString("简/繁")
-    private var enabledSpan: ForegroundColorSpan = ForegroundColorSpan(context.accentColor)
+//    private var enabledSpan: ForegroundColorSpan = ForegroundColorSpan(context.accentColor)
     private var onChanged: (() -> Unit)? = null
 
     init {
@@ -29,11 +29,11 @@ class ChineseConverter(context: Context, attrs: AttributeSet?) : StrokeTextView(
     }
 
     private fun upUi(type: Int) {
-        spannableString.removeSpan(enabledSpan)
-        when (type) {
-            1 -> spannableString.setSpan(enabledSpan, 0, 1, Spannable.SPAN_INCLUSIVE_EXCLUSIVE)
-            2 -> spannableString.setSpan(enabledSpan, 2, 3, Spannable.SPAN_INCLUSIVE_EXCLUSIVE)
-        }
+        //spannableString.removeSpan(enabledSpan)
+//        when (type) {
+//            1 -> spannableString.setSpan(enabledSpan, 0, 1, Spannable.SPAN_INCLUSIVE_EXCLUSIVE)
+//            2 -> spannableString.setSpan(enabledSpan, 2, 3, Spannable.SPAN_INCLUSIVE_EXCLUSIVE)
+//        }
         text = spannableString
     }
 

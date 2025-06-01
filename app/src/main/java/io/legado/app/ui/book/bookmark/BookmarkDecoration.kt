@@ -7,8 +7,8 @@ import android.text.TextPaint
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import io.legado.app.lib.theme.accentColor
-import io.legado.app.lib.theme.backgroundColor
+//import io.legado.app.lib.theme.accentColor
+//import io.legado.app.lib.theme.backgroundColor
 import io.legado.app.utils.dpToPx
 import io.legado.app.utils.spToPx
 import splitties.init.appCtx
@@ -20,11 +20,11 @@ class BookmarkDecoration(val adapter: BookmarkAdapter) : RecyclerView.ItemDecora
     private val headerHeight = 32f.dpToPx()
 
     private val headerPaint = Paint().apply {
-        color = appCtx.backgroundColor
+        //color = appCtx.backgroundColor
     }
     private val textPaint = TextPaint().apply {
         textSize = 16f.spToPx()
-        color = appCtx.accentColor
+        //color = appCtx.accentColor
         isAntiAlias = true
     }
     private val textRect = Rect()

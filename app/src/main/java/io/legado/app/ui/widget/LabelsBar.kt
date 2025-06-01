@@ -41,7 +41,7 @@ class LabelsBar @JvmOverloads constructor(
         val tv = if (unUsedViews.isEmpty()) {
             AccentBgTextView(context, null).apply {
                 setPadding(3.dpToPx(), 0, 3.dpToPx(), 0)
-                setRadius(2)
+                //setRadius(2)
                 val lp = LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT)
                 lp.setMargins(0, 0, 2.dpToPx(), 0)
                 layoutParams = lp

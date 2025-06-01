@@ -10,6 +10,7 @@ import android.view.MenuItem
 import android.widget.SeekBar
 import androidx.activity.viewModels
 import androidx.lifecycle.lifecycleScope
+import com.google.android.material.slider.Slider
 import io.legado.app.R
 import io.legado.app.base.VMBaseActivity
 import io.legado.app.constant.BookType
@@ -152,20 +153,40 @@ class AudioPlayActivity :
         binding.ivSkipPrevious.setOnClickListener {
             AudioPlay.prev()
         }
-        binding.playerProgress.setOnSeekBarChangeListener(object : SeekBarChangeListener {
-            override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
-                binding.tvDurTime.text = progressTimeFormat.format(progress.toLong())
-            }
 
-            override fun onStartTrackingTouch(seekBar: SeekBar) {
+//        binding.playerProgress.setOnSeekBarChangeListener(object : SeekBarChangeListener {
+//            override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
+//                binding.tvDurTime.text = progressTimeFormat.format(progress.toLong())
+//            }
+//
+//            override fun onStartTrackingTouch(seekBar: SeekBar) {
+//                adjustProgress = true
+//            }
+//
+//            override fun onStopTrackingTouch(seekBar: SeekBar) {
+//                adjustProgress = false
+//                AudioPlay.adjustProgress(seekBar.progress)
+//            }
+//        })
+
+        // 替换原来的 SeekBar 监听器
+        binding.playerProgress.addOnChangeListener { _, value, fromUser ->
+            if (fromUser) {
+                binding.tvDurTime.text = progressTimeFormat.format(value.toLong())
+            }
+        }
+
+        binding.playerProgress.addOnSliderTouchListener(object : Slider.OnSliderTouchListener {
+            override fun onStartTrackingTouch(slider: Slider) {
                 adjustProgress = true
             }
 
-            override fun onStopTrackingTouch(seekBar: SeekBar) {
+            override fun onStopTrackingTouch(slider: Slider) {
                 adjustProgress = false
-                AudioPlay.adjustProgress(seekBar.progress)
+                AudioPlay.adjustProgress(slider.value.toInt())
             }
         })
+
         binding.ivChapter.setOnClickListener {
             AudioPlay.book?.let {
                 tocActivityResult.launch(it.bookUrl)
@@ -275,18 +296,32 @@ class AudioPlayActivity :
             binding.ivSkipNext.isEnabled =
                 AudioPlay.durChapterIndex < AudioPlay.simulatedChapterSize - 1
         }
+//        observeEventSticky<Int>(EventBus.AUDIO_SIZE) {
+//            binding.playerProgress.max = it
+//            binding.tvAllTime.text = progressTimeFormat.format(it.toLong())
+//        }
+//        observeEventSticky<Int>(EventBus.AUDIO_PROGRESS) {
+//            if (!adjustProgress) binding.playerProgress.progress = it
+//            binding.tvDurTime.text = progressTimeFormat.format(it.toLong())
+//        }
+//        observeEventSticky<Int>(EventBus.AUDIO_BUFFER_PROGRESS) {
+//            binding.playerProgress.secondaryProgress = it
+//
+//        }
         observeEventSticky<Int>(EventBus.AUDIO_SIZE) {
-            binding.playerProgress.max = it
+            binding.playerProgress.valueTo = it.toFloat()
             binding.tvAllTime.text = progressTimeFormat.format(it.toLong())
         }
+
         observeEventSticky<Int>(EventBus.AUDIO_PROGRESS) {
-            if (!adjustProgress) binding.playerProgress.progress = it
+            if (!adjustProgress) binding.playerProgress.value = it.toFloat()
             binding.tvDurTime.text = progressTimeFormat.format(it.toLong())
         }
-        observeEventSticky<Int>(EventBus.AUDIO_BUFFER_PROGRESS) {
-            binding.playerProgress.secondaryProgress = it
 
+        observeEventSticky<Int>(EventBus.AUDIO_BUFFER_PROGRESS) {
+            //updateBufferProgress(it)
         }
+
         observeEventSticky<Float>(EventBus.AUDIO_SPEED) {
             binding.tvSpeed.text = String.format(Locale.ROOT, "%.1fX", it)
             binding.tvSpeed.visible()

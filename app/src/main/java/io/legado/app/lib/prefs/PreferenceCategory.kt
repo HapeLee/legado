@@ -9,8 +9,8 @@ import androidx.preference.PreferenceCategory
 import androidx.preference.PreferenceViewHolder
 import io.legado.app.R
 import io.legado.app.help.config.AppConfig
-import io.legado.app.lib.theme.accentColor
-import io.legado.app.lib.theme.backgroundColor
+//import io.legado.app.lib.theme.accentColor
+//import io.legado.app.lib.theme.backgroundColor
 import io.legado.app.utils.ColorUtils
 
 
@@ -28,28 +28,28 @@ class PreferenceCategory(context: Context, attrs: AttributeSet) :
         if (view is TextView) {  //  && !view.isInEditMode
             view.text = title
             if (view.isInEditMode) return
-            view.setTextColor(context.accentColor)
+            //view.setTextColor(context.accentColor)
             view.isVisible = !title.isNullOrEmpty()
 
             val da = holder.findViewById(R.id.preference_divider_above)
             val dividerColor = if (AppConfig.isNightTheme) {
-                ColorUtils.withAlpha(
-                    ColorUtils.shiftColor(context.backgroundColor, 1.05f),
-                    0.5f
-                )
+//                ColorUtils.withAlpha(
+//                    ColorUtils.shiftColor(context.backgroundColor, 1.05f),
+//                    0.5f
+//                )
             } else {
-                ColorUtils.withAlpha(
-                    ColorUtils.shiftColor(context.backgroundColor, 0.95f),
-                    0.5f
-                )
+//                ColorUtils.withAlpha(
+//                    ColorUtils.shiftColor(context.backgroundColor, 0.95f),
+//                    0.5f
+//                )
             }
             if (da is View) {
-                da.setBackgroundColor(dividerColor)
+                //da.setBackgroundColor(dividerColor)
                 da.isVisible = holder.isDividerAllowedAbove
             }
             val db = holder.findViewById(R.id.preference_divider_below)
             if (db is View) {
-                db.setBackgroundColor(dividerColor)
+                //db.setBackgroundColor(dividerColor)
                 db.isVisible = holder.isDividerAllowedBelow
             }
         }

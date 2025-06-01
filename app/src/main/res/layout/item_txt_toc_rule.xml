@@ -4,14 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="?android:attr/selectableItemBackground"
-    android:padding="16dp">
+    android:background="?attr/selectableItemBackground"
+    android:clickable="true"
+    android:focusable="true"
+    android:padding="12dp">
 
     <io.legado.app.lib.theme.view.ThemeCheckBox
         android:id="@+id/cb_source"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:layout_gravity="start"
         android:singleLine="true"
         android:textColor="@color/primaryText"
         app:layout_constraintBottom_toTopOf="@id/title_example"
@@ -64,6 +66,7 @@
         android:id="@+id/title_example"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent" />

@@ -24,13 +24,13 @@
         android:background="?android:attr/selectableItemBackgroundBorderless"
         android:tint="@color/primaryText" />
 
-    <io.legado.app.lib.theme.view.ThemeSeekBar
-        android:id="@+id/seek_bar"
+    <io.legado.app.lib.theme.view.ThemeSlider
+        android:id="@+id/slider"
         android:layout_width="0dp"
         android:layout_height="25dp"
         android:layout_gravity="center_vertical"
         android:layout_weight="4"
-        android:max="10" />
+        android:stepSize="1"/>
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/iv_seek_plus"

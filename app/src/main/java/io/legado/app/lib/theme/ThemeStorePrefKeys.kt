@@ -4,6 +4,7 @@ package io.legado.app.lib.theme
  * @author Aidan Follestad (afollestad), Karim Abou Zeid (kabouzeid)
  */
 object ThemeStorePrefKeys {
+    const val KEY_DYNAMIC_COLORS_ENABLED = ""
 
     const val CONFIG_PREFS_KEY_DEFAULT = "app_themes"
     const val IS_CONFIGURED_KEY = "is_configured"
@@ -27,4 +28,10 @@ object ThemeStorePrefKeys {
     const val KEY_APPLY_PRIMARYDARK_STATUSBAR = "apply_primarydark_statusbar"
     const val KEY_APPLY_PRIMARY_NAVBAR = "apply_primary_navbar"
     const val KEY_AUTO_GENERATE_PRIMARYDARK = "auto_generate_primarydark"
+
+    const val KEY_COLOR_PRIMARY = "key_color_primary"
+    const val KEY_COLOR_ON_PRIMARY = "key_color_on_primary"
+    const val KEY_COLOR_PRIMARY_CONTAINER = "key_color_primary_container"
+    const val KEY_COLOR_ON_PRIMARY_CONTAINER = "key_color_on_primary_container"
+    const val KEY_COLOR_SECONDARY = "key_color_secondary"
 }

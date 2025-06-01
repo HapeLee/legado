@@ -5,7 +5,6 @@
     android:id="@+id/root_view"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/background"
     android:orientation="vertical">
 
     <LinearLayout
@@ -180,80 +179,76 @@
         android:text="@string/page_anim"
         android:textSize="12sp" />
 
-    <RadioGroup
-        android:id="@+id/rg_page_anim"
+    <HorizontalScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="11dp"
-        android:gravity="center"
-        android:orientation="horizontal">
+        android:scrollbars="none">
 
-        <io.legado.app.lib.theme.view.ThemeRadioNoButton
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/rg_page_anim"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:singleLine="true"
+        app:singleSelection="true"
+        app:selectionRequired="true">
+
+        <com.google.android.material.chip.Chip
             android:id="@+id/rb_anim0"
-            android:layout_width="0dp"
+            style="@style/Widget.Material3.Chip.Filter"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
-            android:layout_weight="1"
-            android:button="@null"
-            android:gravity="center"
-            android:padding="5dp"
-            android:singleLine="true"
             android:text="@string/page_anim_cover"
-            app:isBottomBackground="true" />
+            app:chipStrokeColor="@color/primaryText"
+            app:chipStrokeWidth="1dp" />
 
-        <io.legado.app.lib.theme.view.ThemeRadioNoButton
+        <!-- 滑动动画 Chip -->
+        <com.google.android.material.chip.Chip
             android:id="@+id/rb_anim1"
-            android:layout_width="0dp"
+            style="@style/Widget.Material3.Chip.Filter"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
-            android:layout_weight="1"
-            android:button="@null"
-            android:gravity="center"
-            android:padding="5dp"
-            android:singleLine="true"
             android:text="@string/page_anim_slide"
-            app:isBottomBackground="true" />
+            app:chipStrokeColor="@color/primaryText"
+            app:chipStrokeWidth="1dp" />
 
-        <io.legado.app.lib.theme.view.ThemeRadioNoButton
+        <!-- 仿真翻页 Chip -->
+        <com.google.android.material.chip.Chip
             android:id="@+id/rb_simulation_anim"
-            android:layout_width="0dp"
+            style="@style/Widget.Material3.Chip.Filter"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
-            android:layout_weight="1"
-            android:button="@null"
-            android:gravity="center"
-            android:padding="5dp"
-            android:singleLine="true"
             android:text="@string/page_anim_simulation"
-            app:isBottomBackground="true" />
+            app:chipStrokeColor="@color/primaryText"
+            app:chipStrokeWidth="1dp" />
 
-        <io.legado.app.lib.theme.view.ThemeRadioNoButton
+        <!-- 滚动动画 Chip -->
+        <com.google.android.material.chip.Chip
             android:id="@+id/rb_scroll_anim"
-            android:layout_width="0dp"
+            style="@style/Widget.Material3.Chip.Filter"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
-            android:layout_weight="1"
-            android:button="@null"
-            android:gravity="center"
-            android:padding="5dp"
-            android:singleLine="true"
             android:text="@string/page_anim_scroll"
-            app:isBottomBackground="true" />
+            app:chipStrokeColor="@color/primaryText"
+            app:chipStrokeWidth="1dp" />
 
-        <io.legado.app.lib.theme.view.ThemeRadioNoButton
+        <!-- 无动画 Chip -->
+        <com.google.android.material.chip.Chip
             android:id="@+id/rb_no_anim"
-            android:layout_width="0dp"
+            style="@style/Widget.Material3.Chip.Filter"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
-            android:layout_weight="1"
-            android:button="@null"
-            android:gravity="center"
-            android:padding="5dp"
-            android:singleLine="true"
             android:text="@string/page_anim_none"
-            app:isBottomBackground="true" />
+            app:chipStrokeColor="@color/primaryText"
+            app:chipStrokeWidth="1dp" />
 
-    </RadioGroup>
+    </com.google.android.material.chip.ChipGroup>
+    </HorizontalScrollView>
 
     <View
         android:id="@+id/vw_bg_fg1"
@@ -285,7 +280,7 @@
             android:layout_height="wrap_content"
             android:text="@string/share_layout" />
 
-        <io.legado.app.ui.widget.checkbox.SmoothCheckBox
+        <com.google.android.material.checkbox.MaterialCheckBox
             android:id="@+id/cb_share_layout"
             android:layout_width="20dp"
             android:layout_height="20dp"

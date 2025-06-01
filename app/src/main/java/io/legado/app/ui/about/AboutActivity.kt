@@ -4,13 +4,14 @@ import android.os.Bundle
 import android.text.Spannable
 import android.text.SpannableString
 import android.text.style.ForegroundColorSpan
+import android.util.TypedValue
 import android.view.Menu
 import android.view.MenuItem
 import io.legado.app.R
 import io.legado.app.base.BaseActivity
 import io.legado.app.databinding.ActivityAboutBinding
-import io.legado.app.lib.theme.accentColor
-import io.legado.app.lib.theme.filletBackground
+//import io.legado.app.lib.theme.accentColor
+//import io.legado.app.lib.theme.filletBackground
 import io.legado.app.utils.openUrl
 import io.legado.app.utils.share
 import io.legado.app.utils.viewbindingdelegate.viewBinding
@@ -21,7 +22,7 @@ class AboutActivity : BaseActivity<ActivityAboutBinding>() {
     override val binding by viewBinding(ActivityAboutBinding::inflate)
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
-        binding.llAbout.background = filletBackground
+        //binding.llAbout.background = filletBackground
         val fTag = "aboutFragment"
         var aboutFragment = supportFragmentManager.findFragmentByTag(fTag)
         if (aboutFragment == null) aboutFragment = AboutFragment()
@@ -30,12 +31,19 @@ class AboutActivity : BaseActivity<ActivityAboutBinding>() {
             .commit()
         binding.tvAppSummary.post {
             kotlin.runCatching {
-                val span = ForegroundColorSpan(accentColor)
+                val typedValue = TypedValue()
+                val context = binding.root.context
+                context.theme.resolveAttribute(
+                    com.google.android.material.R.attr.colorPrimary,
+                    typedValue,
+                    true
+                )
+                val accentColor = typedValue.data
                 val spannableString = SpannableString(binding.tvAppSummary.text)
                 val gzh = getString(R.string.legado_gzh)
                 val start = spannableString.indexOf(gzh)
                 spannableString.setSpan(
-                    span, start, start + gzh.length,
+                    accentColor, start, start + gzh.length,
                     Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
                 )
                 binding.tvAppSummary.text = spannableString

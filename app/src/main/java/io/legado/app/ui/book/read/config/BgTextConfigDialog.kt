@@ -13,6 +13,7 @@ import android.view.WindowManager
 import android.widget.SeekBar
 import androidx.appcompat.widget.TooltipCompat
 import androidx.documentfile.provider.DocumentFile
+import com.google.android.material.slider.Slider
 import com.jaredrummler.android.colorpicker.ColorPickerDialog
 import io.legado.app.R
 import io.legado.app.base.BaseDialogFragment
@@ -28,9 +29,9 @@ import io.legado.app.help.http.okHttpClient
 import io.legado.app.lib.dialogs.SelectItem
 import io.legado.app.lib.dialogs.alert
 import io.legado.app.lib.dialogs.selector
-import io.legado.app.lib.theme.bottomBackground
-import io.legado.app.lib.theme.getPrimaryTextColor
-import io.legado.app.lib.theme.getSecondaryTextColor
+//import io.legado.app.lib.theme.bottomBackground
+//import io.legado.app.lib.theme.getPrimaryTextColor
+//import io.legado.app.lib.theme.getSecondaryTextColor
 import io.legado.app.ui.book.read.ReadBookActivity
 import io.legado.app.ui.file.HandleFileContract
 import io.legado.app.ui.widget.seekbar.SeekBarChangeListener
@@ -100,7 +101,7 @@ class BgTextConfigDialog : BaseDialogFragment(R.layout.dialog_read_bg_text) {
         super.onStart()
         dialog?.window?.run {
             clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND)
-            setBackgroundDrawableResource(R.color.background)
+            //setBackgroundDrawableResource(R.color.background)
             decorView.setPadding(0, 0, 0, 0)
             val attr = attributes
             attr.dimAmount = 0.0f
@@ -124,22 +125,22 @@ class BgTextConfigDialog : BaseDialogFragment(R.layout.dialog_read_bg_text) {
     }
 
     private fun initView() = binding.run {
-        val bg = requireContext().bottomBackground
-        val isLight = ColorUtils.isColorLight(bg)
-        primaryTextColor = requireContext().getPrimaryTextColor(isLight)
-        secondaryTextColor = requireContext().getSecondaryTextColor(isLight)
-        rootView.setBackgroundColor(bg)
-        tvNameTitle.setTextColor(primaryTextColor)
-        tvName.setTextColor(secondaryTextColor)
-        ivEdit.setColorFilter(secondaryTextColor, PorterDuff.Mode.SRC_IN)
-        tvRestore.setTextColor(primaryTextColor)
-        swDarkStatusIcon.setTextColor(primaryTextColor)
-        swUnderline.setTextColor(primaryTextColor)
-        ivImport.setColorFilter(primaryTextColor, PorterDuff.Mode.SRC_IN)
-        ivExport.setColorFilter(primaryTextColor, PorterDuff.Mode.SRC_IN)
-        ivDelete.setColorFilter(primaryTextColor, PorterDuff.Mode.SRC_IN)
-        tvBgAlpha.setTextColor(primaryTextColor)
-        tvBgImage.setTextColor(primaryTextColor)
+//        val bg = requireContext().bottomBackground
+//        val isLight = ColorUtils.isColorLight(bg)
+//        primaryTextColor = requireContext().getPrimaryTextColor(isLight)
+//        secondaryTextColor = requireContext().getSecondaryTextColor(isLight)
+//        rootView.setBackgroundColor(bg)
+//        tvNameTitle.setTextColor(primaryTextColor)
+//        tvName.setTextColor(secondaryTextColor)
+//        ivEdit.setColorFilter(secondaryTextColor, PorterDuff.Mode.SRC_IN)
+//        tvRestore.setTextColor(primaryTextColor)
+//        swDarkStatusIcon.setTextColor(primaryTextColor)
+//        swUnderline.setTextColor(primaryTextColor)
+//        ivImport.setColorFilter(primaryTextColor, PorterDuff.Mode.SRC_IN)
+//        ivExport.setColorFilter(primaryTextColor, PorterDuff.Mode.SRC_IN)
+//        ivDelete.setColorFilter(primaryTextColor, PorterDuff.Mode.SRC_IN)
+//        tvBgAlpha.setTextColor(primaryTextColor)
+//        tvBgImage.setTextColor(primaryTextColor)
         recyclerView.adapter = adapter
         adapter.addHeaderView {
             ItemBgImageBinding.inflate(layoutInflater, it, false).apply {
@@ -162,7 +163,7 @@ class BgTextConfigDialog : BaseDialogFragment(R.layout.dialog_read_bg_text) {
         binding.tvName.text = name.ifBlank { "文字" }
         binding.swDarkStatusIcon.isChecked = curStatusIconDark()
         binding.swUnderline.isChecked = underline
-        binding.sbBgAlpha.progress = bgAlpha
+        binding.sbBgAlpha.value = bgAlpha.toFloat()
     }
 
     @SuppressLint("InflateParams")
@@ -245,13 +246,17 @@ class BgTextConfigDialog : BaseDialogFragment(R.layout.dialog_read_bg_text) {
                 toastOnUi("数量已是最少,不能删除.")
             }
         }
-        binding.sbBgAlpha.setOnSeekBarChangeListener(object : SeekBarChangeListener {
-            override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
-                ReadBookConfig.bgAlpha = progress
-                postEvent(EventBus.UP_CONFIG, arrayListOf(3))
+        binding.sbBgAlpha.addOnChangeListener { slider, value, fromUser ->
+            ReadBookConfig.bgAlpha = value.toInt()
+            postEvent(EventBus.UP_CONFIG, arrayListOf(3))
+        }
+
+        binding.sbBgAlpha.addOnSliderTouchListener(object : Slider.OnSliderTouchListener {
+            override fun onStartTrackingTouch(slider: Slider) {
+                // 可留空
             }
 
-            override fun onStopTrackingTouch(seekBar: SeekBar) {
+            override fun onStopTrackingTouch(slider: Slider) {
                 postEvent(EventBus.UP_CONFIG, arrayListOf(3))
             }
         })

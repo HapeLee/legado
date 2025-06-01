@@ -72,11 +72,11 @@ class RssArticlesAdapter1(context: Context, callBack: CallBack) :
                     }
                 }.into(imageView)
             }
-            if (item.read) {
-                tvTitle.setTextColor(context.getCompatColor(R.color.tv_text_summary))
-            } else {
-                tvTitle.setTextColor(context.getCompatColor(R.color.primaryText))
-            }
+//            if (item.read) {
+//                tvTitle.setTextColor(context.getCompatColor(R.color.tv_text_summary))
+//            } else {
+//                tvTitle.setTextColor(context.getCompatColor(R.color.primaryText))
+//            }
         }
     }
 

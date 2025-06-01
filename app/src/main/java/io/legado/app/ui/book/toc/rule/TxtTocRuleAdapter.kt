@@ -13,7 +13,7 @@ import io.legado.app.base.adapter.ItemViewHolder
 import io.legado.app.base.adapter.RecyclerAdapter
 import io.legado.app.data.entities.TxtTocRule
 import io.legado.app.databinding.ItemTxtTocRuleBinding
-import io.legado.app.lib.theme.backgroundColor
+//import io.legado.app.lib.theme.backgroundColor
 import io.legado.app.ui.widget.recycler.DragSelectTouchHelper
 import io.legado.app.ui.widget.recycler.ItemTouchCallback
 import io.legado.app.utils.ColorUtils
@@ -78,7 +78,7 @@ class TxtTocRuleAdapter(context: Context, private val callBack: CallBack) :
     ) {
         binding.run {
             if (payloads.isEmpty()) {
-                root.setBackgroundColor(ColorUtils.withAlpha(context.backgroundColor, 0.5f))
+                //root.setBackgroundColor(ColorUtils.withAlpha(context.backgroundColor, 0.5f))
                 cbSource.text = item.name
                 swtEnabled.isChecked = item.enable
                 cbSource.isChecked = selected.contains(item)

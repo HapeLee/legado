@@ -6,7 +6,7 @@ import androidx.appcompat.widget.SwitchCompat
 import androidx.preference.PreferenceViewHolder
 import androidx.preference.SwitchPreferenceCompat
 import io.legado.app.R
-import io.legado.app.lib.theme.accentColor
+//import io.legado.app.lib.theme.accentColor
 import io.legado.app.utils.applyTint
 
 class SwitchPreference(context: Context, attrs: AttributeSet) :
@@ -17,6 +17,7 @@ class SwitchPreference(context: Context, attrs: AttributeSet) :
 
     init {
         layoutResource = R.layout.view_preference
+        widgetLayoutResource = R.layout.preference_widget_material_switch
         val typedArray = context.obtainStyledAttributes(attrs, R.styleable.Preference)
         isBottomBackground = typedArray.getBoolean(R.styleable.Preference_isBottomBackground, false)
         typedArray.recycle()
@@ -30,7 +31,7 @@ class SwitchPreference(context: Context, attrs: AttributeSet) :
             isBottomBackground = isBottomBackground
         )
         if (v is SwitchCompat && !v.isInEditMode) {
-            v.applyTint(context.accentColor)
+            //v.applyTint(context.accentColor)
         }
         super.onBindViewHolder(holder)
         onLongClick?.let { listener ->

@@ -18,7 +18,7 @@ import io.legado.app.databinding.ActivityDictRuleBinding
 import io.legado.app.databinding.DialogEditTextBinding
 import io.legado.app.help.DirectLinkUpload
 import io.legado.app.lib.dialogs.alert
-import io.legado.app.lib.theme.primaryColor
+//import io.legado.app.lib.theme.primaryColor
 import io.legado.app.ui.association.ImportDictRuleDialog
 import io.legado.app.ui.file.HandleFileContract
 import io.legado.app.ui.qrcode.QrCodeResult
@@ -99,7 +99,7 @@ class DictRuleActivity : VMBaseActivity<ActivityDictRuleBinding, DictRuleViewMod
     }
 
     private fun initRecyclerView() {
-        binding.recyclerView.setEdgeEffectColor(primaryColor)
+        //binding.recyclerView.setEdgeEffectColor(primaryColor)
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
         binding.recyclerView.adapter = adapter
         binding.recyclerView.addItemDecoration(VerticalDivider(this))

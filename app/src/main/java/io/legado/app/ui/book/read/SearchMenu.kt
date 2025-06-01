@@ -12,8 +12,8 @@ import androidx.core.view.isVisible
 import io.legado.app.R
 import io.legado.app.databinding.ViewSearchMenuBinding
 import io.legado.app.lib.theme.Selector
-import io.legado.app.lib.theme.bottomBackground
-import io.legado.app.lib.theme.getPrimaryTextColor
+//import io.legado.app.lib.theme.bottomBackground
+//import io.legado.app.lib.theme.getPrimaryTextColor
 import io.legado.app.model.ReadBook
 import io.legado.app.ui.book.searchContent.SearchResult
 import io.legado.app.utils.ColorUtils
@@ -35,11 +35,11 @@ class SearchMenu @JvmOverloads constructor(
 
     private val menuBottomIn: Animation = loadAnimation(context, R.anim.anim_readbook_bottom_in)
     private val menuBottomOut: Animation = loadAnimation(context, R.anim.anim_readbook_bottom_out)
-    private val bgColor: Int = context.bottomBackground
-    private val textColor: Int = context.getPrimaryTextColor(ColorUtils.isColorLight(bgColor))
-    private val bottomBackgroundList: ColorStateList =
-        Selector.colorBuild().setDefaultColor(bgColor)
-            .setPressedColor(ColorUtils.darkenColor(bgColor)).create()
+    //private val bgColor: Int = context.bottomBackground
+    //private val textColor: Int = context.getPrimaryTextColor(ColorUtils.isColorLight(bgColor))
+//    private val bottomBackgroundList: ColorStateList =
+//        Selector.colorBuild().setDefaultColor(bgColor)
+//            .setPressedColor(ColorUtils.darkenColor(bgColor)).create()
     private var onMenuOutEnd: (() -> Unit)? = null
     private var isMenuOutAnimating = false
 
@@ -68,22 +68,22 @@ class SearchMenu @JvmOverloads constructor(
     }
 
     private fun initView() = binding.run {
-        llSearchBaseInfo.setBackgroundColor(bgColor)
-        tvCurrentSearchInfo.setTextColor(bottomBackgroundList)
-        llBottomBg.setBackgroundColor(bgColor)
-        fabLeft.backgroundTintList = bottomBackgroundList
-        fabLeft.setColorFilter(textColor, PorterDuff.Mode.SRC_IN)
-        fabRight.backgroundTintList = bottomBackgroundList
-        fabRight.setColorFilter(textColor, PorterDuff.Mode.SRC_IN)
-        tvMainMenu.setTextColor(textColor)
-        tvSearchResults.setTextColor(textColor)
-        tvSearchExit.setTextColor(textColor)
-        ivMainMenu.setColorFilter(textColor, PorterDuff.Mode.SRC_IN)
-        ivSearchResults.setColorFilter(textColor, PorterDuff.Mode.SRC_IN)
-        ivSearchExit.setColorFilter(textColor, PorterDuff.Mode.SRC_IN)
-        ivSearchContentUp.setColorFilter(textColor, PorterDuff.Mode.SRC_IN)
-        ivSearchContentDown.setColorFilter(textColor, PorterDuff.Mode.SRC_IN)
-        tvCurrentSearchInfo.setTextColor(textColor)
+//        llSearchBaseInfo.setBackgroundColor(bgColor)
+//        tvCurrentSearchInfo.setTextColor(bottomBackgroundList)
+//        llBottomBg.setBackgroundColor(bgColor)
+//        fabLeft.backgroundTintList = bottomBackgroundList
+//        fabLeft.setColorFilter(textColor, PorterDuff.Mode.SRC_IN)
+//        fabRight.backgroundTintList = bottomBackgroundList
+//        fabRight.setColorFilter(textColor, PorterDuff.Mode.SRC_IN)
+//        tvMainMenu.setTextColor(textColor)
+//        tvSearchResults.setTextColor(textColor)
+//        tvSearchExit.setTextColor(textColor)
+//        ivMainMenu.setColorFilter(textColor, PorterDuff.Mode.SRC_IN)
+//        ivSearchResults.setColorFilter(textColor, PorterDuff.Mode.SRC_IN)
+//        ivSearchExit.setColorFilter(textColor, PorterDuff.Mode.SRC_IN)
+//        ivSearchContentUp.setColorFilter(textColor, PorterDuff.Mode.SRC_IN)
+//        ivSearchContentDown.setColorFilter(textColor, PorterDuff.Mode.SRC_IN)
+//        tvCurrentSearchInfo.setTextColor(textColor)
         applyNavigationBarPadding()
     }
 

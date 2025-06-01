@@ -31,7 +31,7 @@ class CodeView @JvmOverloads constructor(context: Context, attrs: AttributeSet? 
     private var hasErrors = false
     private var mRemoveErrorsWhenTextChanged = true
     private val mUpdateHandler = Handler(Looper.getMainLooper())
-    private var mAutoCompleteTokenizer: Tokenizer? = null
+    //private var mAutoCompleteTokenizer: Tokenizer? = null
     private val displayDensity = resources.displayMetrics.density
     private val mErrorHashSet: SortedMap<Int, Int> = TreeMap()
     private val mSyntaxPatternMap: MutableMap<Pattern, Int> = HashMap()
@@ -84,10 +84,10 @@ class CodeView @JvmOverloads constructor(context: Context, attrs: AttributeSet? 
     }
 
     init {
-        if (mAutoCompleteTokenizer == null) {
-            mAutoCompleteTokenizer = KeywordTokenizer()
-        }
-        setTokenizer(mAutoCompleteTokenizer)
+//        if (mAutoCompleteTokenizer == null) {
+//            mAutoCompleteTokenizer = KeywordTokenizer()
+//        }
+//        setTokenizer(mAutoCompleteTokenizer)
         filters = arrayOf(
             InputFilter { source, start, end, dest, dStart, dEnd ->
                 if (modified && end - start == 1 && start < source.length && dStart < dest.length) {
@@ -330,7 +330,7 @@ class CodeView @JvmOverloads constructor(context: Context, attrs: AttributeSet? 
 
     fun removeErrorLine(lineNum: Int) {
         mErrorHashSet.remove(lineNum)
-        hasErrors = mErrorHashSet.size > 0
+        hasErrors = mErrorHashSet.isNotEmpty()
     }
 
     fun removeAllErrorLines() {
@@ -348,9 +348,9 @@ class CodeView @JvmOverloads constructor(context: Context, attrs: AttributeSet? 
             .replaceAll("")
     }
 
-    fun setAutoCompleteTokenizer(tokenizer: Tokenizer?) {
-        mAutoCompleteTokenizer = tokenizer
-    }
+//    fun setAutoCompleteTokenizer(tokenizer: Tokenizer?) {
+//        mAutoCompleteTokenizer = tokenizer
+//    }
 
     fun setRemoveErrorsWhenTextChanged(removeErrors: Boolean) {
         mRemoveErrorsWhenTextChanged = removeErrors

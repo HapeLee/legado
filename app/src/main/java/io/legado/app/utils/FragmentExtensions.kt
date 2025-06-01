@@ -26,7 +26,6 @@ import io.legado.app.ui.widget.dialog.TextDialog
 inline fun <reified T : DialogFragment> Fragment.showDialogFragment(
     arguments: Bundle.() -> Unit = {}
 ) {
-    @Suppress("DEPRECATION")
     val dialog = T::class.java.newInstance()
     val bundle = Bundle()
     bundle.apply(arguments)

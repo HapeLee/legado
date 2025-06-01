@@ -22,8 +22,8 @@ import io.legado.app.databinding.DialogMultipleEditTextBinding
 import io.legado.app.databinding.DialogRecyclerViewBinding
 import io.legado.app.databinding.Item1lineTextAndDelBinding
 import io.legado.app.lib.dialogs.alert
-import io.legado.app.lib.theme.backgroundColor
-import io.legado.app.lib.theme.primaryColor
+//import io.legado.app.lib.theme.backgroundColor
+//import io.legado.app.lib.theme.primaryColor
 import io.legado.app.ui.widget.recycler.ItemTouchCallback
 import io.legado.app.ui.widget.recycler.VerticalDivider
 import io.legado.app.utils.applyTint
@@ -51,7 +51,7 @@ class KeyboardAssistsConfig : BaseDialogFragment(R.layout.dialog_recycler_view),
     }
 
     override fun onFragmentCreated(view: View, savedInstanceState: Bundle?) {
-        binding.toolBar.setBackgroundColor(primaryColor)
+        //binding.toolBar.setBackgroundColor(primaryColor)
         binding.toolBar.setTitle(R.string.assists_key_config)
         initView()
         initMenu()
@@ -141,7 +141,7 @@ class KeyboardAssistsConfig : BaseDialogFragment(R.layout.dialog_recycler_view),
             item: KeyboardAssist,
             payloads: MutableList<Any>
         ) {
-            binding.root.setBackgroundColor(context.backgroundColor)
+            //binding.root.setBackgroundColor(context.backgroundColor)
             binding.textView.text = item.key
         }
 

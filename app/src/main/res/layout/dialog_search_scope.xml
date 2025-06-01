@@ -3,14 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/background">
+    android:layout_height="match_parent">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/tool_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/background_menu"
         android:elevation="5dp"
         android:theme="?attr/actionBarStyle"
         app:displayHomeAsUp="false"
@@ -68,7 +66,6 @@
         android:id="@+id/ll_bottom_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/background"
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:paddingLeft="10dp"

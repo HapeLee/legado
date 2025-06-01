@@ -6,7 +6,7 @@
     android:background="?android:attr/selectableItemBackground"
     android:gravity="center_vertical"
     android:orientation="horizontal"
-    android:padding="16dp">
+    android:padding="12dp">
 
     <io.legado.app.lib.theme.view.ThemeCheckBox
         android:id="@+id/cb_source"

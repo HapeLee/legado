@@ -12,10 +12,10 @@ import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import androidx.preference.PreferenceViewHolder
 import io.legado.app.R
-import io.legado.app.lib.theme.accentColor
-import io.legado.app.lib.theme.bottomBackground
-import io.legado.app.lib.theme.getPrimaryTextColor
-import io.legado.app.lib.theme.getSecondaryTextColor
+//import io.legado.app.lib.theme.accentColor
+//import io.legado.app.lib.theme.bottomBackground
+//import io.legado.app.lib.theme.getPrimaryTextColor
+//import io.legado.app.lib.theme.getSecondaryTextColor
 import io.legado.app.utils.ColorUtils
 import splitties.views.onLongClick
 import kotlin.math.roundToInt
@@ -59,17 +59,17 @@ open class Preference(context: Context, attrs: AttributeSet) :
                 tvSummary.isGone = summary.isNullOrEmpty()
             }
             if (isBottomBackground && !viewHolder.itemView.isInEditMode) {
-                val isLight = ColorUtils.isColorLight(context.bottomBackground)
-                val pTextColor = context.getPrimaryTextColor(isLight)
-                tvTitle?.setTextColor(pTextColor)
-                val sTextColor = context.getSecondaryTextColor(isLight)
-                tvSummary?.setTextColor(sTextColor)
+//                val isLight = ColorUtils.isColorLight(context.bottomBackground)
+//                val pTextColor = context.getPrimaryTextColor(isLight)
+//                tvTitle?.setTextColor(pTextColor)
+//                val sTextColor = context.getSecondaryTextColor(isLight)
+//                tvSummary?.setTextColor(sTextColor)
             }
             val iconView = viewHolder.findViewById(R.id.preference_icon)
             if (iconView is ImageView) {
                 iconView.isVisible = icon != null
                 iconView.setImageDrawable(icon)
-                iconView.setColorFilter(context.accentColor)
+                //iconView.setColorFilter(context.accentColor)
             }
 
             if (weightLayoutRes != null && weightLayoutRes != 0 && viewId != null && viewId != 0) {

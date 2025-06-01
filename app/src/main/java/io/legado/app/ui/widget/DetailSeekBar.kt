@@ -7,10 +7,11 @@ import android.view.LayoutInflater
 import android.widget.FrameLayout
 import android.widget.SeekBar
 import androidx.appcompat.widget.TooltipCompat
+import com.google.android.material.slider.Slider
 import io.legado.app.R
 import io.legado.app.databinding.ViewDetailSeekBarBinding
-import io.legado.app.lib.theme.bottomBackground
-import io.legado.app.lib.theme.getPrimaryTextColor
+//import io.legado.app.lib.theme.bottomBackground
+//import io.legado.app.lib.theme.getPrimaryTextColor
 import io.legado.app.ui.widget.seekbar.SeekBarChangeListener
 import io.legado.app.utils.ColorUtils
 import io.legado.app.utils.progressAdd
@@ -27,16 +28,18 @@ class DetailSeekBar @JvmOverloads constructor(
 
     var valueFormat: ((progress: Int) -> String)? = null
     var onChanged: ((progress: Int) -> Unit)? = null
+
     var progress: Int
-        get() = binding.seekBar.progress
+        get() = binding.slider.value.toInt()
         set(value) {
-            binding.seekBar.progress = value
+            binding.slider.value = value.toFloat()
             upValue()
         }
+
     var max: Int
-        get() = binding.seekBar.max
+        get() = binding.slider.valueTo.toInt()
         set(value) {
-            binding.seekBar.max = value
+            binding.slider.valueTo = value.toFloat()
         }
 
     init {
@@ -48,28 +51,42 @@ class DetailSeekBar @JvmOverloads constructor(
             text = title
             TooltipCompat.setTooltipText(this, title)
         }
-        binding.seekBar.max = typedArray.getInteger(R.styleable.DetailSeekBar_max, 0)
+        binding.slider.valueTo = typedArray.getInteger(R.styleable.DetailSeekBar_max, 0).toFloat()
         typedArray.recycle()
         if (isBottomBackground && !isInEditMode) {
-            val isLight = ColorUtils.isColorLight(context.bottomBackground)
-            val textColor = context.getPrimaryTextColor(isLight)
-            binding.tvSeekTitle.setTextColor(textColor)
-            binding.ivSeekPlus.setColorFilter(textColor, PorterDuff.Mode.SRC_IN)
-            binding.ivSeekReduce.setColorFilter(textColor, PorterDuff.Mode.SRC_IN)
-            binding.tvSeekValue.setTextColor(textColor)
+//            val isLight = ColorUtils.isColorLight(context.bottomBackground)
+//            val textColor = context.getPrimaryTextColor(isLight)
+//            binding.tvSeekTitle.setTextColor(textColor)
+//            binding.ivSeekPlus.setColorFilter(textColor, PorterDuff.Mode.SRC_IN)
+//            binding.ivSeekReduce.setColorFilter(textColor, PorterDuff.Mode.SRC_IN)
+//            binding.tvSeekValue.setTextColor(textColor)
         }
         binding.ivSeekPlus.setOnClickListener {
-            binding.seekBar.progressAdd(1)
-            onChanged?.invoke(binding.seekBar.progress)
+            binding.slider.value = binding.slider.value + 1
+            onChanged?.invoke(binding.slider.value.toInt())
         }
+
         binding.ivSeekReduce.setOnClickListener {
-            binding.seekBar.progressAdd(-1)
-            onChanged?.invoke(binding.seekBar.progress)
+            binding.slider.value = binding.slider.value - 1
+            onChanged?.invoke(binding.slider.value.toInt())
         }
-        binding.seekBar.setOnSeekBarChangeListener(this)
+
+        binding.slider.addOnChangeListener { _, value, fromUser ->
+            upValue(value.toInt())
+        }
+
+        binding.slider.addOnSliderTouchListener(object : Slider.OnSliderTouchListener {
+            override fun onStartTrackingTouch(slider: Slider) {
+                // 可以添加开始拖动时的逻辑
+            }
+
+            override fun onStopTrackingTouch(slider: Slider) {
+                onChanged?.invoke(slider.value.toInt())
+            }
+        })
     }
 
-    private fun upValue(progress: Int = binding.seekBar.progress) {
+    private fun upValue(progress: Int = binding.slider.value.toInt()) {
         valueFormat?.let {
             binding.tvSeekValue.text = it.invoke(progress)
         } ?: let {
@@ -81,12 +98,11 @@ class DetailSeekBar @JvmOverloads constructor(
         upValue(progress)
     }
 
-    override fun onStartTrackingTouch(seekBar: SeekBar) {
-
-    }
-
-    override fun onStopTrackingTouch(seekBar: SeekBar) {
-        onChanged?.invoke(binding.seekBar.progress)
-    }
-
+//    override fun onStartTrackingTouch(seekBar: SeekBar) {
+//
+//    }
+//
+//    override fun onStopTrackingTouch(seekBar: SeekBar) {
+//        onChanged?.invoke(binding.slider.progress)
+//    }
 }

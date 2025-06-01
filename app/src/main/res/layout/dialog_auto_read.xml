@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/background_menu"
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
     android:paddingTop="6dp"
@@ -41,14 +40,13 @@
 
         </LinearLayout>
 
-        <io.legado.app.lib.theme.view.ThemeSeekBar
+        <io.legado.app.lib.theme.view.ThemeSlider
             android:id="@+id/seek_auto_read"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:layout_marginEnd="15dp"
-            android:min="1"
-            android:max="60"
+            android:valueFrom="1.0"
+            android:valueTo="10.0"
+            android:stepSize="1.0"
             tools:ignore="UnusedAttribute" />
 
     </LinearLayout>

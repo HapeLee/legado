@@ -18,7 +18,7 @@ import io.legado.app.databinding.ItemReadRecordBinding
 import io.legado.app.help.config.AppConfig
 import io.legado.app.help.config.LocalConfig
 import io.legado.app.lib.dialogs.alert
-import io.legado.app.lib.theme.primaryTextColor
+//import io.legado.app.lib.theme.primaryTextColor
 import io.legado.app.ui.book.search.SearchActivity
 import io.legado.app.utils.applyNavigationBarPadding
 import io.legado.app.utils.applyTint
@@ -112,7 +112,7 @@ class ReadRecordActivity : BaseActivity<ActivityReadRecordBinding>() {
     }
 
     private fun initSearchView() {
-        searchView.applyTint(primaryTextColor)
+        //searchView.applyTint(primaryTextColor)
         searchView.isSubmitButtonEnabled = true
         searchView.queryHint = getString(R.string.search)
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {

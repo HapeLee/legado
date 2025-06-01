@@ -16,7 +16,7 @@ import io.legado.app.base.adapter.ItemViewHolder
 import io.legado.app.base.adapter.RecyclerAdapter
 import io.legado.app.data.entities.BookSourcePart
 import io.legado.app.databinding.ItemBookSourceBinding
-import io.legado.app.lib.theme.backgroundColor
+//import io.legado.app.lib.theme.backgroundColor
 import io.legado.app.model.Debug
 import io.legado.app.ui.login.SourceLoginActivity
 import io.legado.app.ui.widget.recycler.DragSelectTouchHelper
@@ -98,7 +98,7 @@ class BookSourceAdapter(
     ) {
         binding.run {
             if (payloads.isEmpty()) {
-                root.setBackgroundColor(ColorUtils.withAlpha(context.backgroundColor, 0.5f))
+                //root.setBackgroundColor(ColorUtils.withAlpha(context.backgroundColor, 0.5f))
                 cbBookSource.text = item.getDisPlayNameGroup()
                 swtEnabled.isChecked = item.enabled
                 cbBookSource.isChecked = selected.contains(item)

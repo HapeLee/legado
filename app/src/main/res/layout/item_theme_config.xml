@@ -3,17 +3,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="8dp"
+    android:padding="12dp"
+    android:background="?attr/selectableItemBackground"
     android:gravity="center_vertical"
     android:orientation="horizontal">
 
     <TextView
+        android:padding="6dp"
         android:id="@+id/tv_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:maxLines="1"
         android:textColor="@color/primaryText"
+        android:textSize="16sp"
         tools:text="theme" />
 
     <androidx.appcompat.widget.AppCompatImageView

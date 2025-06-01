@@ -15,7 +15,7 @@ import io.legado.app.base.adapter.RecyclerAdapter
 import io.legado.app.data.entities.HttpTTS
 import io.legado.app.databinding.DialogRecyclerViewBinding
 import io.legado.app.databinding.ItemSourceImportBinding
-import io.legado.app.lib.theme.primaryColor
+//import io.legado.app.lib.theme.primaryColor
 import io.legado.app.ui.widget.dialog.CodeDialog
 import io.legado.app.ui.widget.dialog.WaitDialog
 import io.legado.app.utils.GSON
@@ -53,9 +53,9 @@ class ImportHttpTtsDialog() : BaseDialogFragment(R.layout.dialog_recycler_view),
 
     @SuppressLint("NotifyDataSetChanged")
     override fun onFragmentCreated(view: View, savedInstanceState: Bundle?) {
-        binding.toolBar.setBackgroundColor(primaryColor)
+        //binding.toolBar.setBackgroundColor(primaryColor)
         binding.toolBar.setTitle(R.string.import_tts)
-        binding.rotateLoading.visible()
+        //binding.rotateLoading.visible()
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
         binding.recyclerView.adapter = adapter
         binding.tvCancel.visible()
@@ -83,14 +83,14 @@ class ImportHttpTtsDialog() : BaseDialogFragment(R.layout.dialog_recycler_view),
             upSelectText()
         }
         viewModel.errorLiveData.observe(this) {
-            binding.rotateLoading.gone()
+            //binding.rotateLoading.gone()
             binding.tvMsg.apply {
                 text = it
                 visible()
             }
         }
         viewModel.successLiveData.observe(this) {
-            binding.rotateLoading.gone()
+            //binding.rotateLoading.gone()
             if (it > 0) {
                 adapter.setItems(viewModel.allSources)
                 upSelectText()

@@ -19,8 +19,8 @@ import io.legado.app.constant.PreferKey
 import io.legado.app.help.config.AppConfig
 import io.legado.app.help.config.ReadBookConfig
 import io.legado.app.lib.prefs.fragment.PreferenceFragment
-import io.legado.app.lib.theme.bottomBackground
-import io.legado.app.lib.theme.primaryColor
+//import io.legado.app.lib.theme.bottomBackground
+//import io.legado.app.lib.theme.primaryColor
 import io.legado.app.model.ReadBook
 import io.legado.app.ui.book.read.ReadBookActivity
 import io.legado.app.ui.book.read.page.provider.ChapterProvider
@@ -37,16 +37,16 @@ class MoreConfigDialog : BasePrefDialogFragment() {
 
     override fun onStart() {
         super.onStart()
-        dialog?.window?.run {
-            clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND)
-            setBackgroundDrawableResource(R.color.background)
-            decorView.setPadding(0, 0, 0, 0)
-            val attr = attributes
-            attr.dimAmount = 0.0f
-            attr.gravity = Gravity.BOTTOM
-            attributes = attr
-            setLayout(ViewGroup.LayoutParams.MATCH_PARENT, 360.dpToPx())
-        }
+//        dialog?.window?.run {
+//            clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND)
+//            setBackgroundDrawableResource(R.color.background)
+//            decorView.setPadding(0, 0, 0, 0)
+//            val attr = attributes
+//            attr.dimAmount = 0.0f
+//            attr.gravity = Gravity.BOTTOM
+//            attributes = attr
+//            setLayout(ViewGroup.LayoutParams.MATCH_PARENT, 360.dpToPx())
+//        }
     }
 
     override fun onCreateView(
@@ -56,7 +56,7 @@ class MoreConfigDialog : BasePrefDialogFragment() {
     ): View {
         (activity as ReadBookActivity).bottomDialog++
         val view = LinearLayout(context)
-        view.setBackgroundColor(requireContext().bottomBackground)
+        //view.setBackgroundColor(requireContext().bottomBackground)
         view.id = R.id.tag1
         container?.addView(view)
         return view
@@ -93,7 +93,7 @@ class MoreConfigDialog : BasePrefDialogFragment() {
 
         override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
             super.onViewCreated(view, savedInstanceState)
-            listView.setEdgeEffectColor(primaryColor)
+            //listView.setEdgeEffectColor(primaryColor)
         }
 
         override fun onResume() {

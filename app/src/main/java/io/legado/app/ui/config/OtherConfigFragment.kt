@@ -20,7 +20,7 @@ import io.legado.app.help.config.AppConfig
 import io.legado.app.help.config.LocalConfig
 import io.legado.app.lib.dialogs.alert
 import io.legado.app.lib.prefs.fragment.PreferenceFragment
-import io.legado.app.lib.theme.primaryColor
+//import io.legado.app.lib.theme.primaryColor
 import io.legado.app.model.CheckSource
 import io.legado.app.model.ImageProvider
 import io.legado.app.receiver.SharedReceiverActivity
@@ -76,7 +76,7 @@ class OtherConfigFragment : PreferenceFragment(),
         super.onViewCreated(view, savedInstanceState)
         activity?.setTitle(R.string.other_setting)
         preferenceManager.sharedPreferences?.registerOnSharedPreferenceChangeListener(this)
-        listView.setEdgeEffectColor(primaryColor)
+        //listView.setEdgeEffectColor(primaryColor)
     }
 
     override fun onDestroy() {

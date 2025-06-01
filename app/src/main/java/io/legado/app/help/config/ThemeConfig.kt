@@ -29,6 +29,7 @@ import io.legado.app.utils.putPrefInt
 import io.legado.app.utils.stackBlur
 import splitties.init.appCtx
 import java.io.File
+import androidx.core.graphics.toColorInt
 
 @Keep
 object ThemeConfig {
@@ -146,10 +147,10 @@ object ThemeConfig {
     }
 
     fun applyConfig(context: Context, config: Config) {
-        val primary = Color.parseColor(config.primaryColor)
-        val accent = Color.parseColor(config.accentColor)
-        val background = Color.parseColor(config.backgroundColor)
-        val bBackground = Color.parseColor(config.bottomBackground)
+        val primary = config.primaryColor.toColorInt()
+        val accent = config.accentColor.toColorInt()
+        val background = config.backgroundColor.toColorInt()
+        val bBackground = config.bottomBackground.toColorInt()
         if (config.isNightTheme) {
             context.putPrefInt(PreferKey.cNPrimary, primary)
             context.putPrefInt(PreferKey.cNAccent, accent)

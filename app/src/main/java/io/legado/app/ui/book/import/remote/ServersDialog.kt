@@ -22,8 +22,8 @@ import io.legado.app.databinding.DialogRecyclerViewBinding
 import io.legado.app.databinding.ItemServerSelectBinding
 import io.legado.app.help.config.AppConfig
 import io.legado.app.lib.dialogs.alert
-import io.legado.app.lib.theme.backgroundColor
-import io.legado.app.lib.theme.primaryColor
+//import io.legado.app.lib.theme.backgroundColor
+//import io.legado.app.lib.theme.primaryColor
 import io.legado.app.ui.widget.recycler.VerticalDivider
 import io.legado.app.utils.applyTint
 import io.legado.app.utils.setLayout
@@ -54,7 +54,7 @@ class ServersDialog : BaseDialogFragment(R.layout.dialog_recycler_view),
 
 
     override fun onFragmentCreated(view: View, savedInstanceState: Bundle?) {
-        binding.toolBar.setBackgroundColor(primaryColor)
+        //binding.toolBar.setBackgroundColor(primaryColor)
         binding.toolBar.setTitle(R.string.server_config)
         initView()
         initData()
@@ -148,7 +148,7 @@ class ServersDialog : BaseDialogFragment(R.layout.dialog_recycler_view),
             payloads: MutableList<Any>
         ) {
             if (payloads.isEmpty()) {
-                binding.root.setBackgroundColor(context.backgroundColor)
+                //binding.root.setBackgroundColor(context.backgroundColor)
                 binding.rbServer.text = item.name
                 binding.rbServer.isChecked = item.id == selectServerId
             } else {

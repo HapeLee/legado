@@ -9,8 +9,8 @@ import androidx.fragment.app.Fragment
 import io.legado.app.BuildConfig
 import io.legado.app.databinding.ViewToastBinding
 import io.legado.app.help.config.AppConfig
-import io.legado.app.lib.theme.bottomBackground
-import io.legado.app.lib.theme.getPrimaryTextColor
+//import io.legado.app.lib.theme.bottomBackground
+//import io.legado.app.lib.theme.getPrimaryTextColor
 import splitties.systemservices.layoutInflater
 
 private var toast: Toast? = null
@@ -28,11 +28,11 @@ fun Context.toastOnUi(message: CharSequence?, duration: Int = Toast.LENGTH_SHORT
         kotlin.runCatching {
             toast?.cancel()
             toast = Toast(this)
-            val isLight = ColorUtils.isColorLight(bottomBackground)
+            //val isLight = ColorUtils.isColorLight(bottomBackground)
             ViewToastBinding.inflate(layoutInflater).run {
                 toast?.view = root
-                cvToast.setCardBackgroundColor(bottomBackground)
-                tvText.setTextColor(getPrimaryTextColor(isLight))
+//                cvToast.setCardBackgroundColor(bottomBackground)
+//                tvText.setTextColor(getPrimaryTextColor(isLight))
                 tvText.text = message
             }
             toast?.duration = duration

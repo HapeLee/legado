@@ -15,7 +15,7 @@ import io.legado.app.help.book.ContentProcessor
 import io.legado.app.help.config.AppConfig
 import io.legado.app.help.coroutine.Coroutine
 import io.legado.app.lib.theme.ThemeUtils
-import io.legado.app.lib.theme.accentColor
+//import io.legado.app.lib.theme.accentColor
 import io.legado.app.utils.getCompatColor
 import io.legado.app.utils.gone
 import io.legado.app.utils.longToastOnUi
@@ -129,7 +129,7 @@ class ChapterListAdapter(context: Context, val callback: Callback) :
                     || cacheFileNames.contains(item.getFileName())
             if (payloads.isEmpty()) {
                 if (isDur) {
-                    tvChapterName.setTextColor(context.accentColor)
+                    //tvChapterName.setTextColor(context.accentColor)
                 } else {
                     tvChapterName.setTextColor(context.getCompatColor(R.color.primaryText))
                 }

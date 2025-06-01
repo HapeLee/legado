@@ -16,8 +16,8 @@ import io.legado.app.data.entities.Book
 import io.legado.app.data.entities.BookGroup
 import io.legado.app.databinding.FragmentBookshelf1Binding
 import io.legado.app.help.config.AppConfig
-import io.legado.app.lib.theme.accentColor
-import io.legado.app.lib.theme.primaryColor
+//import io.legado.app.lib.theme.accentColor
+//import io.legado.app.lib.theme.primaryColor
 import io.legado.app.ui.book.group.GroupEditDialog
 import io.legado.app.ui.book.search.SearchActivity
 import io.legado.app.ui.main.bookshelf.BaseBookshelfFragment
@@ -45,7 +45,7 @@ class BookshelfFragment1() : BaseBookshelfFragment(R.layout.fragment_bookshelf1)
     private val binding by viewBinding(FragmentBookshelf1Binding::bind)
     private val adapter by lazy { TabFragmentPageAdapter(childFragmentManager) }
     private val tabLayout: TabLayout by lazy {
-        binding.titleBar.findViewById(R.id.tab_layout)
+        binding.tabLayout.findViewById(R.id.tab_layout)
     }
     private val bookGroups = mutableListOf<BookGroup>()
     private val fragmentMap = hashMapOf<Long, BooksFragment>()
@@ -58,7 +58,7 @@ class BookshelfFragment1() : BaseBookshelfFragment(R.layout.fragment_bookshelf1)
         }
 
     override fun onFragmentCreated(view: View, savedInstanceState: Bundle?) {
-        setSupportToolbar(binding.titleBar.toolbar)
+        setSupportToolbar(binding.topBar)
         initView()
         initBookGroupData()
     }
@@ -67,10 +67,10 @@ class BookshelfFragment1() : BaseBookshelfFragment(R.layout.fragment_bookshelf1)
         get() = bookGroups.getOrNull(tabLayout.selectedTabPosition)
 
     private fun initView() {
-        binding.viewPagerBookshelf.setEdgeEffectColor(primaryColor)
-        tabLayout.isTabIndicatorFullWidth = false
-        tabLayout.tabMode = TabLayout.MODE_SCROLLABLE
-        tabLayout.setSelectedTabIndicatorColor(requireContext().accentColor)
+        //binding.viewPagerBookshelf.setEdgeEffectColor(primaryColor)
+        //tabLayout.isTabIndicatorFullWidth = false
+        //tabLayout.tabMode = TabLayout.MODE_SCROLLABLE
+        // tabLayout.setSelectedTabIndicatorColor(requireContext().accentColor)
         tabLayout.setupWithViewPager(binding.viewPagerBookshelf)
         binding.viewPagerBookshelf.offscreenPageLimit = 1
         binding.viewPagerBookshelf.adapter = adapter

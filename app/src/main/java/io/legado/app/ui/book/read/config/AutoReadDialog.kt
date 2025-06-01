@@ -8,12 +8,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
 import android.widget.SeekBar
+import com.google.android.material.slider.Slider
 import io.legado.app.R
+import io.legado.app.base.BaseBottomSheetDialogFragment
 import io.legado.app.base.BaseDialogFragment
 import io.legado.app.databinding.DialogAutoReadBinding
 import io.legado.app.help.config.ReadBookConfig
-import io.legado.app.lib.theme.bottomBackground
-import io.legado.app.lib.theme.getPrimaryTextColor
+//import io.legado.app.lib.theme.bottomBackground
+//import io.legado.app.lib.theme.getPrimaryTextColor
 import io.legado.app.model.ReadAloud
 import io.legado.app.model.ReadBook
 import io.legado.app.service.BaseReadAloudService
@@ -25,23 +27,23 @@ import io.legado.app.utils.viewbindingdelegate.viewBinding
 import java.util.Locale
 
 
-class AutoReadDialog : BaseDialogFragment(R.layout.dialog_auto_read) {
+class AutoReadDialog : BaseBottomSheetDialogFragment(R.layout.dialog_auto_read) {
 
     private val binding by viewBinding(DialogAutoReadBinding::bind)
     private val callBack: CallBack? get() = activity as? CallBack
 
     override fun onStart() {
         super.onStart()
-        dialog?.window?.run {
-            clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND)
-            setBackgroundDrawableResource(R.color.background)
-            decorView.setPadding(0, 0, 0, 0)
-            val attr = attributes
-            attr.dimAmount = 0.0f
-            attr.gravity = Gravity.BOTTOM
-            attributes = attr
-            setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
-        }
+//        dialog?.window?.run {
+//            clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND)
+//            setBackgroundDrawableResource(R.color.background)
+//            decorView.setPadding(0, 0, 0, 0)
+//            val attr = attributes
+//            attr.dimAmount = 0.0f
+//            attr.gravity = Gravity.BOTTOM
+//            attributes = attr
+//            setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+//        }
     }
 
     override fun onDismiss(dialog: DialogInterface) {
@@ -55,20 +57,20 @@ class AutoReadDialog : BaseDialogFragment(R.layout.dialog_auto_read) {
             dismiss()
             return
         }
-        val bg = requireContext().bottomBackground
-        val isLight = ColorUtils.isColorLight(bg)
-        val textColor = requireContext().getPrimaryTextColor(isLight)
-        root.setBackgroundColor(bg)
-        tvReadSpeedTitle.setTextColor(textColor)
-        tvReadSpeed.setTextColor(textColor)
-        ivCatalog.setColorFilter(textColor, PorterDuff.Mode.SRC_IN)
-        tvCatalog.setTextColor(textColor)
-        ivMainMenu.setColorFilter(textColor, PorterDuff.Mode.SRC_IN)
-        tvMainMenu.setTextColor(textColor)
-        ivAutoPageStop.setColorFilter(textColor, PorterDuff.Mode.SRC_IN)
-        tvAutoPageStop.setTextColor(textColor)
-        ivSetting.setColorFilter(textColor, PorterDuff.Mode.SRC_IN)
-        tvSetting.setTextColor(textColor)
+        //val bg = requireContext().bottomBackground
+        //val isLight = ColorUtils.isColorLight(bg)
+        //val textColor = requireContext().getPrimaryTextColor(isLight)
+        //root.setBackgroundColor(bg)
+//        tvReadSpeedTitle.setTextColor(textColor)
+//        tvReadSpeed.setTextColor(textColor)
+//        ivCatalog.setColorFilter(textColor, PorterDuff.Mode.SRC_IN)
+//        tvCatalog.setTextColor(textColor)
+//        ivMainMenu.setColorFilter(textColor, PorterDuff.Mode.SRC_IN)
+//        tvMainMenu.setTextColor(textColor)
+//        ivAutoPageStop.setColorFilter(textColor, PorterDuff.Mode.SRC_IN)
+//        tvAutoPageStop.setTextColor(textColor)
+//        ivSetting.setColorFilter(textColor, PorterDuff.Mode.SRC_IN)
+//        tvSetting.setTextColor(textColor)
         initOnChange()
         initData()
         initEvent()
@@ -77,19 +79,22 @@ class AutoReadDialog : BaseDialogFragment(R.layout.dialog_auto_read) {
     private fun initData() {
         val speed = if (ReadBookConfig.autoReadSpeed < 1) 1 else ReadBookConfig.autoReadSpeed
         binding.tvReadSpeed.text = String.format(Locale.ROOT, "%ds", speed)
-        binding.seekAutoRead.progress = speed
+        binding.seekAutoRead.value = speed.toFloat()
     }
 
     private fun initOnChange() {
-        binding.seekAutoRead.setOnSeekBarChangeListener(object : SeekBarChangeListener {
-            override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
-                val speed = if (progress < 1) 1 else progress
-                binding.tvReadSpeed.text = String.format(Locale.ROOT, "%ds", speed)
+        binding.seekAutoRead.addOnChangeListener { slider, value, fromUser ->
+            val speed = if (value < 1) 1 else value.toInt()
+            binding.tvReadSpeed.text = String.format(Locale.ROOT, "%ds", speed)
+        }
+
+        binding.seekAutoRead.addOnSliderTouchListener(object : Slider.OnSliderTouchListener {
+            override fun onStartTrackingTouch(slider: Slider) {
+                // 开始滑动时的操作
             }
 
-            override fun onStopTrackingTouch(seekBar: SeekBar) {
-                ReadBookConfig.autoReadSpeed =
-                    if (binding.seekAutoRead.progress < 1) 1 else binding.seekAutoRead.progress
+            override fun onStopTrackingTouch(slider: Slider) {
+                ReadBookConfig.autoReadSpeed = if (slider.value < 1) 1 else slider.value.toInt()
                 upTtsSpeechRate()
             }
         })

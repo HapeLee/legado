@@ -16,6 +16,7 @@ import androidx.activity.addCallback
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewbinding.ViewBinding
+import com.google.android.material.appbar.AppBarLayout
 import io.legado.app.R
 import io.legado.app.constant.AppConst
 import io.legado.app.constant.AppLog
@@ -23,8 +24,8 @@ import io.legado.app.constant.Theme
 import io.legado.app.help.config.AppConfig
 import io.legado.app.help.config.ThemeConfig
 import io.legado.app.lib.theme.ThemeStore
-import io.legado.app.lib.theme.backgroundColor
-import io.legado.app.lib.theme.primaryColor
+//import io.legado.app.lib.theme.backgroundColor
+//import io.legado.app.lib.theme.primaryColor
 import io.legado.app.ui.widget.TitleBar
 import io.legado.app.utils.ColorUtils
 import io.legado.app.utils.applyBackgroundTint
@@ -71,7 +72,7 @@ abstract class BaseActivity<VB : ViewBinding>(
         attrs: AttributeSet
     ): View? {
         if (AppConst.menuViewNames.contains(name) && parent?.parent is FrameLayout) {
-            (parent.parent as View).setBackgroundColor(backgroundColor)
+            //(parent.parent as View).setBackgroundColor(backgroundColor)
         }
         return super.onCreateView(parent, name, context, attrs)
     }
@@ -85,8 +86,8 @@ abstract class BaseActivity<VB : ViewBinding>(
         setContentView(binding.root)
         upBackgroundImage()
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            findViewById<TitleBar>(R.id.title_bar)
-                ?.onMultiWindowModeChanged(isInMultiWindowMode, fullScreen)
+            findViewById<AppBarLayout>(R.id.title_bar)
+                //?.onMultiWindowModeChanged(isInMultiWindowMode, fullScreen)
         }
         onBackPressedDispatcher.addCallback(this) {
             finish()
@@ -98,15 +99,15 @@ abstract class BaseActivity<VB : ViewBinding>(
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onMultiWindowModeChanged(isInMultiWindowMode: Boolean, newConfig: Configuration) {
         super.onMultiWindowModeChanged(isInMultiWindowMode, newConfig)
-        findViewById<TitleBar>(R.id.title_bar)
-            ?.onMultiWindowModeChanged(isInMultiWindowMode, fullScreen)
+//        findViewById<TitleBar>(R.id.title_bar)
+//            ?.onMultiWindowModeChanged(isInMultiWindowMode, fullScreen)
         setupSystemBar()
     }
 
     override fun onConfigurationChanged(newConfig: Configuration) {
         super.onConfigurationChanged(newConfig)
-        findViewById<TitleBar>(R.id.title_bar)
-            ?.onMultiWindowModeChanged(isInMultiWindow, fullScreen)
+        //findViewById<TitleBar>(R.id.title_bar)
+            //?.onMultiWindowModeChanged(isInMultiWindow, fullScreen)
         setupSystemBar()
     }
 
@@ -140,21 +141,21 @@ abstract class BaseActivity<VB : ViewBinding>(
             Theme.Transparent -> setTheme(R.style.AppTheme_Transparent)
             Theme.Dark -> {
                 setTheme(R.style.AppTheme_Dark)
-                window.decorView.applyBackgroundTint(backgroundColor)
+                //window.decorView.applyBackgroundTint(backgroundColor)
             }
 
             Theme.Light -> {
                 setTheme(R.style.AppTheme_Light)
-                window.decorView.applyBackgroundTint(backgroundColor)
+                //window.decorView.applyBackgroundTint(backgroundColor)
             }
 
             else -> {
-                if (ColorUtils.isColorLight(primaryColor)) {
-                    setTheme(R.style.AppTheme_Light)
-                } else {
-                    setTheme(R.style.AppTheme_Dark)
-                }
-                window.decorView.applyBackgroundTint(backgroundColor)
+//                if (ColorUtils.isColorLight(primaryColor)) {
+//                    setTheme(R.style.AppTheme_Light)
+//                } else {
+//                    setTheme(R.style.AppTheme_Dark)
+//                }
+                //window.decorView.applyBackgroundTint(backgroundColor)
             }
         }
     }
@@ -177,24 +178,24 @@ abstract class BaseActivity<VB : ViewBinding>(
         if (fullScreen && !isInMultiWindow) {
             fullScreen()
         }
-        val isTransparentStatusBar = AppConfig.isTransparentStatusBar
-        val statusBarColor = ThemeStore.statusBarColor(this, isTransparentStatusBar)
-        setStatusBarColorAuto(statusBarColor, isTransparentStatusBar, fullScreen)
-        if (toolBarTheme == Theme.Dark) {
-            setLightStatusBar(false)
-        } else if (toolBarTheme == Theme.Light) {
-            setLightStatusBar(true)
-        }
+        //val isTransparentStatusBar = AppConfig.isTransparentStatusBar
+        //val statusBarColor = ThemeStore.statusBarColor(this, isTransparentStatusBar)
+        //setStatusBarColorAuto(statusBarColor, isTransparentStatusBar, fullScreen)
+//        if (toolBarTheme == Theme.Dark) {
+//            setLightStatusBar(false)
+//        } else if (toolBarTheme == Theme.Light) {
+//            setLightStatusBar(true)
+//        }
         upNavigationBarColor()
     }
 
     open fun upNavigationBarColor() {
-        if (AppConfig.immNavigationBar) {
-            setNavigationBarColorAuto(ThemeStore.navigationBarColor(this))
-        } else {
-            val nbColor = ColorUtils.darkenColor(ThemeStore.navigationBarColor(this))
-            setNavigationBarColorAuto(nbColor)
-        }
+//        if (AppConfig.immNavigationBar) {
+//            setNavigationBarColorAuto(ThemeStore.navigationBarColor(this))
+//        } else {
+//            val nbColor = ColorUtils.darkenColor(ThemeStore.navigationBarColor(this))
+//            setNavigationBarColorAuto(nbColor)
+//        }
     }
 
     open fun observeLiveBus() {

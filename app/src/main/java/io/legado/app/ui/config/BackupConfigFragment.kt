@@ -31,7 +31,7 @@ import io.legado.app.lib.dialogs.selector
 import io.legado.app.lib.permission.Permissions
 import io.legado.app.lib.permission.PermissionsCompat
 import io.legado.app.lib.prefs.fragment.PreferenceFragment
-import io.legado.app.lib.theme.primaryColor
+//import io.legado.app.lib.theme.primaryColor
 import io.legado.app.ui.about.AppLogDialog
 import io.legado.app.ui.file.HandleFileContract
 import io.legado.app.ui.widget.dialog.WaitDialog
@@ -141,7 +141,7 @@ class BackupConfigFragment : PreferenceFragment(),
         super.onViewCreated(view, savedInstanceState)
         activity?.setTitle(R.string.backup_restore)
         preferenceManager.sharedPreferences?.registerOnSharedPreferenceChangeListener(this)
-        listView.setEdgeEffectColor(primaryColor)
+        //listView.setEdgeEffectColor(primaryColor)
         activity?.addMenuProvider(this, viewLifecycleOwner)
         if (!LocalConfig.backupHelpVersionIsLast) {
             showHelp("webDavHelp")

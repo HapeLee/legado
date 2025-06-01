@@ -5,11 +5,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import io.legado.app.R
+import io.legado.app.base.BaseBottomSheetDialogFragment
 import io.legado.app.base.BaseDialogFragment
 import io.legado.app.data.entities.BookGroup
 import io.legado.app.databinding.DialogBookGroupEditBinding
 import io.legado.app.lib.dialogs.alert
-import io.legado.app.lib.theme.primaryColor
+//import io.legado.app.lib.theme.primaryColor
 import io.legado.app.utils.FileUtils
 import io.legado.app.utils.MD5Utils
 import io.legado.app.utils.SelectImageContract
@@ -26,7 +27,7 @@ import splitties.init.appCtx
 import splitties.views.onClick
 import java.io.FileOutputStream
 
-class GroupEditDialog() : BaseDialogFragment(R.layout.dialog_book_group_edit) {
+class GroupEditDialog() : BaseBottomSheetDialogFragment(R.layout.dialog_book_group_edit) {
 
     constructor(bookGroup: BookGroup? = null) : this() {
         arguments = Bundle().apply {
@@ -59,11 +60,11 @@ class GroupEditDialog() : BaseDialogFragment(R.layout.dialog_book_group_edit) {
 
     override fun onStart() {
         super.onStart()
-        setLayout(0.9f, ViewGroup.LayoutParams.WRAP_CONTENT)
+
     }
 
     override fun onFragmentCreated(view: View, savedInstanceState: Bundle?) {
-        binding.toolBar.setBackgroundColor(primaryColor)
+        //binding.toolBar.setBackgroundColor(primaryColor)
         @Suppress("DEPRECATION")
         bookGroup = arguments?.getParcelable("group")
         bookGroup?.let {

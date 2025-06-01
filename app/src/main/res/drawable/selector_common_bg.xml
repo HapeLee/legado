@@ -3,5 +3,5 @@
     <item android:state_pressed="true" android:drawable="@color/btn_bg_press" />
     <item android:state_selected="true" android:drawable="@color/btn_bg_press" />
 
-    <item android:drawable="@color/background" />
+    <item android:drawable="?attr/backgroundColor" />
 </selector>

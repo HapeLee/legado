@@ -12,7 +12,6 @@
         android:layout_height="wrap_content"
         android:theme="?attr/actionBarStyle"
         app:title="@string/check_source_config"
-        app:popupTheme="@style/AppTheme.PopupOverlay"
         app:titleTextAppearance="@style/ToolbarTitle" />
 
     <io.legado.app.ui.widget.text.TextInputLayout

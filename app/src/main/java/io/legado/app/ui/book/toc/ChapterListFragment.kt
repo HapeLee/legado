@@ -18,8 +18,8 @@ import io.legado.app.databinding.FragmentChapterListBinding
 import io.legado.app.help.book.BookHelp
 import io.legado.app.help.book.isLocal
 import io.legado.app.help.book.simulatedTotalChapterNum
-import io.legado.app.lib.theme.bottomBackground
-import io.legado.app.lib.theme.getPrimaryTextColor
+//import io.legado.app.lib.theme.bottomBackground
+//import io.legado.app.lib.theme.getPrimaryTextColor
 import io.legado.app.ui.widget.recycler.UpLinearLayoutManager
 import io.legado.app.ui.widget.recycler.VerticalDivider
 import io.legado.app.utils.ColorUtils
@@ -44,12 +44,12 @@ class ChapterListFragment : VMBaseFragment<TocViewModel>(R.layout.fragment_chapt
 
     override fun onFragmentCreated(view: View, savedInstanceState: Bundle?) = binding.run {
         viewModel.chapterListCallBack = this@ChapterListFragment
-        val bbg = bottomBackground
-        val btc = requireContext().getPrimaryTextColor(ColorUtils.isColorLight(bbg))
-        llChapterBaseInfo.setBackgroundColor(bbg)
-        tvCurrentChapterInfo.setTextColor(btc)
-        ivChapterTop.setColorFilter(btc, PorterDuff.Mode.SRC_IN)
-        ivChapterBottom.setColorFilter(btc, PorterDuff.Mode.SRC_IN)
+//        val bbg = bottomBackground
+//        val btc = requireContext().getPrimaryTextColor(ColorUtils.isColorLight(bbg))
+//        llChapterBaseInfo.setBackgroundColor(bbg)
+//        tvCurrentChapterInfo.setTextColor(btc)
+//        ivChapterTop.setColorFilter(btc, PorterDuff.Mode.SRC_IN)
+//        ivChapterBottom.setColorFilter(btc, PorterDuff.Mode.SRC_IN)
         initRecyclerView()
         initView()
         viewModel.bookData.observe(this@ChapterListFragment) {

@@ -170,7 +170,7 @@
     <string name="add_book_url">添加书籍网址</string>
     <string name="background">背景</string>
     <string name="author">作者</string>
-    <string name="author_show">作者：%s</string>
+    <string name="author_show">%s</string>
     <string name="aloud_stop">朗读停止</string>
     <string name="clear_cache">清理缓存</string>
     <string name="clear_cache_success">成功清理缓存</string>
@@ -237,7 +237,7 @@
     <string name="intro_show">简介：%s</string>
     <string name="intro_show_null">简介：暂无简介</string>
     <string name="open_from_other">打开外部书籍</string>
-    <string name="origin_show">来源：%s</string>
+    <string name="origin_show">%s</string>
     <string name="import_replace_rule">导入替换规则</string>
     <string name="import_replace_rule_on_line">导入在线规则</string>
     <string name="check_update_interval">检查更新间隔</string>

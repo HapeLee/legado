@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@drawable/bg_prefs_color"
+    android:background="?attr/selectableItemBackground"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:paddingLeft="16dp"
-    android:paddingTop="10dp"
+    android:paddingTop="16dp"
     android:paddingRight="16dp"
-    android:paddingBottom="10dp"
+    android:paddingBottom="16dp"
     android:minHeight="60dp"
     android:clickable="true"
     android:orientation="horizontal"
@@ -20,12 +20,13 @@
         android:scaleType="fitCenter"
         android:visibility="visible"
         android:paddingTop="1dp"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         tools:ignore="ContentDescription,RtlHardcoded" />
 
     <LinearLayout
         android:orientation="vertical"
+        android:paddingStart="2dp"
         android:layout_weight="1.0"
         android:layout_width="0dp"
         android:layout_height="wrap_content">
@@ -41,12 +42,12 @@
 
         <TextView
             android:id="@+id/preference_desc"
-            android:textSize="14sp"
+            android:textSize="12sp"
             android:textColor="@color/tv_text_summary"
             android:text="@string/default1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp" />
+            android:layout_marginTop="4dp" />
 
     </LinearLayout>
 
@@ -54,9 +55,9 @@
         android:id="@+id/preference_widget"
         android:orientation="vertical"
         android:layout_gravity="center"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp"
         android:visibility="gone"
         android:gravity="right|center_vertical"
         android:layout_width="wrap_content"

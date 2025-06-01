@@ -24,32 +24,32 @@ class TimerSliderPopup(private val context: Context) :
         isOutsideTouchable = false
         isFocusable = true
 
-        binding.seekBar.max = 180
-        setProcessTextValue(binding.seekBar.progress)
-        binding.seekBar.setOnSeekBarChangeListener(object : SeekBarChangeListener {
+        // 初始化 slider 值
+        binding.slider.valueFrom = 1f
+        binding.slider.valueTo = 180f
+        binding.slider.stepSize = 1f
+        binding.slider.value = AudioPlayService.timeMinute.toFloat()
+        setSliderTextValue(AudioPlayService.timeMinute)
 
-            override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
-                setProcessTextValue(progress)
-                if (fromUser) {
-                    AudioPlay.setTimer(progress)
-                }
+        binding.slider.addOnChangeListener { _, value, fromUser ->
+            setSliderTextValue(value.toInt())
+            if (fromUser) {
+                AudioPlay.setTimer(value.toInt())
             }
-
-        })
+        }
     }
 
     override fun showAsDropDown(anchor: View?, xoff: Int, yoff: Int, gravity: Int) {
         super.showAsDropDown(anchor, xoff, yoff, gravity)
-        binding.seekBar.progress = AudioPlayService.timeMinute
+        binding.slider.value = AudioPlayService.timeMinute.toFloat()
     }
 
     override fun showAtLocation(parent: View?, gravity: Int, x: Int, y: Int) {
         super.showAtLocation(parent, gravity, x, y)
-        binding.seekBar.progress = AudioPlayService.timeMinute
+        binding.slider.value = AudioPlayService.timeMinute.toFloat()
     }
 
-    private fun setProcessTextValue(process: Int) {
-        binding.tvSeekValue.text = context.getString(R.string.timer_m, process)
+    private fun setSliderTextValue(value: Int) {
+        binding.tvSeekValue.text = context.getString(R.string.timer_m, value)
     }
-
 }

@@ -22,7 +22,7 @@ import io.legado.app.constant.AppConst
 import io.legado.app.data.entities.BaseSource
 import io.legado.app.databinding.FragmentWebViewLoginBinding
 import io.legado.app.help.http.CookieStore
-import io.legado.app.lib.theme.accentColor
+//import io.legado.app.lib.theme.accentColor
 import io.legado.app.utils.NetworkUtils
 import io.legado.app.utils.gone
 import io.legado.app.utils.longSnackbar
@@ -65,7 +65,7 @@ class WebViewLoginFragment : BaseFragment(R.layout.fragment_web_view_login) {
 
     @SuppressLint("SetJavaScriptEnabled")
     private fun initWebView(source: BaseSource) {
-        binding.progressBar.fontColor = accentColor
+        //binding.progressBar.fontColor = accentColor
         binding.webView.settings.apply {
             mixedContentMode = WebSettings.MIXED_CONTENT_ALWAYS_ALLOW
             domStorageEnabled = true

@@ -26,7 +26,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import io.legado.app.R
-import io.legado.app.lib.theme.accentColor
+//import io.legado.app.lib.theme.accentColor
 import io.legado.app.utils.ColorUtils
 import io.legado.app.utils.getCompatColor
 import kotlin.math.max
@@ -503,21 +503,21 @@ class FastScroller : LinearLayout {
         mHandleView = findViewById(R.id.fastscroll_handle)
         mTrackView = findViewById(R.id.fastscroll_track)
         mScrollbar = findViewById(R.id.fastscroll_scrollbar)
-        @ColorInt var bubbleColor = ColorUtils.adjustAlpha(context.accentColor, 0.8f)
-        @ColorInt var handleColor = context.accentColor
+//        @ColorInt var bubbleColor = ColorUtils.adjustAlpha(context.accentColor, 0.8f)
+//        @ColorInt var handleColor = context.accentColor
         @ColorInt var trackColor = context.getCompatColor(R.color.transparent30)
-        @ColorInt var textColor =
-            if (ColorUtils.isColorLight(bubbleColor)) Color.BLACK else Color.WHITE
+//        @ColorInt var textColor =
+//            if (ColorUtils.isColorLight(bubbleColor)) Color.BLACK else Color.WHITE
         var fadeScrollbar = true
         var showBubble = false
         var showTrack = true
         if (attrs != null) {
             val typedArray = context.obtainStyledAttributes(attrs, R.styleable.FastScroller, 0, 0)
             try {
-                bubbleColor = typedArray.getColor(R.styleable.FastScroller_bubbleColor, bubbleColor)
-                handleColor = typedArray.getColor(R.styleable.FastScroller_handleColor, handleColor)
+//                bubbleColor = typedArray.getColor(R.styleable.FastScroller_bubbleColor, bubbleColor)
+//                handleColor = typedArray.getColor(R.styleable.FastScroller_handleColor, handleColor)
                 trackColor = typedArray.getColor(R.styleable.FastScroller_trackColor, trackColor)
-                textColor = typedArray.getColor(R.styleable.FastScroller_bubbleTextColor, textColor)
+//                textColor = typedArray.getColor(R.styleable.FastScroller_bubbleTextColor, textColor)
                 fadeScrollbar =
                     typedArray.getBoolean(R.styleable.FastScroller_fadeScrollbar, fadeScrollbar)
                 showBubble = typedArray.getBoolean(R.styleable.FastScroller_showBubble, showBubble)
@@ -527,9 +527,9 @@ class FastScroller : LinearLayout {
             }
         }
         setTrackColor(trackColor)
-        setHandleColor(handleColor)
-        setBubbleColor(bubbleColor)
-        setBubbleTextColor(textColor)
+//        setHandleColor(handleColor)
+//        setBubbleColor(bubbleColor)
+//        setBubbleTextColor(textColor)
         setFadeScrollbar(fadeScrollbar)
         setBubbleVisible(showBubble)
         setTrackVisible(showTrack)

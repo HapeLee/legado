@@ -163,7 +163,7 @@
     <string name="add_book_url">添加書輯網址</string>
     <string name="background">背景</string>
     <string name="author">作者</string>
-    <string name="author_show">作者: %s</string>
+    <string name="author_show">%s</string>
     <string name="aloud_stop">朗讀停止</string>
     <string name="clear_cache">清理緩存</string>
     <string name="clear_cache_success">成功清理緩存</string>
@@ -230,7 +230,7 @@
     <string name="intro_show">簡介: %s</string>
     <string name="intro_show_null">簡介: 暫無簡介</string>
     <string name="open_from_other">打開外部書籍</string>
-    <string name="origin_show">來源: %s</string>
+    <string name="origin_show">%s</string>
     <string name="import_replace_rule">導入替換規則</string>
     <string name="import_replace_rule_on_line">導入在線規則</string>
     <string name="check_update_interval">檢查更新間隔</string>

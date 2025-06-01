@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.PopupMenu
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.core.view.children
 import com.google.android.flexbox.FlexboxLayout
 import io.legado.app.R
@@ -17,7 +18,7 @@ import io.legado.app.databinding.ItemFindBookBinding
 import io.legado.app.help.coroutine.Coroutine
 import io.legado.app.help.source.clearExploreKindsCache
 import io.legado.app.help.source.exploreKinds
-import io.legado.app.lib.theme.accentColor
+//import io.legado.app.lib.theme.accentColor
 import io.legado.app.ui.login.SourceLoginActivity
 import io.legado.app.ui.widget.dialog.TextDialog
 import io.legado.app.utils.activity
@@ -48,35 +49,35 @@ class ExploreAdapter(context: Context, val callBack: CallBack) :
         payloads: MutableList<Any>
     ) {
         binding.run {
-            if (holder.layoutPosition == itemCount - 1) {
-                root.setPadding(16.dpToPx(), 12.dpToPx(), 16.dpToPx(), 12.dpToPx())
-            } else {
-                root.setPadding(16.dpToPx(), 12.dpToPx(), 16.dpToPx(), 0)
-            }
+            // 移除了 padding 设置
+
             if (payloads.isEmpty()) {
                 tvName.text = item.bookSourceName
             }
+
             if (exIndex == holder.layoutPosition) {
-                ivStatus.setImageResource(R.drawable.ic_arrow_down)
-                rotateLoading.loadingColor = context.accentColor
-                rotateLoading.visible()
+                // 使用 MaterialButton 的 icon 属性和旋转动画
+                ivStatus.icon = ContextCompat.getDrawable(context, R.drawable.ic_arrow_right)
+                ivStatus.rotation = 90f // 直接设置90度旋转（向下箭头效果）
+
                 if (scrollTo >= 0) {
                     callBack.scrollTo(scrollTo)
                 }
+
                 Coroutine.async(callBack.scope) {
                     item.exploreKinds()
                 }.onSuccess { kindList ->
                     upKindList(flexbox, item.bookSourceUrl, kindList)
                 }.onFinally {
-                    rotateLoading.gone()
+
                     if (scrollTo >= 0) {
                         callBack.scrollTo(scrollTo)
                         scrollTo = -1
                     }
                 }
-            } else kotlin.runCatching {
-                ivStatus.setImageResource(R.drawable.ic_arrow_right)
-                rotateLoading.gone()
+            } else {
+                ivStatus.icon = ContextCompat.getDrawable(context, R.drawable.ic_arrow_right)
+                ivStatus.rotation = 0f // 重置为0度（向右箭头）
                 recyclerFlexbox(flexbox)
                 flexbox.gone()
             }

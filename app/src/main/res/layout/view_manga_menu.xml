@@ -77,7 +77,6 @@
         android:id="@+id/bottom_menu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/background_menu"
         android:importantForAccessibility="no"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent">
@@ -106,7 +105,7 @@
                 android:textSize="14sp"
                 tools:ignore="TouchTargetSizeCheck" />
 
-            <io.legado.app.lib.theme.view.ThemeSeekBar
+            <io.legado.app.lib.theme.view.ThemeSlider
                 android:id="@+id/seek_read_page"
                 android:layout_width="0dp"
                 android:layout_height="25dp"

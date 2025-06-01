@@ -7,12 +7,12 @@ import androidx.core.view.forEach
 import androidx.fragment.app.DialogFragment
 import io.legado.app.lib.theme.Selector
 import io.legado.app.lib.theme.ThemeStore
-import io.legado.app.lib.theme.accentColor
-import io.legado.app.lib.theme.filletBackground
+//import io.legado.app.lib.theme.accentColor
+//import io.legado.app.lib.theme.filletBackground
 import splitties.systemservices.windowManager
 
 fun AlertDialog.applyTint(): AlertDialog {
-    window?.setBackgroundDrawable(context.filletBackground)
+    //window?.setBackgroundDrawable(context.filletBackground)
     val colorStateList = Selector.colorBuild()
         .setDefaultColor(ThemeStore.accentColor(context))
         .setPressedColor(ColorUtils.darkenColor(ThemeStore.accentColor(context)))
@@ -28,7 +28,7 @@ fun AlertDialog.applyTint(): AlertDialog {
     }
     window?.decorView?.post {
         listView?.forEach {
-            it.applyTint(context.accentColor)
+            //it.applyTint(context.accentColor)
         }
     }
     return this

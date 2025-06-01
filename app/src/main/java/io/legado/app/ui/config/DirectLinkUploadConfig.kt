@@ -6,12 +6,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.widget.Toolbar
 import io.legado.app.R
+import io.legado.app.base.BaseBottomSheetDialogFragment
 import io.legado.app.base.BaseDialogFragment
 import io.legado.app.databinding.DialogDirectLinkUploadConfigBinding
 import io.legado.app.help.DirectLinkUpload
 import io.legado.app.lib.dialogs.alert
 import io.legado.app.lib.dialogs.selector
-import io.legado.app.lib.theme.primaryColor
+//import io.legado.app.lib.theme.primaryColor
 import io.legado.app.utils.GSON
 import io.legado.app.utils.applyTint
 import io.legado.app.utils.fromJsonObject
@@ -23,18 +24,18 @@ import io.legado.app.utils.viewbindingdelegate.viewBinding
 import splitties.init.appCtx
 import splitties.views.onClick
 
-class DirectLinkUploadConfig : BaseDialogFragment(R.layout.dialog_direct_link_upload_config),
+class DirectLinkUploadConfig : BaseBottomSheetDialogFragment(R.layout.dialog_direct_link_upload_config),
     Toolbar.OnMenuItemClickListener {
 
     private val binding by viewBinding(DialogDirectLinkUploadConfigBinding::bind)
 
     override fun onStart() {
         super.onStart()
-        setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+        //setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
     }
 
     override fun onFragmentCreated(view: View, savedInstanceState: Bundle?) {
-        binding.toolBar.setBackgroundColor(primaryColor)
+        //binding.toolBar.setBackgroundColor(primaryColor)
         binding.toolBar.inflateMenu(R.menu.direct_link_upload_config)
         binding.toolBar.menu.applyTint(requireContext())
         binding.toolBar.setOnMenuItemClickListener(this)

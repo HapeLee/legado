@@ -83,7 +83,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class BookInfoActivity :
-    VMBaseActivity<ActivityBookInfoBinding, BookInfoViewModel>(toolBarTheme = Theme.Dark),
+    VMBaseActivity<ActivityBookInfoBinding, BookInfoViewModel>(),
     GroupSelectDialog.CallBack,
     ChangeBookSourceDialog.CallBack,
     ChangeCoverDialog.CallBack,
@@ -157,7 +157,9 @@ class BookInfoActivity :
 
     @SuppressLint("PrivateResource")
     override fun onActivityCreated(savedInstanceState: Bundle?) {
-        binding.titleBar.setBackgroundResource(R.color.transparent)
+
+        setSupportActionBar(binding.topBar)
+
 //        binding.refreshLayout?.setColorSchemeColors(accentColor)
 //        binding.llInfo.setBackgroundColor(backgroundColor)
 //        binding.flAction.setBackgroundColor(bottomBackground)

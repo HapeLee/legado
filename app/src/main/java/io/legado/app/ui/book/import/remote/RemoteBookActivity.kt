@@ -16,7 +16,7 @@ import io.legado.app.data.appDb
 import io.legado.app.help.config.AppConfig
 import io.legado.app.help.config.LocalConfig
 import io.legado.app.lib.dialogs.alert
-import io.legado.app.lib.theme.backgroundColor
+//import io.legado.app.lib.theme.backgroundColor
 import io.legado.app.model.remote.RemoteBook
 import io.legado.app.ui.about.AppLogDialog
 import io.legado.app.ui.book.import.BaseImportBookActivity
@@ -80,7 +80,7 @@ class RemoteBookActivity : BaseImportBookActivity<RemoteBookViewModel>(),
     }
 
     private fun initView() {
-        binding.layTop.setBackgroundColor(backgroundColor)
+        //binding.layTop.setBackgroundColor(backgroundColor)
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
         binding.recyclerView.adapter = adapter
         binding.selectActionBar.setMainActionText(R.string.add_to_bookshelf)

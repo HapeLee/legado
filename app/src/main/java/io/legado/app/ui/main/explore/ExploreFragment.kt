@@ -21,8 +21,8 @@ import io.legado.app.data.entities.BookSourcePart
 import io.legado.app.databinding.FragmentExploreBinding
 import io.legado.app.help.config.AppConfig
 import io.legado.app.lib.dialogs.alert
-import io.legado.app.lib.theme.primaryColor
-import io.legado.app.lib.theme.primaryTextColor
+//import io.legado.app.lib.theme.primaryColor
+//import io.legado.app.lib.theme.primaryTextColor
 import io.legado.app.ui.book.explore.ExploreShowActivity
 import io.legado.app.ui.book.search.SearchActivity
 import io.legado.app.ui.book.search.SearchScope
@@ -92,7 +92,7 @@ class ExploreFragment() : VMBaseFragment<ExploreViewModel>(R.layout.fragment_exp
     }
 
     private fun initSearchView() {
-        searchView.applyTint(primaryTextColor)
+        //searchView.applyTint(primaryTextColor)
         searchView.isSubmitButtonEnabled = true
         searchView.queryHint = getString(R.string.screen_find)
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
@@ -108,7 +108,7 @@ class ExploreFragment() : VMBaseFragment<ExploreViewModel>(R.layout.fragment_exp
     }
 
     private fun initRecyclerView() {
-        binding.rvFind.setEdgeEffectColor(primaryColor)
+        //binding.rvFind.setEdgeEffectColor(primaryColor)
         binding.rvFind.layoutManager = linearLayoutManager
         binding.rvFind.adapter = adapter
         adapter.registerAdapterDataObserver(object : RecyclerView.AdapterDataObserver() {

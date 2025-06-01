@@ -22,7 +22,7 @@ import io.legado.app.databinding.DialogRecyclerViewBinding
 import io.legado.app.databinding.ItemSourceImportBinding
 import io.legado.app.help.config.AppConfig
 import io.legado.app.lib.dialogs.alert
-import io.legado.app.lib.theme.primaryColor
+//import io.legado.app.lib.theme.primaryColor
 import io.legado.app.ui.widget.dialog.CodeDialog
 import io.legado.app.ui.widget.dialog.WaitDialog
 import io.legado.app.utils.*
@@ -62,9 +62,9 @@ class ImportBookSourceDialog() : BaseDialogFragment(R.layout.dialog_recycler_vie
 
     @SuppressLint("NotifyDataSetChanged")
     override fun onFragmentCreated(view: View, savedInstanceState: Bundle?) {
-        binding.toolBar.setBackgroundColor(primaryColor)
+        //binding.toolBar.setBackgroundColor(primaryColor)
         binding.toolBar.setTitle(R.string.import_book_source)
-        binding.rotateLoading.visible()
+        //binding.rotateLoading.visible()
         initMenu()
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
         binding.recyclerView.adapter = adapter
@@ -93,14 +93,14 @@ class ImportBookSourceDialog() : BaseDialogFragment(R.layout.dialog_recycler_vie
             upSelectText()
         }
         viewModel.errorLiveData.observe(this) {
-            binding.rotateLoading.gone()
+            //binding.rotateLoading.gone()
             binding.tvMsg.apply {
                 text = it
                 visible()
             }
         }
         viewModel.successLiveData.observe(this) {
-            binding.rotateLoading.gone()
+            //binding.rotateLoading.gone()
             if (it > 0) {
                 adapter.setItems(viewModel.allSources)
                 upSelectText()

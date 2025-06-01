@@ -3,13 +3,14 @@ package io.legado.app.ui.widget.number
 import android.content.Context
 import android.widget.NumberPicker
 import androidx.appcompat.app.AlertDialog
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import io.legado.app.R
 import io.legado.app.utils.applyTint
 import io.legado.app.utils.hideSoftInput
 
 
 class NumberPickerDialog(context: Context) {
-    private val builder = AlertDialog.Builder(context)
+    private val builder = MaterialAlertDialogBuilder(context)
     private var numberPicker: NumberPicker? = null
     private var maxValue: Int? = null
     private var minValue: Int? = null
@@ -59,7 +60,7 @@ class NumberPickerDialog(context: Context) {
             }
         }
         builder.setNegativeButton(R.string.cancel, null)
-        val dialog = builder.show().applyTint()
+        val dialog = builder.show()
         numberPicker = dialog.findViewById(R.id.number_picker)
         numberPicker?.let { np ->
             minValue?.let {

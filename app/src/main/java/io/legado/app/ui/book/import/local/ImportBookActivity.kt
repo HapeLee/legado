@@ -19,7 +19,7 @@ import io.legado.app.help.config.AppConfig
 import io.legado.app.lib.dialogs.alert
 import io.legado.app.lib.permission.Permissions
 import io.legado.app.lib.permission.PermissionsCompat
-import io.legado.app.lib.theme.backgroundColor
+//import io.legado.app.lib.theme.backgroundColor
 import io.legado.app.ui.book.import.BaseImportBookActivity
 import io.legado.app.ui.file.HandleFileContract
 import io.legado.app.ui.widget.SelectActionBar
@@ -128,7 +128,7 @@ class ImportBookActivity : BaseImportBookActivity<ImportBookViewModel>(),
     }
 
     private fun initView() {
-        binding.layTop.setBackgroundColor(backgroundColor)
+        //binding.layTop.setBackgroundColor(backgroundColor)
         binding.tvEmptyMsg.setText(R.string.empty_msg_import_book)
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
         binding.recyclerView.adapter = adapter

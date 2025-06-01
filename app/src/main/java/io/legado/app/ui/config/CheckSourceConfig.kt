@@ -4,10 +4,11 @@ import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
 import io.legado.app.R
+import io.legado.app.base.BaseBottomSheetDialogFragment
 import io.legado.app.base.BaseDialogFragment
 import io.legado.app.constant.PreferKey
 import io.legado.app.databinding.DialogCheckSourceConfigBinding
-import io.legado.app.lib.theme.primaryColor
+//import io.legado.app.lib.theme.primaryColor
 import io.legado.app.model.CheckSource
 import io.legado.app.utils.putPrefString
 import io.legado.app.utils.setLayout
@@ -15,7 +16,7 @@ import io.legado.app.utils.toastOnUi
 import io.legado.app.utils.viewbindingdelegate.viewBinding
 import splitties.views.onClick
 
-class CheckSourceConfig : BaseDialogFragment(R.layout.dialog_check_source_config) {
+class CheckSourceConfig : BaseBottomSheetDialogFragment(R.layout.dialog_check_source_config) {
 
     private val binding by viewBinding(DialogCheckSourceConfigBinding::bind)
 
@@ -24,11 +25,10 @@ class CheckSourceConfig : BaseDialogFragment(R.layout.dialog_check_source_config
 
     override fun onStart() {
         super.onStart()
-        setLayout(0.9f, ViewGroup.LayoutParams.WRAP_CONTENT)
     }
 
     override fun onFragmentCreated(view: View, savedInstanceState: Bundle?) {
-        binding.toolBar.setBackgroundColor(primaryColor)
+        //binding.toolBar.setBackgroundColor(primaryColor)
         binding.run {
             checkSearch.onClick {
                 if (!checkSearch.isChecked && !checkDiscovery.isChecked) {

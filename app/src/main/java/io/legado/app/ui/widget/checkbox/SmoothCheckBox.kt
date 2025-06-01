@@ -46,8 +46,8 @@ class SmoothCheckBox @JvmOverloads constructor(
     init {
         val ta = context.obtainStyledAttributes(attrs, R.styleable.SmoothCheckBox)
         var tickColor = ThemeStore.accentColor(context)
-        mCheckedColor = context.getCompatColor(R.color.background_menu)
-        mUnCheckedColor = context.getCompatColor(R.color.background_menu)
+        //mCheckedColor = context.getCompatColor(R.color.background_menu)
+        //mUnCheckedColor = context.getCompatColor(R.color.background_menu)
         mFloorColor = context.getCompatColor(R.color.transparent30)
         tickColor = ta.getColor(R.styleable.SmoothCheckBox_color_tick, tickColor)
         mAnimDuration = ta.getInt(R.styleable.SmoothCheckBox_duration, DEF_ANIM_DURATION)

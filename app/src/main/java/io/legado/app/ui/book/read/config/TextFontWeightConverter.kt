@@ -8,7 +8,7 @@ import android.util.AttributeSet
 import io.legado.app.R
 import io.legado.app.help.config.ReadBookConfig
 import io.legado.app.lib.dialogs.alert
-import io.legado.app.lib.theme.accentColor
+//import io.legado.app.lib.theme.accentColor
 import io.legado.app.ui.widget.text.StrokeTextView
 
 
@@ -16,7 +16,7 @@ class TextFontWeightConverter(context: Context, attrs: AttributeSet?) :
     StrokeTextView(context, attrs) {
 
     private val spannableString = SpannableString(context.getString(R.string.font_weight_text))
-    private var enabledSpan: ForegroundColorSpan = ForegroundColorSpan(context.accentColor)
+    //private var enabledSpan: ForegroundColorSpan = ForegroundColorSpan(context.accentColor)
     private var onChanged: (() -> Unit)? = null
 
     init {
@@ -31,12 +31,12 @@ class TextFontWeightConverter(context: Context, attrs: AttributeSet?) :
 
     @Suppress("MemberVisibilityCanBePrivate")
     fun upUi(type: Int) {
-        spannableString.removeSpan(enabledSpan)
-        when (type) {
-            0 -> spannableString.setSpan(enabledSpan, 0, 1, Spannable.SPAN_INCLUSIVE_EXCLUSIVE)
-            1 -> spannableString.setSpan(enabledSpan, 2, 3, Spannable.SPAN_INCLUSIVE_EXCLUSIVE)
-            2 -> spannableString.setSpan(enabledSpan, 4, 5, Spannable.SPAN_INCLUSIVE_EXCLUSIVE)
-        }
+//        spannableString.removeSpan(enabledSpan)
+//        when (type) {
+//            0 -> spannableString.setSpan(enabledSpan, 0, 1, Spannable.SPAN_INCLUSIVE_EXCLUSIVE)
+//            1 -> spannableString.setSpan(enabledSpan, 2, 3, Spannable.SPAN_INCLUSIVE_EXCLUSIVE)
+//            2 -> spannableString.setSpan(enabledSpan, 4, 5, Spannable.SPAN_INCLUSIVE_EXCLUSIVE)
+//        }
         text = spannableString
     }
 

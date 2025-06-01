@@ -9,6 +9,7 @@ import android.view.WindowManager
 import androidx.core.view.get
 import com.github.liuyueyi.quick.transfer.constants.TransType
 import io.legado.app.R
+import io.legado.app.base.BaseBottomSheetDialogFragment
 import io.legado.app.base.BaseDialogFragment
 import io.legado.app.base.adapter.ItemViewHolder
 import io.legado.app.base.adapter.RecyclerAdapter
@@ -18,9 +19,9 @@ import io.legado.app.databinding.ItemReadStyleBinding
 import io.legado.app.help.config.AppConfig
 import io.legado.app.help.config.ReadBookConfig
 import io.legado.app.lib.dialogs.selector
-import io.legado.app.lib.theme.accentColor
-import io.legado.app.lib.theme.bottomBackground
-import io.legado.app.lib.theme.getPrimaryTextColor
+//import io.legado.app.lib.theme.accentColor
+//import io.legado.app.lib.theme.bottomBackground
+//import io.legado.app.lib.theme.getPrimaryTextColor
 import io.legado.app.model.ReadBook
 import io.legado.app.ui.book.read.ReadBookActivity
 import io.legado.app.ui.font.FontSelectDialog
@@ -33,7 +34,7 @@ import io.legado.app.utils.showDialogFragment
 import io.legado.app.utils.viewbindingdelegate.viewBinding
 import splitties.views.onLongClick
 
-class ReadStyleDialog : BaseDialogFragment(R.layout.dialog_read_book_style),
+class ReadStyleDialog : BaseBottomSheetDialogFragment(R.layout.dialog_read_book_style),
     FontSelectDialog.CallBack {
 
     private val binding by viewBinding(DialogReadBookStyleBinding::bind)
@@ -42,16 +43,16 @@ class ReadStyleDialog : BaseDialogFragment(R.layout.dialog_read_book_style),
 
     override fun onStart() {
         super.onStart()
-        dialog?.window?.run {
-            clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND)
-            setBackgroundDrawableResource(R.color.background)
-            decorView.setPadding(0, 0, 0, 0)
-            val attr = attributes
-            attr.dimAmount = 0.0f
-            attr.gravity = Gravity.BOTTOM
-            attributes = attr
-            setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
-        }
+//        dialog?.window?.run {
+//            clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND)
+//            setBackgroundDrawableResource(R.color.background)
+//            decorView.setPadding(0, 0, 0, 0)
+//            val attr = attributes
+//            attr.dimAmount = 0.0f
+//            attr.gravity = Gravity.BOTTOM
+//            attributes = attr
+//            setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+//        }
     }
 
     override fun onFragmentCreated(view: View, savedInstanceState: Bundle?) {
@@ -68,13 +69,13 @@ class ReadStyleDialog : BaseDialogFragment(R.layout.dialog_read_book_style),
     }
 
     private fun initView() = binding.run {
-        val bg = requireContext().bottomBackground
-        val isLight = ColorUtils.isColorLight(bg)
-        val textColor = requireContext().getPrimaryTextColor(isLight)
-        rootView.setBackgroundColor(bg)
-        tvPageAnim.setTextColor(textColor)
-        tvBgTs.setTextColor(textColor)
-        tvShareLayout.setTextColor(textColor)
+        //val bg = requireContext().bottomBackground
+        //val isLight = ColorUtils.isColorLight(bg)
+        //val textColor = requireContext().getPrimaryTextColor(isLight)
+//        rootView.setBackgroundColor(bg)
+//        tvPageAnim.setTextColor(textColor)
+//        tvBgTs.setTextColor(textColor)
+//        tvShareLayout.setTextColor(textColor)
         dsbTextSize.valueFormat = {
             (it + 5).toString()
         }
@@ -87,10 +88,10 @@ class ReadStyleDialog : BaseDialogFragment(R.layout.dialog_read_book_style),
         rvStyle.adapter = styleAdapter
         styleAdapter.addFooterView {
             ItemReadStyleBinding.inflate(layoutInflater, it, false).apply {
-                ivStyle.setPadding(6.dpToPx(), 6.dpToPx(), 6.dpToPx(), 6.dpToPx())
-                ivStyle.setText(null)
-                ivStyle.setColorFilter(textColor)
-                ivStyle.borderColor = textColor
+//                ivStyle.setPadding(6.dpToPx(), 6.dpToPx(), 6.dpToPx(), 6.dpToPx())
+//                ivStyle.setText(null)
+//                ivStyle.setColorFilter(textColor)
+//                ivStyle.borderColor = textColor
                 ivStyle.setImageResource(R.drawable.ic_add)
                 root.setOnClickListener {
                     ReadBookConfig.configList.add(ReadBookConfig.Config())
@@ -133,13 +134,28 @@ class ReadStyleDialog : BaseDialogFragment(R.layout.dialog_read_book_style),
         tvTip.setOnClickListener {
             TipConfigDialog().show(childFragmentManager, "tipConfigDialog")
         }
-        rgPageAnim.setOnCheckedChangeListener { _, checkedId ->
+//        rgPageAnim.setOnCheckedChangeListener { _, checkedId ->
+//            ReadBook.book?.setPageAnim(-1)
+//            ReadBookConfig.pageAnim = binding.rgPageAnim.getIndexById(checkedId)
+//            callBack?.upPageAnim()
+//            ReadBook.loadContent(false)
+//        }
+        binding.rgPageAnim.setOnCheckedStateChangeListener { group, checkedIds ->
+            val checkedId = checkedIds.firstOrNull() ?: return@setOnCheckedStateChangeListener
             ReadBook.book?.setPageAnim(-1)
-            ReadBookConfig.pageAnim = binding.rgPageAnim.getIndexById(checkedId)
+            ReadBookConfig.pageAnim = when (checkedId) {
+                R.id.rb_anim0 -> 0  // 覆盖动画
+                R.id.rb_anim1 -> 1  // 滑动动画
+                R.id.rb_simulation_anim -> 2  // 仿真翻页
+                R.id.rb_scroll_anim -> 3  // 滚动动画
+                R.id.rb_no_anim -> 4  // 无动画
+                else -> 0
+            }
             callBack?.upPageAnim()
             ReadBook.loadContent(false)
         }
-        cbShareLayout.onCheckedChangeListener = { _, isChecked ->
+
+        cbShareLayout.setOnCheckedChangeListener { _, isChecked ->
             ReadBookConfig.shareLayout = isChecked
             upView()
             postEvent(EventBus.UP_CONFIG, arrayListOf(1, 2, 5))
@@ -224,9 +240,9 @@ class ReadStyleDialog : BaseDialogFragment(R.layout.dialog_read_book_style),
             binding.apply {
                 ivStyle.setText(item.name.ifBlank { "文字" })
                 ivStyle.setTextColor(item.curTextColor())
-                ivStyle.setImageDrawable(item.curBgDrawable(100, 150))
+                //ivStyle.setImageDrawable(item.curBgDrawable(100, 150))
                 if (ReadBookConfig.styleSelect == holder.layoutPosition) {
-                    ivStyle.borderColor = accentColor
+                    //ivStyle.borderColor = accentColor
                     ivStyle.setTextBold(true)
                 } else {
                     ivStyle.borderColor = item.curTextColor()

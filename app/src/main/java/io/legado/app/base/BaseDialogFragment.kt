@@ -13,6 +13,7 @@ import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.lifecycleScope
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import io.legado.app.R
 import io.legado.app.constant.AppLog
 import io.legado.app.help.config.AppConfig
@@ -38,40 +39,36 @@ abstract class BaseDialogFragment(
 
     override fun onStart() {
         super.onStart()
-        if (adaptationSoftKeyboard) {
-            dialog?.window?.setBackgroundDrawableResource(R.color.transparent)
-        } else if (AppConfig.isEInkMode) {
-            dialog?.window?.let {
-                it.clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND)
-                val attr = it.attributes
-                attr.dimAmount = 0.0f
-                attr.windowAnimations = 0
-                it.attributes = attr
-                it.decorView.setBackgroundKeepPadding(R.color.transparent)
-            }
-            // 修改gravity的时机一般在子类的onStart方法中, 因此需要在onStart之后执行.
-            lifecycle.addObserver(LifecycleEventObserver { _, event ->
-                if (event == Lifecycle.Event.ON_START) {
-                    when (dialog?.window?.attributes?.gravity) {
-                        Gravity.TOP -> view?.setBackgroundResource(R.drawable.bg_eink_border_bottom)
-                        Gravity.BOTTOM -> view?.setBackgroundResource(R.drawable.bg_eink_border_top)
-                        else -> {
-                            val padding = 2.dpToPx();
-                            view?.setPadding(padding, padding, padding, padding)
-                            view?.setBackgroundResource(R.drawable.bg_eink_border_dialog)
-                        }
-                    }
-                }
-            })
-        }
+//        if (adaptationSoftKeyboard) {
+//            dialog?.window?.setBackgroundDrawableResource(R.color.transparent)
+//        } else if (AppConfig.isEInkMode) {
+//            dialog?.window?.let {
+//                it.clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND)
+//                val attr = it.attributes
+//                attr.dimAmount = 0.0f
+//                attr.windowAnimations = 0
+//                it.attributes = attr
+//                it.decorView.setBackgroundKeepPadding(R.color.transparent)
+//            }
+//            // 修改gravity的时机一般在子类的onStart方法中, 因此需要在onStart之后执行.
+//            lifecycle.addObserver(LifecycleEventObserver { _, event ->
+//                if (event == Lifecycle.Event.ON_START) {
+//                    when (dialog?.window?.attributes?.gravity) {
+//                        Gravity.TOP -> view?.setBackgroundResource(R.drawable.bg_eink_border_bottom)
+//                        Gravity.BOTTOM -> view?.setBackgroundResource(R.drawable.bg_eink_border_top)
+//                        else -> {
+//                            val padding = 2.dpToPx();
+//                            view?.setPadding(padding, padding, padding, padding)
+//                            view?.setBackgroundResource(R.drawable.bg_eink_border_dialog)
+//                        }
+//                    }
+//                }
+//            })
+//        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
-            //不加这个android 5.0对话框顶部会有空白
-            setStyle(STYLE_NO_TITLE, 0)
-        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

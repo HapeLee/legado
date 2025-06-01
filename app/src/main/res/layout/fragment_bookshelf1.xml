@@ -1,21 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:fitsSystemWindows="true">
 
-    <io.legado.app.ui.widget.TitleBar
+    <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/title_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:attachToActivity="false"
-        app:contentLayout="@layout/view_tab_layout_min"
-        app:title="@string/bookshelf" />
+        android:fitsSystemWindows="true"
+        app:title="@string/bookshelf">
 
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:expandedTitleMarginStart="24dp"
+            app:title="@string/bookshelf"
+            app:titleEnabled="true"
+            app:collapsedTitleTextAppearance="@style/TextAppearance.Material3.TitleLarge"
+            app:expandedTitleTextAppearance="@style/TextAppearance.Material3.HeadlineMedium">
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/top_bar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_collapseMode="pin" />
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tab_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="16dp"
+            android:background="?attr/colorSurface"
+            tools:ignore="RtlSymmetry" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!-- ViewPager -->
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/view_pager_bookshelf"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
-</LinearLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

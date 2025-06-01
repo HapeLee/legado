@@ -14,7 +14,7 @@ import androidx.appcompat.view.menu.SubMenuBuilder
 import androidx.core.view.forEach
 import io.legado.app.R
 import io.legado.app.constant.Theme
-import io.legado.app.lib.theme.primaryTextColor
+//import io.legado.app.lib.theme.primaryTextColor
 import java.lang.reflect.Method
 
 @SuppressLint("RestrictedApi")
@@ -22,16 +22,16 @@ fun Menu.applyTint(context: Context, theme: Theme = Theme.Auto): Menu = this.let
     if (menu is MenuBuilder) {
         menu.setOptionalIconsVisible(true)
     }
-    val defaultTextColor = context.getCompatColor(R.color.primaryText)
-    val tintColor = MenuExtensions.getMenuColor(context, theme)
-    menu.forEach { item ->
-        (item as MenuItemImpl).let { impl ->
-            //overflow：展开的item
-            impl.icon?.setTintMutate(
-                if (impl.requiresOverflow()) defaultTextColor else tintColor
-            )
-        }
-    }
+//    val defaultTextColor = context.getCompatColor(R.color.primaryText)
+//    val tintColor = MenuExtensions.getMenuColor(context, theme)
+//    menu.forEach { item ->
+//        (item as MenuItemImpl).let { impl ->
+//            //overflow：展开的item
+//            impl.icon?.setTintMutate(
+//                if (impl.requiresOverflow()) defaultTextColor else tintColor
+//            )
+//        }
+//    }
     return menu
 }
 
@@ -39,7 +39,7 @@ fun Menu.applyTint(context: Context, theme: Theme = Theme.Auto): Menu = this.let
 fun Menu.applyOpenTint(context: Context) {
     //展开菜单显示图标
     if (this.javaClass.simpleName.equals("MenuBuilder", ignoreCase = true)) {
-        val defaultTextColor = context.getCompatColor(R.color.primaryText)
+//        val defaultTextColor = context.getCompatColor(R.color.primaryText)
         kotlin.runCatching {
             var method: Method =
                 this.javaClass.getDeclaredMethod("setOptionalIconsVisible", java.lang.Boolean.TYPE)
@@ -49,17 +49,17 @@ fun Menu.applyOpenTint(context: Context) {
             val menuItems = method.invoke(this)
             if (menuItems is ArrayList<*>) {
                 for (menuItem in menuItems) {
-                    if (menuItem is MenuItem) {
-                        menuItem.icon?.setTintMutate(defaultTextColor)
-                    }
+//                    if (menuItem is MenuItem) {
+//                        menuItem.icon?.setTintMutate(defaultTextColor)
+//                    }
                 }
             }
         }
     } else if (this.javaClass.simpleName.equals("SubMenuBuilder", ignoreCase = true)) {
-        val defaultTextColor = context.getCompatColor(R.color.primaryText)
-        (this as? SubMenuBuilder)?.forEach { item: MenuItem ->
-            item.icon?.setTintMutate(defaultTextColor)
-        }
+//        val defaultTextColor = context.getCompatColor(R.color.primaryText)
+//        (this as? SubMenuBuilder)?.forEach { item: MenuItem ->
+//            item.icon?.setTintMutate(defaultTextColor)
+//        }
     }
 }
 
@@ -93,20 +93,20 @@ inline fun Menu.transaction(block: (Menu) -> Unit) {
 
 object MenuExtensions {
 
-    fun getMenuColor(
-        context: Context,
-        theme: Theme = Theme.Auto,
-        requiresOverflow: Boolean = false
-    ): Int {
-        val defaultTextColor = context.getCompatColor(R.color.primaryText)
-        if (requiresOverflow)
-            return defaultTextColor
-        val primaryTextColor = context.primaryTextColor
-        return when (theme) {
-            Theme.Dark -> context.getCompatColor(R.color.md_white_1000)
-            Theme.Light -> context.getCompatColor(R.color.md_black_1000)
-            else -> primaryTextColor
-        }
-    }
+//    fun getMenuColor(
+//        context: Context,
+//        theme: Theme = Theme.Auto,
+//        requiresOverflow: Boolean = false
+//    ): Int {
+//        val defaultTextColor = context.getCompatColor(R.color.primaryText)
+//        if (requiresOverflow)
+//            return defaultTextColor
+//        //val primaryTextColor = context.primaryTextColor
+//        return when (theme) {
+//            Theme.Dark -> context.getCompatColor(R.color.md_white_1000)
+//            Theme.Light -> context.getCompatColor(R.color.md_black_1000)
+//            else -> context.getCompatColor(R.color.md_black_1000)
+//        }
+//    }
 
 }

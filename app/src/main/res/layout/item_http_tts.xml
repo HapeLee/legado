@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:gravity="center"
+    android:background="?attr/selectableItemBackground"
     android:padding="8dp">
 
     <io.legado.app.lib.theme.view.ThemeRadioButton
@@ -25,7 +26,6 @@
         android:contentDescription="@string/edit"
         android:padding="6dp"
         android:src="@drawable/ic_edit"
-        android:tint="@color/primaryText"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toLeftOf="@+id/iv_menu_delete"
         app:layout_constraintTop_toTopOf="parent" />
@@ -37,7 +37,6 @@
         android:background="?attr/selectableItemBackgroundBorderless"
         android:padding="6dp"
         android:src="@drawable/ic_clear_all"
-        android:tint="@color/primaryText"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"

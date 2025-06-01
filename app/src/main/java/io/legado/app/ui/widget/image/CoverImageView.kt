@@ -22,7 +22,7 @@ import io.legado.app.constant.AppPattern
 import io.legado.app.help.config.AppConfig
 import io.legado.app.help.glide.ImageLoader
 import io.legado.app.help.glide.OkHttpModelLoader
-import io.legado.app.lib.theme.accentColor
+//import io.legado.app.lib.theme.accentColor
 import io.legado.app.model.BookCover
 import io.legado.app.utils.textHeight
 import io.legado.app.utils.toStringArray
@@ -88,15 +88,15 @@ class CoverImageView @JvmOverloads constructor(
         filletPath.reset()
         if (width > 10 && viewHeight > 10) {
             filletPath.apply {
-                moveTo(10f, 0f)
-                lineTo(viewWidth - 10, 0f)
-                quadTo(viewWidth, 0f, viewWidth, 10f)
-                lineTo(viewWidth, viewHeight - 10)
-                quadTo(viewWidth, viewHeight, viewWidth - 10, viewHeight)
-                lineTo(10f, viewHeight)
-                quadTo(0f, viewHeight, 0f, viewHeight - 10)
-                lineTo(0f, 10f)
-                quadTo(0f, 0f, 10f, 0f)
+                moveTo(12f, 0f)
+                lineTo(viewWidth - 12, 0f)
+                quadTo(viewWidth, 0f, viewWidth, 12f)
+                lineTo(viewWidth, viewHeight - 12)
+                quadTo(viewWidth, viewHeight, viewWidth - 12, viewHeight)
+                lineTo(12f, viewHeight)
+                quadTo(0f, viewHeight, 0f, viewHeight - 12)
+                lineTo(0f, 12f)
+                quadTo(0f, 0f, 12f, 0f)
                 close()
             }
         }
@@ -123,7 +123,7 @@ class CoverImageView @JvmOverloads constructor(
                 namePaint.color = Color.WHITE
                 namePaint.style = Paint.Style.STROKE
                 canvas.drawText(char, startX, startY, namePaint)
-                namePaint.color = context.accentColor
+                //namePaint.color = context.accentColor
                 namePaint.style = Paint.Style.FILL
                 canvas.drawText(char, startX, startY, namePaint)
                 startY += namePaint.textHeight
@@ -145,7 +145,7 @@ class CoverImageView @JvmOverloads constructor(
                 authorPaint.color = Color.WHITE
                 authorPaint.style = Paint.Style.STROKE
                 canvas.drawText(it, startX, startY, authorPaint)
-                authorPaint.color = context.accentColor
+                //authorPaint.color = context.accentColor
                 authorPaint.style = Paint.Style.FILL
                 canvas.drawText(it, startX, startY, authorPaint)
                 startY += authorPaint.textHeight

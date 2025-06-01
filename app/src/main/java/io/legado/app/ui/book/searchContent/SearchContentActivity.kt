@@ -22,9 +22,9 @@ import io.legado.app.databinding.ActivitySearchContentBinding
 import io.legado.app.help.IntentData
 import io.legado.app.help.book.BookHelp
 import io.legado.app.help.book.isLocal
-import io.legado.app.lib.theme.bottomBackground
-import io.legado.app.lib.theme.getPrimaryTextColor
-import io.legado.app.lib.theme.primaryTextColor
+//import io.legado.app.lib.theme.bottomBackground
+//import io.legado.app.lib.theme.getPrimaryTextColor
+//import io.legado.app.lib.theme.primaryTextColor
 import io.legado.app.ui.widget.recycler.UpLinearLayoutManager
 import io.legado.app.ui.widget.recycler.VerticalDivider
 import io.legado.app.utils.ColorUtils
@@ -61,13 +61,13 @@ class SearchContentActivity :
     private var initJob: Job? = null
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
-        val bbg = bottomBackground
-        val btc = getPrimaryTextColor(ColorUtils.isColorLight(bbg))
-        binding.llSearchBaseInfo.setBackgroundColor(bbg)
+//        val bbg = bottomBackground
+//        val btc = getPrimaryTextColor(ColorUtils.isColorLight(bbg))
+//        binding.llSearchBaseInfo.setBackgroundColor(bbg)
         binding.llSearchBaseInfo.applyNavigationBarMargin()
-        binding.tvCurrentSearchInfo.setTextColor(btc)
-        binding.ivSearchContentTop.setColorFilter(btc)
-        binding.ivSearchContentBottom.setColorFilter(btc)
+//        binding.tvCurrentSearchInfo.setTextColor(btc)
+//        binding.ivSearchContentTop.setColorFilter(btc)
+//        binding.ivSearchContentBottom.setColorFilter(btc)
         val searchResultList = IntentData.get<List<SearchResult>>("searchResultList")
         val position = intent.getIntExtra("searchResultIndex", 0)
         val noSearchResult = searchResultList == null
@@ -124,7 +124,7 @@ class SearchContentActivity :
     }
 
     private fun initSearchView(requestFocus: Boolean) {
-        searchView.applyTint(primaryTextColor)
+        //searchView.applyTint(primaryTextColor)
         searchView.isSubmitButtonEnabled = true
         searchView.queryHint = getString(R.string.search)
         if (requestFocus) searchView.isIconified = false

@@ -9,8 +9,8 @@ import io.legado.app.constant.PreferKey
 import io.legado.app.constant.Theme
 import io.legado.app.databinding.ActivityWelcomeBinding
 import io.legado.app.help.config.ThemeConfig
-import io.legado.app.lib.theme.accentColor
-import io.legado.app.lib.theme.backgroundColor
+//import io.legado.app.lib.theme.accentColor
+//import io.legado.app.lib.theme.backgroundColor
 import io.legado.app.ui.book.read.ReadBookActivity
 import io.legado.app.ui.main.MainActivity
 import io.legado.app.utils.*
@@ -21,8 +21,8 @@ open class WelcomeActivity : BaseActivity<ActivityWelcomeBinding>() {
     override val binding by viewBinding(ActivityWelcomeBinding::inflate)
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
-        binding.ivBook.setColorFilter(accentColor)
-        binding.vwTitleLine.setBackgroundColor(accentColor)
+//        binding.ivBook.setColorFilter(accentColor)
+//        binding.vwTitleLine.setBackgroundColor(accentColor)
         // 避免从桌面启动程序后，会重新实例化入口类的activity
         if (intent.flags and Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT != 0) {
             finish()
@@ -33,7 +33,7 @@ open class WelcomeActivity : BaseActivity<ActivityWelcomeBinding>() {
 
     override fun setupSystemBar() {
         fullScreen()
-        setStatusBarColorAuto(backgroundColor, true, fullScreen)
+        //setStatusBarColorAuto(backgroundColor, true, fullScreen)
         upNavigationBarColor()
     }
 

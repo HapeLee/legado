@@ -1,10 +1,13 @@
 package io.legado.app.help.config
 
+import android.annotation.SuppressLint
 import android.graphics.Color
 import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
 import androidx.annotation.Keep
+import androidx.core.content.ContextCompat
+import com.google.android.material.color.MaterialColors
 import io.legado.app.R
 import io.legado.app.constant.AppLog
 import io.legado.app.constant.PageAnim
@@ -673,8 +676,10 @@ object ReadBookConfig {
 
         fun curBgDrawable(width: Int, height: Int): Drawable {
             if (width == 0 || height == 0) {
-                return ColorDrawable(appCtx.getCompatColor(R.color.background))
+                val backgroundColor = MaterialColors.getColor(appCtx, com.google.android.material.R.attr.colorSurface, Color.WHITE)
+                return ColorDrawable(backgroundColor)
             }
+
             var bgDrawable: Drawable? = null
             val resources = appCtx.resources
             try {
@@ -685,7 +690,6 @@ object ReadBookConfig {
                         val bitmap = BitmapUtils.decodeAssetsBitmap(appCtx, path, width, height)
                         BitmapDrawable(resources, bitmap?.resizeAndRecycle(width, height))
                     }
-
                     else -> {
                         val path = curBgStr().let {
                             if (it.contains(File.separator)) it
@@ -700,7 +704,10 @@ object ReadBookConfig {
             } catch (e: Exception) {
                 e.printOnDebug()
             }
-            return bgDrawable ?: ColorDrawable(appCtx.getCompatColor(R.color.background))
+
+            // fallback 使用 MD3 的 colorSurface 作为背景色
+            val fallbackColor = MaterialColors.getColor(appCtx, com.google.android.material.R.attr.colorSurface, Color.WHITE)
+            return bgDrawable ?: ColorDrawable(fallbackColor)
         }
     }
 }

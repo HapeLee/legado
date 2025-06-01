@@ -6,7 +6,7 @@ import android.widget.TextView
 import androidx.preference.EditTextPreference.OnBindEditTextListener
 import androidx.preference.PreferenceViewHolder
 import io.legado.app.R
-import io.legado.app.lib.theme.accentColor
+//import io.legado.app.lib.theme.accentColor
 import io.legado.app.utils.applyTint
 
 class EditTextPreference(context: Context, attrs: AttributeSet) :
@@ -14,7 +14,7 @@ class EditTextPreference(context: Context, attrs: AttributeSet) :
 
     private var mOnBindEditTextListener: OnBindEditTextListener? = null
     private val onBindEditTextListener = OnBindEditTextListener { editText ->
-        editText.applyTint(context.accentColor)
+        //editText.applyTint(context.accentColor)
         mOnBindEditTextListener?.onBindEditText(editText)
     }
 

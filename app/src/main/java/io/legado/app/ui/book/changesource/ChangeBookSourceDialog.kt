@@ -27,9 +27,8 @@ import io.legado.app.data.entities.SearchBook
 import io.legado.app.databinding.DialogBookChangeSourceBinding
 import io.legado.app.help.config.AppConfig
 import io.legado.app.lib.dialogs.alert
-import io.legado.app.lib.theme.elevation
-import io.legado.app.lib.theme.getPrimaryTextColor
-import io.legado.app.lib.theme.primaryColor
+//import io.legado.app.lib.theme.getPrimaryTextColor
+//import io.legado.app.lib.theme.primaryColor
 import io.legado.app.ui.book.read.ReadBookActivity
 import io.legado.app.ui.book.source.edit.BookSourceEditActivity
 import io.legado.app.ui.book.source.manage.BookSourceActivity
@@ -101,7 +100,7 @@ class ChangeBookSourceDialog() : BaseDialogFragment(R.layout.dialog_book_change_
     }
 
     override fun onFragmentCreated(view: View, savedInstanceState: Bundle?) {
-        binding.toolBar.setBackgroundColor(primaryColor)
+        //binding.toolBar.setBackgroundColor(primaryColor)
         viewModel.initData(arguments, callBack?.oldBook, activity is ReadBookActivity)
         showTitle()
         initMenu()
@@ -123,7 +122,7 @@ class ChangeBookSourceDialog() : BaseDialogFragment(R.layout.dialog_book_change_
         binding.toolBar.subtitle = viewModel.author
         binding.toolBar.navigationIcon =
             getCompatDrawable(androidx.appcompat.R.drawable.abc_ic_ab_back_material)
-        binding.toolBar.elevation = requireContext().elevation
+        //binding.toolBar.elevation = requireContext().elevation
     }
 
     private fun initMenu() {
@@ -195,9 +194,9 @@ class ChangeBookSourceDialog() : BaseDialogFragment(R.layout.dialog_book_change_
             val mNavButtonViewField = Toolbar::class.java.getDeclaredField("mNavButtonView")
             mNavButtonViewField.isAccessible = true
             val navigationView = mNavButtonViewField.get(binding.toolBar) as ImageButton
-            val isLight = ColorUtils.isColorLight(primaryColor)
-            val textColor = requireContext().getPrimaryTextColor(isLight)
-            navigationView.setColorFilter(textColor)
+//            val isLight = ColorUtils.isColorLight(primaryColor)
+//            val textColor = requireContext().getPrimaryTextColor(isLight)
+            //navigationView.setColorFilter(textColor)
         }
     }
 

@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background"
     android:orientation="vertical"
     tools:context=".ui.book.audio.AudioPlayActivity">
 
@@ -62,7 +61,7 @@
         android:layout_height="260dp"
         android:contentDescription="@string/img_cover"
         android:scaleType="centerCrop"
-        app:civ_border_color="@color/accent"
+        app:civ_border_color="@color/md_theme_primary"
         app:civ_border_width="2dp"
         app:layout_constraintBottom_toTopOf="@+id/ll_player_progress"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -99,7 +98,7 @@
             android:textColor="@color/md_white_1000"
             tools:ignore="HardcodedText,RtlSymmetry,TextContrastCheck" />
 
-        <io.legado.app.lib.theme.view.ThemeSeekBar
+        <io.legado.app.lib.theme.view.ThemeSlider
             android:id="@+id/player_progress"
             android:layout_width="0dp"
             android:layout_height="25dp"

@@ -10,7 +10,7 @@ import android.graphics.RectF
 import android.util.AttributeSet
 import android.view.View
 import io.legado.app.R
-import io.legado.app.lib.theme.accentColor
+//import io.legado.app.lib.theme.accentColor
 import io.legado.app.utils.dpToPx
 
 /**
@@ -59,7 +59,7 @@ class RotateLoading @JvmOverloads constructor(
     private val hidden = Runnable { this.stopInternal() }
 
     init {
-        loadingColor = context.accentColor
+        //loadingColor = context.accentColor
         thisWidth = DEFAULT_WIDTH.dpToPx()
         shadowPosition = DEFAULT_SHADOW_POSITION.dpToPx()
         speedOfDegree = DEFAULT_SPEED_OF_DEGREE

@@ -8,14 +8,17 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
 import android.widget.SeekBar
+import androidx.core.content.ContextCompat
+import com.google.android.material.slider.Slider
 import io.legado.app.R
+import io.legado.app.base.BaseBottomSheetDialogFragment
 import io.legado.app.base.BaseDialogFragment
 import io.legado.app.constant.EventBus
 import io.legado.app.databinding.DialogReadAloudBinding
 import io.legado.app.help.config.AppConfig
 import io.legado.app.lib.dialogs.selector
-import io.legado.app.lib.theme.bottomBackground
-import io.legado.app.lib.theme.getPrimaryTextColor
+//import io.legado.app.lib.theme.bottomBackground
+//import io.legado.app.lib.theme.getPrimaryTextColor
 import io.legado.app.model.ReadAloud
 import io.legado.app.model.ReadBook
 import io.legado.app.service.BaseReadAloudService
@@ -25,22 +28,22 @@ import io.legado.app.utils.*
 import io.legado.app.utils.viewbindingdelegate.viewBinding
 
 
-class ReadAloudDialog : BaseDialogFragment(R.layout.dialog_read_aloud) {
+class ReadAloudDialog : BaseBottomSheetDialogFragment(R.layout.dialog_read_aloud) {
     private val callBack: CallBack? get() = activity as? CallBack
     private val binding by viewBinding(DialogReadAloudBinding::bind)
 
     override fun onStart() {
         super.onStart()
-        dialog?.window?.run {
-            clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND)
-            setBackgroundDrawableResource(R.color.background)
-            decorView.setPadding(0, 0, 0, 0)
-            val attr = attributes
-            attr.dimAmount = 0.0f
-            attr.gravity = Gravity.BOTTOM
-            attributes = attr
-            setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
-        }
+//        dialog?.window?.run {
+//            clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND)
+//            setBackgroundDrawableResource(R.color.background)
+//            decorView.setPadding(0, 0, 0, 0)
+//            val attr = attributes
+//            attr.dimAmount = 0.0f
+//            attr.gravity = Gravity.BOTTOM
+//            attributes = attr
+//            setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+//        }
     }
 
     override fun onDismiss(dialog: DialogInterface) {
@@ -54,32 +57,32 @@ class ReadAloudDialog : BaseDialogFragment(R.layout.dialog_read_aloud) {
             dismiss()
             return
         }
-        val bg = requireContext().bottomBackground
-        val isLight = ColorUtils.isColorLight(bg)
-        val textColor = requireContext().getPrimaryTextColor(isLight)
+        //val bg = requireContext().bottomBackground
+        //val isLight = ColorUtils.isColorLight(bg)
+        //val textColor = requireContext().getPrimaryTextColor(isLight)
         binding.run {
-            rootView.setBackgroundColor(bg)
-            tvPre.setTextColor(textColor)
-            tvNext.setTextColor(textColor)
-            ivPlayPrev.setColorFilter(textColor)
-            ivPlayPause.setColorFilter(textColor)
-            ivPlayNext.setColorFilter(textColor)
-            ivStop.setColorFilter(textColor)
-            ivTimer.setColorFilter(textColor)
-            tvTimer.setTextColor(textColor)
-            ivTtsSpeechReduce.setColorFilter(textColor)
-            tvTtsSpeed.setTextColor(textColor)
-            tvTtsSpeedValue.setTextColor(textColor)
-            ivTtsSpeechAdd.setColorFilter(textColor)
-            ivCatalog.setColorFilter(textColor)
-            tvCatalog.setTextColor(textColor)
-            ivMainMenu.setColorFilter(textColor)
-            tvMainMenu.setTextColor(textColor)
-            ivToBackstage.setColorFilter(textColor)
-            tvToBackstage.setTextColor(textColor)
-            ivSetting.setColorFilter(textColor)
-            tvSetting.setTextColor(textColor)
-            cbTtsFollowSys.setTextColor(textColor)
+//            rootView.setBackgroundColor(bg)
+//            tvPre.setTextColor(textColor)
+//            tvNext.setTextColor(textColor)
+//            ivPlayPrev.setColorFilter(textColor)
+//            ivPlayPause.setColorFilter(textColor)
+//            ivPlayNext.setColorFilter(textColor)
+//            ivStop.setColorFilter(textColor)
+//            ivTimer.setColorFilter(textColor)
+//            tvTimer.setTextColor(textColor)
+//            ivTtsSpeechReduce.setColorFilter(textColor)
+//            tvTtsSpeed.setTextColor(textColor)
+//            tvTtsSpeedValue.setTextColor(textColor)
+//            ivTtsSpeechAdd.setColorFilter(textColor)
+//            ivCatalog.setColorFilter(textColor)
+//            tvCatalog.setTextColor(textColor)
+//            ivMainMenu.setColorFilter(textColor)
+//            tvMainMenu.setTextColor(textColor)
+//            ivToBackstage.setColorFilter(textColor)
+//            tvToBackstage.setTextColor(textColor)
+//            ivSetting.setColorFilter(textColor)
+//            tvSetting.setTextColor(textColor)
+//            cbTtsFollowSys.setTextColor(textColor)
         }
         initData()
         initEvent()
@@ -117,50 +120,71 @@ class ReadAloudDialog : BaseDialogFragment(R.layout.dialog_read_aloud) {
             upTtsSpeechRateEnabled(!isChecked)
             upTtsSpeechRate()
         }
-        ivTtsSpeechReduce.setOnClickListener {
-            seekTtsSpeechRate.progress = AppConfig.ttsSpeechRate - 1
-            AppConfig.ttsSpeechRate -= 1
-            upTtsSpeechRate()
-        }
-        ivTtsSpeechAdd.setOnClickListener {
-            seekTtsSpeechRate.progress = AppConfig.ttsSpeechRate + 1
-            AppConfig.ttsSpeechRate += 1
-            upTtsSpeechRate()
-        }
+
         ivTimer.setOnClickListener {
-            AppConfig.ttsTimer = seekTimer.progress
+            AppConfig.ttsTimer = seekTimer.value.toInt()
             toastOnUi("保存设定时间成功！")
         }
-        tvTimer.setOnClickListener {
+
+        // 设置初始值
+        seekTtsSpeechRate.value = AppConfig.ttsSpeechRate.toFloat()
+        seekTimer.value = if (BaseReadAloudService.timeMinute > 0)
+            BaseReadAloudService.timeMinute.toFloat()
+        else AppConfig.ttsTimer.toFloat()
+
+        // 减速按钮逻辑
+        ivTtsSpeechReduce.setOnClickListener {
+            val newValue = (seekTtsSpeechRate.value - 1).coerceAtLeast(seekTtsSpeechRate.valueFrom)
+            seekTtsSpeechRate.value = newValue
+            AppConfig.ttsSpeechRate = newValue.toInt()
+            upTtsSpeechRate()
+        }
+
+        // 加速按钮逻辑
+        ivTtsSpeechAdd.setOnClickListener {
+            val newValue = (seekTtsSpeechRate.value + 1).coerceAtMost(seekTtsSpeechRate.valueTo)
+            seekTtsSpeechRate.value = newValue
+            AppConfig.ttsSpeechRate = newValue.toInt()
+            upTtsSpeechRate()
+        }
+
+        btnTimer.setOnClickListener {
             val times = intArrayOf(0, 5, 10, 15, 30, 60, 90, 180)
             val timeKeys = times.map { "$it 分钟" }
             context?.selector("设定时间", timeKeys) { _, index ->
                 ReadAloud.setTimer(requireContext(), times[index])
+                upTimerText(times[index])
             }
         }
+
         //设置保存的默认值
-        seekTtsSpeechRate.progress = AppConfig.ttsSpeechRate
-        seekTtsSpeechRate.setOnSeekBarChangeListener(object : SeekBarChangeListener {
-
-            override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
-                super.onProgressChanged(seekBar, progress, fromUser)
-                upTtsSpeechRateText(progress)
+        seekTtsSpeechRate.addOnChangeListener { _, value, fromUser ->
+            if (fromUser) {
+                upTtsSpeechRateText(value.toInt())
             }
+        }
 
-            override fun onStopTrackingTouch(seekBar: SeekBar) {
-                AppConfig.ttsSpeechRate = seekBar.progress
+        seekTtsSpeechRate.addOnSliderTouchListener(object : Slider.OnSliderTouchListener {
+            override fun onStartTrackingTouch(slider: Slider) {}
+            override fun onStopTrackingTouch(slider: Slider) {
+                AppConfig.ttsSpeechRate = slider.value.toInt()
                 upTtsSpeechRate()
             }
         })
-        seekTimer.setOnSeekBarChangeListener(object : SeekBarChangeListener {
-            override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
-                upTimerText(progress)
-            }
 
-            override fun onStopTrackingTouch(seekBar: SeekBar) {
-                ReadAloud.setTimer(requireContext(), seekTimer.progress)
+        seekTimer.addOnChangeListener { _, value, fromUser ->
+            if (fromUser) {
+                upTimerText(value.toInt())
+            }
+        }
+
+        seekTimer.addOnSliderTouchListener(object : Slider.OnSliderTouchListener {
+            override fun onStartTrackingTouch(slider: Slider) {}
+            override fun onStopTrackingTouch(slider: Slider) {
+                ReadAloud.setTimer(requireContext(), slider.value.toInt())
             }
         })
+
     }
 
     private fun upTtsSpeechRateEnabled(enabled: Boolean) {
@@ -175,39 +199,40 @@ class ReadAloudDialog : BaseDialogFragment(R.layout.dialog_read_aloud) {
 
     private fun upPlayState() {
         if (!BaseReadAloudService.pause) {
-            binding.ivPlayPause.setImageResource(R.drawable.ic_pause_24dp)
+            binding.ivPlayPause.icon = ContextCompat.getDrawable(requireContext(), R.drawable.ic_pause_24dp)
             binding.ivPlayPause.contentDescription = getString(R.string.pause)
         } else {
-            binding.ivPlayPause.setImageResource(R.drawable.ic_play_24dp)
+            binding.ivPlayPause.icon = ContextCompat.getDrawable(requireContext(), R.drawable.ic_play_24dp)
             binding.ivPlayPause.contentDescription = getString(R.string.audio_play)
         }
-        val bg = requireContext().bottomBackground
-        val isLight = ColorUtils.isColorLight(bg)
-        val textColor = requireContext().getPrimaryTextColor(isLight)
-        binding.ivPlayPause.setColorFilter(textColor)
+
+        // val bg = requireContext().bottomBackground
+        // val isLight = ColorUtils.isColorLight(bg)
+        // val textColor = requireContext().getPrimaryTextColor(isLight)
+        // binding.ivPlayPause.iconTint = ColorStateList.valueOf(textColor)
     }
 
     private fun upSeekTimer() {
         binding.seekTimer.post {
-            if (BaseReadAloudService.timeMinute > 0) {
-                binding.seekTimer.progress = BaseReadAloudService.timeMinute
+            binding.seekTimer.value = if (BaseReadAloudService.timeMinute > 0) {
+                BaseReadAloudService.timeMinute.toFloat()
             } else {
-                binding.seekTimer.progress = AppConfig.ttsTimer
+                AppConfig.ttsTimer.toFloat()
             }
         }
     }
 
     private fun upTimerText(timeMinute: Int) {
         if (timeMinute < 0) {
-            binding.tvTimer.text = requireContext().getString(R.string.timer_m, 0)
+            binding.btnTimer.text = requireContext().getString(R.string.timer_m, 0)
         } else {
-            binding.tvTimer.text = requireContext().getString(R.string.timer_m, timeMinute)
+            binding.btnTimer.text = requireContext().getString(R.string.timer_m, timeMinute)
         }
     }
 
     @SuppressLint("SetTextI18n")
     private fun upTtsSpeechRateText(value: Int) {
-        binding.tvTtsSpeedValue.text = ((value + 5) / 10f).toString()
+        binding.tvTtsSpeedValue.text = value.toString()
     }
 
     private fun upTtsSpeechRate() {
@@ -220,7 +245,10 @@ class ReadAloudDialog : BaseDialogFragment(R.layout.dialog_read_aloud) {
 
     override fun observeLiveBus() {
         observeEvent<Int>(EventBus.ALOUD_STATE) { upPlayState() }
-        observeEvent<Int>(EventBus.READ_ALOUD_DS) { binding.seekTimer.progress = it }
+        observeEvent<Int>(EventBus.READ_ALOUD_DS) {
+            val value = it.coerceIn(binding.seekTimer.valueFrom.toInt(), binding.seekTimer.valueTo.toInt())
+            binding.seekTimer.value = value.toFloat()
+        }
     }
 
     interface CallBack {

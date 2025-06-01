@@ -167,7 +167,7 @@
     <string name="add_book_url">Añadir Url de libro</string>
     <string name="background">Segundo plano</string>
     <string name="author">Autor</string>
-    <string name="author_show">Autor: %s</string>
+    <string name="author_show">%s</string>
     <string name="aloud_stop">Voz detelendia</string>
     <string name="clear_cache">Limpiar caché</string>
     <string name="clear_cache_success">Se limpió la caché</string>

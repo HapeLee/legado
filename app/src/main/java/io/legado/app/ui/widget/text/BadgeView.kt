@@ -14,7 +14,7 @@ import android.widget.FrameLayout
 import android.widget.FrameLayout.LayoutParams
 import androidx.appcompat.widget.AppCompatTextView
 import io.legado.app.R
-import io.legado.app.lib.theme.accentColor
+//import io.legado.app.lib.theme.accentColor
 import io.legado.app.utils.ColorUtils
 import io.legado.app.utils.getCompatColor
 import io.legado.app.utils.invisible
@@ -94,7 +94,7 @@ class BadgeView @JvmOverloads constructor(
         radius = radios.toFloat()
 
         // set default background
-        setBackground(radius, context.accentColor)
+        //setBackground(radius, context.accentColor)
 
         gravity = Gravity.CENTER
 
@@ -152,7 +152,7 @@ class BadgeView @JvmOverloads constructor(
 
     fun setHighlight(highlight: Boolean) {
         if (highlight) {
-            setBackgroundColor(context.accentColor)
+            //setBackgroundColor(context.accentColor)
         } else {
             setBackgroundColor(context.getCompatColor(R.color.darker_gray))
         }

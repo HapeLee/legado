@@ -27,7 +27,7 @@ import io.legado.app.help.config.ReadBookConfig
 import io.legado.app.lib.dialogs.alert
 import io.legado.app.lib.dialogs.selector
 import io.legado.app.lib.theme.ThemeStore
-import io.legado.app.lib.theme.bottomBackground
+//import io.legado.app.lib.theme.bottomBackground
 import io.legado.app.model.CacheBook
 import io.legado.app.model.ReadBook
 import io.legado.app.ui.book.read.config.BgTextConfigDialog
@@ -94,7 +94,7 @@ abstract class BaseReadBookActivity :
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
-        binding.navigationBar.setBackgroundColor(bottomBackground)
+        //binding.navigationBar.setBackgroundColor(bottomBackground)
         viewModel.permissionDenialLiveData.observe(this) {
             selectBookFolderResult.launch {
                 mode = HandleFileContract.DIR_SYS
@@ -178,20 +178,20 @@ abstract class BaseReadBookActivity :
             }
         }
         upSystemUiVisibilityO(isInMultiWindow, toolBarHide)
-        if (toolBarHide) {
-            setLightStatusBar(ReadBookConfig.durConfig.curStatusIconDark())
-        } else {
-            val statusBarColor =
-                if (AppConfig.readBarStyleFollowPage
-                    && ReadBookConfig.durConfig.curBgType() == 0
-                    || useBgMeanColor
-                ) {
-                    ReadBookConfig.bgMeanColor
-                } else {
-                    ThemeStore.statusBarColor(this, AppConfig.isTransparentStatusBar)
-                }
-            setLightStatusBar(ColorUtils.isColorLight(statusBarColor))
-        }
+//        if (toolBarHide) {
+//            setLightStatusBar(ReadBookConfig.durConfig.curStatusIconDark())
+//        } else {
+//            val statusBarColor =
+//                if (AppConfig.readBarStyleFollowPage
+//                    && ReadBookConfig.durConfig.curBgType() == 0
+//                    || useBgMeanColor
+//                ) {
+//                    ReadBookConfig.bgMeanColor
+//                } else {
+//                    ThemeStore.statusBarColor(this, AppConfig.isTransparentStatusBar)
+//                }
+//            setLightStatusBar(ColorUtils.isColorLight(statusBarColor))
+//        }
     }
 
     @Suppress("DEPRECATION")
@@ -223,7 +223,7 @@ abstract class BaseReadBookActivity :
             binding.readMenu.isVisible -> super.upNavigationBarColor()
             binding.searchMenu.bottomMenuVisible -> super.upNavigationBarColor()
             bottomDialog > 0 -> super.upNavigationBarColor()
-            !AppConfig.immNavigationBar -> super.upNavigationBarColor()
+            //!AppConfig.immNavigationBar -> super.upNavigationBarColor()
             else -> setNavigationBarColorAuto(ReadBookConfig.bgMeanColor)
         }
     }

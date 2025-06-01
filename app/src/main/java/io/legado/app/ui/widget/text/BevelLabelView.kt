@@ -11,7 +11,7 @@ import android.view.View
 import androidx.annotation.ColorInt
 import androidx.annotation.IntDef
 import io.legado.app.R
-import io.legado.app.lib.theme.accentColor
+//import io.legado.app.lib.theme.accentColor
 
 /**
  * 斜角标签
@@ -33,7 +33,7 @@ class BevelLabelView @JvmOverloads constructor(
         const val MODE_RIGHT_BOTTOM_FILL = 7
     }
 
-    private var mBgColor: Int
+    //private var mBgColor: Int
     private var mText: String
     private var mTextSize: Int
     private var mTextColor: Int
@@ -51,10 +51,10 @@ class BevelLabelView @JvmOverloads constructor(
 
     init {
         val typedArray = context.obtainStyledAttributes(attrs, R.styleable.BevelLabelView)
-        mBgColor = typedArray.getColor(
-            R.styleable.BevelLabelView_label_bg_color,
-            context.accentColor
-        ) //默认红色
+//        mBgColor = typedArray.getColor(
+//            R.styleable.BevelLabelView_label_bg_color,
+//            context.accentColor
+//        ) //默认红色
         mText = typedArray.getString(R.styleable.BevelLabelView_label_text) ?: ""
         mTextSize =
             typedArray.getDimensionPixelOffset(
@@ -77,7 +77,7 @@ class BevelLabelView @JvmOverloads constructor(
     }
 
     override fun onDraw(canvas: Canvas) {
-        mPaint.color = mBgColor
+        //mPaint.color = mBgColor
         drawBackgroundText(canvas)
     }
 
@@ -92,7 +92,7 @@ class BevelLabelView @JvmOverloads constructor(
     }
 
     fun setBgColor(@ColorInt color: Int) {
-        mBgColor = color
+        //mBgColor = color
         invalidate()
     }
 

@@ -5,7 +5,9 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.DiffUtil
+import com.google.android.material.button.MaterialButton
 import io.legado.app.R
 import io.legado.app.base.adapter.DiffRecyclerAdapter
 import io.legado.app.base.adapter.ItemViewHolder
@@ -96,19 +98,19 @@ class CacheAdapter(context: Context, private val callBack: CallBack) :
         }
     }
 
-    private fun upDownloadIv(iv: ImageView, book: Book) {
+    private fun upDownloadIv(button: MaterialButton, book: Book) {
         if (book.isLocal) {
-            iv.gone()
+            button.gone()
         } else {
-            iv.visible()
+            button.visible()
             CacheBook.cacheBookMap[book.bookUrl]?.let {
                 if (!it.isStop()) {
-                    iv.setImageResource(R.drawable.ic_stop_black_24dp)
+                    button.icon = ContextCompat.getDrawable(context, R.drawable.ic_stop_black_24dp)
                 } else {
-                    iv.setImageResource(R.drawable.ic_play_24dp)
+                    button.icon = ContextCompat.getDrawable(context, R.drawable.ic_play_24dp)
                 }
-            } ?: let {
-                iv.setImageResource(R.drawable.ic_play_24dp)
+            } ?: run {
+                button.icon = ContextCompat.getDrawable(context, R.drawable.ic_play_24dp)
             }
         }
     }

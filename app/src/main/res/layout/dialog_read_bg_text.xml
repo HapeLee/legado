@@ -5,7 +5,6 @@
     android:id="@+id/root_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background"
     android:orientation="vertical"
     android:padding="10dp">
 
@@ -157,7 +156,7 @@
         android:paddingRight="6dp"
         android:text="@string/bg_alpha" />
 
-    <io.legado.app.lib.theme.view.ThemeSeekBar
+    <io.legado.app.lib.theme.view.ThemeSlider
         android:id="@+id/sb_bg_alpha"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

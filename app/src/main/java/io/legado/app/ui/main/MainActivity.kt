@@ -31,8 +31,7 @@ import io.legado.app.help.config.LocalConfig
 import io.legado.app.help.coroutine.Coroutine
 import io.legado.app.help.storage.Backup
 import io.legado.app.lib.dialogs.alert
-import io.legado.app.lib.theme.elevation
-import io.legado.app.lib.theme.primaryColor
+//import io.legado.app.lib.theme.primaryColor
 import io.legado.app.service.BaseReadAloudService
 import io.legado.app.ui.about.CrashLogsDialog
 import io.legado.app.ui.main.bookshelf.BaseBookshelfFragment
@@ -192,11 +191,11 @@ class MainActivity : VMBaseActivity<ActivityMainBinding, MainViewModel>(),
     }
 
     private fun initView() = binding.run {
-        viewPagerMain.setEdgeEffectColor(primaryColor)
+        //viewPagerMain.setEdgeEffectColor(primaryColor)
         viewPagerMain.offscreenPageLimit = 3
         viewPagerMain.adapter = adapter
         viewPagerMain.addOnPageChangeListener(PageChangeCallback())
-        bottomNavigationView.elevation = elevation
+        //bottomNavigationView.elevation = elevation
         bottomNavigationView.setOnNavigationItemSelectedListener(this@MainActivity)
         bottomNavigationView.setOnNavigationItemReselectedListener(this@MainActivity)
         if (AppConfig.isEInkMode) {

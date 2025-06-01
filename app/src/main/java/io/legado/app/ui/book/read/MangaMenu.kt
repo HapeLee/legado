@@ -10,12 +10,13 @@ import android.widget.FrameLayout
 import android.widget.SeekBar
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
+import com.google.android.material.slider.Slider
 import io.legado.app.R
 import io.legado.app.databinding.ViewMangaMenuBinding
 import io.legado.app.help.config.AppConfig
 import io.legado.app.help.source.getSourceType
 import io.legado.app.lib.dialogs.alert
-import io.legado.app.lib.theme.bottomBackground
+//import io.legado.app.lib.theme.bottomBackground
 import io.legado.app.model.ReadBook
 import io.legado.app.model.ReadManga
 import io.legado.app.ui.browser.WebViewActivity
@@ -53,7 +54,7 @@ class MangaMenu @JvmOverloads constructor(
         loadAnimation(context, R.anim.anim_readbook_bottom_out)
     }
     private var isMenuOutAnimating = false
-    private var bgColor = context.bottomBackground
+    //private var bgColor = context.bottomBackground
 
     private val menuOutListener = object : Animation.AnimationListener {
         override fun onAnimationStart(animation: Animation) {
@@ -99,12 +100,12 @@ class MangaMenu @JvmOverloads constructor(
         initAnimation()
         val brightnessBackground = GradientDrawable()
         brightnessBackground.cornerRadius = 5F.dpToPx()
-        brightnessBackground.setColor(ColorUtils.adjustAlpha(bgColor, 0.5f))
+        //brightnessBackground.setColor(ColorUtils.adjustAlpha(bgColor, 0.5f))
         if (AppConfig.isEInkMode) {
             titleBar.setBackgroundResource(R.drawable.bg_eink_border_bottom)
             bottomMenu.setBackgroundResource(R.drawable.bg_eink_border_top)
         } else {
-            bottomMenu.setBackgroundColor(bgColor)
+            //bottomMenu.setBackgroundColor(bgColor)
         }
         if (AppConfig.showReadTitleBarAddition) {
             titleBarAddition.visible()
@@ -210,27 +211,30 @@ class MangaMenu @JvmOverloads constructor(
             ReadManga.moveToPrevChapter(true)
         }
 
-        seekReadPage.setOnSeekBarChangeListener(object : SeekBarChangeListener {
-            override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
-                if (fromUser) {
-                    callBack.skipToPage(seekBar.progress)
-                }
+        seekReadPage.addOnChangeListener { slider, value, fromUser ->
+            if (fromUser) {
+                callBack.skipToPage(value.toInt())
+            }
+        }
+        seekReadPage.addOnSliderTouchListener(object : Slider.OnSliderTouchListener {
+            override fun onStartTrackingTouch(slider: Slider) {
+                vwMenuBg.setOnClickListener(null)
             }
 
-            override fun onStartTrackingTouch(seekBar: SeekBar) {
-                binding.vwMenuBg.setOnClickListener(null)
-            }
-
-            override fun onStopTrackingTouch(seekBar: SeekBar) {
-                binding.vwMenuBg.setOnClickListener { runMenuOut() }
+            override fun onStopTrackingTouch(slider: Slider) {
+                vwMenuBg.setOnClickListener { runMenuOut() }
             }
         })
+
+
     }
 
     fun upSeekBar(value: Int, count: Int) {
         binding.seekReadPage.apply {
-            max = count.minus(1)
-            progress = value
+            valueFrom = 0f
+            valueTo = (count - 1).toFloat()
+            this.value = value.toFloat()
+            stepSize = 1f
         }
     }
 

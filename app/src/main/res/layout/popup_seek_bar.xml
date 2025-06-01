@@ -13,8 +13,8 @@
         android:layout_height="wrap_content"
         android:textColor="@color/secondaryText" />
 
-    <io.legado.app.lib.theme.view.ThemeSeekBar
-        android:id="@+id/seek_bar"
+    <io.legado.app.lib.theme.view.ThemeSlider
+        android:id="@+id/slider"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 

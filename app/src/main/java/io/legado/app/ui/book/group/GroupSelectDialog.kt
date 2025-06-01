@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import io.legado.app.R
+import io.legado.app.base.BaseBottomSheetDialogFragment
 import io.legado.app.base.BaseDialogFragment
 import io.legado.app.base.adapter.ItemViewHolder
 import io.legado.app.base.adapter.RecyclerAdapter
@@ -19,9 +20,9 @@ import io.legado.app.data.appDb
 import io.legado.app.data.entities.BookGroup
 import io.legado.app.databinding.DialogBookGroupPickerBinding
 import io.legado.app.databinding.ItemGroupSelectBinding
-import io.legado.app.lib.theme.accentColor
-import io.legado.app.lib.theme.backgroundColor
-import io.legado.app.lib.theme.primaryColor
+//import io.legado.app.lib.theme.accentColor
+//import io.legado.app.lib.theme.backgroundColor
+//import io.legado.app.lib.theme.primaryColor
 import io.legado.app.ui.widget.recycler.ItemTouchCallback
 import io.legado.app.ui.widget.recycler.VerticalDivider
 import io.legado.app.utils.applyTint
@@ -32,7 +33,7 @@ import kotlinx.coroutines.flow.conflate
 import kotlinx.coroutines.launch
 
 
-class GroupSelectDialog() : BaseDialogFragment(R.layout.dialog_book_group_picker),
+class GroupSelectDialog() : BaseBottomSheetDialogFragment(R.layout.dialog_book_group_picker),
     Toolbar.OnMenuItemClickListener {
 
     constructor(groupId: Long, requestCode: Int = -1) : this() {
@@ -51,11 +52,11 @@ class GroupSelectDialog() : BaseDialogFragment(R.layout.dialog_book_group_picker
 
     override fun onStart() {
         super.onStart()
-        setLayout(0.9f, 0.9f)
+
     }
 
     override fun onFragmentCreated(view: View, savedInstanceState: Bundle?) {
-        binding.toolBar.setBackgroundColor(primaryColor)
+        //binding.toolBar.setBackgroundColor(primaryColor)
         arguments?.let {
             groupId = it.getLong("groupId")
             requestCode = it.getInt("requestCode", -1)
@@ -78,7 +79,7 @@ class GroupSelectDialog() : BaseDialogFragment(R.layout.dialog_book_group_picker
         binding.tvCancel.setOnClickListener {
             dismissAllowingStateLoss()
         }
-        binding.tvOk.setTextColor(requireContext().accentColor)
+        //binding.tvOk.setTextColor(requireContext().accentColor)
         binding.tvOk.setOnClickListener {
             callBack?.upGroup(requestCode, groupId)
             dismissAllowingStateLoss()
@@ -119,7 +120,7 @@ class GroupSelectDialog() : BaseDialogFragment(R.layout.dialog_book_group_picker
             payloads: MutableList<Any>
         ) {
             binding.run {
-                root.setBackgroundColor(context.backgroundColor)
+                //root.setBackgroundColor(context.backgroundColor)
                 cbGroup.text = item.groupName
                 cbGroup.isChecked = (groupId and item.groupId) > 0
             }

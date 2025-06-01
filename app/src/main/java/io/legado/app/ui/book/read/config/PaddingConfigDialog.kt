@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
 import io.legado.app.R
+import io.legado.app.base.BaseBottomSheetDialogFragment
 import io.legado.app.base.BaseDialogFragment
 import io.legado.app.constant.EventBus
 import io.legado.app.databinding.DialogReadPaddingBinding
@@ -20,13 +21,13 @@ class PaddingConfigDialog : BaseDialogFragment(R.layout.dialog_read_padding) {
 
     override fun onStart() {
         super.onStart()
-        dialog?.window?.let {
-            it.clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND)
-            val attr = it.attributes
-            attr.dimAmount = 0.0f
-            it.attributes = attr
-        }
-        setLayout(0.9f, ViewGroup.LayoutParams.WRAP_CONTENT)
+//        dialog?.window?.let {
+//            it.clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND)
+//            val attr = it.attributes
+//            attr.dimAmount = 0.0f
+//            it.attributes = attr
+//        }
+//        setLayout(0.9f, ViewGroup.LayoutParams.WRAP_CONTENT)
     }
 
     override fun onFragmentCreated(view: View, savedInstanceState: Bundle?) {
@@ -111,11 +112,11 @@ class PaddingConfigDialog : BaseDialogFragment(R.layout.dialog_read_padding) {
             ReadBookConfig.footerPaddingRight = it
             postEvent(EventBus.UP_CONFIG, arrayListOf(2))
         }
-        cbShowTopLine.onCheckedChangeListener = { _, isChecked ->
+        cbShowTopLine.setOnCheckedChangeListener { _, isChecked ->
             ReadBookConfig.showHeaderLine = isChecked
             postEvent(EventBus.UP_CONFIG, arrayListOf(2))
         }
-        cbShowBottomLine.onCheckedChangeListener = { _, isChecked ->
+        cbShowBottomLine.setOnCheckedChangeListener { _, isChecked ->
             ReadBookConfig.showFooterLine = isChecked
             postEvent(EventBus.UP_CONFIG, arrayListOf(2))
         }

@@ -25,9 +25,9 @@ import io.legado.app.databinding.ItemFilePickerBinding
 import io.legado.app.databinding.ItemPathPickerBinding
 import io.legado.app.help.config.AppConfig
 import io.legado.app.lib.dialogs.alert
-import io.legado.app.lib.theme.getPrimaryDisabledTextColor
-import io.legado.app.lib.theme.getPrimaryTextColor
-import io.legado.app.lib.theme.primaryColor
+//import io.legado.app.lib.theme.getPrimaryDisabledTextColor
+//import io.legado.app.lib.theme.getPrimaryTextColor
+//import io.legado.app.lib.theme.primaryColor
 import io.legado.app.ui.file.HandleFileContract.Companion.FILE
 import io.legado.app.ui.file.utils.FilePickerIcon
 import io.legado.app.ui.widget.recycler.VerticalDivider
@@ -79,8 +79,8 @@ class FilePickerDialog : BaseDialogFragment(R.layout.dialog_file_chooser),
     }
 
     override fun onFragmentCreated(view: View, savedInstanceState: Bundle?) {
-        binding.toolBar.setBackgroundColor(primaryColor)
-        view.setBackgroundResource(R.color.background_card)
+        //binding.toolBar.setBackgroundColor(primaryColor)
+        //view.setBackgroundResource(R.color.background_card)
         initMenu()
         initContentView()
         viewModel.filesLiveData.observe(viewLifecycleOwner) {
@@ -207,14 +207,14 @@ class FilePickerDialog : BaseDialogFragment(R.layout.dialog_file_chooser),
     }
 
     inner class FileAdapter : RecyclerAdapter<File, ItemFilePickerBinding>(requireContext()) {
-        private val primaryTextColor = context.getPrimaryTextColor(!AppConfig.isNightTheme)
-        private val disabledTextColor = context.getPrimaryDisabledTextColor(!AppConfig.isNightTheme)
+        //private val primaryTextColor = context.getPrimaryTextColor(!AppConfig.isNightTheme)
+        //private val disabledTextColor = context.getPrimaryDisabledTextColor(!AppConfig.isNightTheme)
         private val upIcon = ConvertUtils.toDrawable(FilePickerIcon.getUpDir())!!
         private val folderIcon = ConvertUtils.toDrawable(FilePickerIcon.getFolder())!!
         private val fileIcon = ConvertUtils.toDrawable(FilePickerIcon.getFile())!!
         private val selectDrawable =
             ResourcesCompat.getDrawable(resources, R.drawable.shape_radius_1dp, null)!!.apply {
-                DrawableCompat.setTint(this, primaryTextColor)
+                //DrawableCompat.setTint(this, primaryTextColor)
             }
         var selectFile: File? = null
 
@@ -264,18 +264,18 @@ class FilePickerDialog : BaseDialogFragment(R.layout.dialog_file_chooser),
                     binding.textView.text = item.name
                 }
                 if (item.isDirectory) {
-                    binding.textView.setTextColor(primaryTextColor)
+                    //binding.textView.setTextColor(primaryTextColor)
                 } else {
                     if (viewModel.isSelectDir) {
-                        binding.textView.setTextColor(disabledTextColor)
+                        //binding.textView.setTextColor(disabledTextColor)
                     } else {
                         viewModel.allowExtensions?.let {
                             if (it.isEmpty() || it.contains(FileUtils.getExtension(item.path))) {
-                                binding.textView.setTextColor(primaryTextColor)
+                                //binding.textView.setTextColor(primaryTextColor)
                             } else {
-                                binding.textView.setTextColor(disabledTextColor)
+                                //binding.textView.setTextColor(disabledTextColor)
                             }
-                        } ?: binding.textView.setTextColor(primaryTextColor)
+                        }// ?: binding.textView.setTextColor(primaryTextColor)
                     }
                 }
             }

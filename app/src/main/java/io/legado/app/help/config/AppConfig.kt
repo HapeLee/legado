@@ -149,11 +149,11 @@ object AppConfig : SharedPreferences.OnSharedPreferenceChangeListener {
     val textSelectAble: Boolean
         get() = appCtx.getPrefBoolean(PreferKey.textSelectAble, true)
 
-    val isTransparentStatusBar: Boolean
-        get() = appCtx.getPrefBoolean(PreferKey.transparentStatusBar, true)
-
-    val immNavigationBar: Boolean
-        get() = appCtx.getPrefBoolean(PreferKey.immNavigationBar, true)
+//    val isTransparentStatusBar: Boolean
+//        get() = appCtx.getPrefBoolean(PreferKey.transparentStatusBar, true)
+//
+//    val immNavigationBar: Boolean
+//        get() = appCtx.getPrefBoolean(PreferKey.immNavigationBar, true)
 
     val screenOrientation: String?
         get() = appCtx.getPrefString(PreferKey.screenOrientation)
@@ -291,14 +291,14 @@ object AppConfig : SharedPreferences.OnSharedPreferenceChangeListener {
             appCtx.putPrefInt(PreferKey.systemTypefaces, value)
         }
 
-    var elevation: Int
-        get() = if (isEInkMode) 0 else appCtx.getPrefInt(
-            PreferKey.barElevation,
-            AppConst.sysElevation
-        )
-        set(value) {
-            appCtx.putPrefInt(PreferKey.barElevation, value)
-        }
+//    var elevation: Int
+//        get() = if (isEInkMode) 0 else appCtx.getPrefInt(
+//            PreferKey.barElevation,
+//            AppConst.sysElevation
+//        )
+//        set(value) {
+//            appCtx.putPrefInt(PreferKey.barElevation, value)
+//        }
 
     var readUrlInBrowser: Boolean
         get() = appCtx.getPrefBoolean(PreferKey.readUrlOpenInBrowser)

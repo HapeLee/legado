@@ -56,7 +56,7 @@ import io.legado.app.help.storage.Backup
 import io.legado.app.lib.dialogs.SelectItem
 import io.legado.app.lib.dialogs.alert
 import io.legado.app.lib.dialogs.selector
-import io.legado.app.lib.theme.accentColor
+//import io.legado.app.lib.theme.accentColor
 import io.legado.app.model.ReadAloud
 import io.legado.app.model.ReadBook
 import io.legado.app.model.analyzeRule.AnalyzeRule
@@ -258,8 +258,8 @@ class ReadBookActivity : BaseReadBookActivity(),
     @SuppressLint("ClickableViewAccessibility")
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        binding.cursorLeft.setColorFilter(accentColor)
-        binding.cursorRight.setColorFilter(accentColor)
+        //binding.cursorLeft.setColorFilter(accentColor)
+        //binding.cursorRight.setColorFilter(accentColor)
         binding.cursorLeft.setOnTouchListener(this)
         binding.cursorRight.setOnTouchListener(this)
         window.setBackgroundDrawable(null)

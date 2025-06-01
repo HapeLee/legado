@@ -16,7 +16,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="5dp">
+        android:gravity="center_horizontal"
+        android:layout_margin="16dp">
 
         <io.legado.app.ui.widget.image.CoverImageView
             android:id="@+id/iv_cover"
@@ -25,79 +26,76 @@
             android:contentDescription="@string/img_cover"
             android:scaleType="centerCrop"
             android:src="@drawable/image_cover_default" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="5dp">
-
-            <io.legado.app.ui.widget.text.TextInputLayout
-                android:id="@+id/til_book_name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/book_name">
-
-                <io.legado.app.lib.theme.view.ThemeEditText
-                    android:id="@+id/tie_book_name"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:singleLine="true" />
-            </io.legado.app.ui.widget.text.TextInputLayout>
-
-            <io.legado.app.ui.widget.text.TextInputLayout
-                android:id="@+id/til_book_author"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/author">
-
-                <io.legado.app.lib.theme.view.ThemeEditText
-                    android:id="@+id/tie_book_author"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:singleLine="true" />
-            </io.legado.app.ui.widget.text.TextInputLayout>
-
-        </LinearLayout>
     </LinearLayout>
 
-    <io.legado.app.ui.widget.NoChildScrollNestedScrollView
+    <!-- Book Info Fields -->
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="16dp">
+
+        <io.legado.app.ui.widget.text.TextInputLayout
+            android:id="@+id/til_book_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:hint="@string/book_name">
+
+            <io.legado.app.lib.theme.view.ThemeEditText
+                android:id="@+id/tie_book_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:singleLine="true" />
+        </io.legado.app.ui.widget.text.TextInputLayout>
+
+        <io.legado.app.ui.widget.text.TextInputLayout
+            android:id="@+id/til_book_author"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:hint="@string/author">
+
+            <io.legado.app.lib.theme.view.ThemeEditText
+                android:id="@+id/tie_book_author"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:singleLine="true" />
+        </io.legado.app.ui.widget.text.TextInputLayout>
+    </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="16dp"
             android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_gravity="center_vertical">
+                android:layout_gravity="center_vertical"
+                android:layout_marginBottom="12dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/book_type"
-                    android:layout_marginLeft="12dp"
-                    android:layout_marginRight="3dp"
+                    android:layout_marginRight="8dp"
                     tools:ignore="RtlHardcoded" />
 
                 <androidx.appcompat.widget.AppCompatSpinner
                     android:id="@+id/sp_type"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:entries="@array/book_type"
-                    android:theme="@style/Spinner" />
-
+                    android:entries="@array/book_type" />
             </LinearLayout>
 
             <io.legado.app.ui.widget.text.TextInputLayout
                 android:id="@+id/til_cover_url"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
+                android:layout_marginBottom="12dp"
                 android:hint="@string/cover_path">
 
                 <io.legado.app.lib.theme.view.ThemeEditText
@@ -110,50 +108,43 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:paddingStart="5dp"
-                android:paddingEnd="5dp">
+                android:layout_marginBottom="16dp">
 
                 <io.legado.app.ui.widget.text.StrokeTextView
                     android:id="@+id/tv_select_cover"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="5dp"
+                    android:padding="8dp"
                     android:text="@string/select_local_image" />
 
                 <io.legado.app.ui.widget.text.StrokeTextView
                     android:id="@+id/tv_change_cover"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:padding="5dp"
-                    android:text="@string/change_cover_source"
-                    tools:ignore="RtlHardcoded" />
+                    android:layout_marginStart="12dp"
+                    android:padding="8dp"
+                    android:text="@string/change_cover_source" />
 
                 <io.legado.app.ui.widget.text.StrokeTextView
                     android:id="@+id/tv_refresh_cover"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:padding="5dp"
-                    android:text="@string/refresh_cover"
-                    tools:ignore="RtlHardcoded" />
-
+                    android:layout_marginStart="12dp"
+                    android:padding="8dp"
+                    android:text="@string/refresh_cover" />
             </LinearLayout>
 
             <io.legado.app.ui.widget.text.TextInputLayout
                 android:id="@+id/til_book_jj"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
                 android:hint="@string/book_intro">
 
                 <io.legado.app.lib.theme.view.ThemeEditText
                     android:id="@+id/tie_book_intro"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:minLines="4" />
             </io.legado.app.ui.widget.text.TextInputLayout>
-
         </LinearLayout>
-    </io.legado.app.ui.widget.NoChildScrollNestedScrollView>
-
 </LinearLayout>

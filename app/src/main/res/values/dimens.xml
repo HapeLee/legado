@@ -26,7 +26,7 @@
 
     <dimen name="fastscroll_handle_height">40dp</dimen>
     <dimen name="fastscroll_handle_width">8dp</dimen>
-    <dimen name="fastscroll_handle_radius">0dp</dimen>
+    <dimen name="fastscroll_handle_radius">4dp</dimen>
 
     <dimen name="fastscroll_track_width">2dp</dimen>
 

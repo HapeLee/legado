@@ -19,7 +19,7 @@ import io.legado.app.constant.AppConst
 import io.legado.app.databinding.ActivityFileManageBinding
 import io.legado.app.databinding.ItemFileBinding
 import io.legado.app.databinding.ItemPathPickerBinding
-import io.legado.app.lib.theme.primaryTextColor
+//import io.legado.app.lib.theme.primaryTextColor
 import io.legado.app.ui.file.utils.FilePickerIcon
 import io.legado.app.ui.widget.recycler.VerticalDivider
 import io.legado.app.utils.ConvertUtils
@@ -68,7 +68,7 @@ class FileManageActivity : VMBaseActivity<ActivityFileManageBinding, FileManageV
     }
 
     private fun initSearchView() {
-        searchView.applyTint(primaryTextColor)
+        //searchView.applyTint(primaryTextColor)
         searchView.queryHint = getString(R.string.screen) + " • " + getString(R.string.file_manage)
         searchView.isSubmitButtonEnabled = true
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {

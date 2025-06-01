@@ -12,6 +12,7 @@ import android.view.View
 import android.widget.SeekBar
 import androidx.core.view.MenuProvider
 import androidx.preference.Preference
+import androidx.preference.PreferenceFragmentCompat
 import io.legado.app.R
 import io.legado.app.base.AppContextWrapper
 import io.legado.app.constant.AppConst
@@ -25,8 +26,9 @@ import io.legado.app.help.config.ThemeConfig
 import io.legado.app.lib.dialogs.alert
 import io.legado.app.lib.dialogs.selector
 import io.legado.app.lib.prefs.ColorPreference
+import io.legado.app.lib.prefs.NameListPreference
 import io.legado.app.lib.prefs.fragment.PreferenceFragment
-import io.legado.app.lib.theme.primaryColor
+//import io.legado.app.lib.theme.primaryColor
 import io.legado.app.ui.widget.number.NumberPickerDialog
 import io.legado.app.ui.widget.seekbar.SeekBarChangeListener
 import io.legado.app.utils.ColorUtils
@@ -51,9 +53,10 @@ import java.io.FileOutputStream
 
 
 @Suppress("SameParameterValue")
-class ThemeConfigFragment : PreferenceFragment(),
-    SharedPreferences.OnSharedPreferenceChangeListener,
-    MenuProvider {
+class ThemeConfigFragment : PreferenceFragmentCompat(),
+    SharedPreferences.OnSharedPreferenceChangeListener
+    //MenuProvider
+    {
 
     private val requestCodeBgLight = 121
     private val requestCodeBgDark = 122
@@ -78,7 +81,7 @@ class ThemeConfigFragment : PreferenceFragment(),
         }
         upPreferenceSummary(PreferKey.bgImage, getPrefString(PreferKey.bgImage))
         upPreferenceSummary(PreferKey.bgImageN, getPrefString(PreferKey.bgImageN))
-        upPreferenceSummary(PreferKey.barElevation, AppConfig.elevation.toString())
+        //upPreferenceSummary(PreferKey.barElevation, AppConfig.elevation.toString())
         upPreferenceSummary(PreferKey.fontScale)
         findPreference<ColorPreference>(PreferKey.cBackground)?.let {
             it.onSaveColor = { color ->
@@ -100,13 +103,19 @@ class ThemeConfigFragment : PreferenceFragment(),
                 }
             }
         }
+        findPreference<NameListPreference>(PreferKey.themeMode)?.let {
+            it.setOnPreferenceChangeListener { _, _ ->
+                ThemeConfig.applyDayNight(requireContext())
+                true
+            }
+        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         activity?.setTitle(R.string.theme_setting)
-        listView.setEdgeEffectColor(primaryColor)
-        activity?.addMenuProvider(this, viewLifecycleOwner)
+        //listView.setEdgeEffectColor(primaryColor)
+        //activity?.addMenuProvider(this, viewLifecycleOwner)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -119,28 +128,30 @@ class ThemeConfigFragment : PreferenceFragment(),
         preferenceManager.sharedPreferences?.unregisterOnSharedPreferenceChangeListener(this)
     }
 
-    override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
-        menuInflater.inflate(R.menu.theme_config, menu)
-        menu.applyTint(requireContext())
-    }
+//    override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
+//        menuInflater.inflate(R.menu.theme_config, menu)
+//        menu.applyTint(requireContext())
+//    }
 
-    override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
-        when (menuItem.itemId) {
-            R.id.menu_theme_mode -> {
-                AppConfig.isNightTheme = !AppConfig.isNightTheme
-                ThemeConfig.applyDayNight(requireContext())
-                return true
-            }
-        }
-        return false
-    }
+//    override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
+//        when (menuItem.itemId) {
+//            R.id.menu_theme_mode -> {
+//                AppConfig.isNightTheme = !AppConfig.isNightTheme
+//                ThemeConfig.applyDayNight(requireContext())
+//                return true
+//            }
+//        }
+//        return false
+//    }
+        //不使用菜单
+
 
     override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences?, key: String?) {
         sharedPreferences ?: return
         when (key) {
             PreferKey.launcherIcon -> LauncherIconHelp.changeIcon(getPrefString(key))
-            PreferKey.transparentStatusBar -> recreateActivities()
-            PreferKey.immNavigationBar -> recreateActivities()
+            //PreferKey.transparentStatusBar -> recreateActivities()
+            //PreferKey.immNavigationBar -> recreateActivities()
             PreferKey.cPrimary,
             PreferKey.cAccent,
             PreferKey.cBackground,
@@ -154,7 +165,9 @@ class ThemeConfigFragment : PreferenceFragment(),
             PreferKey.cNBBackground -> {
                 upTheme(true)
             }
-
+            PreferKey.themeMode -> {
+                ThemeConfig.applyDayNight(requireContext())
+            }
             PreferKey.bgImage,
             PreferKey.bgImageN -> {
                 upPreferenceSummary(key, getPrefString(key))
@@ -166,19 +179,19 @@ class ThemeConfigFragment : PreferenceFragment(),
     @SuppressLint("PrivateResource")
     override fun onPreferenceTreeClick(preference: Preference): Boolean {
         when (val key = preference.key) {
-            PreferKey.barElevation -> NumberPickerDialog(requireContext())
-                .setTitle(getString(R.string.bar_elevation))
-                .setMaxValue(32)
-                .setMinValue(0)
-                .setValue(AppConfig.elevation)
-                .setCustomButton((R.string.btn_default_s)) {
-                    AppConfig.elevation = AppConst.sysElevation
-                    recreateActivities()
-                }
-                .show {
-                    AppConfig.elevation = it
-                    recreateActivities()
-                }
+//            PreferKey.barElevation -> NumberPickerDialog(requireContext())
+//                .setTitle(getString(R.string.bar_elevation))
+//                .setMaxValue(32)
+//                .setMinValue(0)
+//                .setValue(AppConfig.elevation)
+//                .setCustomButton((R.string.btn_default_s)) {
+//                    AppConfig.elevation = AppConst.sysElevation
+//                    recreateActivities()
+//                }
+//                .show {
+//                    AppConfig.elevation = it
+//                    recreateActivities()
+//                }
 
             PreferKey.fontScale -> NumberPickerDialog(requireContext())
                 .setTitle(getString(R.string.font_scale))
@@ -311,8 +324,8 @@ class ThemeConfigFragment : PreferenceFragment(),
     private fun upPreferenceSummary(preferenceKey: String, value: String? = null) {
         val preference = findPreference<Preference>(preferenceKey) ?: return
         when (preferenceKey) {
-            PreferKey.barElevation -> preference.summary =
-                getString(R.string.bar_elevation_s, value)
+            //PreferKey.barElevation -> preference.summary =
+            //    getString(R.string.bar_elevation_s, value)
 
             PreferKey.fontScale -> {
                 val fontScale = AppContextWrapper.getFontScale(requireContext())

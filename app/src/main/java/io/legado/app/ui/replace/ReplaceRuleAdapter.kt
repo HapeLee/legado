@@ -13,7 +13,7 @@ import io.legado.app.base.adapter.ItemViewHolder
 import io.legado.app.base.adapter.RecyclerAdapter
 import io.legado.app.data.entities.ReplaceRule
 import io.legado.app.databinding.ItemReplaceRuleBinding
-import io.legado.app.lib.theme.backgroundColor
+//import io.legado.app.lib.theme.backgroundColor
 import io.legado.app.ui.widget.recycler.DragSelectTouchHelper
 import io.legado.app.ui.widget.recycler.ItemTouchCallback
 import io.legado.app.utils.ColorUtils
@@ -104,7 +104,7 @@ class ReplaceRuleAdapter(context: Context, var callBack: CallBack) :
     ) {
         binding.run {
             if (payloads.isEmpty()) {
-                root.setBackgroundColor(ColorUtils.withAlpha(context.backgroundColor, 0.5f))
+                //root.setBackgroundColor(ColorUtils.withAlpha(context.backgroundColor, 0.5f))
                 cbName.text = item.getDisplayNameGroup()
                 swtEnabled.isChecked = item.isEnabled
                 cbName.isChecked = selected.contains(item)

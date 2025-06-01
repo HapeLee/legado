@@ -25,8 +25,8 @@ import io.legado.app.help.DirectLinkUpload
 import io.legado.app.help.book.ContentProcessor
 import io.legado.app.help.coroutine.Coroutine
 import io.legado.app.lib.dialogs.alert
-import io.legado.app.lib.theme.primaryColor
-import io.legado.app.lib.theme.primaryTextColor
+//import io.legado.app.lib.theme.primaryColor
+//import io.legado.app.lib.theme.primaryTextColor
 import io.legado.app.ui.association.ImportReplaceRuleDialog
 import io.legado.app.ui.file.HandleFileContract
 import io.legado.app.ui.qrcode.QrCodeResult
@@ -153,7 +153,7 @@ class ReplaceRuleActivity : VMBaseActivity<ActivityReplaceRuleBinding, ReplaceRu
     }
 
     private fun initRecyclerView() {
-        binding.recyclerView.setEdgeEffectColor(primaryColor)
+        //binding.recyclerView.setEdgeEffectColor(primaryColor)
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
         binding.recyclerView.adapter = adapter
         binding.recyclerView.addItemDecoration(VerticalDivider(this))
@@ -170,7 +170,7 @@ class ReplaceRuleActivity : VMBaseActivity<ActivityReplaceRuleBinding, ReplaceRu
     }
 
     private fun initSearchView() {
-        searchView.applyTint(primaryTextColor)
+        //searchView.applyTint(primaryTextColor)
         searchView.queryHint = getString(R.string.replace_purify_search)
         searchView.setOnQueryTextListener(this)
     }

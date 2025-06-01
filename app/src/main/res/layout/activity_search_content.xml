@@ -32,7 +32,6 @@
         android:id="@+id/ll_search_base_info"
         android:layout_width="match_parent"
         android:layout_height="36dp"
-        android:background="@color/background"
         android:elevation="5dp"
         android:gravity="center_vertical"
         android:orientation="horizontal"

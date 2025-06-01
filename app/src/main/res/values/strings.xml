@@ -171,7 +171,7 @@
     <string name="add_book_url">Add book url</string>
     <string name="background">Background</string>
     <string name="author">Author</string>
-    <string name="author_show">Author: %s</string>
+    <string name="author_show">%s</string>
     <string name="aloud_stop">Speak Stopped</string>
     <string name="clear_cache">Clear cache</string>
     <string name="clear_cache_success">Cache cleared</string>
@@ -238,7 +238,7 @@
     <string name="intro_show">Description:%s</string>
     <string name="intro_show_null">Description: no introduction</string>
     <string name="open_from_other">Open external book</string>
-    <string name="origin_show">Origin: %s</string>
+    <string name="origin_show">%s</string>
     <string name="import_replace_rule">Import replace rules</string>
     <string name="import_replace_rule_on_line">Import online rules</string>
     <string name="check_update_interval">Check interval for updates</string>

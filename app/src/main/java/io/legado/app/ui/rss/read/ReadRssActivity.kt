@@ -37,8 +37,8 @@ import io.legado.app.help.config.AppConfig
 import io.legado.app.help.http.CookieManager
 import io.legado.app.lib.dialogs.SelectItem
 import io.legado.app.lib.dialogs.selector
-import io.legado.app.lib.theme.accentColor
-import io.legado.app.lib.theme.primaryTextColor
+//import io.legado.app.lib.theme.accentColor
+//import io.legado.app.lib.theme.primaryTextColor
 import io.legado.app.model.Download
 import io.legado.app.ui.association.OnLineImportActivity
 import io.legado.app.ui.file.HandleFileContract
@@ -218,7 +218,7 @@ class ReadRssActivity : VMBaseActivity<ActivityRssReadBinding, ReadRssViewModel>
 
     @SuppressLint("SetJavaScriptEnabled", "JavascriptInterface")
     private fun initWebView() {
-        binding.progressBar.fontColor = accentColor
+        //binding.progressBar.fontColor = accentColor
         binding.webView.webChromeClient = CustomWebChromeClient()
         binding.webView.webViewClient = CustomWebViewClient()
         binding.webView.settings.apply {
@@ -325,7 +325,7 @@ class ReadRssActivity : VMBaseActivity<ActivityRssReadBinding, ReadRssViewModel>
             starMenuItem?.setIcon(R.drawable.ic_star_border)
             starMenuItem?.setTitle(R.string.out_favorites)
         }
-        starMenuItem?.icon?.setTintMutate(primaryTextColor)
+        //starMenuItem?.icon?.setTintMutate(primaryTextColor)
     }
 
     private fun upTtsMenu(isPlaying: Boolean) {
@@ -337,7 +337,7 @@ class ReadRssActivity : VMBaseActivity<ActivityRssReadBinding, ReadRssViewModel>
                 ttsMenuItem?.setIcon(R.drawable.ic_volume_up)
                 ttsMenuItem?.setTitle(R.string.read_aloud)
             }
-            ttsMenuItem?.icon?.setTintMutate(primaryTextColor)
+            //ttsMenuItem?.icon?.setTintMutate(primaryTextColor)
         }
     }
 

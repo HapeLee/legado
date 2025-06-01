@@ -21,7 +21,7 @@ import io.legado.app.databinding.DialogCustomGroupBinding
 import io.legado.app.databinding.DialogRecyclerViewBinding
 import io.legado.app.databinding.ItemSourceImportBinding
 import io.legado.app.lib.dialogs.alert
-import io.legado.app.lib.theme.primaryColor
+//import io.legado.app.lib.theme.primaryColor
 import io.legado.app.ui.widget.dialog.CodeDialog
 import io.legado.app.ui.widget.dialog.WaitDialog
 import io.legado.app.utils.*
@@ -57,9 +57,9 @@ class ImportReplaceRuleDialog() : BaseDialogFragment(R.layout.dialog_recycler_vi
 
     @SuppressLint("NotifyDataSetChanged")
     override fun onFragmentCreated(view: View, savedInstanceState: Bundle?) {
-        binding.toolBar.setBackgroundColor(primaryColor)
+        //binding.toolBar.setBackgroundColor(primaryColor)
         binding.toolBar.setTitle(R.string.import_replace_rule)
-        binding.rotateLoading.visible()
+        //binding.rotateLoading.visible()
         initMenu()
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
         binding.recyclerView.adapter = adapter
@@ -88,14 +88,14 @@ class ImportReplaceRuleDialog() : BaseDialogFragment(R.layout.dialog_recycler_vi
             upSelectText()
         }
         viewModel.errorLiveData.observe(this) {
-            binding.rotateLoading.gone()
+            //binding.rotateLoading.gone()
             binding.tvMsg.apply {
                 text = it
                 visible()
             }
         }
         viewModel.successLiveData.observe(this) {
-            binding.rotateLoading.gone()
+           // binding.rotateLoading.gone()
             if (it > 0) {
                 adapter.setItems(viewModel.allRules)
                 upSelectText()

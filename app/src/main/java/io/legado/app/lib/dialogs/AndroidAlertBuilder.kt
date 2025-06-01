@@ -6,12 +6,13 @@ import android.graphics.drawable.Drawable
 import android.view.KeyEvent
 import android.view.View
 import androidx.appcompat.app.AlertDialog
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import io.legado.app.R
 import io.legado.app.help.config.AppConfig
 import io.legado.app.utils.applyTint
 
 internal class AndroidAlertBuilder(override val ctx: Context) : AlertBuilder<AlertDialog> {
-    private val builder = AlertDialog.Builder(ctx)
+    private val builder = MaterialAlertDialogBuilder(ctx)
 
     override fun setTitle(title: CharSequence) {
         builder.setTitle(title)

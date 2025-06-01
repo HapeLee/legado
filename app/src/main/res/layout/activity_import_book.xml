@@ -18,7 +18,6 @@
         android:id="@+id/lay_top"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/background"
         android:elevation="1dp"
         android:gravity="center_vertical"
         android:minHeight="36dp"

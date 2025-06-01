@@ -18,8 +18,8 @@ import io.legado.app.help.config.AppConfig
 import io.legado.app.lib.dialogs.SelectItem
 import io.legado.app.lib.prefs.SwitchPreference
 import io.legado.app.lib.prefs.fragment.PreferenceFragment
-import io.legado.app.lib.theme.backgroundColor
-import io.legado.app.lib.theme.primaryColor
+//import io.legado.app.lib.theme.backgroundColor
+//import io.legado.app.lib.theme.primaryColor
 import io.legado.app.model.ReadAloud
 import io.legado.app.service.BaseReadAloudService
 import io.legado.app.utils.GSON
@@ -36,8 +36,8 @@ class ReadAloudConfigDialog : BasePrefDialogFragment() {
     override fun onStart() {
         super.onStart()
         dialog?.window?.run {
-            setBackgroundDrawableResource(R.color.transparent)
-            setLayout(0.9f, ViewGroup.LayoutParams.WRAP_CONTENT)
+            //setBackgroundDrawableResource(R.color.transparent)
+            //setLayout(0.9f, ViewGroup.LayoutParams.WRAP_CONTENT)
         }
     }
 
@@ -47,7 +47,7 @@ class ReadAloudConfigDialog : BasePrefDialogFragment() {
         savedInstanceState: Bundle?
     ): View {
         val view = LinearLayout(requireContext())
-        view.setBackgroundColor(requireContext().backgroundColor)
+        //view.setBackgroundColor(requireContext().backgroundColor)
         view.id = R.id.tag1
         container?.addView(view)
         return view
@@ -88,7 +88,7 @@ class ReadAloudConfigDialog : BasePrefDialogFragment() {
 
         override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
             super.onViewCreated(view, savedInstanceState)
-            listView.setEdgeEffectColor(primaryColor)
+            //listView.setEdgeEffectColor(primaryColor)
         }
 
         override fun onResume() {
