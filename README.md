@@ -17,8 +17,10 @@ Legado is a free and open source novel reader for Android.
 
 [![](https://img.shields.io/badge/-Contents:-696969.svg)](#contents) [![](https://img.shields.io/badge/-Function-F5F5F5.svg)](#Function-主要功能-) [![](https://img.shields.io/badge/-Community-F5F5F5.svg)](#Community-交流社区-) [![](https://img.shields.io/badge/-API-F5F5F5.svg)](#API-) [![](https://img.shields.io/badge/-Other-F5F5F5.svg)](#Other-其他-) [![](https://img.shields.io/badge/-Grateful-F5F5F5.svg)](#Grateful-感谢-) [![](https://img.shields.io/badge/-Interface-F5F5F5.svg)](#Interface-界面-)
 
+>注意，此版本为Material Design 3风格重构版本，目前正快速更新。
+> 
+> 
 >新用户？
->
 >软件不提供内容，需要您自己手动添加，例如导入书源等。
 >看看 [官方帮助文档](https://www.yuque.com/legado/wiki)，也许里面就有你要的答案。
 
