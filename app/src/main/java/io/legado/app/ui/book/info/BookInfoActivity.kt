@@ -2,6 +2,8 @@ package io.legado.app.ui.book.info
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.graphics.RenderEffect
+import android.graphics.Shader
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
@@ -36,10 +38,10 @@ import io.legado.app.help.config.AppConfig
 import io.legado.app.help.config.LocalConfig
 import io.legado.app.lib.dialogs.alert
 import io.legado.app.lib.dialogs.selector
-import io.legado.app.lib.theme.accentColor
-import io.legado.app.lib.theme.backgroundColor
-import io.legado.app.lib.theme.bottomBackground
-import io.legado.app.lib.theme.getPrimaryTextColor
+//import io.legado.app.lib.theme.accentColor
+//import io.legado.app.lib.theme.backgroundColor
+//import io.legado.app.lib.theme.bottomBackground
+//import io.legado.app.lib.theme.getPrimaryTextColor
 import io.legado.app.model.BookCover
 import io.legado.app.model.remote.RemoteBookWebDav
 import io.legado.app.ui.about.AppLogDialog
@@ -156,16 +158,17 @@ class BookInfoActivity :
     @SuppressLint("PrivateResource")
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         binding.titleBar.setBackgroundResource(R.color.transparent)
-        binding.refreshLayout?.setColorSchemeColors(accentColor)
-        binding.arcView.setBgColor(backgroundColor)
-        binding.llInfo.setBackgroundColor(backgroundColor)
-        binding.flAction.setBackgroundColor(bottomBackground)
+//        binding.refreshLayout?.setColorSchemeColors(accentColor)
+//        binding.llInfo.setBackgroundColor(backgroundColor)
+//        binding.flAction.setBackgroundColor(bottomBackground)
         binding.flAction.applyNavigationBarPadding()
-        binding.tvShelf.setTextColor(getPrimaryTextColor(ColorUtils.isColorLight(bottomBackground)))
+        binding.btnShelf?.text = getString(R.string.remove_from_bookshelf)
         binding.tvToc.text = getString(R.string.toc_s, getString(R.string.loading))
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N_MR1) {
             binding.tvIntro.revealOnFocusHint = false
         }
+
         viewModel.bookData.observe(this) { showBook(it) }
         viewModel.chapterListData.observe(this) { upLoading(false, it) }
         viewModel.waitDialogData.observe(this) { upWaitDialogStatus(it) }
@@ -369,8 +372,18 @@ class BookInfoActivity :
     private fun showCover(book: Book) {
         binding.ivCover.load(book.getDisplayCover(), book.name, book.author, false, book.origin) {
             if (!AppConfig.isEInkMode) {
-                BookCover.loadBlur(this, book.getDisplayCover(), false, book.origin)
+                //高版本使用RenderEffect
+                BookCover.load(this, book.getDisplayCover(), false, book.origin)
                     .into(binding.bgBook)
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+                    BookCover.load(this, book.getDisplayCover(), false, book.origin)
+                        .into(binding.bgBook)
+                    val blurEffect = RenderEffect.createBlurEffect(60f, 60f, Shader.TileMode.CLAMP)
+                    binding.bgBook.setRenderEffect(blurEffect)
+                }else{
+                    BookCover.loadBlur(this, book.getDisplayCover(), false, book.origin)
+                        .into(binding.bgBook)
+                }
             }
         }
     }
@@ -399,9 +412,9 @@ class BookInfoActivity :
 
     private fun upTvBookshelf() {
         if (viewModel.inBookshelf) {
-            binding.tvShelf.text = getString(R.string.remove_from_bookshelf)
+            binding.btnShelf?.text = getString(R.string.remove_from_bookshelf)
         } else {
-            binding.tvShelf.text = getString(R.string.add_to_bookshelf)
+            binding.btnShelf?.text = getString(R.string.add_to_bookshelf)
         }
         editMenuItem?.isVisible = viewModel.inBookshelf
     }
@@ -434,7 +447,7 @@ class BookInfoActivity :
             }
             true
         }
-        tvRead.setOnClickListener {
+        btnRead?.setOnClickListener {
             viewModel.getBook()?.let { book ->
                 if (book.isWebFile) {
                     showWebFileDownloadAlert {
@@ -445,7 +458,7 @@ class BookInfoActivity :
                 }
             }
         }
-        tvShelf.setOnClickListener {
+        btnShelf?.setOnClickListener {
             viewModel.getBook()?.let { book ->
                 if (viewModel.inBookshelf) {
                     deleteBook()
@@ -472,7 +485,7 @@ class BookInfoActivity :
                 }
             }
         }
-        tvChangeSource.setOnClickListener {
+        btnChangeSource?.setOnClickListener {
             viewModel.getBook()?.let { book ->
                 showDialogFragment(ChangeBookSourceDialog(book.name, book.author))
             }
