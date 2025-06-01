@@ -57,7 +57,7 @@
                     android:layout_marginTop="128dp"
                     app:arcDirectionTop="true"
                     app:arcHeight="36dp"
-                    app:bgColor="@color/background" />
+                     />
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="wrap_content"
@@ -84,7 +84,7 @@
                 android:id="@+id/ll_info"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/background"
+
                 android:orientation="vertical"
                 android:paddingLeft="10dp"
                 android:paddingTop="8dp"
@@ -164,7 +164,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:background="@color/background"
                 android:fillViewport="true"
                 android:fitsSystemWindows="true"
                 android:focusable="true"
@@ -385,7 +384,6 @@
                 android:id="@+id/fl_action"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:background="@color/background_menu"
                 android:orientation="horizontal"
                 app:layout_constraintBottom_toBottomOf="parent">
 
