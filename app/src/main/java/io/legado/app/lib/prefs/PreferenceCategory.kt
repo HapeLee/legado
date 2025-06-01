@@ -31,27 +31,27 @@ class PreferenceCategory(context: Context, attrs: AttributeSet) :
             //view.setTextColor(context.accentColor)
             view.isVisible = !title.isNullOrEmpty()
 
-            val da = holder.findViewById(R.id.preference_divider_above)
-            val dividerColor = if (AppConfig.isNightTheme) {
-//                ColorUtils.withAlpha(
-//                    ColorUtils.shiftColor(context.backgroundColor, 1.05f),
-//                    0.5f
-//                )
-            } else {
-//                ColorUtils.withAlpha(
-//                    ColorUtils.shiftColor(context.backgroundColor, 0.95f),
-//                    0.5f
-//                )
-            }
-            if (da is View) {
-                //da.setBackgroundColor(dividerColor)
-                da.isVisible = holder.isDividerAllowedAbove
-            }
-            val db = holder.findViewById(R.id.preference_divider_below)
-            if (db is View) {
-                //db.setBackgroundColor(dividerColor)
-                db.isVisible = holder.isDividerAllowedBelow
-            }
+//            val da = holder.findViewById(R.id.preference_divider_above)
+//            val dividerColor = if (AppConfig.isNightTheme) {
+////                ColorUtils.withAlpha(
+////                    ColorUtils.shiftColor(context.backgroundColor, 1.05f),
+////                    0.5f
+////                )
+//            } else {
+////                ColorUtils.withAlpha(
+////                    ColorUtils.shiftColor(context.backgroundColor, 0.95f),
+////                    0.5f
+////                )
+//            }
+//            if (da is View) {
+//                //da.setBackgroundColor(dividerColor)
+//                da.isVisible = holder.isDividerAllowedAbove
+//            }
+//            val db = holder.findViewById(R.id.preference_divider_below)
+//            if (db is View) {
+//                //db.setBackgroundColor(dividerColor)
+//                db.isVisible = holder.isDividerAllowedBelow
+//            }
         }
     }
 

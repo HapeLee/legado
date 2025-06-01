@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import io.legado.app.R
+import io.legado.app.base.BaseBottomSheetDialogFragment
 import io.legado.app.base.BaseDialogFragment
 import io.legado.app.base.adapter.ItemViewHolder
 import io.legado.app.base.adapter.RecyclerAdapter
@@ -20,7 +21,7 @@ import io.legado.app.ui.widget.recycler.VerticalDivider
 import io.legado.app.utils.*
 import io.legado.app.utils.viewbindingdelegate.viewBinding
 
-class ThemeListDialog : BaseDialogFragment(R.layout.dialog_recycler_view),
+class ThemeListDialog : BaseBottomSheetDialogFragment(R.layout.dialog_recycler_view),
     Toolbar.OnMenuItemClickListener {
 
     private val binding by viewBinding(DialogRecyclerViewBinding::bind)

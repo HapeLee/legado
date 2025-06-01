@@ -4,9 +4,9 @@
 
     <item
         android:id="@+id/menu_group"
-        android:showAsAction="always"
         android:title="@string/group"
-        android:icon="@drawable/ic_groups">
+        android:icon="@drawable/ic_groups"
+        app:showAsAction="always">
 
         <menu />
 

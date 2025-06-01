@@ -14,7 +14,7 @@
         android:visibility="gone"
         tools:background="@drawable/fastscroll_bubble"
         tools:text="A"
-        tools:textColor="#ffffff"
+        tools:textColor="?attr/colorPrimary"
         tools:visibility="visible" />
 
     <FrameLayout
@@ -30,7 +30,7 @@
             android:layout_height="match_parent"
             android:layout_gravity="center_horizontal"
             tools:ignore="ContentDescription"
-            tools:src="@drawable/fastscroll_track" />
+            android:src="@drawable/fastscroll_track" />
 
         <ImageView
             android:id="@+id/fastscroll_handle"
@@ -40,7 +40,7 @@
             android:paddingEnd="@dimen/fastscroll_scrollbar_padding_end"
             android:paddingStart="@dimen/fastscroll_scrollbar_padding_start"
             tools:ignore="ContentDescription"
-            tools:src="@drawable/fastscroll_handle" />
+            android:src="@drawable/fastscroll_handle" />
 
     </FrameLayout>
 

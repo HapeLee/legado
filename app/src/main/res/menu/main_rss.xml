@@ -14,9 +14,7 @@
         android:title="@string/group"
         android:icon="@drawable/ic_groups"
         app:showAsAction="always">
-
         <menu />
-
     </item>
 
     <item

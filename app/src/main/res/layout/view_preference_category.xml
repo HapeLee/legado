@@ -6,27 +6,16 @@
     android:layout_height="wrap_content"
     android:orientation="vertical" >
 
-    <View
-        android:id="@+id/preference_divider_above"
-        android:layout_width="match_parent"
-        android:layout_height="8dp" />
 
     <TextView
         android:id="@+id/preference_title"
         android:paddingTop="16dp"
         android:paddingBottom="8dp"
-        android:background="@drawable/bg_prefs_color"
         android:paddingLeft="16dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="123"
-        android:textColor="@color/md_light_primary_text"
+        android:textColor="?attr/colorPrimary"
         tools:ignore="RtlHardcoded,RtlSymmetry" />
 
-    <View
-        android:id="@+id/preference_divider_below"
-        android:layout_width="match_parent"
-        android:visibility="gone"
-        android:layout_height="8dp" />
 
 </LinearLayout>

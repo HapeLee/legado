@@ -106,11 +106,11 @@
     </style>
 
     <style name="AppTheme.AppBarOverlay.Light" parent="ThemeOverlay.Material3.Light">
-
+        <item name="android:windowLightStatusBar">true</item>
     </style>
 
     <style name="AppTheme.AppBarOverlay.Dark" parent="ThemeOverlay.Material3.Dark">
-
+        <item name="android:windowLightStatusBar">false</item>
     </style>
 
 <!--    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.Material3">-->

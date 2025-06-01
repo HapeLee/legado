@@ -80,9 +80,9 @@ abstract class BaseActivity<VB : ViewBinding>(
     @SuppressLint("ObsoleteSdkInt")
     override fun onCreate(savedInstanceState: Bundle?) {
         window.decorView.disableAutoFill()
-        initTheme()
+        //initTheme()
         super.onCreate(savedInstanceState)
-        setupSystemBar()
+        //setupSystemBar()
         setContentView(binding.root)
         upBackgroundImage()
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
@@ -101,14 +101,14 @@ abstract class BaseActivity<VB : ViewBinding>(
         super.onMultiWindowModeChanged(isInMultiWindowMode, newConfig)
 //        findViewById<TitleBar>(R.id.title_bar)
 //            ?.onMultiWindowModeChanged(isInMultiWindowMode, fullScreen)
-        setupSystemBar()
+        //setupSystemBar()
     }
 
     override fun onConfigurationChanged(newConfig: Configuration) {
         super.onConfigurationChanged(newConfig)
         //findViewById<TitleBar>(R.id.title_bar)
             //?.onMultiWindowModeChanged(isInMultiWindow, fullScreen)
-        setupSystemBar()
+        //setupSystemBar()
     }
 
     abstract fun onActivityCreated(savedInstanceState: Bundle?)
@@ -174,20 +174,20 @@ abstract class BaseActivity<VB : ViewBinding>(
         }
     }
 
-    open fun setupSystemBar() {
-        if (fullScreen && !isInMultiWindow) {
-            fullScreen()
-        }
-        //val isTransparentStatusBar = AppConfig.isTransparentStatusBar
-        //val statusBarColor = ThemeStore.statusBarColor(this, isTransparentStatusBar)
-        //setStatusBarColorAuto(statusBarColor, isTransparentStatusBar, fullScreen)
-//        if (toolBarTheme == Theme.Dark) {
-//            setLightStatusBar(false)
-//        } else if (toolBarTheme == Theme.Light) {
-//            setLightStatusBar(true)
+//    open fun setupSystemBar() {
+//        if (fullScreen && !isInMultiWindow) {
+//            fullScreen()
 //        }
-        upNavigationBarColor()
-    }
+//        //val isTransparentStatusBar = AppConfig.isTransparentStatusBar
+//        //val statusBarColor = ThemeStore.statusBarColor(this, isTransparentStatusBar)
+//        //setStatusBarColorAuto(statusBarColor, isTransparentStatusBar, fullScreen)
+////        if (toolBarTheme == Theme.Dark) {
+////            setLightStatusBar(false)
+////        } else if (toolBarTheme == Theme.Light) {
+////            setLightStatusBar(true)
+////        }
+//        upNavigationBarColor()
+//    }
 
     open fun upNavigationBarColor() {
 //        if (AppConfig.immNavigationBar) {

@@ -53,7 +53,7 @@ class MyFragment() : BaseFragment(R.layout.fragment_my_config), MainFragmentInte
     private val binding by viewBinding(FragmentMyConfigBinding::bind)
 
     override fun onFragmentCreated(view: View, savedInstanceState: Bundle?) {
-        setSupportToolbar(binding.titleBar.toolbar)
+        setSupportToolbar(binding.topBar)
         val fragmentTag = "prefFragment"
         var preferenceFragment = childFragmentManager.findFragmentByTag(fragmentTag)
         if (preferenceFragment == null) preferenceFragment = MyPreferenceFragment()

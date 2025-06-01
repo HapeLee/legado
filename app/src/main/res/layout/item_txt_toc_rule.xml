@@ -7,7 +7,7 @@
     android:background="?attr/selectableItemBackground"
     android:clickable="true"
     android:focusable="true"
-    android:padding="12dp">
+    android:padding="16dp">
 
     <io.legado.app.lib.theme.view.ThemeCheckBox
         android:id="@+id/cb_source"
@@ -15,7 +15,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="start"
         android:singleLine="true"
-        android:textColor="@color/primaryText"
         app:layout_constraintBottom_toTopOf="@id/title_example"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@id/swt_enabled"
@@ -43,7 +42,6 @@
         android:contentDescription="@string/edit"
         android:padding="6dp"
         android:src="@drawable/ic_edit"
-        android:tint="@color/primaryText"
         app:layout_constraintBottom_toTopOf="@id/title_example"
         app:layout_constraintRight_toLeftOf="@id/iv_menu_more"
         app:layout_constraintTop_toTopOf="parent" />
@@ -56,7 +54,6 @@
         android:contentDescription="@string/more_menu"
         android:padding="6dp"
         android:src="@drawable/ic_more_vert"
-        android:tint="@color/primaryText"
         app:layout_constraintBottom_toTopOf="@id/title_example"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"

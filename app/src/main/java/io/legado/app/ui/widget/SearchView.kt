@@ -38,10 +38,10 @@ class SearchView @JvmOverloads constructor(
         try {
             if (textView == null) {
                 textView = findViewById(androidx.appcompat.R.id.search_src_text)
-                mSearchHintIcon = this.context.getDrawable(R.drawable.ic_search_hint)
+                //mSearchHintIcon = this.context.getDrawable(R.drawable.ic_search_hint)
             }
             // 改变字体
-            textView!!.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14f)
+            //textView!!.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14f)
             textView!!.gravity = Gravity.CENTER_VERTICAL
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.VANILLA_ICE_CREAM) {
                 textView!!.isLocalePreferredLineHeightForMinimumUsed = false

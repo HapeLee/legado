@@ -56,9 +56,8 @@ class ExploreAdapter(context: Context, val callBack: CallBack) :
             }
 
             if (exIndex == holder.layoutPosition) {
-                // 使用 MaterialButton 的 icon 属性和旋转动画
                 ivStatus.icon = ContextCompat.getDrawable(context, R.drawable.ic_arrow_right)
-                ivStatus.rotation = 90f // 直接设置90度旋转（向下箭头效果）
+                ivStatus.rotation = 90f
 
                 if (scrollTo >= 0) {
                     callBack.scrollTo(scrollTo)
@@ -77,7 +76,7 @@ class ExploreAdapter(context: Context, val callBack: CallBack) :
                 }
             } else {
                 ivStatus.icon = ContextCompat.getDrawable(context, R.drawable.ic_arrow_right)
-                ivStatus.rotation = 0f // 重置为0度（向右箭头）
+                ivStatus.rotation = 0f
                 recyclerFlexbox(flexbox)
                 flexbox.gone()
             }

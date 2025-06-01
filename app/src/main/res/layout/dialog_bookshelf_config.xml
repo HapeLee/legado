@@ -18,8 +18,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:padding="6dp"
-            android:text="@string/group_style"
-            android:textColor="@color/primaryText" />
+            android:text="@string/group_style" />
 
         <androidx.appcompat.widget.AppCompatSpinner
             android:id="@+id/sp_group_style"
@@ -75,7 +74,7 @@
         app:layout_constraintTop_toBottomOf="@+id/sw_show_bookshelf_fast_scroller"
         app:layout_constraintLeft_toLeftOf="parent">
 
-        <io.legado.app.ui.widget.text.AccentTextView
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:padding="6dp"
@@ -88,31 +87,31 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <RadioButton
+            <com.google.android.material.radiobutton.MaterialRadioButton
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/layout_list"
                 tools:ignore="TouchTargetSizeCheck" />
 
-            <RadioButton
+            <com.google.android.material.radiobutton.MaterialRadioButton
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/layout_grid3"
                 tools:ignore="TouchTargetSizeCheck" />
 
-            <RadioButton
+            <com.google.android.material.radiobutton.MaterialRadioButton
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/layout_grid4"
                 tools:ignore="TouchTargetSizeCheck" />
 
-            <RadioButton
+            <com.google.android.material.radiobutton.MaterialRadioButton
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/layout_grid5"
                 tools:ignore="TouchTargetSizeCheck" />
 
-            <RadioButton
+            <com.google.android.material.radiobutton.MaterialRadioButton
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/layout_grid6"
@@ -130,7 +129,7 @@
         app:layout_constraintTop_toBottomOf="@id/sw_show_bookshelf_fast_scroller"
         app:layout_constraintRight_toRightOf="parent">
 
-        <io.legado.app.ui.widget.text.AccentTextView
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:padding="6dp"
@@ -143,37 +142,37 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <RadioButton
+            <com.google.android.material.radiobutton.MaterialRadioButton
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/bookshelf_px_0"
                 tools:ignore="TouchTargetSizeCheck" />
 
-            <RadioButton
+            <com.google.android.material.radiobutton.MaterialRadioButton
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/bookshelf_px_1"
                 tools:ignore="TouchTargetSizeCheck" />
 
-            <RadioButton
+            <com.google.android.material.radiobutton.MaterialRadioButton
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/bookshelf_px_2"
                 tools:ignore="TouchTargetSizeCheck" />
 
-            <RadioButton
+            <com.google.android.material.radiobutton.MaterialRadioButton
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/bookshelf_px_3"
                 tools:ignore="TouchTargetSizeCheck" />
 
-            <RadioButton
+            <com.google.android.material.radiobutton.MaterialRadioButton
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/bookshelf_px_4"
                 tools:ignore="TouchTargetSizeCheck" />
 
-            <RadioButton
+            <com.google.android.material.radiobutton.MaterialRadioButton
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/bookshelf_px_5"

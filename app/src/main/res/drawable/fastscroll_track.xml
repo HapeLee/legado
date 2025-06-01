@@ -18,7 +18,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:shape="rectangle">
 
-    <tools:solid android:color="#CCCCCC" />
+    <tools:solid android:color="@color/transparent" />
 
     <size android:width="@dimen/fastscroll_track_width" />
 

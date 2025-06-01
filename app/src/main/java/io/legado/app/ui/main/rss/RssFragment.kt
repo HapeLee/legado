@@ -62,16 +62,14 @@ class RssFragment() : VMBaseFragment<RssViewModel>(R.layout.fragment_rss),
     private val adapter by lazy {
         RssAdapter(requireContext(), this, this, viewLifecycleOwner.lifecycle)
     }
-    private val searchView: SearchView by lazy {
-        binding.titleBar.findViewById(R.id.search_view)
-    }
+    private val searchView: SearchView by lazy { binding.searchLayout.searchView }
     private var groupsFlowJob: Job? = null
     private var rssFlowJob: Job? = null
     private val groups = linkedSetOf<String>()
     private var groupsMenu: SubMenu? = null
 
     override fun onFragmentCreated(view: View, savedInstanceState: Bundle?) {
-        setSupportToolbar(binding.titleBar.toolbar)
+        setSupportToolbar(binding.topBar)
         initSearchView()
         initRecyclerView()
         initGroupData()

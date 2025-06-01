@@ -63,28 +63,21 @@ class ExploreFragment() : VMBaseFragment<ExploreViewModel>(R.layout.fragment_exp
     private val binding by viewBinding(FragmentExploreBinding::bind)
     private val adapter by lazy { ExploreAdapter(requireContext(), this) }
     private val linearLayoutManager by lazy { LinearLayoutManager(context) }
-    private val searchView: SearchView by lazy {
-        binding.titleBar.findViewById(R.id.search_view)
-    }
+    private val searchView: SearchView by lazy { binding.searchLayout.searchView }
     private val diffItemCallBack = ExploreDiffItemCallBack()
     private val groups = linkedSetOf<String>()
     private var exploreFlowJob: Job? = null
     private var groupsMenu: SubMenu? = null
 
     override fun onFragmentCreated(view: View, savedInstanceState: Bundle?) {
-        setSupportToolbar(binding.titleBar.toolbar)
+        setSupportToolbar(binding.topBar)
         initSearchView()
         initRecyclerView()
         initGroupData()
         upExploreData()
     }
 
-    override fun onCompatCreateOptionsMenu(menu: Menu) {
-        super.onCompatCreateOptionsMenu(menu)
-        menuInflater.inflate(R.menu.main_explore, menu)
-        groupsMenu = menu.findItem(R.id.menu_group)?.subMenu
-        upGroupsMenu()
-    }
+
 
     override fun onPause() {
         super.onPause()

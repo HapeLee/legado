@@ -7,6 +7,7 @@ import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.Drawable
 import android.util.AttributeSet
+import android.util.TypedValue
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
@@ -288,7 +289,6 @@ class FastScroller : LinearLayout {
         visibility = if (enabled) View.VISIBLE else View.INVISIBLE
     }
 
-    @Suppress("DEPRECATION")
     @SuppressLint("ClickableViewAccessibility")
     override fun onTouchEvent(event: MotionEvent): Boolean {
         when (event.action) {
@@ -413,7 +413,7 @@ class FastScroller : LinearLayout {
     }
 
     private fun isViewVisible(view: View?): Boolean {
-        return view != null && view.visibility == View.VISIBLE
+        return view != null && view.isVisible
     }
 
     private fun cancelAnimation(animator: ViewPropertyAnimator?) {
@@ -492,7 +492,7 @@ class FastScroller : LinearLayout {
 
     private fun setHandleSelected(selected: Boolean) {
         mHandleView.isSelected = selected
-        DrawableCompat.setTint(mHandleImage!!, if (selected) mBubbleColor else mHandleColor)
+        DrawableCompat.setTint(mHandleImage!!, if (selected) mHandleColor else mHandleColor)
     }
 
     private fun layout(context: Context, attrs: AttributeSet?) {
@@ -503,21 +503,24 @@ class FastScroller : LinearLayout {
         mHandleView = findViewById(R.id.fastscroll_handle)
         mTrackView = findViewById(R.id.fastscroll_track)
         mScrollbar = findViewById(R.id.fastscroll_scrollbar)
-//        @ColorInt var bubbleColor = ColorUtils.adjustAlpha(context.accentColor, 0.8f)
-//        @ColorInt var handleColor = context.accentColor
-        @ColorInt var trackColor = context.getCompatColor(R.color.transparent30)
-//        @ColorInt var textColor =
-//            if (ColorUtils.isColorLight(bubbleColor)) Color.BLACK else Color.WHITE
+        mHandleImage = mHandleView.drawable?.mutate()
+        val typedValue = TypedValue()
+        context.theme.resolveAttribute(com.google.android.material.R.attr.colorPrimary, typedValue, true)
+        val defaultColor = typedValue.data
+        var bubbleColor = defaultColor
+        var handleColor = defaultColor
+        var trackColor = defaultColor
+        var textColor = defaultColor
         var fadeScrollbar = true
         var showBubble = false
         var showTrack = true
         if (attrs != null) {
             val typedArray = context.obtainStyledAttributes(attrs, R.styleable.FastScroller, 0, 0)
             try {
-//                bubbleColor = typedArray.getColor(R.styleable.FastScroller_bubbleColor, bubbleColor)
-//                handleColor = typedArray.getColor(R.styleable.FastScroller_handleColor, handleColor)
+                bubbleColor = typedArray.getColor(R.styleable.FastScroller_bubbleColor, bubbleColor)
+                handleColor = typedArray.getColor(R.styleable.FastScroller_handleColor, handleColor)
                 trackColor = typedArray.getColor(R.styleable.FastScroller_trackColor, trackColor)
-//                textColor = typedArray.getColor(R.styleable.FastScroller_bubbleTextColor, textColor)
+                textColor = typedArray.getColor(R.styleable.FastScroller_bubbleTextColor, textColor)
                 fadeScrollbar =
                     typedArray.getBoolean(R.styleable.FastScroller_fadeScrollbar, fadeScrollbar)
                 showBubble = typedArray.getBoolean(R.styleable.FastScroller_showBubble, showBubble)
@@ -527,9 +530,9 @@ class FastScroller : LinearLayout {
             }
         }
         setTrackColor(trackColor)
-//        setHandleColor(handleColor)
-//        setBubbleColor(bubbleColor)
-//        setBubbleTextColor(textColor)
+        setHandleColor(handleColor)
+        setBubbleColor(bubbleColor)
+        setBubbleTextColor(textColor)
         setFadeScrollbar(fadeScrollbar)
         setBubbleVisible(showBubble)
         setTrackVisible(showTrack)

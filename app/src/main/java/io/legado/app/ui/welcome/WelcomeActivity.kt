@@ -31,11 +31,11 @@ open class WelcomeActivity : BaseActivity<ActivityWelcomeBinding>() {
         }
     }
 
-    override fun setupSystemBar() {
-        fullScreen()
-        //setStatusBarColorAuto(backgroundColor, true, fullScreen)
-        upNavigationBarColor()
-    }
+//    override fun setupSystemBar() {
+//        fullScreen()
+//        //setStatusBarColorAuto(backgroundColor, true, fullScreen)
+//        upNavigationBarColor()
+//    }
 
     override fun upBackgroundImage() {
         if (getPrefBoolean(PreferKey.customWelcome)) {
