@@ -12,6 +12,7 @@ import android.view.animation.Interpolator
 import android.widget.OverScroller
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.core.view.ViewCompat
+import com.google.android.material.textview.MaterialTextView
 import kotlin.math.abs
 import kotlin.math.max
 import kotlin.math.min
@@ -21,7 +22,7 @@ import kotlin.math.min
  * 嵌套惯性滚动 TextView
  */
 class ScrollTextView(context: Context, attrs: AttributeSet?) :
-    AppCompatTextView(context, attrs) {
+    MaterialTextView(context, attrs) {
 
     //是否到顶或者到底的标志
     private var disallowIntercept = true

@@ -207,6 +207,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:visibility="gone" />
+
                         </HorizontalScrollView>
                     </LinearLayout>
 
@@ -287,7 +288,7 @@
                                 android:includeFontPadding="false"
                                 android:paddingRight="6dp"
                                 android:singleLine="true"
-                                android:textSize="13sp"
+                                android:textSize="14sp"
                                 tools:ignore="NestedWeights,RtlHardcoded,RtlSymmetry"
                                 tools:text="@string/read_dur_progress" />
 
@@ -318,7 +319,7 @@
                                 android:includeFontPadding="false"
                                 android:paddingRight="6dp"
                                 android:singleLine="true"
-                                android:textSize="13sp"
+                                android:textSize="14sp"
                                 tools:ignore="NestedWeights,RtlHardcoded,RtlSymmetry"
                                 tools:text="@string/group_s" />
 
@@ -336,8 +337,8 @@
                         </LinearLayout>
                     </LinearLayout>
 
-                    <io.legado.app.ui.widget.text.ScrollTextView
-                        android:id="@+id/tv_intro"
+                    <TextView
+                        android:id="@+id/tv_detail"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
@@ -346,9 +347,10 @@
                         android:minHeight="48dp"
                         android:paddingLeft="8dp"
                         android:paddingBottom="8dp"
+                        android:lineSpacingExtra="4dp"
                         android:text="@string/book_intro"
                         android:textIsSelectable="true"
-                        android:textSize="16sp"
+                        android:textSize="14sp"
                         android:visibility="visible"
                         tools:ignore="RtlHardcoded,RtlSymmetry" />
 

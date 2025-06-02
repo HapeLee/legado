@@ -168,7 +168,7 @@ class BookInfoActivity :
         binding.tvToc.text = getString(R.string.toc_s, getString(R.string.loading))
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N_MR1) {
-            binding.tvIntro.revealOnFocusHint = false
+            binding.tvDetail?.let { it.revealOnFocusHint = false }
         }
 
         viewModel.bookData.observe(this) { showBook(it) }
@@ -297,16 +297,16 @@ class BookInfoActivity :
         }
     }
 
-    override fun dispatchTouchEvent(ev: MotionEvent): Boolean {
-        if (ev.action == MotionEvent.ACTION_DOWN) {
-            currentFocus?.let {
-                if (it === binding.tvIntro && binding.tvIntro.hasSelection()) {
-                    it.clearFocus()
-                }
-            }
-        }
-        return super.dispatchTouchEvent(ev)
-    }
+//    override fun dispatchTouchEvent(ev: MotionEvent): Boolean {
+//        if (ev.action == MotionEvent.ACTION_DOWN) {
+//            currentFocus?.let {
+//                if (it === binding.tvIntro && binding.tvIntro.hasSelection()) {
+//                    it.clearFocus()
+//                }
+//            }
+//        }
+//        return super.dispatchTouchEvent(ev)
+//    }
 
     private fun refreshBook() {
         upLoading(true)
@@ -343,7 +343,7 @@ class BookInfoActivity :
         tvAuthor.text = getString(R.string.author_show, book.getRealAuthor())
         tvOrigin.text = getString(R.string.origin_show, book.originName)
         tvLasted.text = getString(R.string.lasted_show, book.latestChapterTitle)
-        tvIntro.text = book.getDisplayIntro()
+        tvDetail?.let { it.text = book.getDisplayIntro() }
         llToc?.visible(!book.isWebFile)
         upTvBookshelf()
         upKinds(book)
@@ -366,7 +366,9 @@ class BookInfoActivity :
                 lbKind.gone()
             } else {
                 lbKind.visible()
-                lbKind.setLabels(kinds)
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.VANILLA_ICE_CREAM) {
+                    lbKind.setLabels(kinds)
+                }
             }
         }
     }
