@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.viewModels
 import io.legado.app.R
+import io.legado.app.base.BaseBottomSheetDialogFragment
 import io.legado.app.base.BaseDialogFragment
 import io.legado.app.base.BaseViewModel
 import io.legado.app.constant.AppLog
@@ -22,7 +23,7 @@ import kotlinx.coroutines.Dispatchers
 import java.util.regex.Pattern
 import java.util.regex.PatternSyntaxException
 
-class TxtTocRuleEditDialog() : BaseDialogFragment(R.layout.dialog_toc_regex_edit, true),
+class TxtTocRuleEditDialog() : BaseBottomSheetDialogFragment(R.layout.dialog_toc_regex_edit),
     Toolbar.OnMenuItemClickListener {
 
     constructor(id: Long?) : this() {

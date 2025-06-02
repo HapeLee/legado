@@ -15,7 +15,8 @@
     <HorizontalScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:scrollbars="none">
+        android:scrollbars="none"
+        android:paddingHorizontal="12dp">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -23,7 +24,6 @@
             android:layout_gravity="center_vertical"
             android:gravity="center_vertical"
             android:orientation="horizontal"
-            android:paddingHorizontal="8dp"
             tools:ignore="VisualLintBounds">
 
             <TextView
@@ -77,7 +77,7 @@
         android:id="@+id/tab_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:tabMode="fixed"
+        android:paddingStart="12dp"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <androidx.recyclerview.widget.RecyclerView

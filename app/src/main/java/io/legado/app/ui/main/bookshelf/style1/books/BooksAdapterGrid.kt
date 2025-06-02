@@ -2,6 +2,7 @@ package io.legado.app.ui.main.bookshelf.style1.books
 
 import android.content.Context
 import android.os.Bundle
+import android.view.View
 import android.view.ViewGroup
 import io.legado.app.base.adapter.ItemViewHolder
 import io.legado.app.data.entities.Book
@@ -44,32 +45,36 @@ class BooksAdapterGrid(context: Context, private val callBack: CallBack) :
 
     private fun upRefresh(binding: ItemBookshelfGridBinding, item: Book) {
         if (!item.isLocal && callBack.isUpdate(item.bookUrl)) {
-            binding.bvUnread.invisible()
-            binding.rlLoading.visible()
+            binding.cdUnread.visibility = View.GONE
+            binding.rlLoading.visibility = View.VISIBLE
         } else {
-            binding.rlLoading.inVisible()
+            binding.rlLoading.visibility = View.GONE
             if (AppConfig.showUnread) {
-                binding.bvUnread.setBadgeCount(item.getUnreadChapterNum())
-                binding.bvUnread.setHighlight(item.lastCheckCount > 0)
+                val unreadCount = item.getUnreadChapterNum()
+                if (unreadCount > 0) {
+                    binding.cdUnread.visibility = View.VISIBLE
+                    binding.tvUnread.text = unreadCount.toString()
+                } else {
+                    binding.cdUnread.visibility = View.GONE
+                }
             } else {
-                binding.bvUnread.invisible()
+                binding.cdUnread.visibility = View.GONE
             }
         }
     }
 
     override fun registerListener(holder: ItemViewHolder, binding: ItemBookshelfGridBinding) {
-        holder.itemView.apply {
-            setOnClickListener {
-                getItem(holder.layoutPosition)?.let {
-                    callBack.open(it)
-                }
+        binding.cvContent.setOnClickListener {
+            getItem(holder.layoutPosition)?.let {
+                callBack.open(it)
             }
+        }
 
-            onLongClick {
-                getItem(holder.layoutPosition)?.let {
-                    callBack.openBookInfo(it)
-                }
+        binding.cvContent.setOnLongClickListener {
+            getItem(holder.layoutPosition)?.let {
+                callBack.openBookInfo(it)
             }
+            true
         }
     }
 }

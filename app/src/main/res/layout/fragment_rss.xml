@@ -24,7 +24,7 @@
                 android:id="@+id/top_bar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                app:title="@string/discovery"
+                app:title="@string/rss"
                 app:layout_collapseMode="pin" />
 
         </com.google.android.material.appbar.CollapsingToolbarLayout>
@@ -34,7 +34,6 @@
             layout="@layout/view_search"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:visibility="gone"
             android:layout_marginHorizontal="16dp" />
 
     </com.google.android.material.appbar.AppBarLayout>

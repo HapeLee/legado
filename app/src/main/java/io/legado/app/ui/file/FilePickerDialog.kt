@@ -5,10 +5,12 @@ import android.content.DialogInterface
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.util.TypedValue
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.widget.Toolbar
+import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.graphics.drawable.DrawableCompat
 import androidx.fragment.app.FragmentManager
@@ -165,7 +167,7 @@ class FilePickerDialog : BaseDialogFragment(R.layout.dialog_file_chooser),
     inner class PathAdapter :
         RecyclerAdapter<File, ItemPathPickerBinding>(requireContext()) {
 
-        private val arrowIcon = ConvertUtils.toDrawable(FilePickerIcon.getArrow())
+        private val arrowIcon = ContextCompat.getDrawable(requireContext(),R.drawable.ic_arrow_right)
 
         init {
             addHeaderView {
@@ -207,14 +209,16 @@ class FilePickerDialog : BaseDialogFragment(R.layout.dialog_file_chooser),
     }
 
     inner class FileAdapter : RecyclerAdapter<File, ItemFilePickerBinding>(requireContext()) {
-        //private val primaryTextColor = context.getPrimaryTextColor(!AppConfig.isNightTheme)
-        //private val disabledTextColor = context.getPrimaryDisabledTextColor(!AppConfig.isNightTheme)
-        private val upIcon = ConvertUtils.toDrawable(FilePickerIcon.getUpDir())!!
-        private val folderIcon = ConvertUtils.toDrawable(FilePickerIcon.getFolder())!!
-        private val fileIcon = ConvertUtils.toDrawable(FilePickerIcon.getFile())!!
+        private val upIcon = ContextCompat.getDrawable(requireContext(),R.drawable.ic_return)
+        private val folderIcon = ContextCompat.getDrawable(requireContext(),R.drawable.ic_folder)
+        private val fileIcon = ContextCompat.getDrawable(requireContext(),R.drawable.ic_file)
         private val selectDrawable =
             ResourcesCompat.getDrawable(resources, R.drawable.shape_radius_1dp, null)!!.apply {
-                //DrawableCompat.setTint(this, primaryTextColor)
+                // 从主题获取颜色
+                val typedValue = TypedValue()
+                requireContext().theme.resolveAttribute(android.R.attr.colorPrimary, typedValue, true)
+                val primaryColor = typedValue.data
+                DrawableCompat.setTint(this, primaryColor)
             }
         var selectFile: File? = null
 

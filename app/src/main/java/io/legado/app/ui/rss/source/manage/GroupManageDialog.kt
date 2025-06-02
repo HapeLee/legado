@@ -11,6 +11,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import io.legado.app.R
+import io.legado.app.base.BaseBottomSheetDialogFragment
 import io.legado.app.base.BaseDialogFragment
 import io.legado.app.base.adapter.ItemViewHolder
 import io.legado.app.base.adapter.RecyclerAdapter
@@ -32,7 +33,7 @@ import kotlinx.coroutines.flow.conflate
 import kotlinx.coroutines.launch
 
 
-class GroupManageDialog : BaseDialogFragment(R.layout.dialog_recycler_view),
+class GroupManageDialog : BaseBottomSheetDialogFragment(R.layout.dialog_recycler_view),
     Toolbar.OnMenuItemClickListener {
 
     private val viewModel: RssSourceViewModel by activityViewModels()
@@ -41,7 +42,7 @@ class GroupManageDialog : BaseDialogFragment(R.layout.dialog_recycler_view),
 
     override fun onStart() {
         super.onStart()
-        setLayout(0.9f, 0.9f)
+
     }
 
     override fun onFragmentCreated(view: View, savedInstanceState: Bundle?) = binding.run {

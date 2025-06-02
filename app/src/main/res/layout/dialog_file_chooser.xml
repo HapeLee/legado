@@ -3,23 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    >
+    android:layout_height="match_parent">
 
-    <androidx.appcompat.widget.Toolbar
+    <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/tool_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="?attr/actionBarStyle"
         app:titleTextAppearance="@style/ToolbarTitle" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_path"
         android:layout_width="match_parent"
         android:layout_height="24dp"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:elevation="5dp" />
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp" />
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -40,12 +37,12 @@
 
     </FrameLayout>
 
-    <io.legado.app.ui.widget.text.AccentBgTextView
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/tv_ok"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:layout_margin="3dp"
+        style="@style/Widget.Material3.Button.TonalButton"
+        android:layout_margin="8dp"
         android:text="@string/ok"
         android:gravity="center" />
 

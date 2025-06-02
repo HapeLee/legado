@@ -101,7 +101,7 @@
         <item name="android:textFontWeight" tools:targetApi="p">500</item>
     </style>
 
-    <style name="PreferenceDialogTheme" parent="Theme.Material3.DayNight.Dialog.Alert">
+    <style name="PreferenceDialogTheme" parent="Theme.Material3.DayNight">
 
     </style>
 

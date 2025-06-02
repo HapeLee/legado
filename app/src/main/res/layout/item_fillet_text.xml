@@ -13,4 +13,5 @@
     android:paddingEnd="16dp"
     android:maxLines="1"
     android:textSize="14sp"
+    android:textColor="?attr/colorPrimary"
     tools:ignore="UnusedAttribute" />

@@ -14,5 +14,4 @@ class TextInputLayout(context: Context, attrs: AttributeSet?) : TextInputLayout(
                 Selector.colorBuild().setDefaultColor(ThemeStore.accentColor(context)).create()
         }
     }
-
 }

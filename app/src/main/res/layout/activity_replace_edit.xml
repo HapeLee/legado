@@ -24,9 +24,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="10dp">
+            android:padding="16dp">
 
-            <io.legado.app.ui.widget.text.TextInputLayout
+            <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/til_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -37,9 +37,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
-            </io.legado.app.ui.widget.text.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <io.legado.app.ui.widget.text.TextInputLayout
+            <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/til_group"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -50,9 +50,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
-            </io.legado.app.ui.widget.text.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <io.legado.app.ui.widget.text.TextInputLayout
+            <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/til_replace_rule"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -63,7 +63,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
-            </io.legado.app.ui.widget.text.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -84,12 +84,11 @@
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:src="@drawable/ic_help"
-                    app:tint="@color/primaryText"
                     android:contentDescription="@string/help" />
 
             </LinearLayout>
 
-            <io.legado.app.ui.widget.text.TextInputLayout
+            <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/til_replace_to"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -100,7 +99,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
-            </io.legado.app.ui.widget.text.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
@@ -125,7 +124,7 @@
 
             </androidx.appcompat.widget.LinearLayoutCompat>
 
-            <io.legado.app.ui.widget.text.TextInputLayout
+            <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/til_scope"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -136,9 +135,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
-            </io.legado.app.ui.widget.text.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <io.legado.app.ui.widget.text.TextInputLayout
+            <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/til_exclude_scope"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -149,9 +148,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
-            </io.legado.app.ui.widget.text.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <io.legado.app.ui.widget.text.TextInputLayout
+            <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/til_timeout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -163,7 +162,7 @@
                     android:layout_height="wrap_content"
                     android:inputType="number"
                     tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
-            </io.legado.app.ui.widget.text.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
         </LinearLayout>
     </io.legado.app.ui.widget.NoChildScrollNestedScrollView>

@@ -17,7 +17,6 @@
             android:id="@+id/tool_bar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:elevation="5dp"
             android:theme="?attr/actionBarStyle"
             app:displayHomeAsUp="false"
             app:fitStatusBar="false"
@@ -28,15 +27,15 @@
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="6dp"
             android:overScrollMode="ifContentScrolls">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:padding="16dp">
 
-                <io.legado.app.ui.widget.text.TextInputLayout
+                <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/name">
@@ -47,9 +46,9 @@
                         android:layout_height="wrap_content"
                         tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
-                </io.legado.app.ui.widget.text.TextInputLayout>
+                </com.google.android.material.textfield.TextInputLayout>
 
-                <io.legado.app.ui.widget.text.TextInputLayout
+                <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/regex">
@@ -60,9 +59,9 @@
                         android:layout_height="wrap_content"
                         tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
-                </io.legado.app.ui.widget.text.TextInputLayout>
+                </com.google.android.material.textfield.TextInputLayout>
 
-                <io.legado.app.ui.widget.text.TextInputLayout
+                <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/example">
@@ -73,7 +72,7 @@
                         android:layout_height="wrap_content"
                         tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
-                </io.legado.app.ui.widget.text.TextInputLayout>
+                </com.google.android.material.textfield.TextInputLayout>
 
             </LinearLayout>
 

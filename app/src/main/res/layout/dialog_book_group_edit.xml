@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:padding="16dp">
+    android:orientation="vertical">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/tool_bar"
@@ -22,7 +21,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:gravity="center_horizontal"
-        android:padding="8dp">
+        android:padding="16dp">
 
         <io.legado.app.ui.widget.image.CoverImageView
             android:id="@+id/iv_cover"
@@ -39,19 +38,19 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <io.legado.app.ui.widget.text.TextInputLayout
+            <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/til_group_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/group_name">
 
-                <io.legado.app.lib.theme.view.ThemeEditText
+                <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/tie_group_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:maxLines="2"
                     tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
-            </io.legado.app.ui.widget.text.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -89,7 +88,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:gravity="center_vertical">
+        android:gravity="center_vertical"
+        android:padding="16dp">
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_delete"

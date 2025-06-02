@@ -33,9 +33,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="12dp">
+                android:padding="16dp">
 
-                <io.legado.app.ui.widget.text.TextInputLayout
+                <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/name">
@@ -46,9 +46,9 @@
                         android:layout_height="wrap_content"
                         tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
-                </io.legado.app.ui.widget.text.TextInputLayout>
+                </com.google.android.material.textfield.TextInputLayout>
 
-                <io.legado.app.ui.widget.text.TextInputLayout
+                <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/url_rule">
@@ -59,9 +59,9 @@
                         android:layout_height="wrap_content"
                         tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
-                </io.legado.app.ui.widget.text.TextInputLayout>
+                </com.google.android.material.textfield.TextInputLayout>
 
-                <io.legado.app.ui.widget.text.TextInputLayout
+                <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/show_rule">
@@ -72,7 +72,7 @@
                         android:layout_height="wrap_content"
                         tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
-                </io.legado.app.ui.widget.text.TextInputLayout>
+                </com.google.android.material.textfield.TextInputLayout>
 
             </LinearLayout>
 

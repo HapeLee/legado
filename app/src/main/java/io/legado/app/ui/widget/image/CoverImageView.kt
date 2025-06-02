@@ -81,22 +81,26 @@ class CoverImageView @JvmOverloads constructor(
         )
     }
 
+    private val cornerRadius = 24f
+
     override fun onLayout(changed: Boolean, left: Int, top: Int, right: Int, bottom: Int) {
         super.onLayout(changed, left, top, right, bottom)
         viewWidth = width.toFloat()
         viewHeight = height.toFloat()
         filletPath.reset()
-        if (width > 10 && viewHeight > 10) {
+
+        if (viewWidth > cornerRadius * 2 && viewHeight > cornerRadius * 2) {
+            val r = cornerRadius
             filletPath.apply {
-                moveTo(12f, 0f)
-                lineTo(viewWidth - 12, 0f)
-                quadTo(viewWidth, 0f, viewWidth, 12f)
-                lineTo(viewWidth, viewHeight - 12)
-                quadTo(viewWidth, viewHeight, viewWidth - 12, viewHeight)
-                lineTo(12f, viewHeight)
-                quadTo(0f, viewHeight, 0f, viewHeight - 12)
-                lineTo(0f, 12f)
-                quadTo(0f, 0f, 12f, 0f)
+                moveTo(r, 0f)
+                lineTo(viewWidth - r, 0f)
+                quadTo(viewWidth, 0f, viewWidth, r)
+                lineTo(viewWidth, viewHeight - r)
+                quadTo(viewWidth, viewHeight, viewWidth - r, viewHeight)
+                lineTo(r, viewHeight)
+                quadTo(0f, viewHeight, 0f, viewHeight - r)
+                lineTo(0f, r)
+                quadTo(0f, 0f, r, 0f)
                 close()
             }
         }

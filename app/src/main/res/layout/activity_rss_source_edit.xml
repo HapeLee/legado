@@ -24,7 +24,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:orientation="horizontal"
-            android:paddingHorizontal="8dp"
+            android:paddingHorizontal="12dp"
             tools:ignore="VisualLintBounds">
 
             <io.legado.app.lib.theme.view.ThemeCheckBox
@@ -58,7 +58,8 @@
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tab_layout"
         android:layout_width="match_parent"
-        android:layout_height="36dp"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="12dp"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <androidx.recyclerview.widget.RecyclerView

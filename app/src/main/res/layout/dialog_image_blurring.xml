@@ -11,7 +11,6 @@
         android:layout_height="wrap_content"
         android:padding="6dp"
         android:layout_gravity="center_horizontal"
-        android:textColor="@color/primaryText"
         android:textSize="17sp" />
 
     <androidx.appcompat.widget.AppCompatSeekBar

@@ -4,8 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fitsSystemWindows="true">
+    android:layout_height="match_parent">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/title_bar"
@@ -35,7 +34,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingStart="16dp"
-            android:background="?attr/colorSurface"
+            android:background="@color/transparent"
             tools:ignore="RtlSymmetry" />
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -44,6 +43,7 @@
         android:id="@+id/view_pager_bookshelf"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:paddingHorizontal="8dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

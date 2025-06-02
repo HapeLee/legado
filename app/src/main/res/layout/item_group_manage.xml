@@ -2,34 +2,32 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:gravity="center_vertical"
     android:orientation="horizontal"
-    android:padding="8dp">
+    android:paddingHorizontal="16dp"
+    android:paddingVertical="8dp">
 
     <TextView
         android:id="@+id/tv_group"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:textColor="@color/primaryText" />
+        style="@style/TextAppearance.AppCompat.Medium"
+        android:layout_weight="1" />
 
-    <TextView
-        android:id="@+id/tv_edit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="?attr/selectableItemBackground"
-        android:padding="8dp"
-        android:text="@string/edit"
-        android:textColor="@color/primaryText" />
-
-    <TextView
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/tv_del"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="12dp"
-        android:background="?attr/selectableItemBackground"
-        android:padding="8dp"
-        android:text="@string/delete"
-        android:textColor="@color/primaryText" />
+        style="@style/Widget.Material3.Button.IconButton.Outlined"
+        android:layout_marginEnd="4dp"
+        app:icon="@drawable/ic_clear_all" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/tv_edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+        app:icon="@drawable/ic_edit" />
 
 </LinearLayout>

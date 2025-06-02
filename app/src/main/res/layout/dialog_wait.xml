@@ -6,7 +6,7 @@
     android:padding="20dp"
     android:orientation="horizontal">
 
-    <io.legado.app.lib.theme.view.ThemeProgressBar
+    <ProgressBar
         android:id="@+id/pb"
         android:layout_width="30dp"
         android:layout_height="30dp"
@@ -19,6 +19,5 @@
         android:layout_height="wrap_content"
         android:padding="6dp"
         android:gravity="center"
-        android:text="@string/loading"
-        android:textColor="@color/primaryText" />
+        android:text="@string/loading" />
 </LinearLayout>

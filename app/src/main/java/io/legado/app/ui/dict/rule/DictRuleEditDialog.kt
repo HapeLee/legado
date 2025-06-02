@@ -9,6 +9,7 @@ import androidx.appcompat.widget.Toolbar
 
 import androidx.fragment.app.viewModels
 import io.legado.app.R
+import io.legado.app.base.BaseBottomSheetDialogFragment
 import io.legado.app.base.BaseDialogFragment
 import io.legado.app.base.BaseViewModel
 import io.legado.app.data.appDb
@@ -18,7 +19,7 @@ import io.legado.app.databinding.DialogDictRuleEditBinding
 import io.legado.app.utils.*
 import io.legado.app.utils.viewbindingdelegate.viewBinding
 
-class DictRuleEditDialog() : BaseDialogFragment(R.layout.dialog_dict_rule_edit, true),
+class DictRuleEditDialog() : BaseBottomSheetDialogFragment(R.layout.dialog_dict_rule_edit),
     Toolbar.OnMenuItemClickListener {
 
     val viewModel by viewModels<DictRuleEditViewModel>()

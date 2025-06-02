@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<io.legado.app.ui.widget.text.TextInputLayout
+<com.google.android.material.textfield.TextInputLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/textInputLayout"
@@ -17,4 +17,4 @@
         android:inputType="textMultiLine"
         tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
-</io.legado.app.ui.widget.text.TextInputLayout>
+</com.google.android.material.textfield.TextInputLayout>

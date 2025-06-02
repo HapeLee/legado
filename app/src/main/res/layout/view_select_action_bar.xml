@@ -4,12 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:elevation="2dp"
     android:gravity="center_vertical"
     android:orientation="horizontal"
-    android:paddingLeft="16dp"
+    android:paddingEnd="16dp"
     android:paddingTop="6dp"
-    android:paddingRight="8dp"
+    android:paddingStart="16dp"
     android:paddingBottom="6dp"
     tools:ignore="RtlHardcoded">
 
@@ -18,13 +17,14 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:padding="5dp"
+        android:padding="4dp"
         android:text="@string/select_all" />
 
-    <io.legado.app.ui.widget.button.AccentStrokeButton
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_revert_selection"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        style="@style/Widget.Material3.Button.TonalButton"
         android:layout_margin="5dp"
         android:gravity="center"
         android:minWidth="72dp"
@@ -32,7 +32,7 @@
         android:text="@string/revert_selection"
         app:isBottomBackground="true" />
 
-    <io.legado.app.ui.widget.button.AccentStrokeButton
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_select_action_main"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -52,7 +52,6 @@
         android:contentDescription="@string/more_menu"
         android:padding="6dp"
         android:src="@drawable/ic_more_vert"
-        android:tint="@color/primaryText"
         android:tooltipText="@string/more_menu"
         android:visibility="gone"
         tools:ignore="RtlHardcoded,UnusedAttribute" />

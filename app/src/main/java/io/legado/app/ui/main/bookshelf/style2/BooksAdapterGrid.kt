@@ -2,6 +2,7 @@ package io.legado.app.ui.main.bookshelf.style2
 
 import android.content.Context
 import android.os.Bundle
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import io.legado.app.data.entities.Book
@@ -89,18 +90,24 @@ class BooksAdapterGrid(context: Context, callBack: CallBack) :
 
         private fun upRefresh(binding: ItemBookshelfGridBinding, item: Book) {
             if (!item.isLocal && callBack.isUpdate(item.bookUrl)) {
-                binding.bvUnread.invisible()
-                binding.rlLoading.visible()
+                binding.cdUnread.visibility = View.GONE
+                binding.rlLoading.visibility = View.VISIBLE
             } else {
-                binding.rlLoading.inVisible()
+                binding.rlLoading.visibility = View.GONE
                 if (AppConfig.showUnread) {
-                    binding.bvUnread.setBadgeCount(item.getUnreadChapterNum())
-                    binding.bvUnread.setHighlight(item.lastCheckCount > 0)
+                    val unreadCount = item.getUnreadChapterNum()
+                    if (unreadCount > 0) {
+                        binding.cdUnread.visibility = View.VISIBLE
+                        binding.tvUnread.text = unreadCount.toString()
+                    } else {
+                        binding.cdUnread.visibility = View.GONE
+                    }
                 } else {
-                    binding.bvUnread.invisible()
+                    binding.cdUnread.visibility = View.GONE
                 }
             }
         }
+
 
     }
 
@@ -129,10 +136,10 @@ class BooksAdapterGrid(context: Context, callBack: CallBack) :
         }
 
         fun registerListener(item: Any) {
-            binding.root.setOnClickListener {
+            binding.cvContent.setOnClickListener {
                 callBack.onItemClick(item)
             }
-            binding.root.onLongClick {
+            binding.cvContent.onLongClick {
                 callBack.onItemLongClick(item)
             }
         }
