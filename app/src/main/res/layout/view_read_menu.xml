@@ -113,8 +113,7 @@
             android:layout_height="24dp"
             android:layout_margin="8dp"
             android:contentDescription="@string/adjust_pos"
-            android:src="@drawable/ic_swap_horiz"
-            app:tint="@color/white" />
+            android:src="@drawable/ic_swap_horiz" />
 
     </LinearLayout>
 

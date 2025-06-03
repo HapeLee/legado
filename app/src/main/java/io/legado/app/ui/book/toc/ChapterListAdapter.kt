@@ -5,6 +5,7 @@ import android.os.Handler
 import android.os.Looper
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
+import com.google.android.material.color.MaterialColors
 import io.legado.app.R
 import io.legado.app.base.adapter.DiffRecyclerAdapter
 import io.legado.app.base.adapter.ItemViewHolder
@@ -129,14 +130,13 @@ class ChapterListAdapter(context: Context, val callback: Callback) :
                     || cacheFileNames.contains(item.getFileName())
             if (payloads.isEmpty()) {
                 if (isDur) {
-                    //tvChapterName.setTextColor(context.accentColor)
+                    tvChapterName.setTextColor(MaterialColors.getColor(tvChapterName, com.google.android.material.R.attr.colorSecondary))
                 } else {
-                    tvChapterName.setTextColor(context.getCompatColor(R.color.primaryText))
+                    tvChapterName.setTextColor(MaterialColors.getColor(tvChapterName, com.google.android.material.R.attr.colorOnSurface))
                 }
                 tvChapterName.text = getDisplayTitle(item)
                 if (item.isVolume) {
-                    //卷名，如第一卷 突出显示
-                    tvChapterItem.setBackgroundColor(context.getCompatColor(R.color.btn_bg_press))
+                    tvChapterItem.setBackgroundColor(MaterialColors.getColor(tvChapterItem, com.google.android.material.R.attr.colorSurfaceVariant))
                 } else {
                     //普通章节 保持不变
                     tvChapterItem.background =

@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.lifecycleScope
 import io.legado.app.R
+import io.legado.app.base.BaseBottomSheetDialogFragment
 import io.legado.app.base.BaseDialogFragment
 import io.legado.app.data.appDb
 import io.legado.app.data.entities.Bookmark
@@ -17,7 +18,7 @@ import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class BookmarkDialog() : BaseDialogFragment(R.layout.dialog_bookmark, true) {
+class BookmarkDialog() : BaseBottomSheetDialogFragment(R.layout.dialog_bookmark) {
 
     constructor(bookmark: Bookmark, editPos: Int = -1) : this() {
         arguments = Bundle().apply {
@@ -40,22 +41,25 @@ class BookmarkDialog() : BaseDialogFragment(R.layout.dialog_bookmark, true) {
             return
         }
 
-        @Suppress("DEPRECATION")
+        //@Suppress("DEPRECATION")
         val bookmark = arguments.getParcelable<Bookmark>("bookmark")
         bookmark ?: let {
             dismiss()
             return
         }
         val editPos = arguments.getInt("editPos", -1)
-        binding.tvFooterLeft.visible(editPos >= 0)
+        binding.btnDelete.visible(editPos >= 0) // 替换 tvFooterLeft
+
         binding.run {
             tvChapterName.text = bookmark.chapterName
             editBookText.setText(bookmark.bookText)
             editContent.setText(bookmark.content)
-            tvCancel.setOnClickListener {
+
+            btnCancel.setOnClickListener {
                 dismiss()
             }
-            tvOk.setOnClickListener {
+
+            btnOk.setOnClickListener {
                 bookmark.bookText = editBookText.text?.toString() ?: ""
                 bookmark.content = editContent.text?.toString() ?: ""
                 lifecycleScope.launch {
@@ -65,7 +69,8 @@ class BookmarkDialog() : BaseDialogFragment(R.layout.dialog_bookmark, true) {
                     dismiss()
                 }
             }
-            tvFooterLeft.setOnClickListener {
+
+            btnDelete.setOnClickListener {
                 lifecycleScope.launch {
                     withContext(IO) {
                         appDb.bookmarkDao.delete(bookmark)

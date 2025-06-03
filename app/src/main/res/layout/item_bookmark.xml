@@ -3,29 +3,28 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="8dp"
-    android:background="?android:attr/selectableItemBackground">
+    android:paddingHorizontal="16dp"
+    android:paddingVertical="8dp"
+    android:background="?attr/selectableItemBackground">
 
     <TextView
         android:id="@+id/tv_chapter_name"
+        style="@style/ChapterNameText"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="4dp"
-        android:singleLine="true" />
+        android:layout_height="wrap_content" />
 
     <TextView
         android:id="@+id/tv_book_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="4dp"
-        android:textSize="12sp"
+        android:paddingBottom="4dp"
+        android:textSize="14sp"
         android:singleLine="true" />
 
     <TextView
         android:id="@+id/tv_content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="4dp"
         android:textSize="12sp"
         android:singleLine="true" />
 

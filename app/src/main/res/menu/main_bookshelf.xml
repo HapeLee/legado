@@ -12,7 +12,7 @@
 
     <item
         android:id="@+id/menu_update_toc"
-        android:icon="@drawable/ic_refresh_black_24dp"
+        android:icon="@drawable/ic_refresh"
         android:title="@string/update_toc"
         app:showAsAction="never" />
 

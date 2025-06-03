@@ -1,12 +1,15 @@
 package io.legado.app.ui.book.bookmark
 
+import android.content.Context
 import android.graphics.Canvas
+import android.graphics.Color
 import android.graphics.Paint
 import android.graphics.Rect
 import android.text.TextPaint
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.color.MaterialColors
 //import io.legado.app.lib.theme.accentColor
 //import io.legado.app.lib.theme.backgroundColor
 import io.legado.app.utils.dpToPx
@@ -14,19 +17,23 @@ import io.legado.app.utils.spToPx
 import splitties.init.appCtx
 import kotlin.math.min
 
-class BookmarkDecoration(val adapter: BookmarkAdapter) : RecyclerView.ItemDecoration() {
+class BookmarkDecoration(
+    private val context: Context,
+    val adapter: BookmarkAdapter) : RecyclerView.ItemDecoration() {
 
     private val headerLeft = 16f.dpToPx()
     private val headerHeight = 32f.dpToPx()
 
     private val headerPaint = Paint().apply {
-        //color = appCtx.backgroundColor
+        color = MaterialColors.getColor(context, com.google.android.material.R.attr.colorSurfaceContainer, Color.GRAY)
     }
+
     private val textPaint = TextPaint().apply {
         textSize = 16f.spToPx()
-        //color = appCtx.accentColor
+        color = MaterialColors.getColor(context, com.google.android.material.R.attr.colorPrimary, Color.BLACK)
         isAntiAlias = true
     }
+
     private val textRect = Rect()
 
     override fun onDraw(c: Canvas, parent: RecyclerView, state: RecyclerView.State) {

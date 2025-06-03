@@ -14,6 +14,7 @@ import android.widget.CheckBox
 import android.widget.LinearLayout
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
 import io.legado.app.R
 import io.legado.app.base.VMBaseActivity
@@ -163,7 +164,7 @@ class BookInfoActivity :
 //        binding.refreshLayout?.setColorSchemeColors(accentColor)
 //        binding.llInfo.setBackgroundColor(backgroundColor)
 //        binding.flAction.setBackgroundColor(bottomBackground)
-        binding.flAction.applyNavigationBarPadding()
+        //binding.flAction.applyNavigationBarPadding()
         binding.btnShelf?.text = getString(R.string.remove_from_bookshelf)
         binding.tvToc.text = getString(R.string.toc_s, getString(R.string.loading))
 
@@ -415,10 +416,14 @@ class BookInfoActivity :
     }
 
     private fun upTvBookshelf() {
-        if (viewModel.inBookshelf) {
-            binding.btnShelf?.text = getString(R.string.remove_from_bookshelf)
-        } else {
-            binding.btnShelf?.text = getString(R.string.add_to_bookshelf)
+        binding.btnShelf?.apply {
+            if (viewModel.inBookshelf) {
+                text = getString(R.string.remove_from_bookshelf)
+                icon = ContextCompat.getDrawable(context, R.drawable.ic_clear_all)
+            } else {
+                text = getString(R.string.add_to_bookshelf)
+                icon = ContextCompat.getDrawable(context, R.drawable.ic_star)
+            }
         }
         editMenuItem?.isVisible = viewModel.inBookshelf
     }

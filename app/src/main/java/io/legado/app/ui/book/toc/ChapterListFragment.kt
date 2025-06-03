@@ -64,10 +64,10 @@ class ChapterListFragment : VMBaseFragment<TocViewModel>(R.layout.fragment_chapt
     }
 
     private fun initView() = binding.run {
-        ivChapterTop.setOnClickListener {
+        btnChapterTop.setOnClickListener {
             mLayoutManager.scrollToPositionWithOffset(0, 0)
         }
-        ivChapterBottom.setOnClickListener {
+        btnChapterBottom.setOnClickListener {
             if (adapter.itemCount > 0) {
                 mLayoutManager.scrollToPositionWithOffset(adapter.itemCount - 1, 0)
             }

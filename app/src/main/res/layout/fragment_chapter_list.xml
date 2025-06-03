@@ -17,10 +17,8 @@
     <LinearLayout
         android:id="@+id/ll_chapter_base_info"
         android:layout_width="match_parent"
-        android:layout_height="36dp"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:elevation="5dp"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="16dp"
         android:gravity="center_vertical"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent">
@@ -30,36 +28,32 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:background="?attr/selectableItemBackground"
             android:ellipsize="middle"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
             android:singleLine="true"
             android:gravity="center_vertical"
-            android:textColor="@color/primaryText"
             android:textSize="12sp" />
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/iv_chapter_top"
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_chapter_top"
+            style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
             android:layout_width="36dp"
-            android:layout_height="match_parent"
-            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:layout_height="36dp"
+            android:icon="@drawable/ic_arrow_drop_up"
             android:contentDescription="@string/go_to_top"
-            android:src="@drawable/ic_arrow_drop_up"
-            android:tooltipText="@string/go_to_top"
-            app:tint="@color/primaryText"
-            tools:ignore="UnusedAttribute" />
+            app:iconGravity="textStart"
+            app:iconPadding="0dp" />
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/iv_chapter_bottom"
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_chapter_bottom"
+            style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
             android:layout_width="36dp"
-            android:layout_height="match_parent"
-            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:layout_height="36dp"
+            android:icon="@drawable/ic_arrow_drop_down"
             android:contentDescription="@string/go_to_bottom"
-            android:src="@drawable/ic_arrow_drop_down"
-            android:tooltipText="@string/go_to_bottom"
-            app:tint="@color/primaryText"
-            tools:ignore="UnusedAttribute" />
+            app:iconGravity="textStart"
+            app:iconPadding="0dp" />
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -13,8 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_weight="1"
-        android:singleLine="true"
-        android:textColor="@color/primaryText" />
+        android:singleLine="true" />
 
 
     <androidx.appcompat.widget.AppCompatImageView
@@ -25,8 +24,7 @@
         android:background="?android:attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/edit"
         android:padding="6dp"
-        android:src="@drawable/ic_edit"
-        android:tint="@color/primaryText" />
+        android:src="@drawable/ic_edit" />
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/iv_delete"
@@ -34,8 +32,7 @@
         android:layout_height="36dp"
         android:padding="6dp"
         android:background="?attr/selectableItemBackgroundBorderless"
-        android:src="@drawable/ic_outline_delete"
-        android:tint="@color/primaryText"
+        android:src="@drawable/ic_clear_all"
         android:contentDescription="@string/delete"
         tools:ignore="RtlHardcoded" />
 

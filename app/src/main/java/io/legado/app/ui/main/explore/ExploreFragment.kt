@@ -5,13 +5,16 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.SubMenu
 import android.view.View
-import androidx.appcompat.widget.SearchView
+import android.view.inputmethod.EditorInfo
 import androidx.core.view.isGone
+import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.search.SearchBar
+import com.google.android.material.search.SearchView
 import io.legado.app.R
 import io.legado.app.base.VMBaseFragment
 import io.legado.app.constant.AppLog
@@ -63,7 +66,8 @@ class ExploreFragment() : VMBaseFragment<ExploreViewModel>(R.layout.fragment_exp
     private val binding by viewBinding(FragmentExploreBinding::bind)
     private val adapter by lazy { ExploreAdapter(requireContext(), this) }
     private val linearLayoutManager by lazy { LinearLayoutManager(context) }
-    private val searchView: SearchView by lazy { binding.searchLayout.searchView }
+    private val searchBar: SearchBar by lazy { binding.searchBar }
+    private val searchView: SearchView by lazy { binding.searchView }
     private val diffItemCallBack = ExploreDiffItemCallBack()
     private val groups = linkedSetOf<String>()
     private var exploreFlowJob: Job? = null
@@ -77,27 +81,47 @@ class ExploreFragment() : VMBaseFragment<ExploreViewModel>(R.layout.fragment_exp
         upExploreData()
     }
 
-
-
     override fun onPause() {
         super.onPause()
         searchView.clearFocus()
     }
 
     private fun initSearchView() {
-        //searchView.applyTint(primaryTextColor)
-        searchView.isSubmitButtonEnabled = true
-        searchView.queryHint = getString(R.string.screen_find)
-        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-            override fun onQueryTextSubmit(query: String?): Boolean {
-                return false
-            }
+        searchView.hint = getString(R.string.screen_find)
 
-            override fun onQueryTextChange(newText: String?): Boolean {
-                upExploreData(newText)
-                return false
+        searchBar.setOnClickListener {
+            searchView.show()
+            if (searchView.text.isEmpty()) {
+                searchView.hint = getString(R.string.screen_find)
             }
-        })
+        }
+
+        searchView.editText.setOnEditorActionListener { _, actionId, _ ->
+            if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                val query = searchView.text.toString()
+                upExploreData(query)
+                searchBar.hint = if (query.isEmpty()) {
+                    getString(R.string.screen_find)
+                } else {
+                    query
+                }
+                searchView.hide()
+                return@setOnEditorActionListener true
+            }
+            false
+        }
+
+        searchView.editText.doAfterTextChanged { editable ->
+            editable?.let {
+                upExploreData(it.toString())
+
+                if (it.isEmpty()) {
+                    searchBar.hint = getString(R.string.search_rss_source)
+                }
+            }
+        }
+
+        searchView.setupWithSearchBar(searchBar)
     }
 
     private fun initRecyclerView() {
@@ -157,7 +181,7 @@ class ExploreFragment() : VMBaseFragment<ExploreViewModel>(R.layout.fragment_exp
             ).catch {
                 AppLog.put("发现界面更新数据出错", it)
             }.conflate().flowOn(IO).collect {
-                binding.tvEmptyMsg.isGone = it.isNotEmpty() || searchView.query.isNotEmpty()
+                binding.tvEmptyMsg.isGone = it.isNotEmpty() || searchView.text.isNotEmpty() == true
                 adapter.setItems(it, diffItemCallBack)
                 delay(500)
             }
@@ -174,10 +198,18 @@ class ExploreFragment() : VMBaseFragment<ExploreViewModel>(R.layout.fragment_exp
     override val scope: CoroutineScope
         get() = viewLifecycleOwner.lifecycleScope
 
+    override fun onCompatCreateOptionsMenu(menu: Menu) {
+        menuInflater.inflate(R.menu.main_explore, menu)
+        groupsMenu = menu.findItem(R.id.menu_group)?.subMenu
+        upGroupsMenu()
+    }
+
     override fun onCompatOptionsItemSelected(item: MenuItem) {
         super.onCompatOptionsItemSelected(item)
         if (item.groupId == R.id.menu_group_text) {
-            searchView.setQuery("group:${item.title}", true)
+            val query = "group:${item.title}"
+            searchView.setText(query)
+            upExploreData(query)
         }
     }
 

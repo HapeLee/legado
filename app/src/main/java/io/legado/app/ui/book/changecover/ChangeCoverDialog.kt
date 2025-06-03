@@ -90,7 +90,7 @@ class ChangeCoverDialog() : BaseDialogFragment(R.layout.dialog_change_cover),
                 }
             } else {
                 startStopMenuItem?.let { item ->
-                    item.setIcon(R.drawable.ic_refresh_black_24dp)
+                    item.setIcon(R.drawable.ic_refresh)
                     item.setTitle(R.string.refresh)
                 }
             }

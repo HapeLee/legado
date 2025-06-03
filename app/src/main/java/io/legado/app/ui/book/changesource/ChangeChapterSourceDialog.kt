@@ -224,7 +224,7 @@ class ChangeChapterSourceDialog() : BaseDialogFragment(R.layout.dialog_chapter_c
                 }
             } else {
                 startStopMenuItem?.let { item ->
-                    item.setIcon(R.drawable.ic_refresh_black_24dp)
+                    item.setIcon(R.drawable.ic_refresh)
                     item.setTitle(R.string.refresh)
                 }
             }

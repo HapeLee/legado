@@ -17,6 +17,7 @@ import android.widget.TextView
 import androidx.appcompat.widget.SearchView
 import io.legado.app.R
 import io.legado.app.utils.printOnDebug
+import androidx.core.graphics.withTranslation
 
 
 class SearchView @JvmOverloads constructor(
@@ -101,10 +102,9 @@ class SearchView @JvmOverloads constructor(
             val fm = paint.fontMetricsInt
             val transY = ((y + fm.descent + y + fm.ascent) / 2
                     - b.bounds.bottom / 2)
-            canvas.save()
-            canvas.translate(x, transY.toFloat())
-            b.draw(canvas)
-            canvas.restore()
+            canvas.withTranslation(x, transY.toFloat()) {
+                b.draw(this)
+            }
         }
     }
 }

@@ -1,6 +1,8 @@
 package io.legado.app.ui.widget
 
 import android.content.Context
+import android.content.res.ColorStateList
+import android.graphics.Color
 import android.os.Build
 import android.util.AttributeSet
 import android.widget.LinearLayout
@@ -8,6 +10,7 @@ import android.widget.TextView
 import androidx.annotation.RequiresApi
 import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
+import com.google.android.material.color.MaterialColors
 import io.legado.app.ui.widget.text.AccentBgTextView
 import io.legado.app.utils.dpToPx
 
@@ -19,13 +22,7 @@ class LabelsBar @JvmOverloads constructor(
 
     private val unUsedChips = arrayListOf<Chip>()
     private val usedChips = arrayListOf<Chip>()
-    //var textSizeSp = 12f
 
-    init {
-//        isSingleLine = false
-//        chipSpacingHorizontal = 8.dpToPx()
-//        chipSpacingVertical = 4.dpToPx()
-    }
 
     @RequiresApi(Build.VERSION_CODES.VANILLA_ICE_CREAM)
     fun setLabels(labels: List<String>) {
@@ -46,7 +43,6 @@ class LabelsBar @JvmOverloads constructor(
         removeAllViews()
     }
 
-    @RequiresApi(Build.VERSION_CODES.VANILLA_ICE_CREAM)
     fun addLabel(label: String) {
         val chip = if (unUsedChips.isEmpty()) {
             Chip(context).apply {
@@ -55,10 +51,18 @@ class LabelsBar @JvmOverloads constructor(
                 chipStartPadding = 8f
                 chipEndPadding = 8f
                 chipStrokeWidth = 0f
+
+                chipBackgroundColor = ColorStateList.valueOf(
+                    MaterialColors.getColor(this, com.google.android.material.R.attr.colorPrimaryContainer, Color.LTGRAY)
+                )
+
+
                 usedChips.add(this)
             }
         } else {
-            unUsedChips.removeLast().also { usedChips.add(it) }
+            unUsedChips.removeAt(unUsedChips.lastIndex).also {
+                usedChips.add(it)
+            }
         }
         chip.text = label
         addView(chip)

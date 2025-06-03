@@ -77,11 +77,18 @@
             android:textSize="12sp" />
 
         <!-- 分类标签 -->
-        <io.legado.app.ui.widget.LabelsBar
-            android:id="@+id/ll_kind"
+        <HorizontalScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal" />
+            android:scrollbars="none">
+
+            <io.legado.app.ui.widget.LabelsBar
+                android:id="@+id/ll_kind"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" />
+
+        </HorizontalScrollView>
 
         <!-- 最后阅读 -->
         <TextView

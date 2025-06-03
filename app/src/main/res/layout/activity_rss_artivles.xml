@@ -15,7 +15,7 @@
         android:id="@+id/tab_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:tabMode="scrollable" />
+        android:layout_marginStart="16dp"/>
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/view_pager"

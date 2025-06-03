@@ -74,6 +74,7 @@
         <item name="android:windowDrawsSystemBarBackgrounds">true</item>
         <item name="android:windowLightStatusBar">true</item>
         <item name="tabStyle">@style/Widget.App.TabLayout</item>
+<!--        <item name="collapsingToolbarLayoutStyle">@style/CollapsingToolbar</item>-->
     </style>
 
     <style name="Widget.App.TabLayout" parent="Widget.Material3.TabLayout">
@@ -97,7 +98,6 @@
         <item name="textAllCaps">false</item>
         <item name="android:textAllCaps">false</item>
         <item name="android:textSize">15sp</item>
-        <item name="android:fontFamily">sans-serif</item>
         <item name="android:textFontWeight" tools:targetApi="p">500</item>
     </style>
 
@@ -113,12 +113,18 @@
         <item name="android:windowLightStatusBar">false</item>
     </style>
 
-<!--    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.Material3">-->
-<!--        <item name="overlapAnchor">false</item>-->
-<!--        <item name="colorAccent">@color/md_grey_900</item>-->
-<!--    </style>-->
+    <style name="CollapsingToolbar" parent="Widget.Material3.CollapsingToolbar">
+        <item name="titleCollapseMode">scale</item>
+        <item name="contentScrim">?attr/colorSurfaceContainer</item>
+    </style>
 
-<!--    <style name="Spinner" parent="android:Widget" />-->
+    <style name="ChapterNameText">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:paddingBottom">4dp</item>
+        <item name="android:maxLines">2</item>
+    </style>
+
 
     //**********System Style******************//
 

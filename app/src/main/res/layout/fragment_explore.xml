@@ -14,10 +14,11 @@
 
         <com.google.android.material.appbar.CollapsingToolbarLayout
             android:layout_width="match_parent"
-            android:layout_height="120dp"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed|snap"
-            app:collapsedTitleTextAppearance="@style/TextAppearance.Material3.TitleLarge"
-            app:expandedTitleTextAppearance="@style/TextAppearance.Material3.HeadlineMedium">
+            android:layout_height="?attr/collapsingToolbarLayoutLargeSize"
+            style="?attr/collapsingToolbarLayoutLargeSize"
+            app:collapsedTitleTextAppearance="?attr/textAppearanceTitleLarge"
+            app:expandedTitleTextAppearance="?attr/textAppearanceHeadlineLarge"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed|snap">
 
             <com.google.android.material.appbar.MaterialToolbar
                 android:id="@+id/top_bar"
@@ -28,15 +29,22 @@
 
         </com.google.android.material.appbar.CollapsingToolbarLayout>
 
-
-        <include
-            android:id="@+id/search_layout"
-            layout="@layout/view_search"
+        <com.google.android.material.search.SearchBar
+            android:id="@+id/search_bar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="16dp" />
+            android:layout_marginHorizontal="16dp"
+            android:hint="@string/search_rss_source"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </com.google.android.material.appbar.AppBarLayout>
+
+    <com.google.android.material.search.SearchView
+        android:id="@+id/search_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:hint="@string/screen_find"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"

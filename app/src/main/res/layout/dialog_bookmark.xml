@@ -1,18 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <LinearLayout
-        android:id="@+id/vw_bg"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:orientation="vertical"
-        tools:ignore="UselessParent"
-        android:padding="12dp">
+    android:layout_height="wrap_content"
+    android:id="@+id/vw_bg"
+    android:layout_gravity="center"
+    android:orientation="vertical"
+    tools:ignore="UselessParent">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/tool_bar"
@@ -26,93 +21,95 @@
             android:id="@+id/tv_chapter_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp" />
+            android:padding="16dp" />
 
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
+            android:padding="16dp"
             android:overScrollMode="ifContentScrolls">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="16dp">
+                android:orientation="vertical">
 
-                <io.legado.app.ui.widget.text.TextInputLayout
+                <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingTop="3dp">
 
-                    <io.legado.app.lib.theme.view.ThemeEditText
+                    <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/edit_book_text"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/content"
                         tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
-                </io.legado.app.ui.widget.text.TextInputLayout>
+                </com.google.android.material.textfield.TextInputLayout>
 
-                <io.legado.app.ui.widget.text.TextInputLayout
+                <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingTop="3dp">
 
-                    <io.legado.app.lib.theme.view.ThemeEditText
+                    <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/edit_content"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/note_content"
                         tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
-                </io.legado.app.ui.widget.text.TextInputLayout>
+                </com.google.android.material.textfield.TextInputLayout>
 
             </LinearLayout>
 
         </androidx.core.widget.NestedScrollView>
 
-        <com.google.android.flexbox.FlexboxLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingLeft="12dp"
-            android:paddingRight="12dp"
-            app:flexWrap="wrap"
-            app:justifyContent="space_between">
+            android:padding="16dp">
 
-            <io.legado.app.ui.widget.text.AccentTextView
-                android:id="@+id/tv_footer_left"
+            <!-- 删除按钮靠左 -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_delete"
+                style="@style/Widget.Material3.Button.TonalButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="12dp"
                 android:text="@string/delete"
                 android:visibility="invisible"
-                tools:ignore="RtlHardcoded" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent" />
 
-            <LinearLayout
+            <!-- 取消按钮 -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_cancel"
+                style="@style/Widget.Material3.Button.TonalButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:padding="12dp"
+                android:text="@string/cancel"
+                app:layout_constraintEnd_toStartOf="@id/btn_ok"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginEnd="8dp"/>
 
-                <io.legado.app.ui.widget.text.AccentTextView
-                    android:id="@+id/tv_cancel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="12dp"
-                    android:text="@string/cancel"
-                    tools:ignore="RtlHardcoded" />
+            <!-- 确认按钮靠右 -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_ok"
+                style="@style/Widget.Material3.Button.TonalButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                android:text="@string/ok"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent" />
 
-                <io.legado.app.ui.widget.text.AccentTextView
-                    android:id="@+id/tv_ok"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="12dp"
-                    android:text="@string/ok"
-                    tools:ignore="RtlHardcoded" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-            </LinearLayout>
-
-        </com.google.android.flexbox.FlexboxLayout>
-    </LinearLayout>
-</FrameLayout>
+</LinearLayout>
