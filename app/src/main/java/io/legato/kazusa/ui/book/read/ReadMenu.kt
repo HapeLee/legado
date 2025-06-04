@@ -409,12 +409,12 @@ class ReadMenu @JvmOverloads constructor(
                     "page" -> ReadBook.skipToPage(progress - 1)
                     "chapter" -> {
                         if (confirmSkipToChapter) {
-                            callBack.skipToChapter(progress)
+                            callBack.skipToChapter(progress - 1)
                         } else {
                             context.alert("章节跳转确认", "确定要跳转章节吗？") {
                                 yesButton {
                                     confirmSkipToChapter = true
-                                    callBack.skipToChapter(progress)
+                                    callBack.skipToChapter(progress - 1)
                                 }
                                 noButton {
                                     upSeekBar()
@@ -542,7 +542,7 @@ class ReadMenu @JvmOverloads constructor(
                 "chapter" -> {
                     valueFrom = 1f
                     valueTo = ReadBook.simulatedChapterSize.toFloat()
-                    value = ReadBook.durChapterIndex.toFloat()
+                    value = (ReadBook.durChapterIndex).coerceIn(1, ReadBook.simulatedChapterSize).toFloat()
                     stepSize = 1f
                 }
             }
