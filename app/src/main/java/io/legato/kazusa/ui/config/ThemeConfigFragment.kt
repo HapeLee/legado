@@ -120,24 +120,6 @@ class ThemeConfigFragment : PreferenceFragmentCompat(),
         preferenceManager.sharedPreferences?.unregisterOnSharedPreferenceChangeListener(this)
     }
 
-//    override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
-//        menuInflater.inflate(R.menu.theme_config, menu)
-//        menu.applyTint(requireContext())
-//    }
-
-//    override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
-//        when (menuItem.itemId) {
-//            R.id.menu_theme_mode -> {
-//                AppConfig.isNightTheme = !AppConfig.isNightTheme
-//                ThemeConfig.applyDayNight(requireContext())
-//                return true
-//            }
-//        }
-//        return false
-//    }
-        //不使用菜单
-
-
     override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences?, key: String?) {
         sharedPreferences ?: return
         when (key) {
@@ -171,19 +153,6 @@ class ThemeConfigFragment : PreferenceFragmentCompat(),
     @SuppressLint("PrivateResource")
     override fun onPreferenceTreeClick(preference: Preference): Boolean {
         when (val key = preference.key) {
-//            PreferKey.barElevation -> NumberPickerDialog(requireContext())
-//                .setTitle(getString(R.string.bar_elevation))
-//                .setMaxValue(32)
-//                .setMinValue(0)
-//                .setValue(AppConfig.elevation)
-//                .setCustomButton((R.string.btn_default_s)) {
-//                    AppConfig.elevation = AppConst.sysElevation
-//                    recreateActivities()
-//                }
-//                .show {
-//                    AppConfig.elevation = it
-//                    recreateActivities()
-//                }
 
             PreferKey.fontScale -> NumberPickerDialog(requireContext())
                 .setTitle(getString(R.string.font_scale))

@@ -304,4 +304,6 @@ dependencies {
 
     //com.github.AmrDeveloper:CodeView代码编辑已集成到应用内
     //epubLib集成到应用内
+
+    implementation libs.androidx.datastore.preferences
 }
