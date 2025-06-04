@@ -192,7 +192,7 @@ class ChangeBookSourceDialog() : BaseDialogFragment(R.layout.dialog_book_change_
         kotlin.runCatching {
             val mNavButtonViewField = Toolbar::class.java.getDeclaredField("mNavButtonView")
             mNavButtonViewField.isAccessible = true
-            val navigationView = mNavButtonViewField.get(binding.toolBar) as ImageButton
+            //val navigationView = mNavButtonViewField.get(binding.toolBar) as ImageButton
 //            val isLight = ColorUtils.isColorLight(primaryColor)
 //            val textColor = requireContext().getPrimaryTextColor(isLight)
             //navigationView.setColorFilter(textColor)
