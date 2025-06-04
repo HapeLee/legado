@@ -210,9 +210,10 @@ class MangaMenu @JvmOverloads constructor(
 
         seekReadPage.addOnChangeListener { slider, value, fromUser ->
             if (fromUser) {
-                callBack.skipToPage(value.toInt())
+                callBack.skipToPage(value.toInt() - 1)
             }
         }
+
         seekReadPage.addOnSliderTouchListener(object : Slider.OnSliderTouchListener {
             override fun onStartTrackingTouch(slider: Slider) {
                 vwMenuBg.setOnClickListener(null)
@@ -223,13 +224,12 @@ class MangaMenu @JvmOverloads constructor(
             }
         })
 
-
     }
 
     fun upSeekBar(value: Int, count: Int) {
         binding.seekReadPage.apply {
-            valueFrom = 0f
-            valueTo = (count - 1).toFloat()
+            valueFrom = 1f
+            valueTo = (count).toFloat()
             this.value = value.toFloat()
             stepSize = 1f
         }

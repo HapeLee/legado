@@ -93,20 +93,20 @@ class AutoReadDialog : BaseBottomSheetDialogFragment(R.layout.dialog_auto_read) 
     }
 
     private fun initEvent() {
-        binding.llMainMenu.setOnClickListener {
+        binding.btnMainMenu.setOnClickListener {
             callBack?.showMenuBar()
             dismissAllowingStateLoss()
         }
-        binding.llSetting.setOnClickListener {
+        binding.btnSetting.setOnClickListener {
             (activity as BaseReadBookActivity).showPageAnimConfig {
                 (activity as ReadBookActivity).upPageAnim()
                 ReadBook.loadContent(false)
             }
         }
-        binding.llCatalog.setOnClickListener { callBack?.openChapterList() }
-        binding.llAutoPageStop.setOnClickListener {
+        binding.btnCatalog.setOnClickListener { callBack?.openChapterList() }
+        binding.btnAutoPageStop.setOnClickListener {
             callBack?.autoPageStop()
-            binding.llAutoPageStop.post {
+            binding.btnAutoPageStop.post {
                 dismissAllowingStateLoss()
             }
         }

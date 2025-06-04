@@ -211,7 +211,7 @@ class ReadMenu @JvmOverloads constructor(
 //        vwBrightnessPosAdjust.setColorFilter(textColor, PorterDuff.Mode.SRC_IN)
         llBrightness.setOnClickListener(null)
         seekBrightness.post {
-            seekBrightness.progress = AppConfig.readBrightness
+            seekBrightness.value = AppConfig.readBrightness.toFloat()
         }
         if (AppConfig.showReadTitleBarAddition) {
             titleBarAddition.visible()
@@ -378,19 +378,22 @@ class ReadMenu @JvmOverloads constructor(
             upBrightnessState()
         }
         //亮度调节
-        seekBrightness.setOnSeekBarChangeListener(object : SeekBarChangeListener {
+        seekBrightness.addOnChangeListener { slider, value, fromUser ->
+            if (fromUser) {
+                setScreenBrightness(value)
+            }
+        }
 
-            override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
-                if (fromUser) {
-                    setScreenBrightness(progress.toFloat())
-                }
+        seekBrightness.addOnSliderTouchListener(object : Slider.OnSliderTouchListener {
+            override fun onStartTrackingTouch(slider: Slider) {
+
             }
 
-            override fun onStopTrackingTouch(seekBar: SeekBar) {
-                AppConfig.readBrightness = seekBar.progress
+            override fun onStopTrackingTouch(slider: Slider) {
+                AppConfig.readBrightness = slider.value.toInt()
             }
-
         })
+
         vwBrightnessPosAdjust.setOnClickListener {
             AppConfig.brightnessVwPos = !AppConfig.brightnessVwPos
             upBrightnessVwPos()
@@ -524,26 +527,29 @@ class ReadMenu @JvmOverloads constructor(
                     ReadBook.curTextChapter?.let { chapter ->
                         if (chapter.pageSize > 0) {
                             valueFrom = 1f
-                            valueTo = chapter.pageSize.toFloat()
+                            valueTo = chapter.pageSize.toFloat().coerceAtLeast(2f)
                             value = (ReadBook.durPageIndex).coerceIn(1, chapter.pageSize).toFloat()
                             stepSize = 1f
                         } else {
                             valueFrom = 1f
-                            valueTo = 1f
+                            valueTo = 2f
                             value = 1f
                         }
-                    } ?: run {
-                        valueFrom = 1f
-                        valueTo = 1f
-                        value = 1f
                     }
                 }
 
                 "chapter" -> {
-                    valueFrom = 1f
-                    valueTo = ReadBook.simulatedChapterSize.toFloat()
-                    value = (ReadBook.durChapterIndex).coerceIn(1, ReadBook.simulatedChapterSize).toFloat()
-                    stepSize = 1f
+                    if (ReadBook.simulatedChapterSize > 0)
+                    {
+                        valueFrom = 1f
+                        valueTo = ReadBook.simulatedChapterSize.toFloat().coerceAtLeast(2f)
+                        value = (ReadBook.durChapterIndex).coerceIn(1, ReadBook.simulatedChapterSize).toFloat()
+                        stepSize = 1f
+                    } else {
+                        valueFrom = 1f
+                        valueTo = 2f
+                        value = 1f
+                    }
                 }
             }
         }

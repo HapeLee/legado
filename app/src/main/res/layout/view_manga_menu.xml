@@ -91,39 +91,27 @@
             android:importantForAccessibility="no"
             android:orientation="horizontal">
 
-            <TextView
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/tv_pre"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp"
-                android:background="?android:attr/selectableItemBackgroundBorderless"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
-                android:text="@string/previous_chapter"
-                android:textColor="@color/primaryText"
-                android:textSize="14sp"
+                style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+                app:icon="@drawable/ic_previous"
                 tools:ignore="TouchTargetSizeCheck" />
 
-            <io.legato.kazusa.lib.theme.view.ThemeSlider
+            <com.google.android.material.slider.Slider
                 android:id="@+id/seek_read_page"
                 android:layout_width="0dp"
                 android:layout_height="25dp"
                 android:layout_gravity="center_vertical"
                 android:layout_weight="1" />
 
-            <TextView
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/tv_next"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp"
-                android:background="?android:attr/selectableItemBackgroundBorderless"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
-                android:text="@string/next_chapter"
-                android:textColor="@color/primaryText"
-                android:textSize="14sp"
+                style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+                app:icon="@drawable/ic_next"
                 tools:ignore="TouchTargetSizeCheck" />
         </LinearLayout>
     </LinearLayout>
