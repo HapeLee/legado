@@ -26,7 +26,7 @@
                 android:layout_height="wrap_content">
 
                 <!-- 书封面 -->
-                <io.legado.app.ui.widget.image.CoverImageView
+                <io.legato.kazusa.ui.widget.image.CoverImageView
                     android:id="@+id/iv_cover"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"

@@ -45,7 +45,7 @@
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <io.legado.app.ui.widget.NoChildScrollNestedScrollView
+        <io.legato.kazusa.ui.widget.NoChildScrollNestedScrollView
             android:id="@+id/scroll_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -73,7 +73,7 @@
                         android:layout_height="wrap_content"
                         app:cardCornerRadius="8dp">
 
-                        <io.legado.app.ui.widget.image.CoverImageView
+                        <io.legato.kazusa.ui.widget.image.CoverImageView
                             android:id="@+id/iv_cover"
                             android:layout_width="100dp"
                             android:layout_height="140dp"
@@ -174,7 +174,7 @@
                             android:layout_marginStart="8dp"
                             android:scrollbars="none">
 
-                            <io.legado.app.ui.widget.LabelsBar
+                            <io.legato.kazusa.ui.widget.LabelsBar
                                 android:id="@+id/lb_kind"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -376,7 +376,7 @@
 
                 </LinearLayout>
             </LinearLayout>
-        </io.legado.app.ui.widget.NoChildScrollNestedScrollView>
+        </io.legato.kazusa.ui.widget.NoChildScrollNestedScrollView>
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton

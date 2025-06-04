@@ -8,7 +8,7 @@
     android:background="?attr/selectableItemBackground"
     android:padding="8dp">
 
-    <io.legado.app.lib.theme.view.ThemeRadioButton
+    <io.legato.kazusa.lib.theme.view.ThemeRadioButton
         android:id="@+id/cb_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -43,7 +43,7 @@
         app:layout_constraintVertical_bias="1.0"
         tools:ignore="RtlHardcoded" />
 
-    <io.legado.app.ui.widget.text.BevelLabelView
+    <io.legato.kazusa.ui.widget.text.BevelLabelView
         android:id="@+id/label_sys"
         android:layout_width="36dp"
         android:layout_height="36dp"

@@ -10,42 +10,42 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <io.legado.app.ui.widget.text.AccentTextView
+        <io.legato.kazusa.ui.widget.text.AccentTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingBottom="8dp"
             android:text="滤镜"
             android:textSize="18sp" />
 
-        <io.legado.app.ui.widget.DetailSeekBar
+        <io.legato.kazusa.ui.widget.DetailSeekBar
             android:id="@+id/dsb_brightness"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:max="255"
             app:title="@string/brightness" />
 
-        <io.legado.app.ui.widget.DetailSeekBar
+        <io.legato.kazusa.ui.widget.DetailSeekBar
             android:id="@+id/dsb_r"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:max="255"
             app:title="R" />
 
-        <io.legado.app.ui.widget.DetailSeekBar
+        <io.legato.kazusa.ui.widget.DetailSeekBar
             android:id="@+id/dsb_g"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:max="255"
             app:title="G" />
 
-        <io.legado.app.ui.widget.DetailSeekBar
+        <io.legato.kazusa.ui.widget.DetailSeekBar
             android:id="@+id/dsb_b"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:max="255"
             app:title="B" />
 
-        <io.legado.app.ui.widget.DetailSeekBar
+        <io.legato.kazusa.ui.widget.DetailSeekBar
             android:id="@+id/dsb_a"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <io.legado.app.ui.widget.TitleBar
+    <io.legato.kazusa.ui.widget.TitleBar
         android:id="@+id/title_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -20,7 +20,7 @@
         android:layout_marginHorizontal="16dp"
         android:layout_marginVertical="8dp">
 
-        <io.legado.app.ui.widget.image.CoverImageView
+        <io.legato.kazusa.ui.widget.image.CoverImageView
             android:id="@+id/iv_cover"
             android:layout_width="90dp"
             android:layout_height="130dp"
@@ -36,7 +36,7 @@
             android:layout_marginBottom="12dp"
             android:hint="@string/book_name">
 
-            <io.legado.app.lib.theme.view.ThemeEditText
+            <io.legato.kazusa.lib.theme.view.ThemeEditText
                 android:id="@+id/tie_book_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -50,7 +50,7 @@
             android:layout_marginBottom="16dp"
             android:hint="@string/author">
 
-            <io.legado.app.lib.theme.view.ThemeEditText
+            <io.legato.kazusa.lib.theme.view.ThemeEditText
                 android:id="@+id/tie_book_author"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -85,7 +85,7 @@
                 android:layout_marginBottom="12dp"
                 android:hint="@string/cover_path">
 
-                <io.legado.app.lib.theme.view.ThemeEditText
+                <io.legato.kazusa.lib.theme.view.ThemeEditText
                     android:id="@+id/tie_cover_url"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
@@ -133,7 +133,7 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/book_intro">
 
-                <io.legado.app.lib.theme.view.ThemeEditText
+                <io.legato.kazusa.lib.theme.view.ThemeEditText
                     android:id="@+id/tie_book_intro"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

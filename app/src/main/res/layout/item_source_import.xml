@@ -7,7 +7,7 @@
     android:background="?attr/selectableItemBackground"
     android:padding="8dp">
 
-    <io.legado.app.lib.theme.view.ThemeCheckBox
+    <io.legato.kazusa.lib.theme.view.ThemeCheckBox
         android:id="@+id/cb_source_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

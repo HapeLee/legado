@@ -9,7 +9,7 @@
     android:scrollbars="none">
 
     <!-- 封面图片 -->
-    <io.legado.app.ui.widget.image.CoverImageView
+    <io.legato.kazusa.ui.widget.image.CoverImageView
         android:id="@+id/iv_cover"
         android:layout_width="80dp"
         android:layout_height="110dp"
@@ -34,7 +34,7 @@
             android:layout_height="wrap_content">
 
             <!-- 书架内标记 -->
-            <io.legado.app.ui.widget.image.CircleImageView
+            <io.legato.kazusa.ui.widget.image.CircleImageView
                 android:id="@+id/iv_in_bookshelf"
                 android:layout_width="12dp"
                 android:layout_height="12dp"
@@ -57,7 +57,7 @@
                 style="@style/TextAppearance.AppCompat.Medium" />
 
             <!-- 来源计数 -->
-            <io.legado.app.ui.widget.text.BadgeView
+            <io.legato.kazusa.ui.widget.text.BadgeView
                 android:id="@+id/bv_originCount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -82,7 +82,7 @@
             android:layout_height="wrap_content"
             android:scrollbars="none">
 
-            <io.legado.app.ui.widget.LabelsBar
+            <io.legato.kazusa.ui.widget.LabelsBar
                 android:id="@+id/ll_kind"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -102,7 +102,7 @@
             android:textSize="12sp" />
 
         <!-- 简介 -->
-        <io.legado.app.ui.widget.text.MultilineTextView
+        <io.legato.kazusa.ui.widget.text.MultilineTextView
             android:id="@+id/tv_introduce"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

@@ -53,7 +53,7 @@
 
     </LinearLayout>
 
-    <io.legado.app.lib.theme.view.ThemeSwitch
+    <io.legato.kazusa.lib.theme.view.ThemeSwitch
         android:id="@+id/sw_dark_status_icon"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -61,7 +61,7 @@
         android:text="@string/dark_status_icon"
         tools:ignore="TouchTargetSizeCheck" />
 
-    <io.legado.app.lib.theme.view.ThemeSwitch
+    <io.legato.kazusa.lib.theme.view.ThemeSwitch
         android:id="@+id/sw_underline"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -76,7 +76,7 @@
         android:orientation="horizontal"
         android:padding="6dp">
 
-        <io.legado.app.ui.widget.text.StrokeTextView
+        <io.legato.kazusa.ui.widget.text.StrokeTextView
             android:id="@+id/tv_text_color"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -93,7 +93,7 @@
             app:isBottomBackground="true"
             tools:ignore="HardcodedText" />
 
-        <io.legado.app.ui.widget.text.StrokeTextView
+        <io.legato.kazusa.ui.widget.text.StrokeTextView
             android:id="@+id/tv_bg_color"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -156,7 +156,7 @@
         android:paddingRight="6dp"
         android:text="@string/bg_alpha" />
 
-    <io.legado.app.lib.theme.view.ThemeSlider
+    <io.legato.kazusa.lib.theme.view.ThemeSlider
         android:id="@+id/sb_bg_alpha"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

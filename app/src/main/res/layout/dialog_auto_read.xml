@@ -40,7 +40,7 @@
 
         </LinearLayout>
 
-        <io.legado.app.lib.theme.view.ThemeSlider
+        <io.legato.kazusa.lib.theme.view.ThemeSlider
             android:id="@+id/seek_auto_read"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

@@ -27,7 +27,7 @@
         android:orientation="horizontal"
         app:layout_constraintTop_toBottomOf="@+id/tool_bar">
 
-        <io.legado.app.lib.theme.view.ThemeRadioNoButton
+        <io.legato.kazusa.lib.theme.view.ThemeRadioNoButton
             android:id="@+id/rb_group"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -40,7 +40,7 @@
             android:checked="true"
             android:text="@string/group" />
 
-        <io.legado.app.lib.theme.view.ThemeRadioNoButton
+        <io.legato.kazusa.lib.theme.view.ThemeRadioNoButton
             android:id="@+id/rb_source"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -54,7 +54,7 @@
 
     </RadioGroup>
 
-    <io.legado.app.ui.widget.recycler.scroller.FastScrollRecyclerView
+    <io.legato.kazusa.ui.widget.recycler.scroller.FastScrollRecyclerView
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -72,7 +72,7 @@
         android:paddingRight="10dp"
         app:layout_constraintBottom_toBottomOf="parent">
 
-        <io.legado.app.ui.widget.text.AccentTextView
+        <io.legato.kazusa.ui.widget.text.AccentTextView
             android:id="@+id/tv_all_source"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -96,7 +96,7 @@
             android:textColor="@color/secondaryText"
             tools:ignore="RtlHardcoded" />
 
-        <io.legado.app.ui.widget.text.AccentTextView
+        <io.legato.kazusa.ui.widget.text.AccentTextView
             android:id="@+id/tv_ok"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

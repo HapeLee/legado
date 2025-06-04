@@ -15,7 +15,7 @@
         android:orientation="horizontal"
         android:paddingHorizontal="16dp">
 
-        <io.legado.app.ui.book.read.config.TextFontWeightConverter
+        <io.legato.kazusa.ui.book.read.config.TextFontWeightConverter
             android:id="@+id/text_font_weight_converter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -33,7 +33,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1" />
 
-        <io.legado.app.ui.widget.text.StrokeTextView
+        <io.legato.kazusa.ui.widget.text.StrokeTextView
             android:id="@+id/tv_text_font"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -52,7 +52,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1" />
 
-        <io.legado.app.ui.widget.text.StrokeTextView
+        <io.legato.kazusa.ui.widget.text.StrokeTextView
             android:id="@+id/tv_text_indent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -71,7 +71,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1" />
 
-        <io.legado.app.ui.book.read.config.ChineseConverter
+        <io.legato.kazusa.ui.book.read.config.ChineseConverter
             android:id="@+id/chinese_converter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -89,7 +89,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1" />
 
-        <io.legado.app.ui.widget.text.StrokeTextView
+        <io.legato.kazusa.ui.widget.text.StrokeTextView
             android:id="@+id/tv_padding"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -108,7 +108,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1" />
 
-        <io.legado.app.ui.widget.text.StrokeTextView
+        <io.legato.kazusa.ui.widget.text.StrokeTextView
             android:id="@+id/tv_tip"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -124,7 +124,7 @@
 
     </LinearLayout>
 
-    <io.legado.app.ui.widget.DetailSeekBar
+    <io.legato.kazusa.ui.widget.DetailSeekBar
         android:id="@+id/dsb_text_size"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -134,7 +134,7 @@
         app:max="45"
         app:title="@string/text_size" />
 
-    <io.legado.app.ui.widget.DetailSeekBar
+    <io.legato.kazusa.ui.widget.DetailSeekBar
         android:id="@+id/dsb_text_letter_spacing"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -143,7 +143,7 @@
         app:max="100"
         app:title="@string/text_letter_spacing" />
 
-    <io.legado.app.ui.widget.DetailSeekBar
+    <io.legato.kazusa.ui.widget.DetailSeekBar
         android:id="@+id/dsb_line_size"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -152,7 +152,7 @@
         app:max="20"
         app:title="@string/line_size" />
 
-    <io.legado.app.ui.widget.DetailSeekBar
+    <io.legato.kazusa.ui.widget.DetailSeekBar
         android:id="@+id/dsb_paragraph_spacing"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

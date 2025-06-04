@@ -25,7 +25,7 @@ def gitCommits = Integer.parseInt('git rev-list HEAD --count'.execute().text.tri
 
 android {
     compileSdk = compile_sdk_version
-    namespace 'io.legado.app'
+    namespace 'io.legato.kazusa'
     kotlin {
         jvmToolchain {
             languageVersion.set(JavaLanguageVersion.of(17))
@@ -46,9 +46,10 @@ android {
             }
         }
     }
+
     defaultConfig {
-        applicationId "io.legado.app"
-        minSdk 24
+        applicationId "io.legato.kazusa"
+        minSdk 21
         targetSdk 35
         versionCode 10000 + gitCommits
         versionName version
@@ -68,21 +69,19 @@ android {
             }
         }
     }
+
     buildFeatures {
         buildConfig true
         viewBinding true
     }
+
     buildTypes {
         release {
             if (project.hasProperty("RELEASE_STORE_FILE")) {
                 signingConfig signingConfigs.myConfig
             }
-            applicationIdSuffix '.release'
-            if (getApplicationIdSuffix() == '.releaseA') {
-                manifestPlaceholders.put("app_name", "@string/app_name_a")
-            } else {
-                manifestPlaceholders.put("app_name", "@string/app_name")
-            }
+            //applicationIdSuffix '.release'
+            manifestPlaceholders.put("app_name", "@string/app_name_a")
 
             minifyEnabled true
             shrinkResources true
@@ -94,12 +93,22 @@ android {
             }
             manifestPlaceholders.put("app_name", "@string/app_name")
 
-            applicationIdSuffix '.debug'
+            //applicationIdSuffix '.debug'
             versionNameSuffix 'debug'
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro', 'cronet-proguard-rules.pro'
         }
     }
+
+    splits {
+        abi {
+            enable true
+            reset()
+            include 'armeabi-v7a', 'arm64-v8a'
+            universalApk true
+        }
+    }
+
     //noinspection GrDeprecatedAPIUsage
     flavorDimensions = ['mode']
     productFlavors {
@@ -110,11 +119,18 @@ android {
     }
 
     android.applicationVariants.configureEach { variant ->
-        variant.outputs.configureEach {
+        variant.outputs.configureEach { output ->
+            def abi = output.getFilter(com.android.build.OutputFile.ABI)
             def flavor = variant.productFlavors[0].name
-            outputFileName = "${name}_${flavor}_${defaultConfig.versionName}.apk"
+            def apkName = "${name}_${flavor}_${defaultConfig.versionName}"
+            if (abi != null) {
+                apkName += "_${abi}"
+            }
+            apkName += ".apk"
+            output.outputFileName = apkName
         }
     }
+
 
 
     room {

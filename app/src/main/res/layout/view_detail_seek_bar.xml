@@ -24,7 +24,7 @@
         android:background="?android:attr/selectableItemBackgroundBorderless"
         android:tint="@color/primaryText" />
 
-    <io.legado.app.lib.theme.view.ThemeSlider
+    <io.legato.kazusa.lib.theme.view.ThemeSlider
         android:id="@+id/slider"
         android:layout_width="0dp"
         android:layout_height="25dp"

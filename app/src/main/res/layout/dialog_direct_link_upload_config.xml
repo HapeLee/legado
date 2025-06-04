@@ -24,49 +24,49 @@
             android:orientation="vertical"
             android:padding="16dp">
 
-            <io.legado.app.ui.widget.text.TextInputLayout
+            <io.legato.kazusa.ui.widget.text.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingTop="3dp">
 
-                <io.legado.app.lib.theme.view.ThemeEditText
+                <io.legato.kazusa.lib.theme.view.ThemeEditText
                     android:id="@+id/edit_upload_url"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/upload_url"
                     tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
-            </io.legado.app.ui.widget.text.TextInputLayout>
+            </io.legato.kazusa.ui.widget.text.TextInputLayout>
 
-            <io.legado.app.ui.widget.text.TextInputLayout
+            <io.legato.kazusa.ui.widget.text.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingTop="3dp">
 
-                <io.legado.app.lib.theme.view.ThemeEditText
+                <io.legato.kazusa.lib.theme.view.ThemeEditText
                     android:id="@+id/edit_download_url_rule"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/download_url_rule"
                     tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
-            </io.legado.app.ui.widget.text.TextInputLayout>
+            </io.legato.kazusa.ui.widget.text.TextInputLayout>
 
-            <io.legado.app.ui.widget.text.TextInputLayout
+            <io.legato.kazusa.ui.widget.text.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingTop="3dp">
 
-                <io.legado.app.lib.theme.view.ThemeEditText
+                <io.legato.kazusa.lib.theme.view.ThemeEditText
                     android:id="@+id/edit_summary"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/summary"
                     tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
-            </io.legado.app.ui.widget.text.TextInputLayout>
+            </io.legato.kazusa.ui.widget.text.TextInputLayout>
 
-            <io.legado.app.lib.theme.view.ThemeCheckBox
+            <io.legato.kazusa.lib.theme.view.ThemeCheckBox
                 android:id="@+id/cb_compress"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -85,7 +85,7 @@
         app:flexWrap="wrap"
         app:justifyContent="space_between">
 
-        <io.legado.app.ui.widget.text.AccentTextView
+        <io.legato.kazusa.ui.widget.text.AccentTextView
             android:id="@+id/tv_footer_left"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -98,7 +98,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <io.legado.app.ui.widget.text.AccentTextView
+            <io.legato.kazusa.ui.widget.text.AccentTextView
                 android:id="@+id/tv_cancel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -106,7 +106,7 @@
                 android:text="@string/cancel"
                 tools:ignore="RtlHardcoded" />
 
-            <io.legado.app.ui.widget.text.AccentTextView
+            <io.legato.kazusa.ui.widget.text.AccentTextView
                 android:id="@+id/tv_ok"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
