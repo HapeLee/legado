@@ -82,7 +82,7 @@ class AutoReadDialog : BaseBottomSheetDialogFragment(R.layout.dialog_auto_read) 
 
         binding.seekAutoRead.addOnSliderTouchListener(object : Slider.OnSliderTouchListener {
             override fun onStartTrackingTouch(slider: Slider) {
-                // 开始滑动时的操作
+
             }
 
             override fun onStopTrackingTouch(slider: Slider) {

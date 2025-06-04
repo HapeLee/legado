@@ -74,8 +74,9 @@
         android:id="@+id/ll_brightness"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
+        android:layout_marginHorizontal="16dp"
         android:layout_marginTop="16dp"
-        android:gravity="left"
+        android:gravity="center_horizontal"
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/bottom_menu"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -91,22 +92,28 @@
             android:src="@drawable/ic_brightness_auto"
             tools:ignore="ImageContrastCheck" />
 
-        <com.google.android.material.slider.Slider
-            android:id="@+id/seek_brightness"
+        <io.legato.kazusa.ui.widget.seekbar.VerticalSeekBarWrapper
             android:layout_width="wrap_content"
-            android:layout_height="80dp"
-            android:rotation="270"
-            android:valueFrom="0.0"
-            android:valueTo="255.0" />
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <io.legato.kazusa.ui.widget.seekbar.VerticalSeekBar
+                android:id="@+id/seek_brightness"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:max="255"
+                app:seekBarRotation="CW270" />
+
+        </io.legato.kazusa.ui.widget.seekbar.VerticalSeekBarWrapper>
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/vw_brightness_pos_adjust"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_margin="8dp"
-            android:layout_gravity="bottom"
             android:contentDescription="@string/adjust_pos"
-            android:src="@drawable/ic_swap_horiz" />
+            android:src="@drawable/ic_swap_horiz"/>
+
     </LinearLayout>
 
     <LinearLayout

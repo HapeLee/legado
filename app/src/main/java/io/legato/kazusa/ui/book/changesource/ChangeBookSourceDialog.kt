@@ -16,6 +16,7 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import io.legato.kazusa.R
+import io.legato.kazusa.base.BaseBottomSheetDialogFragment
 import io.legato.kazusa.base.BaseDialogFragment
 import io.legato.kazusa.constant.AppLog
 import io.legato.kazusa.constant.EventBus
@@ -52,7 +53,7 @@ import kotlinx.coroutines.launch
 /**
  * 换源界面
  */
-class ChangeBookSourceDialog() : BaseDialogFragment(R.layout.dialog_book_change_source),
+class ChangeBookSourceDialog() : BaseBottomSheetDialogFragment(R.layout.dialog_book_change_source),
     Toolbar.OnMenuItemClickListener,
     ChangeBookSourceAdapter.CallBack {
 
@@ -95,7 +96,7 @@ class ChangeBookSourceDialog() : BaseDialogFragment(R.layout.dialog_book_change_
 
     override fun onStart() {
         super.onStart()
-        setLayout(1f, ViewGroup.LayoutParams.MATCH_PARENT)
+        //setLayout(1f, ViewGroup.LayoutParams.MATCH_PARENT)
     }
 
     override fun onFragmentCreated(view: View, savedInstanceState: Bundle?) {

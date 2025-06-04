@@ -211,7 +211,7 @@ class ReadMenu @JvmOverloads constructor(
 //        vwBrightnessPosAdjust.setColorFilter(textColor, PorterDuff.Mode.SRC_IN)
         llBrightness.setOnClickListener(null)
         seekBrightness.post {
-            seekBrightness.value = AppConfig.readBrightness.toFloat()
+            seekBrightness.progress = AppConfig.readBrightness
         }
         if (AppConfig.showReadTitleBarAddition) {
             titleBarAddition.visible()
@@ -378,20 +378,18 @@ class ReadMenu @JvmOverloads constructor(
             upBrightnessState()
         }
         //亮度调节
-        seekBrightness.addOnChangeListener { slider, value, fromUser ->
-            if (fromUser) {
-                setScreenBrightness(value)
-            }
-        }
+        seekBrightness.setOnSeekBarChangeListener(object : SeekBarChangeListener {
 
-        seekBrightness.addOnSliderTouchListener(object : Slider.OnSliderTouchListener {
-            override fun onStartTrackingTouch(slider: Slider) {
-
+            override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
+                if (fromUser) {
+                    setScreenBrightness(progress.toFloat())
+                }
             }
 
-            override fun onStopTrackingTouch(slider: Slider) {
-                AppConfig.readBrightness = slider.value.toInt()
+            override fun onStopTrackingTouch(seekBar: SeekBar) {
+                AppConfig.readBrightness = seekBar.progress
             }
+
         })
 
         vwBrightnessPosAdjust.setOnClickListener {
