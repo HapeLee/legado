@@ -214,7 +214,7 @@ class ChangeBookSourceDialog() : BaseDialogFragment(R.layout.dialog_book_change_
 
     private fun initLiveData() {
         viewModel.searchStateData.observe(viewLifecycleOwner) {
-            binding.refreshProgressBar.isAutoLoading = it
+            //binding.refreshProgressBar.isAutoLoading = it
             if (it) {
                 startStopMenuItem?.let { item ->
                     item.setIcon(R.drawable.ic_stop_black_24dp)
