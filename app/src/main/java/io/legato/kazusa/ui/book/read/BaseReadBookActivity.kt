@@ -34,11 +34,13 @@ import io.legato.kazusa.ui.book.read.config.ClickActionConfigDialog
 import io.legato.kazusa.ui.book.read.config.PaddingConfigDialog
 import io.legato.kazusa.ui.book.read.config.PageKeyDialog
 import io.legato.kazusa.ui.file.HandleFileContract
+import io.legato.kazusa.utils.ColorUtils
 import io.legato.kazusa.utils.FileDoc
 import io.legato.kazusa.utils.find
 import io.legato.kazusa.utils.getPrefString
 import io.legato.kazusa.utils.gone
 import io.legato.kazusa.utils.isTv
+import io.legato.kazusa.utils.setLightStatusBar
 import io.legato.kazusa.utils.setNavigationBarColorAuto
 import io.legato.kazusa.utils.setOnApplyWindowInsetsListenerCompat
 import io.legato.kazusa.utils.showDialogFragment
@@ -158,7 +160,6 @@ abstract class BaseReadBookActivity :
     fun upSystemUiVisibility(
         isInMultiWindow: Boolean,
         toolBarHide: Boolean = true,
-        useBgMeanColor: Boolean = false
     ) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             window.insetsController?.run {
@@ -175,20 +176,19 @@ abstract class BaseReadBookActivity :
             }
         }
         upSystemUiVisibilityO(isInMultiWindow, toolBarHide)
-//        if (toolBarHide) {
-//            setLightStatusBar(ReadBookConfig.durConfig.curStatusIconDark())
-//        } else {
-//            val statusBarColor =
-//                if (AppConfig.readBarStyleFollowPage
-//                    && ReadBookConfig.durConfig.curBgType() == 0
-//                    || useBgMeanColor
-//                ) {
-//                    ReadBookConfig.bgMeanColor
-//                } else {
-//                    ThemeStore.statusBarColor(this, AppConfig.isTransparentStatusBar)
-//                }
-//            setLightStatusBar(ColorUtils.isColorLight(statusBarColor))
-//        }
+        if (toolBarHide) {
+            setLightStatusBar(ReadBookConfig.durConfig.curStatusIconDark())
+        } else {
+            val statusBarColor =
+                if (AppConfig.readBarStyleFollowPage
+                    && ReadBookConfig.durConfig.curBgType() == 0
+                ) {
+                    ReadBookConfig.bgMeanColor
+                } else {
+                    ReadBookConfig.bgMeanColor
+                }
+            setLightStatusBar(ColorUtils.isColorLight(statusBarColor))
+        }
     }
 
     @Suppress("DEPRECATION")

@@ -6,12 +6,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="10dp">
+    android:padding="16dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:gravity="center"
         android:padding="6dp">
 
         <TextView
@@ -19,41 +20,38 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/style_name"
-            android:textColor="@color/primaryText"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/tv_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingLeft="6dp"
-            android:paddingRight="6dp"
-            android:textColor="@color/secondaryText"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="8dp"
+            android:textSize="16sp"
             tools:text="文字" />
 
-        <ImageView
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/iv_edit"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+            android:layout_marginEnd="8dp"
             android:contentDescription="@string/edit"
-            android:src="@drawable/ic_edit"
-            app:tint="@color/secondaryText" />
+            app:iconGravity="textStart"
+            app:icon="@drawable/ic_edit" />
 
-        <Space
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
-
-        <TextView
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/tv_restore"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/restore"
-            android:textColor="@color/primaryText" />
+            style="@style/Widget.Material3.Button.TonalButton"
+            android:layout_height="40dp"
+            android:text="@string/restore" />
 
     </LinearLayout>
 
-    <io.legato.kazusa.lib.theme.view.ThemeSwitch
+    <com.google.android.material.materialswitch.MaterialSwitch
         android:id="@+id/sw_dark_status_icon"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -61,7 +59,7 @@
         android:text="@string/dark_status_icon"
         tools:ignore="TouchTargetSizeCheck" />
 
-    <io.legato.kazusa.lib.theme.view.ThemeSwitch
+    <com.google.android.material.materialswitch.MaterialSwitch
         android:id="@+id/sw_underline"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -73,78 +71,80 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:padding="6dp">
+        android:padding="3dp"
+        android:orientation="horizontal">
 
-        <io.legato.kazusa.ui.widget.text.StrokeTextView
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/tv_text_color"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            style="@style/Widget.Material3.Button.TonalButton"
             android:layout_gravity="center"
-            android:layout_marginLeft="6dp"
-            android:layout_marginRight="6dp"
-            android:layout_weight="5"
-            android:background="?attr/selectableItemBackground"
             android:gravity="center"
-            android:padding="6dp"
             android:singleLine="true"
+            app:icon="@drawable/ic_palette"
             android:text="@string/text_color"
             android:textSize="14sp"
-            app:isBottomBackground="true"
             tools:ignore="HardcodedText" />
 
-        <io.legato.kazusa.ui.widget.text.StrokeTextView
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/tv_bg_color"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            style="@style/Widget.Material3.Button.TonalButton"
+            android:layout_weight="1"
             android:layout_gravity="center"
-            android:layout_marginLeft="6dp"
-            android:layout_marginRight="6dp"
-            android:layout_weight="5"
-            android:background="?attr/selectableItemBackground"
+            android:layout_marginStart="16dp"
             android:gravity="center"
-            android:padding="6dp"
             android:singleLine="true"
+            app:icon="@drawable/ic_fill_colors"
             android:text="@string/bg_color"
             android:textSize="14sp"
-            app:isBottomBackground="true"
             tools:ignore="HardcodedText" />
 
-        <ImageView
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/iv_import"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            android:layout_marginLeft="6dp"
-            android:layout_marginRight="6dp"
-            android:background="?attr/selectableItemBackground"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            style="@style/Widget.Material3.Button.IconButton.Outlined"
+            android:layout_weight="1"
             android:contentDescription="@string/import_str"
-            android:src="@drawable/ic_import"
-            android:tooltipText="@string/import_str"
+            app:icon="@drawable/ic_import"
+            android:text="@string/import_str"
             tools:ignore="UnusedAttribute" />
 
-        <ImageView
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/iv_export"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            android:layout_marginLeft="6dp"
-            android:layout_marginRight="6dp"
-            android:background="?attr/selectableItemBackground"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            style="@style/Widget.Material3.Button.IconButton.Outlined"
+            android:layout_weight="1"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
             android:contentDescription="@string/import_str"
-            android:src="@drawable/ic_export"
-            android:tooltipText="@string/export_str"
+            app:icon="@drawable/ic_export"
+            android:text="@string/export_str"
             tools:ignore="UnusedAttribute" />
 
-        <ImageView
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/iv_delete"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            android:layout_marginLeft="6dp"
-            android:layout_marginRight="6dp"
-            android:background="?attr/selectableItemBackground"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            style="@style/Widget.Material3.Button.IconButton.Outlined"
+            android:layout_weight="1"
             android:contentDescription="@string/delete"
-            android:src="@drawable/ic_clear_all"
-            android:tooltipText="@string/delete"
+            app:icon="@drawable/ic_clear_all"
+            android:text="@string/delete"
             tools:ignore="UnusedAttribute" />
+
 
     </LinearLayout>
 
@@ -152,15 +152,16 @@
         android:id="@+id/tv_bg_alpha"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingLeft="6dp"
-        android:paddingRight="6dp"
+        android:paddingTop="16dp"
         android:text="@string/bg_alpha" />
 
-    <io.legato.kazusa.lib.theme.view.ThemeSlider
+    <com.google.android.material.slider.Slider
         android:id="@+id/sb_bg_alpha"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:max="100"
+        android:valueFrom="0.0"
+        android:valueTo="100.0"
+        android:stepSize="1"
         android:padding="6dp"
         tools:ignore="UnusedAttribute" />
 
@@ -168,8 +169,7 @@
         android:id="@+id/tv_bg_image"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingLeft="6dp"
-        android:paddingRight="6dp"
+        android:paddingTop="16dp"
         android:text="@string/bg_image" />
 
     <androidx.recyclerview.widget.RecyclerView
@@ -177,7 +177,6 @@
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:orientation="horizontal"
-        android:padding="6dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:listitem="@layout/item_bg_image" />
 

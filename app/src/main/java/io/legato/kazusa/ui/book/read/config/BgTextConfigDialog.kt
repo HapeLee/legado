@@ -15,6 +15,7 @@ import androidx.documentfile.provider.DocumentFile
 import com.google.android.material.slider.Slider
 import com.jaredrummler.android.colorpicker.ColorPickerDialog
 import io.legato.kazusa.R
+import io.legato.kazusa.base.BaseBottomSheetDialogFragment
 import io.legato.kazusa.base.BaseDialogFragment
 import io.legato.kazusa.constant.AppLog
 import io.legato.kazusa.constant.EventBus
@@ -61,7 +62,7 @@ import splitties.init.appCtx
 import java.io.File
 import java.io.FileOutputStream
 
-class BgTextConfigDialog : BaseDialogFragment(R.layout.dialog_read_bg_text) {
+class BgTextConfigDialog : BaseBottomSheetDialogFragment(R.layout.dialog_read_bg_text) {
 
     companion object {
         const val TEXT_COLOR = 121
@@ -97,14 +98,7 @@ class BgTextConfigDialog : BaseDialogFragment(R.layout.dialog_read_bg_text) {
     override fun onStart() {
         super.onStart()
         dialog?.window?.run {
-            clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND)
-            //setBackgroundDrawableResource(R.color.background)
-            decorView.setPadding(0, 0, 0, 0)
-            val attr = attributes
-            attr.dimAmount = 0.0f
-            attr.gravity = Gravity.BOTTOM
-            attributes = attr
-            setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+
         }
     }
 

@@ -234,7 +234,7 @@ class ReadStyleDialog : BaseBottomSheetDialogFragment(R.layout.dialog_read_book_
             binding.apply {
                 ivStyle.setText(item.name.ifBlank { "文字" })
                 ivStyle.setTextColor(item.curTextColor())
-                //ivStyle.setImageDrawable(item.curBgDrawable(100, 150))
+                ivStyle.setImageDrawable(item.curBgDrawable(100, 150))
                 if (ReadBookConfig.styleSelect == holder.layoutPosition) {
                     //ivStyle.borderColor = accentColor
                     ivStyle.setTextBold(true)

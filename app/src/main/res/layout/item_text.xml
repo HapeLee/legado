@@ -10,6 +10,5 @@
     android:padding="5dp"
     android:maxLines="1"
     android:scrollbars="none"
-    android:textColor="@color/primaryText"
     android:textSize="14sp"
     tools:ignore="UnusedAttribute" />

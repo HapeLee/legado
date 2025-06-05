@@ -22,6 +22,7 @@ import io.legato.kazusa.utils.printOnDebug
 import io.legato.kazusa.utils.spToPx
 import kotlin.math.min
 import kotlin.math.pow
+import androidx.core.graphics.createBitmap
 
 @Suppress("unused", "MemberVisibilityCanBePrivate")
 class CircleImageView @JvmOverloads constructor(
@@ -293,17 +294,9 @@ class CircleImageView @JvmOverloads constructor(
 
         return try {
             val bitmap: Bitmap = if (drawable is ColorDrawable) {
-                Bitmap.createBitmap(
-                    COLOR_DRAWABLE_DIMENSION,
-                    COLOR_DRAWABLE_DIMENSION,
-                    BITMAP_CONFIG
-                )
+                createBitmap(COLOR_DRAWABLE_DIMENSION, COLOR_DRAWABLE_DIMENSION, BITMAP_CONFIG)
             } else {
-                Bitmap.createBitmap(
-                    drawable.intrinsicWidth,
-                    drawable.intrinsicHeight,
-                    BITMAP_CONFIG
-                )
+                createBitmap(drawable.intrinsicWidth, drawable.intrinsicHeight, BITMAP_CONFIG)
             }
 
             val canvas = Canvas(bitmap)

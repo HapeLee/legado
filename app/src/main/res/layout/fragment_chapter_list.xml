@@ -39,7 +39,7 @@
             style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
             android:layout_width="36dp"
             android:layout_height="36dp"
-            android:icon="@drawable/ic_arrow_drop_up"
+            app:icon="@drawable/ic_arrow_drop_up"
             android:contentDescription="@string/go_to_top"
             app:iconGravity="textStart"
             app:iconPadding="0dp" />
@@ -49,7 +49,7 @@
             style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
             android:layout_width="36dp"
             android:layout_height="36dp"
-            android:icon="@drawable/ic_arrow_drop_down"
+            app:icon="@drawable/ic_arrow_drop_down"
             android:contentDescription="@string/go_to_bottom"
             app:iconGravity="textStart"
             app:iconPadding="0dp" />

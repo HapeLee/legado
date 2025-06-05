@@ -33,6 +33,7 @@ import io.legato.kazusa.utils.sendToClip
 import io.legato.kazusa.utils.share
 import io.legato.kazusa.utils.toastOnUi
 import io.legato.kazusa.utils.visible
+import androidx.core.net.toUri
 
 @SuppressLint("RestrictedApi")
 class TextActionMenu(private val context: Context, private val callBack: CallBack) :
@@ -217,7 +218,7 @@ class TextActionMenu(private val context: Context, private val callBack: CallBac
                 kotlin.runCatching {
                     val intent = if (callBack.selectedText.isAbsUrl()) {
                         Intent(Intent.ACTION_VIEW).apply {
-                            data = Uri.parse(callBack.selectedText)
+                            data = callBack.selectedText.toUri()
                         }
                     } else {
                         Intent(Intent.ACTION_WEB_SEARCH).apply {

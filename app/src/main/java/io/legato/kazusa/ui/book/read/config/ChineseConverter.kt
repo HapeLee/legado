@@ -3,6 +3,7 @@ package io.legato.kazusa.ui.book.read.config
 import android.content.Context
 import android.text.SpannableString
 import android.util.AttributeSet
+import com.google.android.material.button.MaterialButton
 import io.legato.kazusa.R
 import io.legato.kazusa.help.config.AppConfig
 import io.legato.kazusa.lib.dialogs.alert
@@ -10,10 +11,9 @@ import io.legato.kazusa.lib.dialogs.alert
 import io.legato.kazusa.ui.widget.text.StrokeTextView
 
 
-class ChineseConverter(context: Context, attrs: AttributeSet?) : StrokeTextView(context, attrs) {
+class ChineseConverter(context: Context, attrs: AttributeSet?) : MaterialButton(context, attrs) {
 
     private val spannableString = SpannableString("简/繁")
-//    private var enabledSpan: ForegroundColorSpan = ForegroundColorSpan(context.accentColor)
     private var onChanged: (() -> Unit)? = null
 
     init {
@@ -27,12 +27,8 @@ class ChineseConverter(context: Context, attrs: AttributeSet?) : StrokeTextView(
     }
 
     private fun upUi(type: Int) {
-        //spannableString.removeSpan(enabledSpan)
-//        when (type) {
-//            1 -> spannableString.setSpan(enabledSpan, 0, 1, Spannable.SPAN_INCLUSIVE_EXCLUSIVE)
-//            2 -> spannableString.setSpan(enabledSpan, 2, 3, Spannable.SPAN_INCLUSIVE_EXCLUSIVE)
-//        }
-        text = spannableString
+        val showOptions = context.resources.getStringArray(R.array.chinese_mode)
+        text = showOptions.getOrNull(type) ?: ""
     }
 
     private fun selectType() {

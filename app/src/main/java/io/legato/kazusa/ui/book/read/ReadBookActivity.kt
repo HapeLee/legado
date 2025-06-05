@@ -262,7 +262,7 @@ class ReadBookActivity : BaseReadBookActivity(),
         //binding.cursorRight.setColorFilter(accentColor)
         binding.cursorLeft.setOnTouchListener(this)
         binding.cursorRight.setOnTouchListener(this)
-        window.setBackgroundDrawable(null)
+        //window.setBackgroundDrawable(null)
         upScreenTimeOut()
         ReadBook.register(this)
         onBackPressedDispatcher.addCallback(this) {
@@ -1222,7 +1222,7 @@ class ReadBookActivity : BaseReadBookActivity(),
      * 更新状态栏,导航栏
      */
     override fun upSystemUiVisibility() {
-        upSystemUiVisibility(isInMultiWindow, !menuLayoutIsVisible, bottomDialog > 0)
+        upSystemUiVisibility(isInMultiWindow, !menuLayoutIsVisible)
         upNavigationBarColor()
     }
 
