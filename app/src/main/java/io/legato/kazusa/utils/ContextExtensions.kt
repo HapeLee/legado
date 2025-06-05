@@ -29,6 +29,7 @@ import android.os.BatteryManager
 import android.os.Build
 import android.os.Process
 import android.provider.Settings
+import android.util.TypedValue
 import androidx.annotation.ColorRes
 import androidx.annotation.DrawableRes
 import androidx.core.content.ContextCompat
@@ -417,3 +418,8 @@ val Context.isDebuggable: Boolean
 
 val Context.dataStore by preferencesDataStore(name = "settings")
 
+fun Context.themeColor(attr: Int): Int {
+    val typedValue = TypedValue()
+    theme.resolveAttribute(attr, typedValue, true)
+    return ContextCompat.getColor(this, typedValue.resourceId)
+}

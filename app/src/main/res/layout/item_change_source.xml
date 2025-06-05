@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="?android:attr/selectableItemBackground"
-    tools:ignore="RtlHardcoded,RtlSymmetry">
+    tools:ignore="RtlHardcoded,RtlSymmetry"
+    android:paddingHorizontal="16dp">
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/iv_good"
@@ -41,7 +42,6 @@
         android:layout_marginLeft="30dp"
         android:layout_marginTop="10dp"
         android:singleLine="true"
-        android:textColor="@color/primaryText"
         tools:text="bookSourceName"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@+id/tv_author"
@@ -55,7 +55,6 @@
         android:maxWidth="160dp"
         android:singleLine="true"
         tools:text="author"
-        android:textColor="@color/secondaryText"
         app:layout_constraintRight_toLeftOf="@+id/iv_checked"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -67,7 +66,6 @@
         android:layout_marginBottom="10dp"
         android:singleLine="true"
         tools:text="latest chapter name"
-        android:textColor="@color/secondaryText"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@+id/iv_checked"
         app:layout_constraintTop_toBottomOf="@+id/tv_origin" />
@@ -80,7 +78,6 @@
         android:layout_marginBottom="10dp"
         android:singleLine="false"
         tools:text="word count"
-        android:textColor="@color/secondaryText"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@+id/iv_checked"
         app:layout_constraintTop_toBottomOf="@+id/tv_last" />
@@ -93,7 +90,6 @@
         android:layout_marginBottom="10dp"
         android:singleLine="false"
         tools:text="respond time"
-        android:textColor="@color/secondaryText"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@+id/iv_checked"
@@ -111,7 +107,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:tint="@color/primaryText"
         tools:visibility="visible" />
 
 

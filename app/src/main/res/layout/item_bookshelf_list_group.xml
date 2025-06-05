@@ -63,7 +63,6 @@
         android:paddingLeft="2dp"
         android:singleLine="true"
         android:text="@string/book_name"
-        android:textColor="@color/primaryText"
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/tv_author"
         app:layout_constraintLeft_toRightOf="@+id/iv_cover"
@@ -82,7 +81,6 @@
         app:layout_constraintBottom_toBottomOf="@+id/tv_author"
         app:layout_constraintLeft_toLeftOf="@+id/tv_name"
         app:layout_constraintTop_toTopOf="@+id/tv_author"
-        app:tint="@color/tv_text_summary"
         tools:ignore="RtlHardcoded,RtlSymmetry" />
 
     <TextView
@@ -93,7 +91,6 @@
         android:maxLines="1"
         android:paddingEnd="6dp"
         android:text="@string/author"
-        android:textColor="@color/tv_text_summary"
         android:textSize="13sp"
         app:layout_constraintBottom_toTopOf="@+id/tv_read"
         app:layout_constraintLeft_toRightOf="@+id/iv_author"
@@ -112,7 +109,6 @@
         app:layout_constraintBottom_toBottomOf="@+id/tv_read"
         app:layout_constraintLeft_toLeftOf="@+id/tv_name"
         app:layout_constraintTop_toTopOf="@+id/tv_read"
-        app:tint="@color/tv_text_summary"
         tools:ignore="RtlHardcoded,RtlSymmetry" />
 
     <TextView
@@ -122,7 +118,6 @@
         android:includeFontPadding="false"
         android:singleLine="true"
         android:text="@string/read_dur_progress"
-        android:textColor="@color/tv_text_summary"
         android:textSize="13sp"
         app:layout_constraintBottom_toTopOf="@id/tv_last"
         app:layout_constraintLeft_toRightOf="@+id/iv_read"
@@ -141,7 +136,6 @@
         app:layout_constraintBottom_toBottomOf="@+id/tv_last"
         app:layout_constraintLeft_toLeftOf="@+id/tv_name"
         app:layout_constraintTop_toTopOf="@+id/tv_last"
-        app:tint="@color/tv_text_summary"
         tools:ignore="RtlHardcoded,RtlSymmetry" />
 
     <TextView
@@ -151,7 +145,6 @@
         android:layout_marginBottom="8dp"
         android:singleLine="true"
         android:text="@string/lasted_show"
-        android:textColor="@color/tv_text_summary"
         android:textSize="13sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toRightOf="@+id/iv_last"

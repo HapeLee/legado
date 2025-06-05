@@ -17,6 +17,7 @@ import io.legato.kazusa.help.glide.ImageLoader
 import io.legato.kazusa.help.glide.OkHttpModelLoader
 import io.legato.kazusa.utils.getCompatColor
 import io.legato.kazusa.utils.gone
+import io.legato.kazusa.utils.themeColor
 import io.legato.kazusa.utils.visible
 
 
@@ -73,9 +74,9 @@ class RssArticlesAdapter(context: Context, callBack: CallBack) :
                 }.into(imageView)
             }
             if (item.read) {
-                tvTitle.setTextColor(context.getCompatColor(R.color.tv_text_summary))
+                tvTitle.setTextColor(context.themeColor(com.google.android.material.R.attr.colorOnSurfaceVariant))
             } else {
-                tvTitle.setTextColor(context.getCompatColor(R.color.primaryText))
+                tvTitle.setTextColor(context.themeColor(com.google.android.material.R.attr.colorOnSurface))
             }
         }
     }

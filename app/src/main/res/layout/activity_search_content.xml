@@ -50,33 +50,32 @@
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
             android:singleLine="true"
-            android:textColor="@color/primaryText"
             android:textSize="12sp" />
 
         <Space
             android:layout_width="20dp"
             android:layout_height="1dp" />
 
-        <androidx.appcompat.widget.AppCompatImageView
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/iv_search_content_top"
             android:layout_width="36dp"
-            android:layout_height="match_parent"
-            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:layout_height="36dp"
+            style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
             android:contentDescription="@string/go_to_top"
-            android:src="@drawable/ic_arrow_drop_up"
+            app:icon="@drawable/ic_arrow_drop_up"
+            app:iconGravity="textStart"
             android:tooltipText="@string/go_to_top"
-            app:tint="@color/primaryText"
             tools:ignore="UnusedAttribute" />
 
-        <androidx.appcompat.widget.AppCompatImageView
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/iv_search_content_bottom"
             android:layout_width="36dp"
-            android:layout_height="match_parent"
-            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:layout_height="36dp"
+            style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
             android:contentDescription="@string/go_to_bottom"
-            android:src="@drawable/ic_arrow_drop_down"
+            app:icon="@drawable/ic_arrow_drop_down"
+            app:iconGravity="textStart"
             android:tooltipText="@string/go_to_bottom"
-            app:tint="@color/primaryText"
             tools:ignore="UnusedAttribute" />
     </LinearLayout>
 

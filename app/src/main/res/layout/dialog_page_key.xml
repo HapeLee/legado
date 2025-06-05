@@ -47,7 +47,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:textColor="@color/secondaryText"
         android:text="@string/page_key_set_help" />
 
     <LinearLayout
@@ -56,37 +55,33 @@
         android:layout_margin="5dp"
         android:orientation="horizontal">
 
-        <TextView
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/tv_reset"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@drawable/selector_fillet_btn_bg"
             android:clickable="true"
             android:focusable="true"
             android:gravity="center"
             android:paddingTop="5dp"
             android:paddingBottom="5dp"
-            android:text="@string/reset"
-            android:textColor="@color/primaryText" />
+            android:text="@string/reset" />
 
         <Space
             android:layout_width="3dp"
             android:layout_height="wrap_content" />
 
-        <TextView
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/tv_ok"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@drawable/selector_fillet_btn_bg"
             android:clickable="true"
             android:focusable="true"
             android:gravity="center"
             android:paddingTop="5dp"
             android:paddingBottom="5dp"
-            android:text="@string/ok"
-            android:textColor="@color/primaryText" />
+            android:text="@string/ok" />
 
     </LinearLayout>
 

@@ -74,7 +74,7 @@
         <item name="android:windowDrawsSystemBarBackgrounds">true</item>
         <item name="android:windowLightStatusBar">true</item>
         <item name="tabStyle">@style/Widget.App.TabLayout</item>
-<!--        <item name="collapsingToolbarLayoutStyle">@style/CollapsingToolbar</item>-->
+        <item name="collapsingToolbarLayoutStyle">@style/CollapsingToolbar</item>
     </style>
 
     <style name="Widget.App.TabLayout" parent="Widget.Material3.TabLayout">
@@ -115,7 +115,7 @@
 
     <style name="CollapsingToolbar" parent="Widget.Material3.CollapsingToolbar">
         <item name="titleCollapseMode">scale</item>
-        <item name="contentScrim">?attr/colorSurfaceContainer</item>
+        <item name="contentScrim">?attr/colorSurface</item>
     </style>
 
     <style name="ChapterNameText">

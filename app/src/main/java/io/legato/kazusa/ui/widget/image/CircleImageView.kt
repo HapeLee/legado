@@ -23,6 +23,8 @@ import io.legato.kazusa.utils.spToPx
 import kotlin.math.min
 import kotlin.math.pow
 import androidx.core.graphics.createBitmap
+import io.legato.kazusa.utils.themeColor
+import androidx.core.content.withStyledAttributes
 
 @Suppress("unused", "MemberVisibilityCanBePrivate")
 class CircleImageView @JvmOverloads constructor(
@@ -117,35 +119,35 @@ class CircleImageView @JvmOverloads constructor(
 
     private var text: String? = null
 
-    private var textColor = context.getCompatColor(R.color.primaryText)
+    private var textColor = context.themeColor(com.google.android.material.R.attr.colorOnSurface)
     private var textBold = false
     var isInView = false
 
     init {
-        val a = context.obtainStyledAttributes(attrs, R.styleable.CircleImageView)
-        mBorderWidth =
-            a.getDimensionPixelSize(
-                R.styleable.CircleImageView_civ_border_width,
-                DEFAULT_BORDER_WIDTH
-            )
-        mBorderColor =
-            a.getColor(R.styleable.CircleImageView_civ_border_color, DEFAULT_BORDER_COLOR)
-        mBorderOverlay =
-            a.getBoolean(R.styleable.CircleImageView_civ_border_overlay, DEFAULT_BORDER_OVERLAY)
-        mCircleBackgroundColor =
-            a.getColor(
-                R.styleable.CircleImageView_civ_circle_background_color,
-                DEFAULT_CIRCLE_BACKGROUND_COLOR
-            )
-        text = a.getString(R.styleable.CircleImageView_text)
-        contentDescription = text
-        if (a.hasValue(R.styleable.CircleImageView_textColor)) {
-            textColor = a.getColor(
-                R.styleable.CircleImageView_textColor,
-                context.getCompatColor(R.color.primaryText)
-            )
+        context.withStyledAttributes(attrs, R.styleable.CircleImageView) {
+            mBorderWidth =
+                getDimensionPixelSize(
+                    R.styleable.CircleImageView_civ_border_width,
+                    DEFAULT_BORDER_WIDTH
+                )
+            mBorderColor =
+                getColor(R.styleable.CircleImageView_civ_border_color, DEFAULT_BORDER_COLOR)
+            mBorderOverlay =
+                getBoolean(R.styleable.CircleImageView_civ_border_overlay, DEFAULT_BORDER_OVERLAY)
+            mCircleBackgroundColor =
+                getColor(
+                    R.styleable.CircleImageView_civ_circle_background_color,
+                    DEFAULT_CIRCLE_BACKGROUND_COLOR
+                )
+            text = getString(R.styleable.CircleImageView_text)
+            contentDescription = text
+            if (hasValue(R.styleable.CircleImageView_textColor)) {
+                textColor = getColor(
+                    R.styleable.CircleImageView_textColor,
+                    context.themeColor(com.google.android.material.R.attr.colorOnSurface)
+                )
+            }
         }
-        a.recycle()
 
         mReady = true
 

@@ -52,8 +52,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="调试搜索>>输入关键字，如："
-                android:textColor="@color/secondaryText"
+                android:text="调试搜索 - 输入关键字，如："
                 tools:ignore="HardcodedText" />
 
             <LinearLayout
@@ -75,7 +74,6 @@
                     android:paddingRight="12dp"
                     android:paddingBottom="4dp"
                     android:text="我的"
-                    android:textColor="@color/primaryText"
                     android:textSize="14sp"
                     tools:ignore="HardcodedText,UnusedAttribute" />
 
@@ -93,7 +91,6 @@
                     android:paddingRight="12dp"
                     android:paddingBottom="4dp"
                     android:text="系统"
-                    android:textColor="@color/primaryText"
                     android:textSize="14sp"
                     tools:ignore="HardcodedText,UnusedAttribute" />
             </LinearLayout>
@@ -102,8 +99,7 @@
                 android:id="@+id/text_fx_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="调试发现>>输入发现URL，如："
-                android:textColor="@color/secondaryText"
+                android:text="调试发现 - 输入发现URL，如："
                 tools:ignore="HardcodedText" />
 
             <TextView
@@ -120,15 +116,13 @@
                 android:paddingRight="12dp"
                 android:paddingBottom="4dp"
                 android:text="系统::http://xxx"
-                android:textColor="@color/primaryText"
                 android:textSize="14sp"
                 tools:ignore="HardcodedText,UnusedAttribute" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="调试详情页>>输入详情页URL，如："
-                android:textColor="@color/secondaryText"
+                android:text="调试详情页 - 输入详情页URL，如："
                 tools:ignore="HardcodedText" />
 
             <TextView
@@ -145,15 +139,13 @@
                 android:paddingRight="12dp"
                 android:paddingBottom="4dp"
                 android:text="https://m.qidian.com/book/1015609210"
-                android:textColor="@color/primaryText"
                 android:textSize="14sp"
                 tools:ignore="HardcodedText,UnusedAttribute" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="调试目录页>>输入目录页URL，如："
-                android:textColor="@color/secondaryText"
+                android:text="调试目录页 - 输入目录页URL，如："
                 tools:ignore="HardcodedText" />
 
             <TextView
@@ -170,15 +162,13 @@
                 android:paddingRight="12dp"
                 android:paddingBottom="4dp"
                 android:text="++https://www.zhaishuyuan.com/read/30394"
-                android:textColor="@color/primaryText"
                 android:textSize="14sp"
                 tools:ignore="HardcodedText,UnusedAttribute" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="调试正文页>>输入正文页URL，如："
-                android:textColor="@color/secondaryText"
+                android:text="调试正文页 - 输入正文页URL，如："
                 tools:ignore="HardcodedText" />
 
             <TextView
@@ -195,7 +185,6 @@
                 android:paddingRight="12dp"
                 android:paddingBottom="4dp"
                 android:text="--https://www.zhaishuyuan.com/chapter/30394/20940996"
-                android:textColor="@color/primaryText"
                 android:textSize="14sp"
                 tools:ignore="HardcodedText,UnusedAttribute" />
 

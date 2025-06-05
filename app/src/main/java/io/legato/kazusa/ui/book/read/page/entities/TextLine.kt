@@ -19,6 +19,7 @@ import io.legato.kazusa.ui.book.read.page.provider.ChapterProvider
 import io.legato.kazusa.utils.canvasrecorder.CanvasRecorderFactory
 import io.legato.kazusa.utils.canvasrecorder.recordIfNeededThenDraw
 import io.legato.kazusa.utils.dpToPx
+import io.legato.kazusa.utils.themeColor
 
 /**
  * 行信息
@@ -173,7 +174,7 @@ data class TextLine(
             ChapterProvider.contentPaint
         }
         val textColor = if (isReadAloud) {
-            ThemeStore.accentColor
+            view.context.themeColor(com.google.android.material.R.attr.colorPrimary)
         } else {
             ReadBookConfig.textColor
         }

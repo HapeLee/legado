@@ -11,6 +11,7 @@ import io.legato.kazusa.lib.theme.ThemeUtils
 //import io.legado.app.lib.theme.accentColor
 import io.legato.kazusa.utils.getCompatColor
 import io.legato.kazusa.utils.gone
+import io.legato.kazusa.utils.themeColor
 import io.legato.kazusa.utils.visible
 
 class ChangeChapterTocAdapter(context: Context, val callback: Callback) :
@@ -30,11 +31,13 @@ class ChangeChapterTocAdapter(context: Context, val callback: Callback) :
     ) {
         binding.run {
             val isDur = durChapterIndex == item.index
+
             if (isDur) {
-                //tvChapterName.setTextColor(context.accentColor)
+                tvChapterName.setTextColor(context.themeColor(com.google.android.material.R.attr.colorPrimary))
             } else {
-                tvChapterName.setTextColor(context.getCompatColor(R.color.primaryText))
+                tvChapterName.setTextColor(context.themeColor(com.google.android.material.R.attr.colorOnSurface))
             }
+
             tvChapterName.text = item.title
             if (item.isVolume) {
                 //卷名，如第一卷 突出显示

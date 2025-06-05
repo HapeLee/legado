@@ -11,7 +11,6 @@
         android:layout_height="wrap_content"
         android:padding="18dp"
         android:text="@string/add_to_bookshelf"
-        android:textColor="@color/primaryText"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintTop_toTopOf="parent" />
@@ -80,10 +79,11 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-    <io.legato.kazusa.ui.widget.anima.RotateLoading
+    <com.google.android.material.progressindicator.CircularProgressIndicator
         android:id="@+id/rotate_loading"
         android:layout_width="48dp"
         android:layout_height="48dp"
+        android:indeterminate="false"
         app:layout_constraintBottom_toBottomOf="@+id/book_info"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -106,7 +106,6 @@
         android:layout_height="wrap_content"
         android:padding="16dp"
         android:text="@string/cancel"
-        android:textColor="@color/secondaryText"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toLeftOf="@+id/tv_ok"
         app:layout_constraintTop_toBottomOf="@+id/book_info" />

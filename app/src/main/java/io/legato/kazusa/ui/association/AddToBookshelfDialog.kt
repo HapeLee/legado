@@ -6,6 +6,7 @@ import android.content.DialogInterface
 import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.MutableLiveData
 import io.legato.kazusa.R
@@ -70,9 +71,9 @@ class AddToBookshelfDialog() : BaseDialogFragment(R.layout.dialog_add_to_bookshe
         }
         viewModel.loadStateLiveData.observe(this) {
             if (it) {
-                binding.rotateLoading.visible()
+                binding.rotateLoading.isVisible = true
             } else {
-                binding.rotateLoading.gone()
+                binding.rotateLoading.isVisible = true
             }
         }
         viewModel.loadErrorLiveData.observe(this) {

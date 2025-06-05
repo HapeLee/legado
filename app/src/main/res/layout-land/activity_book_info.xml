@@ -101,7 +101,6 @@
                     android:includeFontPadding="false"
                     android:singleLine="true"
                     android:text="@string/book_name"
-                    android:textColor="@color/primaryText"
                     android:textSize="18sp"
                     tools:ignore="RtlHardcoded" />
 
@@ -141,7 +140,6 @@
                         android:includeFontPadding="false"
                         android:singleLine="true"
                         android:text="@string/author"
-                        android:textColor="@color/tv_text_summary"
                         android:textSize="13sp"
                         tools:ignore="NestedWeights,TextContrastCheck" />
 
@@ -204,7 +202,6 @@
                                 android:contentDescription="@string/origin_format"
                                 android:paddingRight="2dp"
                                 android:src="@drawable/ic_web_outline"
-                                app:tint="@color/tv_text_summary"
                                 tools:ignore="RtlHardcoded,RtlSymmetry" />
 
                             <TextView
@@ -216,7 +213,6 @@
                                 android:includeFontPadding="false"
                                 android:paddingRight="6dp"
                                 android:singleLine="true"
-                                android:textColor="@color/tv_text_summary"
                                 android:textSize="13sp"
                                 tools:ignore="NestedWeights,RtlHardcoded,RtlSymmetry,TextContrastCheck"
                                 tools:text="@string/origin_format" />
@@ -250,7 +246,6 @@
                                 android:contentDescription="@string/read_dur_progress"
                                 android:paddingRight="2dp"
                                 android:src="@drawable/ic_book_last"
-                                app:tint="@color/tv_text_summary"
                                 tools:ignore="RtlHardcoded,RtlSymmetry" />
 
                             <TextView
@@ -262,7 +257,6 @@
                                 android:includeFontPadding="false"
                                 android:paddingRight="6dp"
                                 android:singleLine="true"
-                                android:textColor="@color/tv_text_summary"
                                 android:textSize="13sp"
                                 tools:ignore="NestedWeights,RtlHardcoded,RtlSymmetry,TextContrastCheck"
                                 tools:text="@string/read_dur_progress" />
@@ -283,7 +277,6 @@
                                 android:contentDescription="@string/read_dur_progress"
                                 android:paddingRight="2dp"
                                 android:src="@drawable/ic_groups"
-                                app:tint="@color/tv_text_summary"
                                 tools:ignore="RtlHardcoded,RtlSymmetry" />
 
                             <TextView
@@ -295,7 +288,6 @@
                                 android:includeFontPadding="false"
                                 android:paddingRight="6dp"
                                 android:singleLine="true"
-                                android:textColor="@color/tv_text_summary"
                                 android:textSize="13sp"
                                 tools:ignore="NestedWeights,RtlHardcoded,RtlSymmetry,TextContrastCheck"
                                 tools:text="@string/group_s" />
@@ -327,7 +319,6 @@
                                 android:contentDescription="@string/read_dur_progress"
                                 android:paddingRight="2dp"
                                 android:src="@drawable/ic_folder_open"
-                                app:tint="@color/tv_text_summary"
                                 tools:ignore="RtlHardcoded,RtlSymmetry" />
 
                             <TextView
@@ -339,7 +330,6 @@
                                 android:includeFontPadding="false"
                                 android:paddingRight="6dp"
                                 android:singleLine="true"
-                                android:textColor="@color/tv_text_summary"
                                 android:textSize="13sp"
                                 tools:ignore="NestedWeights,RtlHardcoded,RtlSymmetry,TextContrastCheck"
                                 tools:text="@string/toc_s" />
@@ -370,7 +360,6 @@
                         android:paddingLeft="8dp"
                         android:paddingBottom="8dp"
                         android:text="@string/book_intro"
-                        android:textColor="@color/secondaryText"
                         android:textIsSelectable="true"
                         android:textSize="14sp"
                         android:visibility="visible"
@@ -398,7 +387,6 @@
                     android:gravity="center"
                     android:includeFontPadding="false"
                     android:text="@string/remove_from_bookshelf"
-                    android:textColor="@color/primaryText"
                     android:textSize="15sp" />
 
                 <io.legato.kazusa.ui.widget.text.AccentBgTextView

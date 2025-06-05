@@ -16,8 +16,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp">
+        android:paddingHorizontal="16dp">
 
         <TextView
             android:id="@+id/tv_book_name"
@@ -25,7 +24,6 @@
             android:layout_height="wrap_content"
             android:padding="6dp"
             android:singleLine="true"
-            android:textColor="@color/primaryText"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toLeftOf="@+id/tv_remove"
             app:layout_constraintTop_toTopOf="parent"
@@ -38,20 +36,19 @@
             android:layout_height="wrap_content"
             android:padding="6dp"
             android:singleLine="true"
-            android:textColor="@color/secondaryText"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toLeftOf="@+id/tv_remove"
             app:layout_constraintTop_toBottomOf="@id/tv_book_name"
             tools:text="readingTime" />
 
-        <TextView
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/tv_remove"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="?attr/selectableItemBackground"
+            style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
             android:padding="6dp"
+            app:icon="@drawable/ic_clear_all"
             android:text="@string/clear"
-            android:textColor="@color/primaryText"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -62,6 +59,7 @@
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:paddingHorizontal="16dp"
         android:clipToPadding="false"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 

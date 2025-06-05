@@ -53,7 +53,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:indeterminate="true"
-                app:indicatorColor="@color/white"
                 app:indicatorSize="36dp"
                 app:trackCornerRadius="99dp"
                 app:trackThickness="3dp" />
@@ -63,8 +62,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:text="@string/loading"
-                android:textColor="@color/primaryText" />
+                android:text="@string/loading" />
         </LinearLayout>
 
         <LinearLayout
@@ -78,8 +76,7 @@
             <TextView
                 android:id="@+id/tv_msg"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/primaryText" />
+                android:layout_height="wrap_content" />
 
             <io.legato.kazusa.ui.widget.text.AccentTextView
                 android:id="@+id/tv_retry"

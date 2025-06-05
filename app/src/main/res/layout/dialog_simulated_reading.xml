@@ -5,15 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:gravity="center"
-    android:padding="20dp"
+    android:padding="16dp"
     android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:gravity="center"
-        android:orientation="horizontal"
-        android:padding="16dp">
+        android:layout_height="wrap_content"
+        android:gravity="start"
+        android:orientation="horizontal">
 
         <TextView
             android:layout_width="wrap_content"
@@ -21,31 +20,16 @@
             android:layout_gravity="center_vertical"
             android:layout_marginRight="2dp"
             android:text="@string/switch_on"
-            android:textColor="@color/primaryText"
             android:textSize="16sp"
             tools:ignore="RtlHardcoded"
             android:minWidth="88dp" />
 
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="53dp"
-            android:layout_height="match_parent"
-            android:gravity="center_vertical">
+        <com.google.android.material.materialswitch.MaterialSwitch
+            android:layout_height="wrap_content"
+            android:id="@+id/sr_enabled"
+            android:gravity="start|center_vertical"
+            android:layout_width="wrap_content" />
 
-            <androidx.appcompat.widget.SwitchCompat
-                android:layout_height="wrap_content"
-                android:id="@+id/sr_enabled"
-                android:layout_weight="1"
-                android:gravity="start|center_vertical"
-                style="@style/Widget.AppCompat.CompoundButton.Switch"
-                android:layout_width="match_parent"
-                android:width="20dp" />
-        </LinearLayout>
-
-        <View
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_weight="1" />
 
         <View
             android:layout_width="0dp"
@@ -58,7 +42,6 @@
         android:layout_width="match_parent"
         android:layout_height="65dp"
         android:orientation="horizontal"
-        android:padding="16dp"
         android:gravity="start|center_vertical">
 
         <TextView
@@ -66,7 +49,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:text="@string/start_from"
-            android:textColor="@color/primaryText"
             android:textSize="16sp"
             android:gravity="center_vertical"
             android:minWidth="100dp" />
@@ -98,9 +80,8 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="63dp"
-        android:gravity="center_horizontal|left"
-        android:padding="16dp">
+        android:layout_height="wrap_content"
+        android:gravity="start">
 
         <LinearLayout
             android:orientation="horizontal"
@@ -114,7 +95,6 @@
                 android:layout_gravity="center_vertical"
                 android:layout_marginRight="2dp"
                 android:text="@string/start_chapter"
-                android:textColor="@color/primaryText"
                 android:textSize="16sp"
                 tools:ignore="RtlHardcoded" />
 
@@ -136,8 +116,6 @@
             android:paddingTop="4dp"
             android:paddingRight="5dp"
             android:paddingBottom="4dp"
-            android:textColor="@color/primaryText"
-            android:textCursorDrawable="@drawable/shape_text_cursor"
             android:textSize="14sp"
             tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
 
@@ -151,10 +129,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:layout_marginLeft="25dp"
+                android:layout_marginLeft="16dp"
                 android:layout_marginRight="5dp"
                 android:text="@string/daily_chapters"
-                android:textColor="@color/primaryText"
                 android:textSize="16sp" />
 
             <EditText
@@ -173,8 +150,6 @@
                 android:paddingTop="4dp"
                 android:paddingRight="5dp"
                 android:paddingBottom="4dp"
-                android:textColor="@color/primaryText"
-                android:textCursorDrawable="@drawable/shape_text_cursor"
                 android:textSize="14sp"
                 tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck,TextContrastCheck"
                 android:textAlignment="center" />

@@ -9,6 +9,7 @@ import io.legato.kazusa.ui.book.read.page.ContentTextView
 import io.legato.kazusa.ui.book.read.page.entities.TextLine
 import io.legato.kazusa.ui.book.read.page.entities.TextLine.Companion.emptyTextLine
 import io.legato.kazusa.ui.book.read.page.provider.ChapterProvider
+import io.legato.kazusa.utils.themeColor
 
 /**
  * 文字列
@@ -49,7 +50,7 @@ data class TextColumn(
             ChapterProvider.contentPaint
         }
         val textColor = if (textLine.isReadAloud || isSearchResult) {
-            ThemeStore.accentColor
+            view.context.themeColor(com.google.android.material.R.attr.colorPrimary)
         } else {
             ReadBookConfig.textColor
         }

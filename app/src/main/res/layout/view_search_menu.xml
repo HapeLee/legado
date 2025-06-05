@@ -23,7 +23,6 @@
         android:contentDescription="上个结果"
         android:rotation="180"
         android:src="@drawable/ic_arrow_right"
-        android:tint="@color/primaryText"
         android:tooltipText="@string/search_content"
         app:elevation="2dp"
         app:fabSize="mini"
@@ -40,7 +39,6 @@
         android:layout_margin="16dp"
         android:contentDescription="下个结果"
         android:src="@drawable/ic_arrow_right"
-        android:tint="@color/primaryText"
         android:tooltipText="@string/search_content"
         app:elevation="2dp"
         app:fabSize="mini"
@@ -66,28 +64,6 @@
             android:paddingLeft="10dp"
             android:paddingRight="10dp">
 
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/iv_search_content_up"
-                android:layout_width="36dp"
-                android:layout_height="match_parent"
-                android:background="?android:attr/selectableItemBackgroundBorderless"
-                android:contentDescription="@string/go_to_top"
-                android:src="@drawable/ic_arrow_drop_up"
-                android:tooltipText="@string/go_to_top"
-                app:tint="@color/primaryText"
-                tools:ignore="UnusedAttribute" />
-
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/iv_search_content_down"
-                android:layout_width="36dp"
-                android:layout_height="match_parent"
-                android:background="?android:attr/selectableItemBackgroundBorderless"
-                android:contentDescription="@string/go_to_bottom"
-                android:src="@drawable/ic_arrow_drop_down"
-                android:tooltipText="@string/go_to_bottom"
-                app:tint="@color/primaryText"
-                tools:ignore="UnusedAttribute" />
-
             <TextView
                 android:id="@+id/tv_current_search_info"
                 android:layout_width="0dp"
@@ -99,14 +75,38 @@
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
                 android:singleLine="true"
-                android:textColor="@color/primaryText"
                 android:textSize="12sp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/iv_search_content_up"
+                android:layout_width="36dp"
+                android:layout_height="match_parent"
+                style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+                app:iconGravity="textStart"
+                android:contentDescription="@string/go_to_top"
+                app:icon="@drawable/ic_arrow_drop_up"
+                android:tooltipText="@string/go_to_top"
+                android:layout_marginEnd="8dp"
+                tools:ignore="UnusedAttribute" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/iv_search_content_down"
+                android:layout_width="36dp"
+                android:layout_height="match_parent"
+                style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+                app:iconGravity="textStart"
+                android:contentDescription="@string/go_to_bottom"
+                app:icon="@drawable/ic_arrow_drop_down"
+                android:tooltipText="@string/go_to_bottom"
+                tools:ignore="UnusedAttribute" />
+
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/ll_bottom_bg"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="?attr/colorSurface"
             android:baselineAligned="false"
             android:orientation="horizontal">
 
@@ -138,7 +138,6 @@
                     android:contentDescription="结果"
                     android:maxHeight="20dp"
                     android:src="@drawable/ic_toc"
-                    app:tint="@color/primaryText"
                     tools:ignore="NestedWeights" />
 
                 <TextView
@@ -149,7 +148,6 @@
                     android:layout_marginTop="3dp"
                     android:maxLines="1"
                     android:text="结果"
-                    android:textColor="@color/primaryText"
                     android:textSize="12sp" />
             </LinearLayout>
 
@@ -179,7 +177,6 @@
                     android:contentDescription="@string/main_menu"
                     android:maxHeight="20dp"
                     android:src="@drawable/ic_menu"
-                    app:tint="@color/primaryText"
                     tools:ignore="NestedWeights" />
 
                 <TextView
@@ -190,7 +187,6 @@
                     android:layout_marginTop="3dp"
                     android:maxLines="1"
                     android:text="@string/main_menu"
-                    android:textColor="@color/primaryText"
                     android:textSize="12sp" />
             </LinearLayout>
 
@@ -219,7 +215,6 @@
                     android:contentDescription="退出"
                     android:maxHeight="20dp"
                     android:src="@drawable/ic_auto_page_stop"
-                    app:tint="@color/primaryText"
                     tools:ignore="NestedWeights" />
 
                 <TextView
@@ -230,7 +225,6 @@
                     android:layout_marginTop="3dp"
                     android:maxLines="1"
                     android:text="退出"
-                    android:textColor="@color/primaryText"
                     android:textSize="12sp" />
             </LinearLayout>
 

@@ -12,7 +12,6 @@
         android:layout_height="wrap_content"
         android:singleLine="true"
         android:text="seek"
-        android:textColor="@color/primaryText"
         tools:ignore="HardcodedText" />
 
     <androidx.appcompat.widget.AppCompatImageView
@@ -21,8 +20,7 @@
         android:layout_height="24dp"
         android:contentDescription="@string/reduce"
         android:src="@drawable/ic_reduce"
-        android:background="?android:attr/selectableItemBackgroundBorderless"
-        android:tint="@color/primaryText" />
+        android:background="?android:attr/selectableItemBackgroundBorderless" />
 
     <io.legato.kazusa.lib.theme.view.ThemeSlider
         android:id="@+id/slider"
@@ -39,16 +37,15 @@
         android:contentDescription="@string/plus"
         android:src="@drawable/ic_add"
         android:background="?android:attr/selectableItemBackgroundBorderless"
-        android:tint="@color/primaryText" />
+        />
 
     <TextView
         android:id="@+id/tv_seek_value"
         android:layout_width="60dp"
         android:layout_height="wrap_content"
-        android:gravity="right"
+        android:gravity="end"
         android:singleLine="true"
         android:text="0"
-        android:textColor="@color/primaryText"
-        tools:ignore="HardcodedText,RtlHardcoded" />
+        />
 
 </LinearLayout>

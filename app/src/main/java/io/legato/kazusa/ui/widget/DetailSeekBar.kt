@@ -59,13 +59,15 @@ class DetailSeekBar @JvmOverloads constructor(
 //            binding.tvSeekValue.setTextColor(textColor)
         }
         binding.ivSeekPlus.setOnClickListener {
-            binding.slider.value = binding.slider.value + 1
-            onChanged?.invoke(binding.slider.value.toInt())
+            val newValue = (binding.slider.value + 1).coerceAtMost(binding.slider.valueTo)
+            binding.slider.value = newValue
+            onChanged?.invoke(newValue.toInt())
         }
 
         binding.ivSeekReduce.setOnClickListener {
-            binding.slider.value = binding.slider.value - 1
-            onChanged?.invoke(binding.slider.value.toInt())
+            val newValue = (binding.slider.value - 1).coerceAtLeast(binding.slider.valueFrom)
+            binding.slider.value = newValue
+            onChanged?.invoke(newValue.toInt())
         }
 
         binding.slider.addOnChangeListener { _, value, fromUser ->

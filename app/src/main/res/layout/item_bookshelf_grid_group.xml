@@ -68,7 +68,6 @@
             android:includeFontPadding="false"
             android:lines="2"
             android:text="@string/book_name"
-            android:textColor="@color/primaryText"
             android:textSize="12sp"
             tools:ignore="RtlHardcoded,RtlSymmetry" />
 

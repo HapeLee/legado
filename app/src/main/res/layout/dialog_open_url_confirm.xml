@@ -3,7 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/shape_card_view"
     android:orientation="vertical">
 
     <androidx.appcompat.widget.Toolbar
@@ -21,7 +20,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="16dp"
-        android:textColor="@color/primaryText"
         android:textSize="16sp" />
 
     <com.google.android.flexbox.FlexboxLayout
@@ -30,18 +28,19 @@
         app:flexDirection="row"
         app:justifyContent="flex_end">
 
-        <io.legato.kazusa.ui.widget.text.AccentTextView
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_negative"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="16dp"
+            style="@style/Widget.Material3.Button.TonalButton"
+            android:layout_marginEnd="8dp"
             android:text="@string/cancel" />
 
-        <io.legato.kazusa.ui.widget.text.AccentTextView
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_positive"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="16dp"
+            style="@style/Widget.Material3.Button.TonalButton"
             android:text="@string/ok" />
 
     </com.google.android.flexbox.FlexboxLayout>

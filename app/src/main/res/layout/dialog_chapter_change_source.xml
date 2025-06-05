@@ -52,7 +52,6 @@
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
             android:singleLine="true"
-            android:textColor="@color/primaryText"
             android:textSize="12sp" />
 
         <androidx.appcompat.widget.AppCompatImageView
@@ -63,7 +62,6 @@
             android:contentDescription="@string/go_to_top"
             android:src="@drawable/ic_arrow_drop_up"
             android:tooltipText="@string/go_to_top"
-            app:tint="@color/primaryText"
             tools:ignore="UnusedAttribute" />
 
         <androidx.appcompat.widget.AppCompatImageView
@@ -74,7 +72,6 @@
             android:contentDescription="@string/go_to_bottom"
             android:src="@drawable/ic_arrow_drop_down"
             android:tooltipText="@string/go_to_bottom"
-            app:tint="@color/primaryText"
             tools:ignore="UnusedAttribute" />
     </LinearLayout>
 
@@ -98,8 +95,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="36dp"
                 android:background="?android:attr/selectableItemBackground"
-                android:src="@drawable/ic_arrow_down"
-                app:tint="@color/primaryText" />
+                android:src="@drawable/ic_arrow_down" />
 
         </FrameLayout>
 
