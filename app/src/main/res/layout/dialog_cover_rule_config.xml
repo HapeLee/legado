@@ -6,13 +6,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/tool_bar"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="?attr/actionBarStyle"
-        app:title="@string/cover_config"
-        app:titleTextAppearance="@style/ToolbarTitle" />
+        android:orientation="vertical"
+        android:gravity="center"
+        android:paddingVertical="16dp"
+        android:paddingHorizontal="16dp">
+
+        <View
+            android:layout_width="36dp"
+            android:layout_height="4dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/bg_bottom_sheet_handle"
+            android:layout_marginBottom="16dp" />
+
+        <TextView
+            android:id="@+id/bottom_sheet_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cover_config"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -25,39 +42,39 @@
             android:orientation="vertical"
             android:padding="16dp">
 
-            <io.legato.kazusa.lib.theme.view.ThemeCheckBox
+            <com.google.android.material.checkbox.MaterialCheckBox
                 android:id="@+id/cb_enable"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/enable" />
 
-            <io.legato.kazusa.ui.widget.text.TextInputLayout
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingTop="3dp">
 
-                <io.legato.kazusa.lib.theme.view.ThemeEditText
+                <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edit_search_url"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/r_search_url"
                     tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
-            </io.legato.kazusa.ui.widget.text.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <io.legato.kazusa.ui.widget.text.TextInputLayout
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingTop="3dp">
 
-                <io.legato.kazusa.lib.theme.view.ThemeEditText
+                <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edit_cover_url_rule"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/rule_cover_url"
                     tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
-            </io.legato.kazusa.ui.widget.text.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
         </LinearLayout>
 
@@ -71,11 +88,11 @@
         app:flexWrap="wrap"
         app:justifyContent="space_between">
 
-        <io.legato.kazusa.ui.widget.text.AccentTextView
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/tv_footer_left"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="12dp"
+            style="@style/Widget.Material3.Button.TonalButton"
             android:text="@string/btn_default_s"
             tools:ignore="RtlHardcoded" />
 
@@ -84,20 +101,20 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <TextView
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/tv_cancel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="12dp"
+                style="@style/Widget.Material3.Button.TonalButton"
+                android:layout_marginEnd="8dp"
                 android:text="@string/cancel"
-                android:textColor="@color/secondaryText"
                 tools:ignore="RtlHardcoded" />
 
-            <io.legato.kazusa.ui.widget.text.AccentTextView
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/tv_ok"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="12dp"
+                style="@style/Widget.Material3.Button.TonalButton"
                 android:text="@string/ok"
                 tools:ignore="RtlHardcoded" />
 

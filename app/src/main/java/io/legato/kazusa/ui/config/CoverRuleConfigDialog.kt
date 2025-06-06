@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.lifecycleScope
 import io.legato.kazusa.R
+import io.legato.kazusa.base.BaseBottomSheetDialogFragment
 import io.legato.kazusa.base.BaseDialogFragment
 import io.legato.kazusa.databinding.DialogCoverRuleConfigBinding
 //import io.legado.app.lib.theme.primaryColor
@@ -19,13 +20,13 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import splitties.views.onClick
 
-class CoverRuleConfigDialog : BaseDialogFragment(R.layout.dialog_cover_rule_config) {
+class CoverRuleConfigDialog : BaseBottomSheetDialogFragment(R.layout.dialog_cover_rule_config) {
 
     val binding by viewBinding(DialogCoverRuleConfigBinding::bind)
 
     override fun onStart() {
         super.onStart()
-        setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+
     }
 
     override fun onFragmentCreated(view: View, savedInstanceState: Bundle?) {

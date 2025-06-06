@@ -14,7 +14,6 @@
         app:displayHomeAsUp="false"
         app:fitStatusBar="false"
         app:layout_constraintTop_toTopOf="parent"
-        app:popupTheme="@style/AppTheme.PopupOverlay"
         app:title="@string/search_scope"
         app:titleTextAppearance="@style/ToolbarTitle" />
 

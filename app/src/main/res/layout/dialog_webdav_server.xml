@@ -25,7 +25,6 @@
             app:title="@string/server_config"
             app:displayHomeAsUp="false"
             app:fitStatusBar="false"
-            app:popupTheme="@style/AppTheme.PopupOverlay"
             app:titleTextAppearance="@style/ToolbarTitle" />
 
         <io.legato.kazusa.ui.widget.text.TextInputLayout

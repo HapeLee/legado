@@ -100,7 +100,6 @@ object AppConfig : SharedPreferences.OnSharedPreferenceChangeListener {
         get() = when (themeMode) {
             "1" -> false
             "2" -> true
-            "3" -> false
             else -> sysConfiguration.isNightMode
         }
         set(value) {

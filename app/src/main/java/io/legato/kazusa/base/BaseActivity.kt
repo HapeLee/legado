@@ -17,9 +17,11 @@ import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewbinding.ViewBinding
 import com.google.android.material.appbar.AppBarLayout
+import com.google.android.material.color.DynamicColors
 import io.legato.kazusa.R
 import io.legato.kazusa.constant.AppConst
 import io.legato.kazusa.constant.AppLog
+import io.legato.kazusa.constant.PreferKey
 import io.legato.kazusa.constant.Theme
 import io.legato.kazusa.help.config.ThemeConfig
 //import io.legado.app.lib.theme.backgroundColor
@@ -27,6 +29,8 @@ import io.legato.kazusa.help.config.ThemeConfig
 import io.legato.kazusa.utils.applyOpenTint
 import io.legato.kazusa.utils.applyTint
 import io.legato.kazusa.utils.disableAutoFill
+import io.legato.kazusa.utils.getPrefBoolean
+import io.legato.kazusa.utils.getPrefString
 import io.legato.kazusa.utils.hideSoftInput
 import io.legato.kazusa.utils.toastOnUi
 import io.legato.kazusa.utils.windowSize
@@ -70,8 +74,9 @@ abstract class BaseActivity<VB : ViewBinding>(
 
     @SuppressLint("ObsoleteSdkInt")
     override fun onCreate(savedInstanceState: Bundle?) {
+        initTheme()
         window.decorView.disableAutoFill()
-        //initTheme()
+
         super.onCreate(savedInstanceState)
         //setupSystemBar()
         setContentView(binding.root)
@@ -128,26 +133,10 @@ abstract class BaseActivity<VB : ViewBinding>(
     open fun onCompatOptionsItemSelected(item: MenuItem) = super.onOptionsItemSelected(item)
 
     open fun initTheme() {
-        when (theme) {
-            Theme.Transparent -> setTheme(R.style.AppTheme_Transparent)
-            Theme.Dark -> {
-                setTheme(R.style.AppTheme_Dark)
-                //window.decorView.applyBackgroundTint(backgroundColor)
-            }
-
-            Theme.Light -> {
-                setTheme(R.style.AppTheme_Light)
-                //window.decorView.applyBackgroundTint(backgroundColor)
-            }
-
-            else -> {
-//                if (ColorUtils.isColorLight(primaryColor)) {
-//                    setTheme(R.style.AppTheme_Light)
-//                } else {
-//                    setTheme(R.style.AppTheme_Dark)
-//                }
-                //window.decorView.applyBackgroundTint(backgroundColor)
-            }
+        when (getPrefString("app_theme", "0")) {
+            "0" -> DynamicColors.applyToActivitiesIfAvailable(application)
+            "1" -> setTheme(R.style.Theme_Base_GR)
+            "2" -> setTheme(R.style.Theme_Base_WH)
         }
     }
 

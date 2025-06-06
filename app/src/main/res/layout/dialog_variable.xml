@@ -23,7 +23,6 @@
             app:displayHomeAsUp="false"
             app:fitStatusBar="false"
             app:title="Set variable"
-            app:popupTheme="@style/AppTheme.PopupOverlay"
             app:titleTextAppearance="@style/ToolbarTitle" />
 
         <io.legato.kazusa.ui.widget.text.AccentTextView

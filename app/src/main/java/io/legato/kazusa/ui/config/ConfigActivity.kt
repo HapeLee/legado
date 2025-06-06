@@ -28,7 +28,7 @@ class ConfigActivity : VMBaseActivity<ActivityConfigBinding, ConfigViewModel>() 
 
     override fun setTitle(resId: Int) {
         super.setTitle(resId)
-        binding.titleBar.setTitle(resId)
+        binding.topBar.setTitle(resId)
     }
 
     inline fun <reified T : Fragment> replaceFragment(configTag: String) {

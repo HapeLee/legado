@@ -4,24 +4,41 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:paddingHorizontal="16dp"
+    android:paddingVertical="8dp">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/tool_bar"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="?attr/actionBarStyle"
-        app:title="@string/check_source_config"
-        app:titleTextAppearance="@style/ToolbarTitle" />
+        android:orientation="vertical"
+        android:gravity="center"
+        android:paddingVertical="8dp"
+        android:paddingHorizontal="16dp">
 
-    <io.legato.kazusa.ui.widget.text.TextInputLayout
+        <View
+            android:layout_width="36dp"
+            android:layout_height="4dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/bg_bottom_sheet_handle"
+            android:layout_marginBottom="16dp" />
+
+        <TextView
+            android:id="@+id/bottom_sheet_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/check_source_config"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingLeft="12dp"
-        android:paddingRight="12dp"
-        android:paddingTop="3dp">
+        android:paddingTop="8dp">
 
-        <io.legato.kazusa.lib.theme.view.ThemeEditText
+        <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/check_source_timeout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -29,43 +46,42 @@
             android:digits="1234567890"
             tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
-    </io.legato.kazusa.ui.widget.text.TextInputLayout>
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <io.legato.kazusa.ui.widget.text.AccentTextView
-        android:paddingLeft="12dp"
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingVertical="8dp"
         android:text="@string/check_source_item" />
 
     <com.google.android.flexbox.FlexboxLayout
         android:layout_width="match_parent"
-        android:paddingLeft="12dp"
-        android:paddingRight="12dp"
+
         android:layout_height="wrap_content"
         app:flexWrap="wrap"
         app:justifyContent="space_between">
 
-        <io.legato.kazusa.lib.theme.view.ThemeCheckBox
+        <com.google.android.material.checkbox.MaterialCheckBox
             android:id="@+id/check_search"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/search" />
-        <io.legato.kazusa.lib.theme.view.ThemeCheckBox
+        <com.google.android.material.checkbox.MaterialCheckBox
             android:id="@+id/check_discovery"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/discovery" />
-        <io.legato.kazusa.lib.theme.view.ThemeCheckBox
+        <com.google.android.material.checkbox.MaterialCheckBox
             android:id="@+id/check_info"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/source_tab_info" />
-        <io.legato.kazusa.lib.theme.view.ThemeCheckBox
+        <com.google.android.material.checkbox.MaterialCheckBox
             android:id="@+id/check_category"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/chapter_list" />
-        <io.legato.kazusa.lib.theme.view.ThemeCheckBox
+        <com.google.android.material.checkbox.MaterialCheckBox
             android:id="@+id/check_content"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -76,23 +92,22 @@
     <com.google.android.flexbox.FlexboxLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingLeft="12dp"
-        android:paddingRight="12dp"
         app:justifyContent="flex_end">
 
-        <io.legato.kazusa.ui.widget.text.AccentTextView
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/tv_cancel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="12dp"
+            style="@style/Widget.Material3.Button.TonalButton"
+            android:layout_marginEnd="8dp"
             android:text="@string/cancel"
             tools:ignore="RtlHardcoded" />
 
-        <io.legato.kazusa.ui.widget.text.AccentTextView
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/tv_ok"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="12dp"
+            style="@style/Widget.Material3.Button.TonalButton"
             android:text="@string/ok"
             tools:ignore="RtlHardcoded" />
 

@@ -2,14 +2,22 @@
 <androidx.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <io.legato.kazusa.lib.prefs.NameListPreference
+
+    <io.legato.kazusa.lib.prefs.ThemeModePreference
         android:defaultValue="0"
         android:entries="@array/theme_mode"
         android:entryValues="@array/theme_mode_v"
         android:key="themeMode"
-        android:summary="@string/theme_mode_desc"
         android:title="@string/theme_mode"
-        app:iconSpaceReserved="false" />
+        android:summary="切换浅色/深色/跟随系统" />
+
+    <ListPreference
+        android:key="app_theme"
+        android:title="应用主题"
+        android:summary="喵喵喵"
+        android:entries="@array/themes_item"
+        android:entryValues="@array/themes_value"
+        android:defaultValue="0" />
 
     <io.legato.kazusa.lib.prefs.IconListPreference
         android:defaultValue="ic_launcher"
@@ -25,7 +33,6 @@
         android:key="welcomeStyle"
         android:title="@string/welcome_style"
         android:summary="@string/welcome_style_summary" />
-
 
     <io.legato.kazusa.lib.prefs.Preference
         android:key="fontScale"

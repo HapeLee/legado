@@ -52,6 +52,7 @@ class AllBookmarkActivity : VMBaseActivity<ActivityAllBookmarkBinding, AllBookma
     }
 
     private fun initView() {
+        setSupportActionBar(binding.topBar)
         binding.recyclerView.addItemDecoration(BookmarkDecoration(this,adapter))
         binding.recyclerView.adapter = adapter
         binding.recyclerView.applyNavigationBarPadding()

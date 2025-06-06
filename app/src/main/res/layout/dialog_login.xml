@@ -24,7 +24,6 @@
             app:title="@string/login"
             app:displayHomeAsUp="false"
             app:fitStatusBar="false"
-            app:popupTheme="@style/AppTheme.PopupOverlay"
             app:titleTextAppearance="@style/ToolbarTitle" />
 
         <androidx.core.widget.NestedScrollView

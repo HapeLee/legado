@@ -32,7 +32,7 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/replace_rule_summary">
 
-                <io.legato.kazusa.lib.theme.view.ThemeEditText
+                <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/et_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -45,7 +45,7 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/group">
 
-                <io.legato.kazusa.lib.theme.view.ThemeEditText
+                <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/et_group"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -58,7 +58,7 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/replace_rule">
 
-                <io.legato.kazusa.lib.theme.view.ThemeEditText
+                <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/et_replace_rule"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -94,7 +94,7 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/replace_to">
 
-                <io.legato.kazusa.lib.theme.view.ThemeEditText
+                <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/et_replace_to"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -130,7 +130,7 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/replace_scope">
 
-                <io.legato.kazusa.lib.theme.view.ThemeEditText
+                <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/et_scope"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -143,7 +143,7 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/replace_exclude_scope">
 
-                <io.legato.kazusa.lib.theme.view.ThemeEditText
+                <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/et_exclude_scope"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -156,7 +156,7 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/timeout_millisecond">
 
-                <io.legato.kazusa.lib.theme.view.ThemeEditText
+                <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/et_timeout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

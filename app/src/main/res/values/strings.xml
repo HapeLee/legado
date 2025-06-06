@@ -1219,4 +1219,5 @@
     <string name="hide_manga_title">隐藏漫画列表标题</string>
     <string name="refresh_explore">刷新发现</string>
     <string name="ungroup">未分组</string>
+    <string name="dynamic_colors">动态取色</string>
 </resources>

@@ -107,7 +107,7 @@ open class Preference(context: Context, attrs: AttributeSet) :
 
     }
 
-    final override fun onBindViewHolder(holder: PreferenceViewHolder) {
+    override fun onBindViewHolder(holder: PreferenceViewHolder) {
         super.onBindViewHolder(holder)
         onBindView(holder)
         onLongClick?.let { listener ->

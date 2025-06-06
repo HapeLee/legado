@@ -6,32 +6,32 @@ import androidx.appcompat.widget.SwitchCompat
 import androidx.preference.PreferenceViewHolder
 import androidx.preference.SwitchPreferenceCompat
 import io.legato.kazusa.R
+import androidx.core.content.withStyledAttributes
+
 //import io.legado.app.lib.theme.accentColor
 
 class SwitchPreference(context: Context, attrs: AttributeSet) :
     SwitchPreferenceCompat(context, attrs) {
 
-    private val isBottomBackground: Boolean
+    private var isBottomBackground: Boolean = false
     private var onLongClick: ((preference: SwitchPreference) -> Boolean)? = null
 
     init {
         layoutResource = R.layout.view_preference
         widgetLayoutResource = R.layout.preference_widget_material_switch
-        val typedArray = context.obtainStyledAttributes(attrs, R.styleable.Preference)
-        isBottomBackground = typedArray.getBoolean(R.styleable.Preference_isBottomBackground, false)
-        typedArray.recycle()
+        context.withStyledAttributes(attrs, R.styleable.Preference) {
+            isBottomBackground = getBoolean(R.styleable.Preference_isBottomBackground, false)
+        }
     }
 
     override fun onBindViewHolder(holder: PreferenceViewHolder) {
-        val v = Preference.bindView<SwitchCompat>(
+        Preference.bindView<SwitchCompat>(
             context, holder, icon, title, summary,
             widgetLayoutResource,
             androidx.preference.R.id.switchWidget,
             isBottomBackground = isBottomBackground
         )
-        if (v is SwitchCompat && !v.isInEditMode) {
-            //v.applyTint(context.accentColor)
-        }
+
         super.onBindViewHolder(holder)
         onLongClick?.let { listener ->
             holder.itemView.setOnLongClickListener {

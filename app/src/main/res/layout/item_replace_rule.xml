@@ -11,19 +11,19 @@
     android:paddingEnd="16dp"
     android:background="?attr/selectableItemBackground">
 
-    <io.legato.kazusa.lib.theme.view.ThemeCheckBox
+    <com.google.android.material.checkbox.MaterialCheckBox
         android:id="@+id/cb_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:scrollbars="none"
-        android:singleLine="true"
+        android:maxLines="2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@+id/swt_enabled"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="RtlSymmetry" />
 
-    <io.legato.kazusa.lib.theme.view.ThemeSwitch
+    <com.google.android.material.materialswitch.MaterialSwitch
         android:id="@+id/swt_enabled"
         android:name="@string/enable"
         android:layout_width="wrap_content"

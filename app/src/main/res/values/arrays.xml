@@ -51,8 +51,14 @@
 		<item>Follow system</item>
 		<item>Bright mode</item>
 		<item>Dark mode</item>
-		<item>E-Ink mode</item>
 	</string-array>
+
+	<string-array name="themes_item">
+		<item>动态取色</item>
+		<item>草野</item>
+		<item>黑白</item>
+	</string-array>
+
 
 	<string-array name="NavBarColors">
 		<item>Auto</item>

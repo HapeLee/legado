@@ -6,20 +6,22 @@ import android.widget.TextView
 import androidx.preference.ListPreference
 import androidx.preference.PreferenceViewHolder
 import io.legato.kazusa.R
+import androidx.core.content.withStyledAttributes
+
 //import io.legado.app.lib.theme.bottomBackground
 //import io.legado.app.lib.theme.getPrimaryTextColor
 
 
 class NameListPreference(context: Context, attrs: AttributeSet) : ListPreference(context, attrs) {
 
-    private val isBottomBackground: Boolean
+    private var isBottomBackground: Boolean = false
 
     init {
         layoutResource = R.layout.view_preference
         widgetLayoutResource = R.layout.item_fillet_text
-        val typedArray = context.obtainStyledAttributes(attrs, R.styleable.Preference)
-        isBottomBackground = typedArray.getBoolean(R.styleable.Preference_isBottomBackground, false)
-        typedArray.recycle()
+        context.withStyledAttributes(attrs, R.styleable.Preference) {
+            isBottomBackground = getBoolean(R.styleable.Preference_isBottomBackground, false)
+        }
     }
 
     override fun onBindViewHolder(holder: PreferenceViewHolder) {
