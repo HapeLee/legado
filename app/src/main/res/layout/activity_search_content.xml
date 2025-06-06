@@ -32,11 +32,9 @@
         android:id="@+id/ll_search_base_info"
         android:layout_width="match_parent"
         android:layout_height="36dp"
-        android:elevation="5dp"
+        android:layout_marginHorizontal="16dp"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
         app:layout_constraintBottom_toBottomOf="parent">
 
         <TextView
@@ -47,8 +45,6 @@
             android:background="?android:attr/selectableItemBackgroundBorderless"
             android:ellipsize="middle"
             android:gravity="center_vertical"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
             android:singleLine="true"
             android:textSize="12sp" />
 

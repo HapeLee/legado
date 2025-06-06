@@ -17,6 +17,8 @@
             style="?attr/collapsingToolbarLayoutLargeSize"
             app:collapsedTitleTextAppearance="?attr/textAppearanceTitleLarge"
             app:expandedTitleTextAppearance="?attr/textAppearanceHeadlineLarge"
+            app:contentScrim="?attr/colorSurface"
+            app:titleCollapseMode="scale"
             app:layout_scrollFlags="scroll|exitUntilCollapsed|snap">
 
             <com.google.android.material.appbar.MaterialToolbar

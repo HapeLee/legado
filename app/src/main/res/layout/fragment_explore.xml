@@ -33,6 +33,7 @@
             android:id="@+id/search_bar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="?attr/colorSurface"
             android:layout_marginHorizontal="16dp"
             android:hint="@string/search_rss_source"
             app:layout_constraintTop_toTopOf="parent" />

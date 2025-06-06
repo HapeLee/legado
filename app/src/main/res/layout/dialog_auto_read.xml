@@ -4,13 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="16dp"
+    android:paddingHorizontal="16dp"
+    android:paddingVertical="8dp"
     android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingVertical="8dp"
         android:orientation="vertical">
+
+        <View
+            android:layout_width="36dp"
+            android:layout_height="4dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/bg_bottom_sheet_handle"
+            android:layout_marginBottom="16dp" />
 
         <LinearLayout
             android:id="@+id/ll_tts_SpeechRate"
@@ -52,61 +61,106 @@
         android:layout_marginTop="8dp"
         android:orientation="horizontal">
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_catalog"
-            style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            app:icon="@drawable/ic_toc"
-            android:text="@string/chapter_list"
-            android:textSize="12sp"
-            android:padding="0dp"
-            app:iconGravity="textTop"
-            app:iconPadding="4dp"
-            />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_main_menu"
-            style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+        <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:icon="@drawable/ic_menu"
-            android:text="@string/main_menu"
-            android:textSize="12sp"
-            android:padding="0dp"
-            app:iconGravity="textTop"
-            app:iconPadding="4dp"
-            />
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_auto_page_stop"
-            style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            app:icon="@drawable/ic_auto_page_stop"
-            android:text="@string/stop"
-            android:textSize="12sp"
-            android:padding="0dp"
-            app:iconGravity="textTop"
-            app:iconPadding="4dp"
-            />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_catalog"
+                style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+                android:layout_width="64dp"
+                android:layout_height="48dp"
+                app:icon="@drawable/ic_toc"
+                android:textSize="12sp"
+                android:padding="0dp"
+                app:iconGravity="textTop"
+                app:iconPadding="4dp" />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_setting"
-            style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/chapter_list"/>
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:icon="@drawable/ic_settings"
-            android:text="@string/setting"
-            android:textSize="12sp"
-            android:padding="0dp"
-            app:iconGravity="textTop"
-            app:iconPadding="4dp"
-            />
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_main_menu"
+                style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+                android:layout_width="64dp"
+                android:layout_height="48dp"
+                app:icon="@drawable/ic_menu"
+                android:textSize="12sp"
+                android:padding="0dp"
+                app:iconGravity="textTop"
+                app:iconPadding="4dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/main_menu"/>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_auto_page_stop"
+                style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+                android:layout_width="64dp"
+                android:layout_height="48dp"
+                app:icon="@drawable/ic_auto_page_stop"
+                android:padding="0dp"
+                app:iconGravity="textTop"
+                app:iconPadding="0dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/stop"
+
+                android:textColor="?attr/colorOnSurface" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_setting"
+                style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+                android:layout_width="64dp"
+                android:layout_height="48dp"
+                app:icon="@drawable/ic_settings"
+                android:padding="0dp"
+                app:iconGravity="textTop"
+                app:iconPadding="0dp"
+                android:text="" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/setting" />
+        </LinearLayout>
+
 
     </LinearLayout>
 

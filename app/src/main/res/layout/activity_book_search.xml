@@ -46,7 +46,7 @@
         android:clickable="true"
         android:focusable="true"
         android:orientation="vertical"
-        android:visibility="gone"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/title_bar">
 
@@ -54,43 +54,48 @@
             android:id="@+id/tv_book_show"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="6dp"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="12dp"
             android:text="@string/bookshelf"
-            android:visibility="gone" />
+            android:visibility="visible" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_bookshelf_search"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:visibility="gone" />
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="8dp"
+            android:visibility="visible" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="8dp">
 
             <TextView
                 android:id="@+id/tv_history"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:padding="6dp"
-                android:text="@string/searchHistory" />
-
-            <TextView
-                android:id="@+id/tv_clear_history"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="?attr/selectableItemBackground"
-                android:padding="6dp"
-                android:text="@string/clear" />
+                android:layout_gravity="center_vertical"
+                android:text="@string/searchHistory" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/tv_clear_history"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                style="@style/Widget.Material3.Button.IconButton.Outlined"
+                app:iconGravity="textStart"
+                app:icon="@drawable/ic_clear_all" />
 
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_history_key"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:paddingHorizontal="12dp" />
 
     </LinearLayout>
 

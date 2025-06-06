@@ -5,11 +5,12 @@ import io.legato.kazusa.base.adapter.ItemViewHolder
 import io.legato.kazusa.base.adapter.RecyclerAdapter
 import io.legato.kazusa.data.entities.SearchKeyword
 import io.legato.kazusa.databinding.ItemFilletTextBinding
+import io.legato.kazusa.databinding.ItemSearchHistoryBinding
 import io.legato.kazusa.ui.widget.anima.explosion_field.ExplosionField
 import splitties.views.onLongClick
 
 class HistoryKeyAdapter(activity: SearchActivity, val callBack: CallBack) :
-    RecyclerAdapter<SearchKeyword, ItemFilletTextBinding>(activity) {
+    RecyclerAdapter<SearchKeyword, ItemSearchHistoryBinding>(activity) {
 
     private val explosionField = ExplosionField.attach2Window(activity)
 
@@ -17,13 +18,13 @@ class HistoryKeyAdapter(activity: SearchActivity, val callBack: CallBack) :
         return position.toLong()
     }
 
-    override fun getViewBinding(parent: ViewGroup): ItemFilletTextBinding {
-        return ItemFilletTextBinding.inflate(inflater, parent, false)
+    override fun getViewBinding(parent: ViewGroup): ItemSearchHistoryBinding {
+        return ItemSearchHistoryBinding.inflate(inflater, parent, false)
     }
 
     override fun convert(
         holder: ItemViewHolder,
-        binding: ItemFilletTextBinding,
+        binding: ItemSearchHistoryBinding,
         item: SearchKeyword,
         payloads: MutableList<Any>
     ) {
@@ -32,7 +33,7 @@ class HistoryKeyAdapter(activity: SearchActivity, val callBack: CallBack) :
         }
     }
 
-    override fun registerListener(holder: ItemViewHolder, binding: ItemFilletTextBinding) {
+    override fun registerListener(holder: ItemViewHolder, binding: ItemSearchHistoryBinding) {
         holder.itemView.apply {
             setOnClickListener {
                 getItemByLayoutPosition(holder.layoutPosition)?.let {
