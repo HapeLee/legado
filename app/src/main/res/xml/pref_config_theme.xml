@@ -11,7 +11,7 @@
         android:title="@string/theme_mode"
         android:summary="切换浅色/深色/跟随系统" />
 
-    <ListPreference
+    <io.legato.kazusa.lib.prefs.NameListPreference
         android:key="app_theme"
         android:title="应用主题"
         android:summary="喵喵喵"

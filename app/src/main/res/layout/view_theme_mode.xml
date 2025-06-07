@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.button.MaterialButtonToggleGroup xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/theme_toggle_group"
+    android:layout_width="match_parent"
+    android:layout_height="48dp"
+    android:orientation="horizontal"
+    android:gravity="center"
+    app:singleSelection="true"
+    app:selectionRequired="true">
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_system"
+        style="@style/Widget.Material3.Button.OutlinedButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="跟随系统" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_light"
+        style="@style/Widget.Material3.Button.OutlinedButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="浅色" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_dark"
+        style="@style/Widget.Material3.Button.OutlinedButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="深色" />
+</com.google.android.material.button.MaterialButtonToggleGroup>
