@@ -67,12 +67,12 @@
     <string name="book_local">添加本地</string>
     <string name="book_source">书源</string>
     <string name="book_source_manage">书源管理</string>
-    <string name="book_source_manage_desc">新建、导入、编辑或管理书源</string>
+    <string name="book_source_manage_desc">新建 • 导入 • 编辑或管理书源</string>
     <string name="setting">设置</string>
-    <string name="theme_setting">主题设置</string>
-    <string name="theme_setting_s">与界面/颜色相关的一些设置</string>
-    <string name="other_setting">其它设置</string>
-    <string name="other_setting_s">与功能相关的一些设置</string>
+    <string name="theme_setting">外观</string>
+    <string name="theme_setting_s">主题 • 深色模式 • 界面设置</string>
+    <string name="other_setting">高级</string>
+    <string name="other_setting_s">语言 • 其他设置</string>
     <string name="about">关于</string>
     <string name="donate">捐赠</string>
     <string name="exit">退出</string>
@@ -111,7 +111,7 @@
     <string name="ps_auto_download">更新书籍时自动下载最新章节</string>
     <string name="backup_restore">备份与恢复</string>
     <string name="web_dav_set">WebDav 设置</string>
-    <string name="web_dav_set_import_old">WebDav 设置/导入旧版本数据</string>
+    <string name="web_dav_set_import_old">WebDav 设置 • 导入旧版本数据</string>
     <string name="backup">备份</string>
     <string name="restore">恢复</string>
     <string name="backup_permission">备份请给予存储权限</string>
@@ -590,7 +590,7 @@
     <string name="add_replace_rule">新建替换</string>
     <string name="group">分组</string>
     <string name="group_s">分组：%s</string>
-    <string name="toc_s">目录：%s</string>
+    <string name="toc_s">已读：%s</string>
     <string name="enable_explore">启用发现</string>
     <string name="disable_explore">禁用发现</string>
     <string name="enable_selection">启用所选</string>

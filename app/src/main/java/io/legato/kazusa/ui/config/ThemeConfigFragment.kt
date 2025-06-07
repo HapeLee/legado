@@ -23,6 +23,7 @@ import io.legato.kazusa.lib.dialogs.alert
 import io.legato.kazusa.lib.dialogs.selector
 import io.legato.kazusa.lib.prefs.ColorPreference
 import io.legato.kazusa.lib.prefs.NameListPreference
+import io.legato.kazusa.lib.prefs.ThemeCardPreference
 import io.legato.kazusa.lib.prefs.ThemeModePreference
 //import io.legado.app.lib.theme.primaryColor
 import io.legato.kazusa.ui.widget.number.NumberPickerDialog
@@ -104,7 +105,7 @@ class ThemeConfigFragment : PreferenceFragmentCompat(),
                 true
             }
         }
-        findPreference<ListPreference>(PreferKey.themePref)?.let {
+        findPreference<ThemeCardPreference>(PreferKey.themePref)?.let {
             it.setOnPreferenceChangeListener { _, _ ->
                 val intent = requireActivity().intent
                 requireActivity().finish()

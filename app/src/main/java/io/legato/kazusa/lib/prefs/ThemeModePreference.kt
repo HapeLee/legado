@@ -8,20 +8,15 @@ import android.view.ViewGroup
 import androidx.preference.PreferenceViewHolder
 import com.google.android.material.button.MaterialButtonToggleGroup
 import io.legato.kazusa.R
-import androidx.core.content.withStyledAttributes
 
 
 class ThemeModePreference(context: Context, attrs: AttributeSet) : Preference(context, attrs) {
 
     private var currentValue: String? = null
-    private var isBottomBackground: Boolean = false
 
     init {
         layoutResource = R.layout.view_pref
         widgetLayoutResource = R.layout.view_theme_mode
-        context.withStyledAttributes(attrs, R.styleable.Preference) {
-            isBottomBackground = getBoolean(R.styleable.Preference_isBottomBackground, false)
-        }
     }
 
     override fun onBindViewHolder(holder: PreferenceViewHolder) {
@@ -65,12 +60,7 @@ class ThemeModePreference(context: Context, attrs: AttributeSet) : Preference(co
     }
 
     override fun onSetInitialValue(defaultValue: Any?) {
-        super.onSetInitialValue(defaultValue)
         currentValue = getPersistedString(defaultValue as? String ?: "0")
-    }
-
-    fun getDefaultValue(): Any {
-        return "0"
     }
 
     override fun shouldDisableDependents(): Boolean {
