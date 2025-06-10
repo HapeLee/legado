@@ -91,8 +91,9 @@ class ThemeCardPreference(
     private val themeResIdMap = mapOf(
         "0" to R.style.Base_AppTheme,
         "1" to R.style.Theme_Base_GR,
-        "2" to R.style.Theme_Base_WH
-    )
+        "2" to R.style.Theme_Base_Lemon,
+        "3" to R.style.Theme_Base_WH,
+        )
 
     private fun getThemeColors(value: String): List<Int> {
         val themeResId = themeResIdMap[value] ?: return listOf(Color.GRAY, Color.GRAY, Color.GRAY, Color.GRAY)

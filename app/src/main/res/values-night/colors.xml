@@ -48,6 +48,7 @@
     <color name="md_theme_surfaceContainerHigh">#282B24</color>
     <color name="md_theme_surfaceContainerHighest">#33362E</color>
 
+
     <color name="wh_theme_primary">#C7C6C6</color>
     <color name="wh_theme_onPrimary">#303031</color>
     <color name="wh_theme_primaryContainer">#919090</color>
@@ -95,6 +96,54 @@
     <color name="wh_theme_surfaceContainer">#201F1F</color>
     <color name="wh_theme_surfaceContainerHigh">#2A2A2A</color>
     <color name="wh_theme_surfaceContainerHighest">#353434</color>
+
+    <color name="lemon_theme_primary">#DBC66E</color>
+    <color name="lemon_theme_onPrimary">#3A3000</color>
+    <color name="lemon_theme_primaryContainer">#534600</color>
+    <color name="lemon_theme_onPrimaryContainer">#F8E287</color>
+    <color name="lemon_theme_secondary">#D1C6A1</color>
+    <color name="lemon_theme_onSecondary">#363016</color>
+    <color name="lemon_theme_secondaryContainer">#4E472A</color>
+    <color name="lemon_theme_onSecondaryContainer">#EEE2BC</color>
+    <color name="lemon_theme_tertiary">#A9D0B3</color>
+    <color name="lemon_theme_onTertiary">#143723</color>
+    <color name="lemon_theme_tertiaryContainer">#2C4E38</color>
+    <color name="lemon_theme_onTertiaryContainer">#C5ECCE</color>
+    <color name="lemon_theme_error">#FFB4AB</color>
+    <color name="lemon_theme_onError">#690005</color>
+    <color name="lemon_theme_errorContainer">#93000A</color>
+    <color name="lemon_theme_onErrorContainer">#FFDAD6</color>
+    <color name="lemon_theme_background">#15130B</color>
+    <color name="lemon_theme_onBackground">#E8E2D4</color>
+    <color name="lemon_theme_surface">#15130B</color>
+    <color name="lemon_theme_onSurface">#E8E2D4</color>
+    <color name="lemon_theme_surfaceVariant">#4B4739</color>
+    <color name="lemon_theme_onSurfaceVariant">#CDC6B4</color>
+    <color name="lemon_theme_outline">#969080</color>
+    <color name="lemon_theme_outlineVariant">#4B4739</color>
+    <color name="lemon_theme_scrim">#000000</color>
+    <color name="lemon_theme_inverseSurface">#E8E2D4</color>
+    <color name="lemon_theme_inverseOnSurface">#333027</color>
+    <color name="lemon_theme_inversePrimary">#6D5E0F</color>
+    <color name="lemon_theme_primaryFixed">#F8E287</color>
+    <color name="lemon_theme_onPrimaryFixed">#221B00</color>
+    <color name="lemon_theme_primaryFixedDim">#DBC66E</color>
+    <color name="lemon_theme_onPrimaryFixedVariant">#534600</color>
+    <color name="lemon_theme_secondaryFixed">#EEE2BC</color>
+    <color name="lemon_theme_onSecondaryFixed">#211B04</color>
+    <color name="lemon_theme_secondaryFixedDim">#D1C6A1</color>
+    <color name="lemon_theme_onSecondaryFixedVariant">#4E472A</color>
+    <color name="lemon_theme_tertiaryFixed">#C5ECCE</color>
+    <color name="lemon_theme_onTertiaryFixed">#00210F</color>
+    <color name="lemon_theme_tertiaryFixedDim">#A9D0B3</color>
+    <color name="lemon_theme_onTertiaryFixedVariant">#2C4E38</color>
+    <color name="lemon_theme_surfaceDim">#15130B</color>
+    <color name="lemon_theme_surfaceBright">#3C3930</color>
+    <color name="lemon_theme_surfaceContainerLowest">#100E07</color>
+    <color name="lemon_theme_surfaceContainerLow">#1E1B13</color>
+    <color name="lemon_theme_surfaceContainer">#222017</color>
+    <color name="lemon_theme_surfaceContainerHigh">#2D2A21</color>
+    <color name="lemon_theme_surfaceContainerHighest">#38352B</color>
 
     <color name="disabled">@color/md_dark_disabled</color>
 

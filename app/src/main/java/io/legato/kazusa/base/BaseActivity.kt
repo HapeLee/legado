@@ -136,7 +136,8 @@ abstract class BaseActivity<VB : ViewBinding>(
         when (getPrefString("app_theme", "0")) {
             "0" -> DynamicColors.applyToActivitiesIfAvailable(application)
             "1" -> setTheme(R.style.Theme_Base_GR)
-            "2" -> setTheme(R.style.Theme_Base_WH)
+            "2" -> setTheme(R.style.Theme_Base_Lemon)
+            "3" -> setTheme(R.style.Theme_Base_WH)
         }
     }
 

@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.view.textclassifier.TextClassifier
 import androidx.lifecycle.lifecycleScope
 import io.legato.kazusa.R
+import io.legato.kazusa.base.BaseBottomSheetDialogFragment
 import io.legato.kazusa.base.BaseDialogFragment
 import io.legato.kazusa.databinding.DialogTextViewBinding
 import io.legato.kazusa.help.IntentData
@@ -25,7 +26,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 
-class TextDialog() : BaseDialogFragment(R.layout.dialog_text_view) {
+class TextDialog() : BaseBottomSheetDialogFragment(R.layout.dialog_text_view) {
 
     enum class Mode {
         MD, HTML, TEXT
@@ -44,8 +45,6 @@ class TextDialog() : BaseDialogFragment(R.layout.dialog_text_view) {
             putString("mode", mode.name)
             putLong("time", time)
         }
-        isCancelable = false
-        this.autoClose = autoClose
     }
 
     private val binding by viewBinding(DialogTextViewBinding::bind)
@@ -54,21 +53,21 @@ class TextDialog() : BaseDialogFragment(R.layout.dialog_text_view) {
 
     override fun onStart() {
         super.onStart()
-        setLayout(ViewGroup.LayoutParams.MATCH_PARENT, 0.9f)
+        //setLayout(ViewGroup.LayoutParams.MATCH_PARENT, 0.9f)
     }
 
     override fun onFragmentCreated(view: View, savedInstanceState: Bundle?) {
         //binding.toolBar.setBackgroundColor(primaryColor)
-        binding.toolBar.inflateMenu(R.menu.dialog_text)
-        binding.toolBar.menu.applyTint(requireContext())
-        binding.toolBar.setOnMenuItemClickListener {
-            when (it.itemId) {
-                R.id.menu_close -> dismissAllowingStateLoss()
-            }
-            true
-        }
+        //binding.toolBar.inflateMenu(R.menu.dialog_text)
+        //binding.toolBar.menu.applyTint(requireContext())
+//        binding.toolBar.setOnMenuItemClickListener {
+//            when (it.itemId) {
+//                R.id.menu_close -> dismissAllowingStateLoss()
+//            }
+//            true
+//        }
         arguments?.let {
-            binding.toolBar.title = it.getString("title")
+            //binding.toolBar.title = it.getString("title")
             val content = IntentData.get(it.getString("content")) ?: ""
             when (it.getString("mode")) {
                 Mode.MD.name -> viewLifecycleOwner.lifecycleScope.launch {
@@ -100,26 +99,26 @@ class TextDialog() : BaseDialogFragment(R.layout.dialog_text_view) {
             }
             time = it.getLong("time", 0L)
         }
-        if (time > 0) {
-            binding.badgeView.setBadgeCount((time / 1000).toInt())
-            lifecycleScope.launch {
-                while (time > 0) {
-                    delay(1000)
-                    time -= 1000
-                    binding.badgeView.setBadgeCount((time / 1000).toInt())
-                    if (time <= 0) {
-                        view.post {
-                            dialog?.setCancelable(true)
-                            if (autoClose) dialog?.cancel()
-                        }
-                    }
-                }
-            }
-        } else {
-            view.post {
-                dialog?.setCancelable(true)
-            }
-        }
+//        if (time > 0) {
+//            binding.badgeView.setBadgeCount((time / 1000).toInt())
+//            lifecycleScope.launch {
+//                while (time > 0) {
+//                    delay(1000)
+//                    time -= 1000
+//                    binding.badgeView.setBadgeCount((time / 1000).toInt())
+//                    if (time <= 0) {
+//                        view.post {
+//                            dialog?.setCancelable(true)
+//                            if (autoClose) dialog?.cancel()
+//                        }
+//                    }
+//                }
+//            }
+//        } else {
+//            view.post {
+//                dialog?.setCancelable(true)
+//            }
+//        }
     }
 
 }
