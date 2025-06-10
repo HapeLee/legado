@@ -40,12 +40,4 @@ class ConfigActivity : VMBaseActivity<ActivityConfigBinding, ConfigViewModel>() 
             .replace(R.id.configFrameLayout, configFragment, configTag)
             .commit()
     }
-
-    override fun observeLiveBus() {
-        super.observeLiveBus()
-        observeEvent<String>(EventBus.RECREATE) {
-            recreate()
-        }
-    }
-
 }

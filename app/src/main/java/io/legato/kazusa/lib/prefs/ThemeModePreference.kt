@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.preference.PreferenceViewHolder
 import com.google.android.material.button.MaterialButtonToggleGroup
 import io.legato.kazusa.R
+import io.legato.kazusa.help.config.ThemeConfig
 
 
 class ThemeModePreference(context: Context, attrs: AttributeSet) : Preference(context, attrs) {
@@ -41,7 +42,6 @@ class ThemeModePreference(context: Context, attrs: AttributeSet) : Preference(co
             "2" -> toggleGroup.check(R.id.btn_dark)
         }
 
-        // 监听选择变化
         toggleGroup.addOnButtonCheckedListener { group, checkedId, isChecked ->
             if (isChecked) {
                 val newValue = when (checkedId) {
@@ -54,6 +54,8 @@ class ThemeModePreference(context: Context, attrs: AttributeSet) : Preference(co
                 if (newValue != null && callChangeListener(newValue)) {
                     currentValue = newValue
                     persistString(newValue)
+                    callChangeListener(newValue)
+                    ThemeConfig.applyDayNight(context)
                 }
             }
         }
@@ -66,4 +68,5 @@ class ThemeModePreference(context: Context, attrs: AttributeSet) : Preference(co
     override fun shouldDisableDependents(): Boolean {
         return currentValue == null || super.shouldDisableDependents()
     }
+
 }

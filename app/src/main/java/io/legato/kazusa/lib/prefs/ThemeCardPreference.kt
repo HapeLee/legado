@@ -16,15 +16,15 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.card.MaterialCardView
 import io.legato.kazusa.R
 import androidx.core.graphics.toColorInt
+import io.legato.kazusa.constant.EventBus
+import io.legato.kazusa.utils.postEvent
 
 @SuppressLint("ResourceType")
-class ThemeCardPreference(
-    context: Context,
-    attrs: AttributeSet
-) : Preference(context, attrs) {
+class ThemeCardPreference(context: Context, attrs: AttributeSet) : Preference(context, attrs) {
 
     private var entries: Array<CharSequence> = context.resources.getTextArray(R.array.themes_item)
-    private var entryValues: Array<CharSequence> = context.resources.getTextArray(R.array.themes_value)
+    private var entryValues: Array<CharSequence> = context.resources.getTextArray(R.array.themes_value).takeIf { it.isNotEmpty() }
+        ?: arrayOf("0")
     private var currentValue: String? = null
 
     init {
@@ -39,10 +39,8 @@ class ThemeCardPreference(
     override fun onBindViewHolder(holder: PreferenceViewHolder) {
         super.onBindViewHolder(holder)
 
-        //val titleView = holder.findViewById(R.id.title) as TextView
         val recyclerView = holder.findViewById(R.id.recyclerView) as RecyclerView
 
-        //titleView.text = title
         recyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         recyclerView.adapter = ThemeAdapter()
     }
@@ -80,6 +78,7 @@ class ThemeCardPreference(
                     persistString(value)
                     callChangeListener(value)
                     notifyDataSetChanged()
+                    postEvent(EventBus.RECREATE, "")
                 }
             }
         }

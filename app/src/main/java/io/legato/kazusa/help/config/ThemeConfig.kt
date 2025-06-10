@@ -51,25 +51,28 @@ object ThemeConfig {
     }
 
     fun applyDayNight(context: Context) {
-        applyTheme(context)
         initNightMode()
         BookCover.upDefaultCover()
         postEvent(EventBus.RECREATE, "")
     }
 
     fun applyDayNightInit(context: Context) {
-        applyTheme(context)
+        //applyTheme(context)
         initNightMode()
     }
 
     private fun initNightMode() {
-        val targetMode =
-            if (AppConfig.isNightTheme) {
-                AppCompatDelegate.MODE_NIGHT_YES
-            } else {
-                AppCompatDelegate.MODE_NIGHT_NO
+        when (appCtx.getPrefString(PreferKey.themeMode, "0")) {
+            "1" -> {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
             }
-        AppCompatDelegate.setDefaultNightMode(targetMode)
+            "2" -> {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+            }
+            else -> {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
+            }
+        }
     }
 
     fun getBgImage(context: Context, metrics: DisplayMetrics): Bitmap? {
@@ -214,9 +217,9 @@ object ThemeConfig {
     /**
      * 更新主题
      */
-    fun applyTheme(context: Context) = with(context) {
-
-    }
+//    fun applyTheme(context: Context) = with(context) {
+//
+//    }
 
     @Keep
     data class Config(

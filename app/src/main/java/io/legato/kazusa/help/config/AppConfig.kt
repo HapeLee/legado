@@ -43,9 +43,9 @@ object AppConfig : SharedPreferences.OnSharedPreferenceChangeListener {
 
     override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences?, key: String?) {
         when (key) {
+
             PreferKey.themeMode -> {
                 themeMode = appCtx.getPrefString(PreferKey.themeMode, "0")
-                isEInkMode = themeMode == "3"
             }
 
             PreferKey.clickActionTL -> clickActionTL =
@@ -103,12 +103,9 @@ object AppConfig : SharedPreferences.OnSharedPreferenceChangeListener {
             else -> sysConfiguration.isNightMode
         }
         set(value) {
-            if (isNightTheme != value) {
-                if (value) {
-                    appCtx.putPrefString(PreferKey.themeMode, "2")
-                } else {
-                    appCtx.putPrefString(PreferKey.themeMode, "1")
-                }
+            val newMode = if (value) "2" else "1"
+            if (themeMode != newMode) {
+                appCtx.putPrefString(PreferKey.themeMode, newMode)
             }
         }
 

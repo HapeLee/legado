@@ -1,6 +1,7 @@
 package io.legato.kazusa.ui.config
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.content.SharedPreferences
 import android.net.Uri
 import android.os.Build
@@ -74,11 +75,11 @@ class ThemeConfigFragment : PreferenceFragmentCompat(),
         if (Build.VERSION.SDK_INT < 26) {
             preferenceScreen.removePreferenceRecursively(PreferKey.launcherIcon)
         }
-        upPreferenceSummary(PreferKey.themePref)
+
         upPreferenceSummary(PreferKey.bgImage, getPrefString(PreferKey.bgImage))
         upPreferenceSummary(PreferKey.bgImageN, getPrefString(PreferKey.bgImageN))
-        //upPreferenceSummary(PreferKey.barElevation, AppConfig.elevation.toString())
         upPreferenceSummary(PreferKey.fontScale)
+
         findPreference<ColorPreference>(PreferKey.cBackground)?.let {
             it.onSaveColor = { color ->
                 if (!ColorUtils.isColorLight(color)) {
@@ -89,6 +90,7 @@ class ThemeConfigFragment : PreferenceFragmentCompat(),
                 }
             }
         }
+
         findPreference<ColorPreference>(PreferKey.cNBackground)?.let {
             it.onSaveColor = { color ->
                 if (ColorUtils.isColorLight(color)) {
@@ -99,17 +101,15 @@ class ThemeConfigFragment : PreferenceFragmentCompat(),
                 }
             }
         }
+
         findPreference<ThemeModePreference>(PreferKey.themeMode)?.let {
             it.setOnPreferenceChangeListener { _, _ ->
-                ThemeConfig.applyDayNight(requireContext())
                 true
             }
         }
+
         findPreference<ThemeCardPreference>(PreferKey.themePref)?.let {
             it.setOnPreferenceChangeListener { _, _ ->
-                val intent = requireActivity().intent
-                requireActivity().finish()
-                startActivity(intent)
                 true
             }
         }
@@ -138,11 +138,12 @@ class ThemeConfigFragment : PreferenceFragmentCompat(),
             PreferKey.launcherIcon -> LauncherIconHelp.changeIcon(getPrefString(key))
             //PreferKey.transparentStatusBar -> recreateActivities()
             //PreferKey.immNavigationBar -> recreateActivities()
+
             PreferKey.themePref -> {
-                val intent = requireActivity().intent
-                requireActivity().finish()
-                startActivity(intent)
+                ThemeConfig.applyDayNight(requireContext())
+                recreateActivities()
             }
+
             PreferKey.cPrimary,
             PreferKey.cAccent,
             PreferKey.cBackground,
@@ -158,7 +159,7 @@ class ThemeConfigFragment : PreferenceFragmentCompat(),
             }
 
             PreferKey.themeMode -> {
-                ThemeConfig.applyDayNight(requireContext())
+                recreateActivities()
             }
 
             PreferKey.bgImage,
@@ -291,7 +292,7 @@ class ThemeConfigFragment : PreferenceFragmentCompat(),
     private fun upTheme(isNightTheme: Boolean) {
         if (AppConfig.isNightTheme == isNightTheme) {
             listView.post {
-                ThemeConfig.applyTheme(requireContext())
+                //ThemeConfig.applyTheme(requireContext())
                 recreateActivities()
             }
         }

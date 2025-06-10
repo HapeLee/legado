@@ -21,6 +21,7 @@ import com.google.android.material.color.DynamicColors
 import io.legato.kazusa.R
 import io.legato.kazusa.constant.AppConst
 import io.legato.kazusa.constant.AppLog
+import io.legato.kazusa.constant.EventBus
 import io.legato.kazusa.constant.PreferKey
 import io.legato.kazusa.constant.Theme
 import io.legato.kazusa.help.config.ThemeConfig
@@ -32,8 +33,10 @@ import io.legato.kazusa.utils.disableAutoFill
 import io.legato.kazusa.utils.getPrefBoolean
 import io.legato.kazusa.utils.getPrefString
 import io.legato.kazusa.utils.hideSoftInput
+import io.legato.kazusa.utils.observeEvent
 import io.legato.kazusa.utils.toastOnUi
 import io.legato.kazusa.utils.windowSize
+import androidx.core.graphics.drawable.toDrawable
 
 
 abstract class BaseActivity<VB : ViewBinding>(
@@ -74,7 +77,7 @@ abstract class BaseActivity<VB : ViewBinding>(
 
     @SuppressLint("ObsoleteSdkInt")
     override fun onCreate(savedInstanceState: Bundle?) {
-        initTheme()
+        applyTheme()
         window.decorView.disableAutoFill()
 
         super.onCreate(savedInstanceState)
@@ -132,7 +135,7 @@ abstract class BaseActivity<VB : ViewBinding>(
 
     open fun onCompatOptionsItemSelected(item: MenuItem) = super.onOptionsItemSelected(item)
 
-    open fun initTheme() {
+    open fun applyTheme() {
         when (getPrefString("app_theme", "0")) {
             "0" -> DynamicColors.applyToActivitiesIfAvailable(application)
             "1" -> setTheme(R.style.Theme_Base_GR)
@@ -145,7 +148,7 @@ abstract class BaseActivity<VB : ViewBinding>(
         if (imageBg) {
             try {
                 ThemeConfig.getBgImage(this, windowManager.windowSize)?.let {
-                    window.decorView.background = BitmapDrawable(resources, it)
+                    window.decorView.background = it.toDrawable(resources)
                 }
             } catch (e: OutOfMemoryError) {
                 toastOnUi("背景图片太大,内存溢出")
@@ -154,21 +157,6 @@ abstract class BaseActivity<VB : ViewBinding>(
             }
         }
     }
-
-//    open fun setupSystemBar() {
-//        if (fullScreen && !isInMultiWindow) {
-//            fullScreen()
-//        }
-//        //val isTransparentStatusBar = AppConfig.isTransparentStatusBar
-//        //val statusBarColor = ThemeStore.statusBarColor(this, isTransparentStatusBar)
-//        //setStatusBarColorAuto(statusBarColor, isTransparentStatusBar, fullScreen)
-////        if (toolBarTheme == Theme.Dark) {
-////            setLightStatusBar(false)
-////        } else if (toolBarTheme == Theme.Light) {
-////            setLightStatusBar(true)
-////        }
-//        upNavigationBarColor()
-//    }
 
     open fun upNavigationBarColor() {
 //        if (AppConfig.immNavigationBar) {
@@ -180,6 +168,9 @@ abstract class BaseActivity<VB : ViewBinding>(
     }
 
     open fun observeLiveBus() {
+        observeEvent<String>(EventBus.RECREATE) {
+            recreate()
+        }
     }
 
     override fun dispatchTouchEvent(ev: MotionEvent): Boolean {
