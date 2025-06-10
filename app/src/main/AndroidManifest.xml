@@ -33,7 +33,7 @@
         tools:ignore="AllowBackup,GoogleAppIndexingWarning,UnusedAttribute">
         <!-- 图标1 -->
         <activity-alias
-            android:name=".ui.welcome.Launcher1"
+            android:name=".Launcher1"
             android:enabled="false"
             android:exported="true"
             android:icon="@mipmap/launcher1"
@@ -46,7 +46,7 @@
         </activity-alias>
         <!-- 图标2 -->
         <activity-alias
-            android:name=".ui.welcome.Launcher2"
+            android:name=".Launcher2"
             android:enabled="false"
             android:exported="true"
             android:icon="@mipmap/launcher2"
@@ -59,7 +59,7 @@
         </activity-alias>
         <!-- 图标3 -->
         <activity-alias
-            android:name=".ui.welcome.Launcher3"
+            android:name=".Launcher3"
             android:enabled="false"
             android:exported="true"
             android:icon="@mipmap/launcher3"
@@ -72,7 +72,7 @@
         </activity-alias>
         <!-- 图标4 -->
         <activity-alias
-            android:name=".ui.welcome.Launcher4"
+            android:name=".Launcher4"
             android:enabled="false"
             android:exported="true"
             android:icon="@mipmap/launcher4"
@@ -85,7 +85,7 @@
         </activity-alias>
         <!-- 图标5 -->
         <activity-alias
-            android:name=".ui.welcome.Launcher5"
+            android:name=".Launcher5"
             android:enabled="false"
             android:exported="true"
             android:icon="@mipmap/launcher5"
@@ -98,7 +98,7 @@
         </activity-alias>
         <!-- 图标6 -->
         <activity-alias
-            android:name=".ui.welcome.Launcher6"
+            android:name=".Launcher6"
             android:enabled="false"
             android:exported="true"
             android:icon="@mipmap/launcher6"

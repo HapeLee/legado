@@ -75,7 +75,7 @@ abstract class BaseActivity<VB : ViewBinding>(
         return super.onCreateView(parent, name, context, attrs)
     }
 
-    @SuppressLint("ObsoleteSdkInt")
+
     override fun onCreate(savedInstanceState: Bundle?) {
         applyTheme()
         window.decorView.disableAutoFill()
@@ -84,10 +84,8 @@ abstract class BaseActivity<VB : ViewBinding>(
         //setupSystemBar()
         setContentView(binding.root)
         upBackgroundImage()
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            findViewById<AppBarLayout>(R.id.title_bar)
-                //?.onMultiWindowModeChanged(isInMultiWindowMode, fullScreen)
-        }
+        findViewById<AppBarLayout>(R.id.title_bar)
+        //?.onMultiWindowModeChanged(isInMultiWindowMode, fullScreen)
         onBackPressedDispatcher.addCallback(this) {
             finish()
         }
@@ -137,7 +135,10 @@ abstract class BaseActivity<VB : ViewBinding>(
 
     open fun applyTheme() {
         when (getPrefString("app_theme", "0")) {
-            "0" -> DynamicColors.applyToActivitiesIfAvailable(application)
+            "0" ->
+            {
+                DynamicColors.applyToActivitiesIfAvailable(application)
+            }
             "1" -> setTheme(R.style.Theme_Base_GR)
             "2" -> setTheme(R.style.Theme_Base_Lemon)
             "3" -> setTheme(R.style.Theme_Base_WH)

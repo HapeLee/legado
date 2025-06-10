@@ -1220,4 +1220,5 @@
     <string name="refresh_explore">刷新发现</string>
     <string name="ungroup">未分组</string>
     <string name="dynamic_colors">动态取色</string>
+    <string name="change_icon_success">图标已修改</string>
 </resources>

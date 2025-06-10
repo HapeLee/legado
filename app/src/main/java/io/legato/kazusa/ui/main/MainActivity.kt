@@ -57,6 +57,7 @@ import splitties.views.bottomPadding
 import kotlin.coroutines.resume
 import kotlin.coroutines.suspendCoroutine
 import androidx.core.view.get
+import io.legato.kazusa.ui.welcome.WelcomeActivity
 
 /**
  * 主界面
@@ -413,7 +414,7 @@ class MainActivity : VMBaseActivity<ActivityMainBinding, MainViewModel>(),
         }
     }
 
-    @Suppress("DEPRECATION")
+
     private inner class TabFragmentPageAdapter(fm: FragmentManager) :
         FragmentStatePagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
 

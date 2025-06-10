@@ -30,6 +30,10 @@
         <item name="popupMenuBackground">@drawable/popup_background</item>
         <item name="alertDialogTheme">@style/AppTheme.AlertDialog</item>
     </style>
+
+    <style name="Theme.Base.Dycolors" parent="Theme.Material3.DynamicColors.DayNight.NoActionBar">
+
+    </style>
     
     <style name="Theme.Base.GR" parent="Base.AppTheme">
         <item name="colorPrimary">@color/md_theme_primary</item>
@@ -49,6 +53,7 @@
         <item name="colorErrorContainer">@color/md_theme_errorContainer</item>
         <item name="colorOnErrorContainer">@color/md_theme_onErrorContainer</item>
         <item name="android:colorBackground">@color/md_theme_background</item>
+        <item name="android:textColor">@color/md_theme_onSurface</item>
         <item name="colorOnBackground">@color/md_theme_onBackground</item>
         <item name="colorSurface">@color/md_theme_surface</item>
         <item name="colorOnSurface">@color/md_theme_onSurface</item>
@@ -98,6 +103,7 @@
         <item name="colorErrorContainer">@color/wh_theme_errorContainer</item>
         <item name="colorOnErrorContainer">@color/wh_theme_onErrorContainer</item>
         <item name="android:colorBackground">@color/wh_theme_background</item>
+        <item name="android:textColor">@color/wh_theme_onSurface</item>
         <item name="colorOnBackground">@color/wh_theme_onBackground</item>
         <item name="colorSurface">@color/wh_theme_surface</item>
         <item name="colorOnSurface">@color/wh_theme_onSurface</item>
@@ -147,6 +153,7 @@
         <item name="colorErrorContainer">@color/lemon_theme_errorContainer</item>
         <item name="colorOnErrorContainer">@color/lemon_theme_onErrorContainer</item>
         <item name="android:colorBackground">@color/lemon_theme_background</item>
+        <item name="android:textColor">@color/lemon_theme_onSurface</item>
         <item name="colorOnBackground">@color/lemon_theme_onBackground</item>
         <item name="colorSurface">@color/lemon_theme_surface</item>
         <item name="colorOnSurface">@color/lemon_theme_onSurface</item>

@@ -83,7 +83,6 @@ class TxtTocRuleDialog() : BaseDialogFragment(R.layout.dialog_toc_regex),
 
     override fun onStart() {
         super.onStart()
-        setLayout(0.9f, 0.8f)
     }
 
     override fun onFragmentCreated(view: View, savedInstanceState: Bundle?) {

@@ -88,7 +88,7 @@ class ThemeCardPreference(context: Context, attrs: AttributeSet) : Preference(co
     }
 
     private val themeResIdMap = mapOf(
-        "0" to R.style.Base_AppTheme,
+        "0" to R.style.Theme_Base_Dycolors,
         "1" to R.style.Theme_Base_GR,
         "2" to R.style.Theme_Base_Lemon,
         "3" to R.style.Theme_Base_WH,
@@ -106,7 +106,7 @@ class ThemeCardPreference(context: Context, attrs: AttributeSet) : Preference(co
             com.google.android.material.R.attr.colorPrimary,
             com.google.android.material.R.attr.colorOnSurfaceVariant,
             com.google.android.material.R.attr.colorSurface,
-            com.google.android.material.R.attr.colorPrimaryFixed,
+            com.google.android.material.R.attr.colorSecondaryContainer,
         )
 
         val ta = themedContext.obtainStyledAttributes(attrs)
