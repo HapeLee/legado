@@ -12,6 +12,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import io.legato.kazusa.R
+import io.legato.kazusa.base.BaseBottomSheetDialogFragment
 import io.legato.kazusa.base.BaseDialogFragment
 import io.legato.kazusa.base.BaseViewModel
 import io.legato.kazusa.base.adapter.ItemViewHolder
@@ -34,7 +35,7 @@ import io.legato.kazusa.utils.viewbindingdelegate.viewBinding
 import kotlinx.coroutines.isActive
 import java.io.FileFilter
 
-class CrashLogsDialog : BaseDialogFragment(R.layout.dialog_recycler_view),
+class CrashLogsDialog : BaseBottomSheetDialogFragment(R.layout.dialog_recycler_view),
     Toolbar.OnMenuItemClickListener {
 
     private val binding by viewBinding(DialogRecyclerViewBinding::bind)
@@ -43,7 +44,7 @@ class CrashLogsDialog : BaseDialogFragment(R.layout.dialog_recycler_view),
 
     override fun onStart() {
         super.onStart()
-        setLayout(0.9f, ViewGroup.LayoutParams.WRAP_CONTENT)
+
     }
 
     override fun onFragmentCreated(view: View, savedInstanceState: Bundle?) {
