@@ -7,7 +7,7 @@
 >软件不提供内容，需要您自己手动添加，例如导入书源等。
 >看看 [官方帮助文档](https://www.yuque.com/legado/wiki)，也许里面就有你要的答案。
 
-# Function-主要功能 [![](https://img.shields.io/badge/-Function-F5F5F5.svg)](#Function-主要功能-)
+# Function-主要功能
 [English](English.md)
 
 <details><summary>中文</summary>
@@ -23,7 +23,7 @@
 </details>
 
 
-# Community-交流社区 [![](https://img.shields.io/badge/-Community-F5F5F5.svg)](#Community-交流社区-)
+# Community-交流社区
 
 #### Telegram
 [![Telegram-group](https://img.shields.io/badge/Telegram-%E7%BE%A4%E7%BB%84-blue)](https://t.me/yueduguanfang) [![Telegram-channel](https://img.shields.io/badge/Telegram-%E9%A2%91%E9%81%93-blue)](https://t.me/legado_channels)
@@ -34,7 +34,7 @@
 #### Other
 https://www.yuque.com/legado/wiki/community
 
-# Other-其他 [![](https://img.shields.io/badge/-Other-F5F5F5.svg)](#Other-其他-)
+# Other-其他
 ##### 免责声明
 https://gedoor.github.io/Disclaimer
 
