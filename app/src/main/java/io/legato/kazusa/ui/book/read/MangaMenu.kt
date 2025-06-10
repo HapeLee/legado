@@ -230,7 +230,7 @@ class MangaMenu @JvmOverloads constructor(
         binding.seekReadPage.apply {
             valueFrom = 1f
             valueTo = (count).toFloat()
-            this.value = value.toFloat()
+            this.value = value.toFloat().coerceIn(1f,valueFrom)
             stepSize = 1f
         }
     }

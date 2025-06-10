@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.drawable.GradientDrawable
 import android.util.AttributeSet
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.WindowManager.LayoutParams.BRIGHTNESS_OVERRIDE_NONE
 import android.view.animation.Animation
@@ -520,10 +521,12 @@ class ReadMenu @JvmOverloads constructor(
 
     fun upSeekBar() {
         binding.seekReadPage.apply {
+            Log.d("SliderDebug", "durPageIndex: ${ReadBook.durPageIndex}, pageSize: ${ReadBook.curTextChapter?.pageSize}")
+            Log.d("SliderDebug", "durChapterIndex: ${ReadBook.durChapterIndex}, simulatedChapterSize: ${ReadBook.simulatedChapterSize}")
             when (AppConfig.progressBarBehavior) {
                 "page" -> {
                     ReadBook.curTextChapter?.let { chapter ->
-                        if (chapter.pageSize > 0) {
+                        if (chapter.pageSize > 0 && ReadBook.durPageIndex > 0) {
                             valueFrom = 1f
                             valueTo = chapter.pageSize.toFloat().coerceAtLeast(2f)
                             value = (ReadBook.durPageIndex).coerceIn(1, chapter.pageSize).toFloat()
@@ -533,6 +536,10 @@ class ReadMenu @JvmOverloads constructor(
                             valueTo = 2f
                             value = 1f
                         }
+                    }?: run {
+                        valueFrom = 1f
+                        valueTo = 2f
+                        value = 1f
                     }
                 }
 
@@ -572,7 +579,7 @@ class ReadMenu @JvmOverloads constructor(
 //    }
 
     fun setSeekPage(seek: Int) {
-        binding.seekReadPage.value = seek.toFloat() + 1
+        binding.seekReadPage.value = 1f
     }
 
     fun setAutoPage(autoPage: Boolean) = binding.run {

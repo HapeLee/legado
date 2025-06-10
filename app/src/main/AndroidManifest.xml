@@ -31,12 +31,6 @@
         android:supportsRtl="true"
         android:theme="@style/Base.AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning,UnusedAttribute">
-        <!-- 主入口 -->
-        <activity
-            android:name=".ui.welcome.WelcomeActivity"
-            android:exported="true">
-
-        </activity>
         <!-- 图标1 -->
         <activity-alias
             android:name=".ui.welcome.Launcher1"
@@ -119,9 +113,9 @@
         <activity
             android:name=".ui.main.MainActivity"
             android:alwaysRetainTaskState="true"
+            android:enableOnBackInvokedCallback="true"
             android:configChanges="locale|keyboardHidden|orientation|screenSize|smallestScreenSize|screenLayout|uiMode"
-            android:exported="true"
-            android:launchMode="singleTask">
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -159,165 +153,200 @@
         <!-- 书籍详情页 -->
         <activity
             android:name=".ui.book.info.BookInfoActivity"
+            android:enableOnBackInvokedCallback="true"
             android:launchMode="singleTop" />
         <!-- 书籍信息编辑 -->
         <activity
             android:name=".ui.book.info.edit.BookInfoEditActivity"
+            android:enableOnBackInvokedCallback="true"
             android:launchMode="singleTask" />
         <!-- 音频播放界面 -->
         <activity
             android:name="io.legato.kazusa.ui.book.audio.AudioPlayActivity"
+            android:enableOnBackInvokedCallback="true"
             android:launchMode="singleTask" />
         <!-- 授权界面 -->
         <activity
             android:name="io.legato.kazusa.lib.permission.PermissionActivity"
+            android:enableOnBackInvokedCallback="true"
             android:theme="@style/Activity.Permission" />
         <!-- 二维码扫描 -->
         <activity
             android:name=".ui.qrcode.QrCodeActivity"
+            android:enableOnBackInvokedCallback="true"
             android:launchMode="singleTask" />
         <!-- 规则订阅 -->
         <activity
             android:name=".ui.rss.subscription.RuleSubActivity"
+            android:enableOnBackInvokedCallback="true"
             android:launchMode="singleTask" />
         <!-- 书源编辑 -->
         <activity
             android:name=".ui.book.source.edit.BookSourceEditActivity"
+            android:enableOnBackInvokedCallback="true"
             android:configChanges="locale|keyboardHidden|orientation|screenSize|smallestScreenSize|screenLayout"
             android:launchMode="singleTask"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <!-- 订阅源编辑 -->
         <activity
             android:name=".ui.rss.source.edit.RssSourceEditActivity"
+            android:enableOnBackInvokedCallback="true"
             android:configChanges="locale|keyboardHidden|orientation|screenSize|smallestScreenSize|screenLayout"
             android:launchMode="singleTask"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <!-- 替换规则编辑 -->
         <activity
             android:name=".ui.replace.edit.ReplaceEditActivity"
+            android:enableOnBackInvokedCallback="true"
             android:configChanges="locale|keyboardHidden|orientation|screenSize|smallestScreenSize|screenLayout"
             android:launchMode="singleTask"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <!-- 配置界面 -->
         <activity
             android:name=".ui.config.ConfigActivity"
+            android:enableOnBackInvokedCallback="true"
             android:launchMode="standard" />
         <!-- 搜索界面 -->
         <activity
             android:name=".ui.book.search.SearchActivity"
+            android:enableOnBackInvokedCallback="true"
             android:launchMode="standard" />
         <!-- 关于界面 -->
         <activity
             android:name=".ui.about.AboutActivity"
+            android:enableOnBackInvokedCallback="true"
             android:launchMode="singleTask"
             android:screenOrientation="behind" />
         <!-- 书源管理 -->
         <activity
             android:name=".ui.book.source.manage.BookSourceActivity"
+            android:enableOnBackInvokedCallback="true"
             android:launchMode="singleTop"
             android:screenOrientation="behind" />
         <!-- 订阅源管理 -->
         <activity
             android:name=".ui.rss.source.manage.RssSourceActivity"
+            android:enableOnBackInvokedCallback="true"
             android:launchMode="singleTop"
             android:screenOrientation="behind" />
         <!-- txt目录规则管理 -->
         <activity
             android:name=".ui.book.toc.rule.TxtTocRuleActivity"
+            android:enableOnBackInvokedCallback="true"
             android:launchMode="singleTop"
             android:screenOrientation="behind" />
         <!-- 替换规则界面 -->
         <activity
             android:name=".ui.replace.ReplaceRuleActivity"
+            android:enableOnBackInvokedCallback="true"
             android:launchMode="singleTop"
             android:screenOrientation="behind" />
         <!-- 书籍管理 -->
         <activity
             android:name=".ui.book.manage.BookshelfManageActivity"
+            android:enableOnBackInvokedCallback="true"
             android:launchMode="singleTop"
             android:screenOrientation="behind" />
         <!-- 书源调试 -->
         <activity
             android:name=".ui.book.source.debug.BookSourceDebugActivity"
+            android:enableOnBackInvokedCallback="true"
             android:launchMode="singleTop"
             android:screenOrientation="behind" />
         <!-- 目录 -->
         <activity
             android:name=".ui.book.toc.TocActivity"
+            android:enableOnBackInvokedCallback="true"
             android:launchMode="singleTop"
             android:screenOrientation="behind" />
         <!-- 正文搜索 -->
         <activity
             android:name=".ui.book.searchContent.SearchContentActivity"
+            android:enableOnBackInvokedCallback="true"
             android:launchMode="singleTop"
             android:screenOrientation="behind" />
         <!-- RSS条目 -->
         <activity
             android:name=".ui.rss.article.RssSortActivity"
+            android:enableOnBackInvokedCallback="true"
             android:launchMode="singleTop" />
         <!-- RSS阅读 -->
         <activity
             android:name=".ui.rss.read.ReadRssActivity"
+            android:enableOnBackInvokedCallback="true"
             android:configChanges="orientation|screenSize"
             android:hardwareAccelerated="true"
             android:launchMode="singleTop" />
         <!-- 导入书籍 -->
         <activity
             android:name=".ui.book.import.local.ImportBookActivity"
+            android:enableOnBackInvokedCallback="true"
             android:launchMode="singleTop" />
         <!-- 添加远程 -->
         <activity
             android:name=".ui.book.import.remote.RemoteBookActivity"
+            android:enableOnBackInvokedCallback="true"
             android:launchMode="singleTop" />
         <!-- 发现界面 -->
         <activity
             android:name=".ui.book.explore.ExploreShowActivity"
+            android:enableOnBackInvokedCallback="true"
             android:launchMode="singleTop" />
         <!-- 订阅源调试 -->
         <activity
             android:name=".ui.rss.source.debug.RssSourceDebugActivity"
+            android:enableOnBackInvokedCallback="true"
             android:launchMode="singleTop" />
         <!-- Rss收藏 -->
         <activity
             android:name=".ui.rss.favorites.RssFavoritesActivity"
+            android:enableOnBackInvokedCallback="true"
             android:launchMode="singleTop" />
         <!-- 书签 -->
         <activity
             android:name=".ui.book.bookmark.AllBookmarkActivity"
+            android:enableOnBackInvokedCallback="true"
             android:launchMode="singleTop" />
         <!-- 缓存界面 -->
         <activity
             android:name=".ui.book.cache.CacheActivity"
+            android:enableOnBackInvokedCallback="true"
             android:launchMode="singleTop" />
         <!-- WebView界面 -->
         <activity
             android:name=".ui.browser.WebViewActivity"
+            android:enableOnBackInvokedCallback="true"
             android:configChanges="locale|keyboardHidden|orientation|screenSize|smallestScreenSize|screenLayout"
             android:launchMode="standard" />
         <!-- 书源登录 -->
         <activity
             android:name="io.legato.kazusa.ui.login.SourceLoginActivity"
+            android:enableOnBackInvokedCallback="true"
             android:configChanges="orientation|screenSize"
             android:hardwareAccelerated="true"
             android:theme="@style/AppTheme.Transparent" />
         <!-- 阅读记录 -->
         <activity
             android:name=".ui.about.ReadRecordActivity"
+            android:enableOnBackInvokedCallback="true"
             android:configChanges="orientation|screenSize"
             android:hardwareAccelerated="true" />
         <!-- 字典管理 -->
         <activity
             android:name=".ui.dict.rule.DictRuleActivity"
+            android:enableOnBackInvokedCallback="true"
             android:configChanges="orientation|screenSize"
             android:hardwareAccelerated="true" />
         <!-- 文件管理 -->
         <activity
             android:name=".ui.file.FileManageActivity"
+            android:enableOnBackInvokedCallback="true"
             android:configChanges="orientation|screenSize"
             android:hardwareAccelerated="true" />
         <!-- 选择文件 -->
         <activity
             android:name=".ui.file.HandleFileActivity"
+            android:enableOnBackInvokedCallback="true"
             android:configChanges="orientation|screenSize"
             android:hardwareAccelerated="true"
             android:theme="@style/AppTheme.Transparent" />
