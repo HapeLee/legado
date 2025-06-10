@@ -86,9 +86,8 @@ abstract class BaseActivity<VB : ViewBinding>(
         upBackgroundImage()
         findViewById<AppBarLayout>(R.id.title_bar)
         //?.onMultiWindowModeChanged(isInMultiWindowMode, fullScreen)
-        onBackPressedDispatcher.addCallback(this) {
-            finish()
-        }
+
+
         observeLiveBus()
         onActivityCreated(savedInstanceState)
     }

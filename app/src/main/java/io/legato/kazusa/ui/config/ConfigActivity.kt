@@ -29,6 +29,9 @@ class ConfigActivity : VMBaseActivity<ActivityConfigBinding, ConfigViewModel>() 
     override fun setTitle(resId: Int) {
         super.setTitle(resId)
         binding.topBar.setTitle(resId)
+        binding.topBar.setNavigationOnClickListener {
+            onBackPressedDispatcher.onBackPressed()
+        }
     }
 
     inline fun <reified T : Fragment> replaceFragment(configTag: String) {
