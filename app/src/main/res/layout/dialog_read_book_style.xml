@@ -252,8 +252,7 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginHorizontal="16dp"
-            android:layout_marginVertical="8dp"
-            android:background="@color/btn_bg_press" />
+            android:layout_marginVertical="8dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -271,16 +270,13 @@
                 android:text="@string/text_bg_style"
                 android:textSize="12sp" />
 
-            <TextView
-                android:id="@+id/tv_share_layout"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/share_layout" />
+
 
             <com.google.android.material.checkbox.MaterialCheckBox
                 android:id="@+id/cb_share_layout"
-                android:layout_width="20dp"
+                android:layout_width="wrap_content"
                 android:layout_height="20dp"
+                android:text="@string/share_layout"
                 android:layout_marginStart="6dp"
                 android:layout_marginEnd="16dp" />
 

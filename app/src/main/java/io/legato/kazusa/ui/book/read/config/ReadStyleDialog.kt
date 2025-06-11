@@ -28,6 +28,7 @@ import io.legato.kazusa.utils.viewbindingdelegate.viewBinding
 import splitties.views.onLongClick
 import androidx.core.graphics.drawable.toDrawable
 import androidx.transition.TransitionManager
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 
 class ReadStyleDialog : BaseBottomSheetDialogFragment(R.layout.dialog_read_book_style),
     FontSelectDialog.CallBack {
@@ -194,14 +195,10 @@ class ReadStyleDialog : BaseBottomSheetDialogFragment(R.layout.dialog_read_book_
     }
 
     private fun setOnlyActiveSeekBarVisible(activeSeekBar: DetailSeekBar, visible: Boolean) {
-        if (visible == true) {
-            TransitionManager.beginDelayedTransition(binding.setBar)
-            TransitionManager.beginDelayedTransition(binding.setBottomBar)
+        if (visible) {
             binding.setBar.visibility = View.GONE
             binding.setBottomBar.visibility = View.GONE
-        }else{
-            TransitionManager.beginDelayedTransition(binding.setBar)
-            TransitionManager.beginDelayedTransition(binding.setBottomBar)
+        } else {
             binding.setBar.visibility = View.VISIBLE
             binding.setBottomBar.visibility = View.VISIBLE
         }
