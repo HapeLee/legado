@@ -1,8 +1,10 @@
 # [English](English.md) [中文](README.md)
 
->注意，此版本为Material Design 3风格重构版本，目前正快速更新。
-> 
-> 
+>注意，此版本为Material Design 3风格重构版本，仍在快速更新。
+>
+>
+>
+>
 >新用户？
 >软件不提供内容，需要您自己手动添加，例如导入书源等。
 >看看 [官方帮助文档](https://www.yuque.com/legado/wiki)，也许里面就有你要的答案。
@@ -21,9 +23,9 @@
 8.支持多种翻页模式，覆盖、仿真、滑动、滚动等。<br>
 9.软件开源，持续优化，无广告。
 </details>
+![](https://github.com/HapeLee/legado/blob/master/1.jpg)
 
-
-# Community-交流社区
+# Community-官方交流社区
 
 #### Telegram
 [![Telegram-group](https://img.shields.io/badge/Telegram-%E7%BE%A4%E7%BB%84-blue)](https://t.me/yueduguanfang) [![Telegram-channel](https://img.shields.io/badge/Telegram-%E9%A2%91%E9%81%93-blue)](https://t.me/legado_channels)

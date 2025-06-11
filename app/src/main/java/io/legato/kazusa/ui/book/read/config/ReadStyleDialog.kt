@@ -195,6 +195,7 @@ class ReadStyleDialog : BaseBottomSheetDialogFragment(R.layout.dialog_read_book_
     }
 
     private fun setOnlyActiveSeekBarVisible(activeSeekBar: DetailSeekBar, visible: Boolean) {
+        TransitionManager.beginDelayedTransition(binding.rootView)
         if (visible) {
             binding.setBar.visibility = View.GONE
             binding.setBottomBar.visibility = View.GONE
