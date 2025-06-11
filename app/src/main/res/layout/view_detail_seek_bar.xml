@@ -56,11 +56,12 @@
             android:contentDescription="@string/reduce"
             app:icon="@drawable/ic_reduce" />
 
-        <com.google.android.material.slider.Slider
+        <io.legato.kazusa.lib.theme.view.ThemeSlider
             android:id="@+id/slider"
             android:layout_width="0dp"
             android:layout_height="25dp"
             android:layout_gravity="center_vertical"
+            app:labelBehavior="gone"
             android:layout_weight="4"
             android:stepSize="1"/>
 
