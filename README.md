@@ -23,7 +23,7 @@
 8.支持多种翻页模式，覆盖、仿真、滑动、滚动等。<br>
 9.软件开源，持续优化，无广告。
 </details>
-![](https://github.com/HapeLee/legado/blob/master/1.jpg)
+
 
 # Community-官方交流社区
 
