@@ -48,8 +48,6 @@ class ExploreAdapter(context: Context, val callBack: CallBack) :
         payloads: MutableList<Any>
     ) {
         binding.run {
-            // 移除了 padding 设置
-
             if (payloads.isEmpty()) {
                 tvName.text = item.bookSourceName
             }

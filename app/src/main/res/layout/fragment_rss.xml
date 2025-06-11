@@ -3,6 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -33,9 +34,9 @@
             android:id="@+id/search_bar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:visibility="gone"
             android:layout_marginHorizontal="16dp"
-            android:hint="@string/search_rss_source"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:hint="@string/search_rss_source" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -45,20 +46,18 @@
         android:layout_height="match_parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.core.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <io.legato.kazusa.ui.widget.recycler.RecyclerViewAtPager2
+
+        <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
             app:spanCount="4"
             tools:listitem="@layout/item_rss" />
 
-    </androidx.core.widget.NestedScrollView>
+
 
     <TextView
         android:id="@+id/tv_empty_msg"

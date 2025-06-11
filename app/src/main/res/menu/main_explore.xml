@@ -3,13 +3,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
+        android:id="@+id/menu_exp_search"
+        android:title="@string/search"
+        android:icon="@drawable/ic_search"
+        app:showAsAction="ifRoom" />
+
+    <item
         android:id="@+id/menu_group"
         android:title="@string/group"
         android:icon="@drawable/ic_groups"
         app:showAsAction="always">
-
         <menu />
-
     </item>
+
 
 </menu>

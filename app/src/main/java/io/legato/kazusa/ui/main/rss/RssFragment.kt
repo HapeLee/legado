@@ -1,11 +1,13 @@
 package io.legato.kazusa.ui.main.rss
 
 import android.os.Bundle
+import android.transition.TransitionManager
 import android.view.Menu
 import android.view.MenuItem
 import android.view.SubMenu
 import android.view.View
 import android.view.inputmethod.EditorInfo
+import androidx.core.view.isVisible
 import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
@@ -89,6 +91,11 @@ class RssFragment() : VMBaseFragment<RssViewModel>(R.layout.fragment_rss),
         when (item.itemId) {
             R.id.menu_rss_config -> startActivity<RssSourceActivity>()
             R.id.menu_rss_star -> startActivity<RssFavoritesActivity>()
+            R.id.menu_rss_search -> {
+                TransitionManager.beginDelayedTransition(binding.rootView)
+                binding.searchBar.visibility =
+                    if (binding.searchBar.isVisible) View.GONE else View.VISIBLE
+            }
             else -> if (item.groupId == R.id.menu_group_text) {
                 searchView.setText("group:${item.title}")
                 upRssFlowJob("group:${item.title}")
