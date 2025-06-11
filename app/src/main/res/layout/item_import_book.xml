@@ -61,9 +61,9 @@
                 android:id="@+id/tv_tag"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="15dp"
-                android:paddingStart="5dp"
-                android:paddingEnd="5dp"
+                android:layout_marginEnd="16dp"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
                 android:text="TXT"
                 android:maxLines="1"
                 android:maxWidth="50dp"
@@ -74,7 +74,7 @@
                 android:id="@+id/tv_size"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="15dp"
+                android:layout_marginEnd="16dp"
                 tools:ignore="RtlHardcoded"
                 tools:text="324kb" />
 

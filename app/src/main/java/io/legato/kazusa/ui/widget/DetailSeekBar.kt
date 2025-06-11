@@ -24,7 +24,9 @@ class DetailSeekBar @JvmOverloads constructor(
     private val isBottomBackground: Boolean
 
     var valueFormat: ((progress: Int) -> String)? = null
+    var onStartTracking: (() -> Unit)? = null
     var onChanged: ((progress: Int) -> Unit)? = null
+    var onStopTracking: (() -> Unit)? = null
 
     var progress: Int
         get() = binding.slider.value.toInt()
@@ -50,14 +52,6 @@ class DetailSeekBar @JvmOverloads constructor(
         }
         binding.slider.valueTo = typedArray.getInteger(R.styleable.DetailSeekBar_max, 0).toFloat()
         typedArray.recycle()
-        if (isBottomBackground && !isInEditMode) {
-//            val isLight = ColorUtils.isColorLight(context.bottomBackground)
-//            val textColor = context.getPrimaryTextColor(isLight)
-//            binding.tvSeekTitle.setTextColor(textColor)
-//            binding.ivSeekPlus.setColorFilter(textColor, PorterDuff.Mode.SRC_IN)
-//            binding.ivSeekReduce.setColorFilter(textColor, PorterDuff.Mode.SRC_IN)
-//            binding.tvSeekValue.setTextColor(textColor)
-        }
         binding.ivSeekPlus.setOnClickListener {
             val newValue = (binding.slider.value + 1).coerceAtMost(binding.slider.valueTo)
             binding.slider.value = newValue
@@ -72,14 +66,19 @@ class DetailSeekBar @JvmOverloads constructor(
 
         binding.slider.addOnChangeListener { _, value, fromUser ->
             upValue(value.toInt())
+
+            if (fromUser) {
+                onChanged?.invoke(value.toInt())
+            }
         }
 
         binding.slider.addOnSliderTouchListener(object : Slider.OnSliderTouchListener {
             override fun onStartTrackingTouch(slider: Slider) {
-                // 可以添加开始拖动时的逻辑
+                onStartTracking?.invoke()
             }
 
             override fun onStopTrackingTouch(slider: Slider) {
+                onStopTracking?.invoke()
                 onChanged?.invoke(slider.value.toInt())
             }
         })

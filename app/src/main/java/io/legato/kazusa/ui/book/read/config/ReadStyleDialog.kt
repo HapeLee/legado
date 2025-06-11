@@ -1,6 +1,7 @@
 package io.legato.kazusa.ui.book.read.config
 
 import android.content.DialogInterface
+import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
@@ -16,17 +17,17 @@ import io.legato.kazusa.databinding.ItemReadStyleBinding
 import io.legato.kazusa.help.config.AppConfig
 import io.legato.kazusa.help.config.ReadBookConfig
 import io.legato.kazusa.lib.dialogs.selector
-//import io.legado.app.lib.theme.accentColor
-//import io.legado.app.lib.theme.bottomBackground
-//import io.legado.app.lib.theme.getPrimaryTextColor
 import io.legato.kazusa.model.ReadBook
 import io.legato.kazusa.ui.book.read.ReadBookActivity
 import io.legato.kazusa.ui.font.FontSelectDialog
+import io.legato.kazusa.ui.widget.DetailSeekBar
 import io.legato.kazusa.utils.ChineseUtils
 import io.legato.kazusa.utils.postEvent
 import io.legato.kazusa.utils.showDialogFragment
 import io.legato.kazusa.utils.viewbindingdelegate.viewBinding
 import splitties.views.onLongClick
+import androidx.core.graphics.drawable.toDrawable
+import androidx.transition.TransitionManager
 
 class ReadStyleDialog : BaseBottomSheetDialogFragment(R.layout.dialog_read_book_style),
     FontSelectDialog.CallBack {
@@ -34,6 +35,9 @@ class ReadStyleDialog : BaseBottomSheetDialogFragment(R.layout.dialog_read_book_
     private val binding by viewBinding(DialogReadBookStyleBinding::bind)
     private val callBack get() = activity as? ReadBookActivity
     private lateinit var styleAdapter: StyleAdapter
+
+    private lateinit var allSliders: List<DetailSeekBar>
+
 
     override fun onStart() {
         super.onStart()
@@ -154,6 +158,23 @@ class ReadStyleDialog : BaseBottomSheetDialogFragment(R.layout.dialog_read_book_
             upView()
             postEvent(EventBus.UP_CONFIG, arrayListOf(1, 2, 5))
         }
+
+        allSliders = listOf(
+            dsbTextSize,
+            dsbTextLetterSpacing,
+            dsbLineSize,
+            dsbParagraphSpacing
+        )
+
+        allSliders.forEach { seekBar ->
+            seekBar.onStartTracking = {
+                setOnlyActiveSeekBarVisible(seekBar, true)
+            }
+            seekBar.onStopTracking = {
+                setOnlyActiveSeekBarVisible(seekBar, false)
+            }
+        }
+
         dsbTextSize.onChanged = {
             ReadBookConfig.textSize = it + 5
             postEvent(EventBus.UP_CONFIG, arrayListOf(8, 5))
@@ -171,6 +192,27 @@ class ReadStyleDialog : BaseBottomSheetDialogFragment(R.layout.dialog_read_book_
             postEvent(EventBus.UP_CONFIG, arrayListOf(8, 5))
         }
     }
+
+    private fun setOnlyActiveSeekBarVisible(activeSeekBar: DetailSeekBar, visible: Boolean) {
+        if (visible == true) {
+            TransitionManager.beginDelayedTransition(binding.setBar)
+            TransitionManager.beginDelayedTransition(binding.setBottomBar)
+            binding.setBar.visibility = View.GONE
+            binding.setBottomBar.visibility = View.GONE
+        }else{
+            TransitionManager.beginDelayedTransition(binding.setBar)
+            TransitionManager.beginDelayedTransition(binding.setBottomBar)
+            binding.setBar.visibility = View.VISIBLE
+            binding.setBottomBar.visibility = View.VISIBLE
+        }
+        allSliders.forEach { seekBar ->
+            if (seekBar != activeSeekBar) {
+                seekBar.visibility = if (visible) View.GONE else View.VISIBLE
+            }
+        }
+    }
+
+
 
     private fun changeBgTextConfig(index: Int) {
         val oldIndex = ReadBookConfig.styleSelect

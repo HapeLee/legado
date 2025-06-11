@@ -9,19 +9,20 @@ import io.legato.kazusa.lib.theme.Selector
 import io.legato.kazusa.utils.ColorUtils
 import io.legato.kazusa.utils.dpToPx
 import androidx.core.content.withStyledAttributes
+import io.legato.kazusa.utils.themeColor
 
 class AccentBgTextView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null
 ) : MaterialTextView(context, attrs) {
 
-    private var radiusPx = 0
+    private var radiusPx = 32
 
     init {
-        context.withStyledAttributes(attrs, R.styleable.AccentBgTextView) {
-            val radiusDp = getDimensionPixelOffset(R.styleable.AccentBgTextView_radius, 0)
-            radiusPx = radiusDp
-        }
+//        context.withStyledAttributes(attrs, R.styleable.AccentBgTextView) {
+//            val radiusDp = getDimensionPixelOffset(R.styleable.AccentBgTextView_radius, 0)
+//            radiusPx = radiusDp
+//        }
         updateBackground()
     }
 
@@ -31,16 +32,8 @@ class AccentBgTextView @JvmOverloads constructor(
     }
 
     private fun updateBackground() {
-        val backgroundColor = MaterialColors.getColor(
-            this,
-            com.google.android.material.R.attr.colorPrimaryContainer,
-            //context.getColorCompat(R.color.fallback_bg)
-        )
-        val textColor = MaterialColors.getColor(
-            this,
-            com.google.android.material.R.attr.colorOnPrimaryContainer,
-            //context.getColorCompat(R.color.fallback_text)
-        )
+        val backgroundColor = context.themeColor(com.google.android.material.R.attr.colorPrimaryContainer)
+        val textColor = context.themeColor(com.google.android.material.R.attr.colorOnPrimaryContainer)
 
         background = Selector.shapeBuild()
             .setCornerRadius(radiusPx)
