@@ -8,8 +8,11 @@ import android.view.MenuItem
 import android.view.ViewGroup
 import androidx.activity.viewModels
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentStatePagerAdapter
 import androidx.lifecycle.lifecycleScope
+import androidx.viewpager2.adapter.FragmentStateAdapter
+import com.google.android.material.tabs.TabLayoutMediator
 import io.legato.kazusa.R
 import io.legato.kazusa.base.VMBaseActivity
 import io.legato.kazusa.databinding.ActivityRssArtivlesBinding
@@ -29,9 +32,9 @@ class RssSortActivity : VMBaseActivity<ActivityRssArtivlesBinding, RssSortViewMo
 
     override val binding by viewBinding(ActivityRssArtivlesBinding::inflate)
     override val viewModel by viewModels<RssSortViewModel>()
-    private val adapter by lazy { TabFragmentPageAdapter() }
+
+    private var adapter: TabFragmentPageAdapter? = null
     private val sortList = mutableListOf<Pair<String, String>>()
-    private val fragmentMap = hashMapOf<String, Fragment>()
     private val editSourceResult = registerForActivityResult(
         StartActivityContract(RssSourceEditActivity::class.java)
     ) {
@@ -44,11 +47,11 @@ class RssSortActivity : VMBaseActivity<ActivityRssArtivlesBinding, RssSortViewMo
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         setSupportActionBar(binding.topBar)
-        binding.viewPager.adapter = adapter
-        binding.tabLayout.setupWithViewPager(binding.viewPager)
+
         viewModel.titleLiveData.observe(this) {
-            binding.topBar.setTitle(it)
+            binding.topBar.title = it
         }
+
         viewModel.initData(intent) {
             upFragments()
         }
@@ -73,7 +76,9 @@ class RssSortActivity : VMBaseActivity<ActivityRssArtivlesBinding, RssSortViewMo
             }
 
             R.id.menu_refresh_sort -> viewModel.clearSortCache { upFragments() }
+
             R.id.menu_set_source_variable -> setSourceVariable()
+
             R.id.menu_edit_source -> viewModel.rssSource?.sourceUrl?.let {
                 editSourceResult.launch {
                     putExtra("sourceUrl", it)
@@ -100,16 +105,24 @@ class RssSortActivity : VMBaseActivity<ActivityRssArtivlesBinding, RssSortViewMo
 
     private fun upFragments() {
         lifecycleScope.launch {
-            viewModel.rssSource?.sortUrls()?.let {
-                sortList.clear()
-                sortList.addAll(it)
-            }
-            if (sortList.size == 1) {
+            val sorts = viewModel.rssSource?.sortUrls().orEmpty()
+
+            sortList.clear()
+            sortList.addAll(sorts)
+
+            if (sortList.size <= 1) {
                 binding.tabLayout.gone()
             } else {
                 binding.tabLayout.visible()
             }
-            adapter.notifyDataSetChanged()
+
+            adapter = TabFragmentPageAdapter(this@RssSortActivity, sortList)
+            binding.viewPager.adapter = adapter
+
+            // 重新绑定 TabLayout
+            TabLayoutMediator(binding.tabLayout, binding.viewPager) { tab, position ->
+                tab.text = sortList[position].first
+            }.attach()
         }
     }
 
@@ -138,31 +151,16 @@ class RssSortActivity : VMBaseActivity<ActivityRssArtivlesBinding, RssSortViewMo
         viewModel.rssSource?.setVariable(variable)
     }
 
-    private inner class TabFragmentPageAdapter :
-        FragmentStatePagerAdapter(supportFragmentManager, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
+    private class TabFragmentPageAdapter(
+        activity: FragmentActivity,
+        private val items: List<Pair<String, String>>
+    ) : FragmentStateAdapter(activity) {
 
-        override fun getItemPosition(`object`: Any): Int {
-            return POSITION_NONE
-        }
+        override fun getItemCount(): Int = items.size
 
-        override fun getPageTitle(position: Int): CharSequence {
-            return sortList[position].first
-        }
-
-        override fun getItem(position: Int): Fragment {
-            val sort = sortList[position]
+        override fun createFragment(position: Int): Fragment {
+            val sort = items[position]
             return RssArticlesFragment(sort.first, sort.second)
         }
-
-        override fun getCount(): Int {
-            return sortList.size
-        }
-
-        override fun instantiateItem(container: ViewGroup, position: Int): Any {
-            val fragment = super.instantiateItem(container, position) as Fragment
-            fragmentMap[sortList[position].first] = fragment
-            return fragment
-        }
     }
-
 }
