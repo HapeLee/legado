@@ -46,6 +46,7 @@
             android:id="@+id/tv_footer_left"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            style="@style/Widget.Material3.Button.TonalButton"
             android:padding="12dp"
             android:visibility="gone"
             tools:ignore="RtlHardcoded" />
@@ -59,11 +60,13 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <TextView
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/tv_cancel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                style="@style/Widget.Material3.Button.OutlinedButton"
                 android:padding="12dp"
+                android:layout_marginEnd="8dp"
                 android:text="@string/cancel"
                 android:visibility="gone"
                 tools:ignore="RtlHardcoded" />

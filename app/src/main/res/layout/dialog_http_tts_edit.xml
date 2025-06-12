@@ -3,15 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="16dp">
+    android:layout_height="wrap_content">
 
     <LinearLayout
         android:id="@+id/vw_bg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:background="@drawable/shape_card_view"
         android:orientation="vertical"
         tools:ignore="UselessParent">
 
@@ -26,6 +24,7 @@
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:padding="16dp"
             android:overScrollMode="ifContentScrolls">
 
             <LinearLayout
@@ -33,20 +32,20 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <io.legato.kazusa.ui.widget.text.TextInputLayout
+                <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/name">
 
-                    <io.legato.kazusa.lib.theme.view.ThemeEditText
+                    <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/tv_name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
-                </io.legato.kazusa.ui.widget.text.TextInputLayout>
+                </com.google.android.material.textfield.TextInputLayout>
 
-                <io.legato.kazusa.ui.widget.text.TextInputLayout
+                <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="url"
@@ -56,11 +55,12 @@
                         android:id="@+id/tv_url"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:padding="16dp"
                         tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
-                </io.legato.kazusa.ui.widget.text.TextInputLayout>
+                </com.google.android.material.textfield.TextInputLayout>
 
-                <io.legato.kazusa.ui.widget.text.TextInputLayout
+                <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Content-Type"
@@ -70,11 +70,12 @@
                         android:id="@+id/tv_content_type"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:padding="16dp"
                         tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
-                </io.legato.kazusa.ui.widget.text.TextInputLayout>
+                </com.google.android.material.textfield.TextInputLayout>
 
-                <io.legato.kazusa.ui.widget.text.TextInputLayout
+                <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/concurrent_rate"
@@ -84,11 +85,12 @@
                         android:id="@+id/tv_concurrent_rate"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:padding="16dp"
                         tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
-                </io.legato.kazusa.ui.widget.text.TextInputLayout>
+                </com.google.android.material.textfield.TextInputLayout>
 
-                <io.legato.kazusa.ui.widget.text.TextInputLayout
+                <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/login_url"
@@ -98,11 +100,12 @@
                         android:id="@+id/tv_login_url"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:padding="16dp"
                         tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
-                </io.legato.kazusa.ui.widget.text.TextInputLayout>
+                </com.google.android.material.textfield.TextInputLayout>
 
-                <io.legato.kazusa.ui.widget.text.TextInputLayout
+                <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/login_ui"
@@ -112,11 +115,12 @@
                         android:id="@+id/tv_login_ui"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:padding="16dp"
                         tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
-                </io.legato.kazusa.ui.widget.text.TextInputLayout>
+                </com.google.android.material.textfield.TextInputLayout>
 
-                <io.legato.kazusa.ui.widget.text.TextInputLayout
+                <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/login_check_js"
@@ -126,11 +130,12 @@
                         android:id="@+id/tv_login_check_js"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:padding="16dp"
                         tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
-                </io.legato.kazusa.ui.widget.text.TextInputLayout>
+                </com.google.android.material.textfield.TextInputLayout>
 
-                <io.legato.kazusa.ui.widget.text.TextInputLayout
+                <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/source_http_header"
@@ -140,9 +145,10 @@
                         android:id="@+id/tv_headers"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:padding="16dp"
                         tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
-                </io.legato.kazusa.ui.widget.text.TextInputLayout>
+                </com.google.android.material.textfield.TextInputLayout>
 
             </LinearLayout>
 

@@ -43,11 +43,11 @@ class RssSortActivity : VMBaseActivity<ActivityRssArtivlesBinding, RssSortViewMo
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
+        setSupportActionBar(binding.topBar)
         binding.viewPager.adapter = adapter
         binding.tabLayout.setupWithViewPager(binding.viewPager)
-        //binding.tabLayout.setSelectedTabIndicatorColor(accentColor)
         viewModel.titleLiveData.observe(this) {
-            binding.titleBar.title = it
+            binding.topBar.setTitle(it)
         }
         viewModel.initData(intent) {
             upFragments()

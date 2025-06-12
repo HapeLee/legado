@@ -140,8 +140,7 @@ class ThemeConfigFragment : PreferenceFragmentCompat(),
             //PreferKey.immNavigationBar -> recreateActivities()
 
             PreferKey.themePref -> {
-                ThemeConfig.applyDayNight(requireContext())
-                recreateActivities()
+                //recreateActivities()
             }
 
             PreferKey.cPrimary,
@@ -159,7 +158,7 @@ class ThemeConfigFragment : PreferenceFragmentCompat(),
             }
 
             PreferKey.themeMode -> {
-                recreateActivities()
+                //recreateActivities()
             }
 
             PreferKey.bgImage,

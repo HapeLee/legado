@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.viewModels
 import io.legato.kazusa.R
+import io.legato.kazusa.base.BaseBottomSheetDialogFragment
 import io.legato.kazusa.base.BaseDialogFragment
 import io.legato.kazusa.data.entities.HttpTTS
 import io.legato.kazusa.databinding.DialogHttpTtsEditBinding
@@ -27,7 +28,7 @@ import io.legato.kazusa.utils.startActivity
 import io.legato.kazusa.utils.toastOnUi
 import io.legato.kazusa.utils.viewbindingdelegate.viewBinding
 
-class HttpTtsEditDialog() : BaseDialogFragment(R.layout.dialog_http_tts_edit, true),
+class HttpTtsEditDialog() : BaseBottomSheetDialogFragment(R.layout.dialog_http_tts_edit),
     Toolbar.OnMenuItemClickListener {
 
     constructor(id: Long) : this() {
@@ -41,7 +42,6 @@ class HttpTtsEditDialog() : BaseDialogFragment(R.layout.dialog_http_tts_edit, tr
 
     override fun onStart() {
         super.onStart()
-        setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
     }
 
     override fun onFragmentCreated(view: View, savedInstanceState: Bundle?) {
