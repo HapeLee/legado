@@ -19,7 +19,6 @@
         android:id="@+id/title_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="?attr/actionBarStyle"
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -197,246 +196,251 @@
 
         </LinearLayout>
 
-        <!--底部设置栏-->
-        <LinearLayout
-            android:id="@+id/ll_bottom_bg"
+        <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="?attr/colorSurface"
-            android:importantForAccessibility="no"
-            android:orientation="vertical">
-            <!--章节设置-->
+            app:strokeWidth="0dp"
+            android:layout_margin="8dp">
             <LinearLayout
+                android:id="@+id/ll_bottom_bg"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginBottom="5dp"
+                android:background="?attr/colorSurface"
                 android:importantForAccessibility="no"
-                android:gravity="center"
-                android:orientation="horizontal">
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/tv_pre"
-                    style="@style/Widget.Material3.Button.IconButton.Outlined"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="4dp"
-                    android:clickable="true"
-                    android:enabled="false"
-                    android:focusable="true"
-                    app:icon="@drawable/ic_previous"
-                    android:contentDescription="@string/previous_chapter"
-                    tools:ignore="TouchTargetSizeCheck" />
-
-                <com.google.android.material.slider.Slider
-                    android:id="@+id/seek_read_page"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_weight="1"
-                    android:valueTo="2.0"
-                    android:valueFrom="1.0"
-                    android:value="1.0"/>
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/tv_next"
-                    style="@style/Widget.Material3.Button.IconButton.Outlined"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="4dp"
-                    android:clickable="true"
-                    android:enabled="false"
-                    android:focusable="true"
-                    app:icon="@drawable/ic_next"
-                    android:contentDescription="@string/next_chapter"
-                    tools:ignore="TouchTargetSizeCheck"/>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:baselineAligned="false"
-                android:importantForAccessibility="no"
-                android:orientation="horizontal">
-
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:importantForAccessibility="no" />
-
-                <!--目录按钮-->
+                android:orientation="vertical">
+                <!--章节设置-->
                 <LinearLayout
-                    android:id="@+id/ll_catalog"
-                    android:layout_width="56dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="?android:attr/selectableItemBackgroundBorderless"
-                    android:clickable="true"
-                    android:contentDescription="@string/chapter_list"
-                    android:focusable="true"
-                    android:orientation="vertical"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginBottom="5dp"
+                    android:importantForAccessibility="no"
                     android:gravity="center"
-                    android:paddingBottom="4dp"
-                    tools:ignore="VisualLintBounds">
+                    android:orientation="horizontal">
 
-                    <androidx.appcompat.widget.AppCompatImageView
-                        android:id="@+id/iv_catalog"
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/tv_pre"
+                        style="@style/Widget.Material3.Button.IconButton.Outlined"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="4dp"
+                        android:clickable="true"
+                        android:enabled="false"
+                        android:focusable="true"
+                        app:icon="@drawable/ic_previous"
+                        android:contentDescription="@string/previous_chapter"
+                        tools:ignore="TouchTargetSizeCheck" />
+
+                    <com.google.android.material.slider.Slider
+                        android:id="@+id/seek_read_page"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
                         android:layout_weight="1"
-                        android:adjustViewBounds="true"
+                        android:valueTo="2.0"
+                        android:valueFrom="1.0"
+                        android:value="1.0"/>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/tv_next"
+                        style="@style/Widget.Material3.Button.IconButton.Outlined"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="4dp"
+                        android:clickable="true"
+                        android:enabled="false"
+                        android:focusable="true"
+                        app:icon="@drawable/ic_next"
+                        android:contentDescription="@string/next_chapter"
+                        tools:ignore="TouchTargetSizeCheck"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:baselineAligned="false"
+                    android:importantForAccessibility="no"
+                    android:orientation="horizontal">
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:importantForAccessibility="no" />
+
+                    <!--目录按钮-->
+                    <LinearLayout
+                        android:id="@+id/ll_catalog"
+                        android:layout_width="56dp"
+                        android:layout_height="wrap_content"
+                        android:background="?android:attr/selectableItemBackgroundBorderless"
+                        android:clickable="true"
                         android:contentDescription="@string/chapter_list"
-                        android:maxHeight="24dp"
-                        android:src="@drawable/ic_toc"
-                        tools:ignore="NestedWeights" />
+                        android:focusable="true"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:paddingBottom="4dp"
+                        tools:ignore="VisualLintBounds">
 
-                    <TextView
-                        android:id="@+id/tv_catalog"
-                        android:layout_width="wrap_content"
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/iv_catalog"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:adjustViewBounds="true"
+                            android:contentDescription="@string/chapter_list"
+                            android:maxHeight="24dp"
+                            android:src="@drawable/ic_toc"
+                            tools:ignore="NestedWeights" />
+
+                        <TextView
+                            android:id="@+id/tv_catalog"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:ellipsize="middle"
+                            android:singleLine="true"
+                            android:text="@string/chapter_list"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:importantForAccessibility="no" />
+
+                    <!--调节按钮-->
+                    <LinearLayout
+                        android:id="@+id/ll_read_aloud"
+                        android:layout_width="56dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="2dp"
-                        android:ellipsize="middle"
-                        android:singleLine="true"
-                        android:text="@string/chapter_list"
-                        android:textSize="12sp" />
-                </LinearLayout>
-
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="2"
-                    android:importantForAccessibility="no" />
-
-                <!--调节按钮-->
-                <LinearLayout
-                    android:id="@+id/ll_read_aloud"
-                    android:layout_width="56dp"
-                    android:layout_height="wrap_content"
-                    android:background="?android:attr/selectableItemBackgroundBorderless"
-                    android:clickable="true"
-                    android:contentDescription="@string/read_aloud"
-                    android:focusable="true"
-                    android:orientation="vertical"
-                    android:gravity="center"
-                    android:paddingBottom="4dp"
-                    tools:ignore="VisualLintBounds">
-
-                    <androidx.appcompat.widget.AppCompatImageView
-                        android:id="@+id/iv_read_aloud"
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="1"
-                        android:adjustViewBounds="true"
+                        android:background="?android:attr/selectableItemBackgroundBorderless"
+                        android:clickable="true"
                         android:contentDescription="@string/read_aloud"
-                        android:maxHeight="24dp"
-                        android:src="@drawable/ic_read_aloud"
-                        tools:ignore="NestedWeights" />
+                        android:focusable="true"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:paddingBottom="4dp"
+                        tools:ignore="VisualLintBounds">
 
-                    <TextView
-                        android:id="@+id/tv_read_aloud"
-                        android:layout_width="wrap_content"
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/iv_read_aloud"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:adjustViewBounds="true"
+                            android:contentDescription="@string/read_aloud"
+                            android:maxHeight="24dp"
+                            android:src="@drawable/ic_read_aloud"
+                            tools:ignore="NestedWeights" />
+
+                        <TextView
+                            android:id="@+id/tv_read_aloud"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:ellipsize="middle"
+                            android:singleLine="true"
+                            android:text="@string/read_aloud"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:importantForAccessibility="no" />
+
+                    <!--界面按钮-->
+                    <LinearLayout
+                        android:id="@+id/ll_font"
+                        android:layout_width="56dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="2dp"
-                        android:ellipsize="middle"
-                        android:singleLine="true"
-                        android:text="@string/read_aloud"
-                        android:textSize="12sp" />
-                </LinearLayout>
-
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="2"
-                    android:importantForAccessibility="no" />
-
-                <!--界面按钮-->
-                <LinearLayout
-                    android:id="@+id/ll_font"
-                    android:layout_width="56dp"
-                    android:layout_height="wrap_content"
-                    android:background="?android:attr/selectableItemBackgroundBorderless"
-                    android:clickable="true"
-                    android:contentDescription="@string/interface_setting"
-                    android:focusable="true"
-                    android:orientation="vertical"
-                    android:gravity="center"
-                    android:paddingBottom="4dp"
-                    tools:ignore="VisualLintBounds">
-
-                    <androidx.appcompat.widget.AppCompatImageView
-                        android:id="@+id/iv_font"
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="1"
-                        android:adjustViewBounds="true"
+                        android:background="?android:attr/selectableItemBackgroundBorderless"
+                        android:clickable="true"
                         android:contentDescription="@string/interface_setting"
-                        android:maxHeight="24dp"
-                        android:src="@drawable/ic_interface_setting"
-                        tools:ignore="NestedWeights" />
+                        android:focusable="true"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:paddingBottom="4dp"
+                        tools:ignore="VisualLintBounds">
 
-                    <TextView
-                        android:id="@+id/tv_font"
-                        android:layout_width="wrap_content"
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/iv_font"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:adjustViewBounds="true"
+                            android:contentDescription="@string/interface_setting"
+                            android:maxHeight="24dp"
+                            android:src="@drawable/ic_interface_setting"
+                            tools:ignore="NestedWeights" />
+
+                        <TextView
+                            android:id="@+id/tv_font"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:ellipsize="middle"
+                            android:singleLine="true"
+                            android:text="@string/interface_setting"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:importantForAccessibility="no" />
+
+                    <!--设置按钮-->
+                    <LinearLayout
+                        android:id="@+id/ll_setting"
+                        android:layout_width="56dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="2dp"
-                        android:ellipsize="middle"
-                        android:singleLine="true"
-                        android:text="@string/interface_setting"
-                        android:textSize="12sp" />
-                </LinearLayout>
-
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="2"
-                    android:importantForAccessibility="no" />
-
-                <!--设置按钮-->
-                <LinearLayout
-                    android:id="@+id/ll_setting"
-                    android:layout_width="56dp"
-                    android:layout_height="wrap_content"
-                    android:background="?android:attr/selectableItemBackgroundBorderless"
-                    android:clickable="true"
-                    android:contentDescription="@string/setting"
-                    android:focusable="true"
-                    android:orientation="vertical"
-                    android:gravity="center"
-                    android:paddingBottom="4dp"
-                    tools:ignore="VisualLintBounds">
-
-                    <androidx.appcompat.widget.AppCompatImageView
-                        android:id="@+id/iv_setting"
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="1"
-                        android:adjustViewBounds="true"
+                        android:background="?android:attr/selectableItemBackgroundBorderless"
+                        android:clickable="true"
                         android:contentDescription="@string/setting"
-                        android:maxHeight="24dp"
-                        android:src="@drawable/ic_settings"
-                        tools:ignore="NestedWeights" />
+                        android:focusable="true"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:paddingBottom="4dp"
+                        tools:ignore="VisualLintBounds">
 
-                    <TextView
-                        android:id="@+id/tv_setting"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="2dp"
-                        android:ellipsize="middle"
-                        android:singleLine="true"
-                        android:text="@string/setting"
-                        android:textSize="12sp" />
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/iv_setting"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:adjustViewBounds="true"
+                            android:contentDescription="@string/setting"
+                            android:maxHeight="24dp"
+                            android:src="@drawable/ic_settings"
+                            tools:ignore="NestedWeights" />
+
+                        <TextView
+                            android:id="@+id/tv_setting"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:ellipsize="middle"
+                            android:singleLine="true"
+                            android:text="@string/setting"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:importantForAccessibility="no" />
+
                 </LinearLayout>
-
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:importantForAccessibility="no" />
-
             </LinearLayout>
-        </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
