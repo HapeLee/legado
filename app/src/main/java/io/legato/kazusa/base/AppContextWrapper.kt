@@ -1,6 +1,7 @@
 package io.legato.kazusa.base
 
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.content.Context
 import android.content.res.Configuration
 import android.content.res.Resources
@@ -16,21 +17,30 @@ import java.util.*
 @Suppress("unused")
 object AppContextWrapper {
 
-    @SuppressLint("ObsoleteSdkInt")
     fun wrap(context: Context): Context {
-        val resources: Resources = context.resources
-        val configuration: Configuration = resources.configuration
+        val newConfig = Configuration(context.resources.configuration)
         val targetLocale = getSetLocale(context)
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            configuration.setLocale(targetLocale)
-            configuration.setLocales(LocaleList(targetLocale))
-        } else {
-            @Suppress("DEPRECATION")
-            configuration.locale = targetLocale
-        }
-        configuration.fontScale = getFontScale(context)
-        return context.createConfigurationContext(configuration)
+        newConfig.setLocale(targetLocale)
+        newConfig.setLocales(LocaleList(targetLocale))
+        newConfig.fontScale = getFontScale(context)
+        return context.createConfigurationContext(newConfig)
     }
+
+    fun applyLocaleAndFont(activity: Activity) {
+        val config = activity.resources.configuration
+        val locale = getSetLocale(activity)
+        val fontScale = getFontScale(activity)
+
+        val newConfig = Configuration(config)
+        newConfig.setLocale(locale)
+        newConfig.setLocales(LocaleList(locale))
+        newConfig.fontScale = fontScale
+
+        @Suppress("DEPRECATION")
+        activity.resources.updateConfiguration(newConfig, activity.resources.displayMetrics)
+    }
+
+
 
     fun getFontScale(context: Context): Float {
         var fontScale = context.getPrefInt(PreferKey.fontScale) / 10f

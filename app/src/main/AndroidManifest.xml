@@ -114,7 +114,7 @@
             android:name=".ui.main.MainActivity"
             android:alwaysRetainTaskState="true"
             android:enableOnBackInvokedCallback="true"
-            android:configChanges="locale|keyboardHidden|orientation|screenSize|smallestScreenSize|screenLayout|uiMode"
+            android:configChanges="locale|keyboardHidden|orientation|screenSize|smallestScreenSize|screenLayout"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -507,7 +507,7 @@
             android:icon="@drawable/ic_web_service_noti"
             android:label="legado Web Service"
             android:permission="android.permission.BIND_QUICK_SETTINGS_TILE"
-            tools:targetApi="24">
+            >
             <intent-filter>
                 <action android:name="android.service.quicksettings.action.QS_TILE" />
             </intent-filter>

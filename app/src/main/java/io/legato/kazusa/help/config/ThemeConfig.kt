@@ -57,7 +57,6 @@ object ThemeConfig {
     }
 
     fun applyDayNightInit(context: Context) {
-        //applyTheme(context)
         initNightMode()
     }
 

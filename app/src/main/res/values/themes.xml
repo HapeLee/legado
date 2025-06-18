@@ -2,16 +2,6 @@
 
     //**************************************************************Theme******************************************************************************//
 
-<!--    &lt;!&ndash; 亮色主题 &ndash;&gt;-->
-<!--    <style name="AppTheme.Light" parent="Base.AppTheme">-->
-<!--        <item name="android:windowLightStatusBar">true</item>-->
-<!--    </style>-->
-
-<!--    &lt;!&ndash; 暗色主题 &ndash;&gt;-->
-<!--    <style name="AppTheme.Dark" parent="Base.AppTheme">-->
-<!--        <item name="android:windowLightStatusBar">false</item>-->
-<!--    </style>-->
-
     <!-- 透明主题 -->
     <style name="AppTheme.Transparent" parent="Base.AppTheme">
         <item name="android:windowIsTranslucent">true</item>

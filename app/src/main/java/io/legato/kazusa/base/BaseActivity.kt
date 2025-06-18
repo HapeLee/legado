@@ -7,6 +7,7 @@ import android.graphics.drawable.BitmapDrawable
 import android.os.Build
 import android.os.Bundle
 import android.util.AttributeSet
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.MotionEvent
@@ -41,7 +42,6 @@ import androidx.core.graphics.drawable.toDrawable
 
 abstract class BaseActivity<VB : ViewBinding>(
     val fullScreen: Boolean = true,
-    private val theme: Theme = Theme.Auto,
     private val toolBarTheme: Theme = Theme.Auto,
     private val transparent: Boolean = false,
     private val imageBg: Boolean = true
@@ -59,9 +59,6 @@ abstract class BaseActivity<VB : ViewBinding>(
             }
         }
 
-    override fun attachBaseContext(newBase: Context) {
-        super.attachBaseContext(AppContextWrapper.wrap(newBase))
-    }
 
     override fun onCreateView(
         parent: View?,
@@ -69,18 +66,19 @@ abstract class BaseActivity<VB : ViewBinding>(
         context: Context,
         attrs: AttributeSet
     ): View? {
-        if (AppConst.menuViewNames.contains(name) && parent?.parent is FrameLayout) {
-            //(parent.parent as View).setBackgroundColor(backgroundColor)
-        }
+//        if (AppConst.menuViewNames.contains(name) && parent?.parent is FrameLayout) {
+//            (parent.parent as View).setBackgroundColor(backgroundColor)
+//        }
         return super.onCreateView(parent, name, context, attrs)
     }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        applyTheme()
+        initTheme()
         window.decorView.disableAutoFill()
-
+        AppContextWrapper.applyLocaleAndFont(this)
         super.onCreate(savedInstanceState)
+
         //setupSystemBar()
         setContentView(binding.root)
         upBackgroundImage()
@@ -100,12 +98,13 @@ abstract class BaseActivity<VB : ViewBinding>(
         //setupSystemBar()
     }
 
-    override fun onConfigurationChanged(newConfig: Configuration) {
-        super.onConfigurationChanged(newConfig)
-        //findViewById<TitleBar>(R.id.title_bar)
-            //?.onMultiWindowModeChanged(isInMultiWindow, fullScreen)
-        //setupSystemBar()
-    }
+//    override fun onConfigurationChanged(newConfig: Configuration) {
+//        super.onConfigurationChanged(newConfig)
+//        //findViewById<TitleBar>(R.id.title_bar)
+//        //Log.d("Config", "uiMode = ${newConfig.uiMode}")
+//            //?.onMultiWindowModeChanged(isInMultiWindow, fullScreen)
+//        //setupSystemBar()
+//    }
 
     abstract fun onActivityCreated(savedInstanceState: Bundle?)
 
@@ -132,7 +131,7 @@ abstract class BaseActivity<VB : ViewBinding>(
 
     open fun onCompatOptionsItemSelected(item: MenuItem) = super.onOptionsItemSelected(item)
 
-    open fun applyTheme() {
+    open fun initTheme() {
         when (getPrefString("app_theme", "0")) {
             "0" ->
             {

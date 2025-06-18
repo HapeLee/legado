@@ -123,18 +123,14 @@ class App : Application() {
         }
     }
 
-    override fun attachBaseContext(base: Context) {
-        super.attachBaseContext(AppContextWrapper.wrap(base))
-    }
-
-    override fun onConfigurationChanged(newConfig: Configuration) {
-        super.onConfigurationChanged(newConfig)
-        val diff = newConfig.diff(oldConfig)
-        if ((diff and ActivityInfo.CONFIG_UI_MODE) != 0) {
-            applyDayNight(this)
-        }
-        oldConfig = Configuration(newConfig)
-    }
+//    override fun onConfigurationChanged(newConfig: Configuration) {
+//        super.onConfigurationChanged(newConfig)
+//        val diff = newConfig.diff(oldConfig)
+//        if ((diff and ActivityInfo.CONFIG_UI_MODE) != 0) {
+//            applyDayNight(this)
+//        }
+//        oldConfig = Configuration(newConfig)
+//    }
 
     /**
      * 尝试在安装了GMS的设备上(GMS或者MicroG)使用GMS内置的Conscrypt
